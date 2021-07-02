@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame() 
     {
-        SceneManager.LoadScene("Scene_1");
+        SceneManager.LoadScene("Cutscene");
     }
 
     public void ExitGame() 

@@ -5431,6 +5431,11 @@ PrefabInstance:
       propertyPath: exitPoint
       value: Cave Out
       objectReference: {fileID: 0}
+    - target: {fileID: 3311636641783883925, guid: c7b9398203516494f9dfdd13459b8faf,
+        type: 3}
+      propertyPath: sceneIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4577477105143089723, guid: c7b9398203516494f9dfdd13459b8faf,
         type: 3}
       propertyPath: m_Controller

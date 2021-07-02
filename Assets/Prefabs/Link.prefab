@@ -1677,7 +1677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1da2197f699a741ac3ee5b230bc81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 6.5
   rb: {fileID: 6139271336215854559}
   animator: {fileID: 6139271336215854545}
   startPoint: 
@@ -3296,6 +3296,7 @@ MonoBehaviour:
   hpText: {fileID: 6139271336885299885}
   pauseScreen: {fileID: 6139271336379982927}
   inventoryScreen: {fileID: 6139271336130261120}
+  sceneLoader: {fileID: 0}
 --- !u!1 &6139271337070916140
 GameObject:
   m_ObjectHideFlags: 0
