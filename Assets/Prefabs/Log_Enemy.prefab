@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1251427227
+  m_SortingLayerID: -383529321
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -22439546833456996, guid: 3bee8a6f69bd8bc4aab930e037407af9, type: 3}
@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4781a565da9394ba8f71aa0679e4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnLocation: {fileID: 2218803099274752565, guid: f840d89937099a741a575c2b83bd23d8,
-    type: 3}
+  spawnLocation: {fileID: 2218803099274752565, guid: f840d89937099a741a575c2b83bd23d8, type: 3}
+  expValue: 10
   speed: 3
   maxRange: 6
   minRange: 0.8
