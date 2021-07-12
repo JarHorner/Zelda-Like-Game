@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -9,11 +10,10 @@ public class PlayerStats : MonoBehaviour
     #region Variables
     public int playerLevel = 1;
     public int maxLevel = 10;
-    public Text levelText;
-    public Text menuLevelText;
-    public Text menuCurrentExpText;
-    public Text menuExpNextlevelText;
-    public int currentExp;
+    public TMP_Text menuLevelText;
+    public TMP_Text menuCurrentExpText;
+    public TMP_Text menuExpNextlevelText;
+    public int currentExp = 0;
     public int[] expToLevelUp;
     private int baseExp = 0;
 
@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         //starts coroutine setting up exp values to level
-        levelText.text = "Level:   " + playerLevel;
+        menuLevelText.text = "Level:   " + playerLevel;
         expToLevelUp = new int[maxLevel];
         StartCoroutine(ExpToLevel());
     }
@@ -38,8 +38,7 @@ public class PlayerStats : MonoBehaviour
         {
             playerLevel++;
             currentExp = 0;
-            levelText.text = "Level:   " + playerLevel;
-            menuLevelText.text = levelText.text;
+            menuLevelText.text = "Level:   " + playerLevel;
         }
     }
 
@@ -55,9 +54,8 @@ public class PlayerStats : MonoBehaviour
         for (int i = 1;i < maxLevel; i++)
         {
             baseExp = Mathf.RoundToInt((baseExp + 100) * 1.1f);
-            expToLevelUp[i] = baseExp
-    ;
-            //Debug.Log("Exp at Level " + (i + 1) + " is " + expToLevelUp[i]);
+            expToLevelUp[i] = baseExp;
+            Debug.Log("Exp at Level " + (i + 1) + " is " + expToLevelUp[i]);
             yield return expToLevelUp[i];
         }
     }

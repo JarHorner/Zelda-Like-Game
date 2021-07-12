@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class UIManager : MonoBehaviour
 {
 
     #region Variables
         private HealthManager healthManager;
         public Slider healthBar;
-        public Text hpText;
+        public TMP_Text hpText;
         public GameObject pauseScreen;
         public GameObject inventoryScreen;
-        public SceneLoader sceneLoader;
     #endregion
 
     #region Unity Methods
@@ -29,7 +28,7 @@ public class UIManager : MonoBehaviour
         healthBar.maxValue = healthManager.maxHealth;
         healthBar.value = healthManager.currHealth;
         //changes text of HP bar depending on previous calculations
-        hpText.text = "HP: " + healthManager.currHealth + "/" + healthManager.maxHealth;
+        hpText.text = $"HP: {healthManager.currHealth}/{healthManager.maxHealth}";
     }
 
     #endregion
