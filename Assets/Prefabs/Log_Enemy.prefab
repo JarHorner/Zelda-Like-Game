@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnLocation: {fileID: 2218803099274752565, guid: f840d89937099a741a575c2b83bd23d8, type: 3}
-  expValue: 10
   speed: 3
   maxRange: 6
   minRange: 0.8
@@ -191,6 +190,7 @@ MonoBehaviour:
   maxHealth: 2
   flashLength: 0.5
   death: {fileID: 8300000, guid: e0954d070cf46cd40a83a4a2985c0fe2, type: 3}
+  expValue: 10
 --- !u!1 &5526459412359467414
 GameObject:
   m_ObjectHideFlags: 0

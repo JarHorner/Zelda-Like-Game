@@ -7,7 +7,6 @@ public class LogEnemy : MonoBehaviour
 
     #region Variables
     public Transform spawnLocation;
-    public int expValue = 10;
     private Animator animator;
     private Transform target;
     private Vector3 startingCoordinates;

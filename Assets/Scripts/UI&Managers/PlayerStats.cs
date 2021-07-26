@@ -36,7 +36,7 @@ public class PlayerStats : MonoBehaviour
         //if exp is enough to level up, UI changes happen
         if (currentExp >= expToLevelUp[playerLevel])
         {
-            playerLevel++;
+            playerLevel += 1;
             currentExp = 0;
             menuLevelText.text = "Level:   " + playerLevel;
         }

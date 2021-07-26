@@ -16,7 +16,7 @@ public class EnemyHealthManager : MonoBehaviour
     private SpriteRenderer enemySprite;
     private SoundManager soundManager;
     private PlayerStats playerStats;
-    private int expValue;
+    [SerializeField] private int expValue;
     #endregion
 
     #region Unity Methods
@@ -28,7 +28,6 @@ public class EnemyHealthManager : MonoBehaviour
         enemySprite = this.gameObject.GetComponent<SpriteRenderer>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
         playerStats = FindObjectOfType<PlayerStats>();
-        expValue = maxHealth * 55;
     }
 
     // Update is called once per frame
