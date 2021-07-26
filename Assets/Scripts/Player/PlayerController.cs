@@ -76,4 +76,18 @@ public class PlayerController : MonoBehaviour
         //movement
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collider) 
+    {
+        if (collider.gameObject.tag == "Water") 
+        {
+            animator.SetBool("isSwimming", true);
+            moveSpeed = 4f;
+        }
+        else if (collider.gameObject.tag == "OutOfWater")
+        {
+            animator.SetBool("isSwimming", false);
+            moveSpeed = 6f;
+        }
+    }
 }

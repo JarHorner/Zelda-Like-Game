@@ -27,6 +27,7 @@ public class Sword : MonoBehaviour
     {
         if (other.tag == "Enemy") 
         {
+            this.gameObject.SetActive(false);
             EnemyHealthManager eHealthMan;
             eHealthMan = other.gameObject.GetComponent<EnemyHealthManager>();
             eHealthMan.HurtEnemy(damageDealt);
