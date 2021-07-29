@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Ground
   - OutOfWater
+  - Key
   layers:
   - Default
   - TransparentFX
@@ -57,6 +58,9 @@ TagManager:
     locked: 0
   - name: NPC
     uniqueID: 2674060969
+    locked: 0
+  - name: Item
+    uniqueID: 202031375
     locked: 0
   - name: Player
     uniqueID: 662271495

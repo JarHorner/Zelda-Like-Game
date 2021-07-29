@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
         private HealthManager healthManager;
         public Slider healthBar;
         public TMP_Text hpText;
+        public TMP_Text keyCount;
         public GameObject pauseScreen;
         public GameObject inventoryScreen;
     #endregion
@@ -29,6 +30,18 @@ public class UIManager : MonoBehaviour
         healthBar.value = healthManager.currHealth;
         //changes text of HP bar depending on previous calculations
         hpText.text = $"HP: {healthManager.currHealth}/{healthManager.maxHealth}";
+    }
+
+    public void addKey() 
+    {
+        int newCount = int.Parse(keyCount.text) + 1;
+        keyCount.text = $"{newCount}";
+    }
+
+    public void removeKey()
+    {
+        int newCount = int.Parse(keyCount.text) - 1;
+        keyCount.text = $"{newCount}";
     }
 
     #endregion

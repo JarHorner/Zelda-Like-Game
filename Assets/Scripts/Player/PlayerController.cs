@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +16,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private static bool playerExists;
     private Collider2D capsule;
+
+    private UIManager uiManager;
+
+    void Awake() {
+        uiManager = GameObject.FindObjectOfType<UIManager>();
+        Debug.Log($"found {uiManager}");
+    }
 
     void Start() {
         if (!playerExists)
@@ -33,12 +42,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //enables collider after being disable while loading new scene
+        //used to enemies dont push player while loading 
         if (capsule.enabled == false)
         {
             capsule.enabled = true;
         }
 
-        //input
+        //gets input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -73,10 +83,11 @@ public class PlayerController : MonoBehaviour
     //not stuck to framerate
     void FixedUpdate()
     {
-        //movement
+        //enables movement
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
+    //enables swimming in the water
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "Water") 
@@ -88,6 +99,11 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isSwimming", false);
             moveSpeed = 6f;
+        }
+        else if (collider.gameObject.tag == "Key") 
+        {
+            uiManager.addKey();
+            Destroy(collider.gameObject);
         }
     }
 }
