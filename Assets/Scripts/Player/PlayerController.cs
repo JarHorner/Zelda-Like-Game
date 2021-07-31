@@ -6,6 +6,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variables
     [SerializeField] private float moveSpeed = 6f;
     private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
@@ -16,8 +17,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private static bool playerExists;
     private Collider2D capsule;
-
     private UIManager uiManager;
+
+    #endregion
+
+    #region Unity Methods
 
     void Awake() {
         uiManager = GameObject.FindObjectOfType<UIManager>();
@@ -106,4 +110,6 @@ public class PlayerController : MonoBehaviour
             Destroy(collider.gameObject);
         }
     }
+    
+    #endregion
 }

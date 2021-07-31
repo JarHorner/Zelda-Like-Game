@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 905f27a406f48df48bc5c8917857e016
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7665905478834530015
+    second: Statue_Keyhole-Sheet_0
+  - first:
+      213: -7719216000166488361
+    second: Statue_Keyhole-Sheet_1
+  - first:
+      213: 7769018215235730292
+    second: Statue_Keyhole-Sheet_2
+  - first:
+      213: 1814831109112254986
+    second: Statue_Keyhole-Sheet_3
+  - first:
+      213: -1687756929210886555
+    second: Statue_Keyhole-Sheet_4
+  - first:
+      213: -4667795871245707326
+    second: Statue_Keyhole-Sheet_5
+  - first:
+      213: 7705382371830833028
+    second: Statue_Keyhole-Sheet_6
+  - first:
+      213: -4136165568512544438
+    second: Statue_Keyhole-Sheet_7
+  - first:
+      213: -2583361117349206832
+    second: Statue_Keyhole-Sheet_8
+  - first:
+      213: 1813410217939507037
+    second: Statue_Keyhole-Sheet_9
+  - first:
+      213: 8572962628794613893
+    second: Statue_Keyhole-Sheet_10
+  - first:
+      213: -1191428319744244265
+    second: Statue_Keyhole-Sheet_11
+  - first:
+      213: 6059643471425574547
+    second: Statue_Keyhole-Sheet_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 64
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd627a3da64c26a60800000000000000
+      internalID: 7665905478834530015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 9
+        width: 64
+        height: 115
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d6909d22f5dfd490800000000000000
+      internalID: -7719216000166488361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 7
+        width: 64
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b3aac97e811db60800000000000000
+      internalID: 7769018215235730292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 7
+        width: 64
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02d6f147439f2910800000000000000
+      internalID: 1814831109112254986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 7
+        width: 64
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5665e27d302e398e0800000000000000
+      internalID: -1687756929210886555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 7
+        width: 64
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c75d5ad268a83fb0800000000000000
+      internalID: -4667795871245707326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 7
+        width: 64
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f988b31740fea60800000000000000
+      internalID: 7705382371830833028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 7
+        width: 64
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41bb9c64536996c0800000000000000
+      internalID: -4136165568512544438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 7
+        width: 64
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d428d140ce062cd0800000000000000
+      internalID: -2583361117349206832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 13
+        width: 52
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: -0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5719504cf68a2910800000000000000
+      internalID: 1813410217939507037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 15
+        width: 48
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: -0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5808002e61849f670800000000000000
+      internalID: 8572962628794613893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 17
+        width: 36
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: -0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5cd427142377fe0800000000000000
+      internalID: -1191428319744244265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statue_Keyhole-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 19
+        width: 20
+        height: 6
+      alignment: 9
+      pivot: {x: 0.5, y: -1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39616d3c1ad281450800000000000000
+      internalID: 6059643471425574547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6a2a74d97076fc54e994997b40659061
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
