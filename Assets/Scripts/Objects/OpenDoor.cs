@@ -6,7 +6,8 @@ public class OpenDoor : MonoBehaviour
 {
     #region Variables
 
-    public Animator animator;
+    public Animator statueAnimator;
+    public Animator EntranceAnimator;
     private UIManager uiManager;
 
     #endregion
@@ -20,7 +21,12 @@ public class OpenDoor : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag == "Player"&& int.Parse(uiManager.keyCount.text) > 0) 
         {
-            animator.SetBool("hasKey", true);
+            statueAnimator.SetBool("hasKey", true);
+            EntranceAnimator.SetBool("hasKey", true);
+            int keys = int.Parse(uiManager.keyCount.text) - 1;
+            uiManager.keyCount.text = $"{keys}";
+            //EntranceAnimator.SetBool("Opened", true);
+            //Destroy(this.gameObject);
         }
     }
 
