@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
 
     #region Variables
+        public bool dungeonOpened;
         private HealthManager healthManager;
         public Slider healthBar;
         public TMP_Text hpText;
@@ -36,6 +37,7 @@ public class UIManager : MonoBehaviour
     {
         int newCount = int.Parse(keyCount.text) + 1;
         keyCount.text = $"{newCount}";
+        
     }
 
     public void removeKey()
@@ -43,6 +45,7 @@ public class UIManager : MonoBehaviour
         int newCount = int.Parse(keyCount.text) - 1;
         keyCount.text = $"{newCount}";
     }
+
 
     #endregion
 }

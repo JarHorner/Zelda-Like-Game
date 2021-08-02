@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
 
     #region Variables
+    
     private UIManager uiManager;
+    private GameObject player;
+    private Animator playerAnimator;
     private SoundManager soundManager;
-    private AudioSource source;
-    private GameObject playerController;
+    private AudioSource bgMusic;
     private bool isPaused = false;
     private bool inventoryOpen = false;
     
@@ -21,8 +23,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
+        player = GameObject.FindWithTag("Player");
+        playerAnimator = player.GetComponent<Animator>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
-        playerController = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -35,24 +38,19 @@ public class GameManager : MonoBehaviour
     //Pause the game by changing timeScale, reducing volume, opening pause panel and disabling PlayerController script to stop movement
     private void PauseGame()
     {
-        source = soundManager.GetComponentInChildren<AudioSource>();
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(isPaused)
             {
-                Time.timeScale = 1;
+                UnPause();
                 isPaused = false;
-                source.volume = 0.2f;
                 uiManager.pauseScreen.SetActive(false);
-                playerController.GetComponent<PlayerController>().enabled = true;
             }
             else
             {
-                Time.timeScale = 0;
+                Pause(true);
                 isPaused = true;
-                source.volume = 0.02f;
                 uiManager.pauseScreen.SetActive(true);
-                playerController.GetComponent<PlayerController>().enabled = false;
             }
         }
     }
@@ -60,26 +58,42 @@ public class GameManager : MonoBehaviour
     //almost the same as the PauseGame() method but will be opening a different screen.
     private void InventoryScreen()
     {
-        source = soundManager.GetComponentInChildren<AudioSource>();
         if(Input.GetKeyDown(KeyCode.I))
         {
             if (inventoryOpen)
             {
-                Time.timeScale = 1;
+                UnPause();
                 inventoryOpen = false;
-                source.volume = 0.2f;
                 uiManager.inventoryScreen.SetActive(false);
-                playerController.GetComponent<PlayerController>().enabled = true;
             }
             else
             {
-                Time.timeScale = 0;
+                Pause(true);
                 inventoryOpen = true;
-                source.volume = 0.02f;
                 uiManager.inventoryScreen.SetActive(true);
-                playerController.GetComponent<PlayerController>().enabled = false;
             }
         }
+    }
+
+    public void Pause(bool timePause) 
+    {
+        if (timePause)
+        {
+            Time.timeScale = 0;
+        }
+        bgMusic = soundManager.GetComponentInChildren<AudioSource>();
+        bgMusic.volume = 0.02f;
+        player.GetComponent<PlayerController>().enabled = false;
+        playerAnimator.speed = 0;
+    }
+
+    public void UnPause() 
+    {
+        bgMusic = soundManager.GetComponentInChildren<AudioSource>();
+        Time.timeScale = 1;
+        bgMusic.volume = 0.2f;
+        player.GetComponent<PlayerController>().enabled = true;
+        playerAnimator.speed = 1;
     }
 
     #endregion

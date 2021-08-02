@@ -7,8 +7,9 @@ public class OpenDoor : MonoBehaviour
     #region Variables
 
     public Animator statueAnimator;
-    public Animator EntranceAnimator;
+    public Animator entranceAnimator;
     private UIManager uiManager;
+    private GameManager gameManager;
 
     #endregion
 
@@ -17,18 +18,31 @@ public class OpenDoor : MonoBehaviour
     void Start() 
     {  
         uiManager = GameObject.FindObjectOfType<UIManager>();
+        gameManager = FindObjectOfType<GameManager>();
+        if (uiManager.dungeonOpened) {
+            statueAnimator.SetBool("Opened", true);
+            entranceAnimator.SetBool("Opened", true);
+            statueAnimator.Play("Base Layer.Sink_Idle", 0, 1f);
+            entranceAnimator.Play("Base Layer.Open_Idle", 0, 1f);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.tag == "Player"&& int.Parse(uiManager.keyCount.text) > 0) 
         {
-            statueAnimator.SetBool("hasKey", true);
-            EntranceAnimator.SetBool("hasKey", true);
-            int keys = int.Parse(uiManager.keyCount.text) - 1;
-            uiManager.keyCount.text = $"{keys}";
-            //EntranceAnimator.SetBool("Opened", true);
-            //Destroy(this.gameObject);
+            StartCoroutine(OpenDungeon());
         }
     }
+    IEnumerator OpenDungeon() {
+        gameManager.Pause(false);
+        uiManager.dungeonOpened = true;
+        statueAnimator.SetBool("hasKey", true);
+        entranceAnimator.SetBool("hasKey", true);
+        uiManager.removeKey();
+        yield return new WaitForSeconds(3f);
+        entranceAnimator.SetBool("Opened", true);
+        gameManager.UnPause();
+    }
+
 
     #endregion
 }
