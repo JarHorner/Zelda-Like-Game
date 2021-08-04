@@ -2931,7 +2931,7 @@ Tilemap:
   m_Origin: {x: -16, y: -8, z: 0}
   m_Size: {x: 29, y: 18, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 6
+  m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 2
     e01: 0
@@ -5628,7 +5628,7 @@ Tilemap:
   m_Origin: {x: -16, y: -11, z: 0}
   m_Size: {x: 32, y: 25, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 6
+  m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 2
     e01: 0
@@ -9018,7 +9018,7 @@ Tilemap:
   m_Origin: {x: -14, y: -12, z: 0}
   m_Size: {x: 30, y: 22, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 6
+  m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 2
     e01: 0
@@ -9264,7 +9264,7 @@ Tilemap:
   m_Origin: {x: -12, y: -11, z: 0}
   m_Size: {x: 25, y: 23, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 6
+  m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 2
     e01: 0
@@ -9382,7 +9382,7 @@ Tilemap:
   m_Origin: {x: -4, y: -11, z: 0}
   m_Size: {x: 4, y: 11, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 6
+  m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 2
     e01: 0
@@ -10422,7 +10422,7 @@ Tilemap:
   m_Origin: {x: -12, y: -7, z: 0}
   m_Size: {x: 17, y: 14, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 6
+  m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 2
     e01: 0
@@ -11069,7 +11069,7 @@ Tilemap:
   m_Origin: {x: -13, y: -4, z: 0}
   m_Size: {x: 24, y: 15, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 6
+  m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 2
     e01: 0
@@ -12474,7 +12474,7 @@ Tilemap:
   m_Origin: {x: -14, y: -11, z: 0}
   m_Size: {x: 27, y: 23, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
-  m_TileOrientation: 6
+  m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 2
     e01: 0

@@ -2649,7 +2649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1da2197f699a741ac3ee5b230bc81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6.5
+  moveSpeed: 6
   rb: {fileID: 6650388066663356520}
   animator: {fileID: 6762088746127464492}
   startPoint: 
@@ -4238,6 +4238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5c73597651b6746bb20ca50a60db95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dungeonOpened: 0
   healthBar: {fileID: 884539486218810787}
   hpText: {fileID: 138217972235771370}
   keyCount: {fileID: 2687391808098761894}
@@ -4260,7 +4261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3370134158400383620
 Transform:
   m_ObjectHideFlags: 0

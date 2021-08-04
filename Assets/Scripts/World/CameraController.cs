@@ -41,8 +41,10 @@ public class CameraController : MonoBehaviour
                 targetPosition.x = Mathf.Clamp(targetPosition.x, minPosition.x, maxPosition.x);
                 targetPosition.y = Mathf.Clamp(targetPosition.y, minPosition.y, maxPosition.y);
 
+                Vector3 position = new Vector3(float.Parse(transform.position.x.ToString("0.000")), float.Parse(transform.position.y.ToString("0.000")), transform.position.z);
+
                 //creates camera lag for smoother camera
-                transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
+                transform.position = Vector3.Lerp(position, targetPosition, smoothing);
             }
         }
     }
