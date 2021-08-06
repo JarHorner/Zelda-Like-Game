@@ -9,7 +9,6 @@ public class LogEnemy : MonoBehaviour
     public Transform spawnLocation;
     private Animator animator;
     private Transform target;
-    private Vector3 startingCoordinates;
     [SerializeField] private float speed = 0f;
     [SerializeField] private float maxRange = 0f;
     [SerializeField] private float minRange = 0f;
@@ -21,7 +20,6 @@ public class LogEnemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        startingCoordinates = this.transform.position;
     }
 
     // Update is called once per frame
@@ -66,12 +64,6 @@ public class LogEnemy : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
         }
-    }
-
-    //used in AreaTransitions script to move enemies back to original position
-    public Vector3 getStartingCoordinates() 
-    {
-        return startingCoordinates;
     }
 
     void OnTriggerEnter2D(Collider2D other)

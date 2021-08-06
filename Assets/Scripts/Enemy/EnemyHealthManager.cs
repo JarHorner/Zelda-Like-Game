@@ -17,6 +17,7 @@ public class EnemyHealthManager : MonoBehaviour
     private SoundManager soundManager;
     private PlayerStats playerStats;
     [SerializeField] private int expValue;
+    private Vector3 startingCoordinates;
     #endregion
 
     #region Unity Methods
@@ -28,6 +29,7 @@ public class EnemyHealthManager : MonoBehaviour
         enemySprite = this.gameObject.GetComponent<SpriteRenderer>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
         playerStats = FindObjectOfType<PlayerStats>();
+        startingCoordinates = this.transform.position;
     }
 
     // Update is called once per frame
@@ -85,6 +87,12 @@ public class EnemyHealthManager : MonoBehaviour
             this.gameObject.SetActive(false);
             //Destroy(gameObject);
         }
+    }
+
+    //used in AreaTransitions script to move enemies back to original position
+    public Vector3 getStartingCoordinates() 
+    {
+        return startingCoordinates;
     }
 
     #endregion

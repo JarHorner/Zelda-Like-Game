@@ -21,7 +21,9 @@ public class PlayerStartPoint : MonoBehaviour
         Debug.Log("Placing Player & Camera");
         //places player and camera according to the start point
         player = FindObjectOfType<PlayerController>();
-
+        
+        player.moveSpeed = 6f;
+        
         if(player.startPoint == pointName)
         {
             player.transform.position = transform.position;

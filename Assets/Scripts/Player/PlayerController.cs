@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private float moveSpeed = 6f;
+    public float moveSpeed;
     private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
     private bool isAttacking = false;
@@ -94,12 +94,7 @@ public class PlayerController : MonoBehaviour
     //enables swimming in the water
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Water") 
-        {
-            animator.SetBool("isSwimming", true);
-            moveSpeed = 4f;
-        }
-        else if (collider.gameObject.tag == "OutOfWater")
+        if (collider.gameObject.tag == "OutOfWater")
         {
             animator.SetBool("isSwimming", false);
             moveSpeed = 6f;

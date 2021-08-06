@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - OutOfWater
   - Key
+  - Object
   layers:
   - Default
   - TransparentFX
@@ -64,4 +65,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 662271495
+    locked: 0
+  - name: Projectile
+    uniqueID: 3028208169
     locked: 0

@@ -7,7 +7,7 @@ public class AreaTransitions : MonoBehaviour
 
     #region Variables
     private CameraController cam;
-    private LogEnemy[] enemies;
+    private GameObject[] enemies;
     public Vector2 newMinPosition;
     public Vector2 newMaxPosition;
     public Vector3 movePlayer;
@@ -21,7 +21,8 @@ public class AreaTransitions : MonoBehaviour
     void Start()
     {
         cam = Camera.main.GetComponent<CameraController>();
-        enemies = FindObjectsOfType<LogEnemy>();
+        //enemies = FindObjectsOfType<LogEnemy>();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     //snaps camera to new location, moves player into boxed area and resets any enemies 
@@ -37,10 +38,10 @@ public class AreaTransitions : MonoBehaviour
             //resets enemies that are out of place
             if (enemies != null)
             {
-                foreach (LogEnemy go in enemies)
+                foreach (GameObject go in enemies)
                 {
                     EnemyHealthManager eHealthMan = go.gameObject.GetComponent<EnemyHealthManager>();
-                    Vector3 cords = go.getStartingCoordinates();
+                    Vector3 cords = eHealthMan.getStartingCoordinates();
                     go.transform.position = cords;
                     go.gameObject.SetActive(true);
                     eHealthMan.currHealth = eHealthMan.maxHealth;

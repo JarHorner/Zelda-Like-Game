@@ -12,6 +12,7 @@ public class HealthManager : MonoBehaviour
     private float waitToLoad = 2f;
     private bool reloading;
     private Animator animator;
+    private bool animBeforeDeath;
     private Rigidbody2D rb;
     [SerializeField] private AudioClip death;
     private SoundManager soundManager;
@@ -40,12 +41,18 @@ public class HealthManager : MonoBehaviour
         //called when player is dead, resetting variables changed at death and re-loading scene
         if (reloading)
         {
-            Debug.Log("Waiting to load");
             waitToLoad -= Time.deltaTime;
             currHealth = 0;
             if (waitToLoad <= 0)
             {
                 animator.SetBool("isDead", false);
+                Debug.Log(animBeforeDeath);
+                //checks to see if current animation state is swimming to reset animations before respawn
+                if (animBeforeDeath) 
+                {
+                    animator.SetBool("isSwimming", false);
+                    animator.Play("Walk Idle", 0, 1f);
+                }
                 rb.isKinematic = false;
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 reloading = false;
@@ -107,6 +114,7 @@ public class HealthManager : MonoBehaviour
         {
             //starts death animation
             Debug.Log("Dying!");
+            animBeforeDeath = animator.GetCurrentAnimatorStateInfo(0).IsName("Swimming");
             if (soundManager != null)
                 soundManager.Play(death);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
