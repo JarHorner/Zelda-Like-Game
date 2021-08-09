@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5957370982514884826}
-  enemyPrefab: {fileID: 7814464976671980496, guid: 0a271bc684fcecb44824d3cc25dbe5be, type: 3}
+  enemyPrefab: {fileID: 5957370982514884826}
   spawnLocation: {fileID: 1293553435377900482}
 --- !u!1 &5957370982249684426
 GameObject:
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3840648486589124140}
   - component: {fileID: 3577476947126792600}
   m_Layer: 0
-  m_Name: Water_Eel_1
+  m_Name: Water_Eel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

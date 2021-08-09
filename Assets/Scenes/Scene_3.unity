@@ -4841,7 +4841,7 @@ GameObject:
   - component: {fileID: 356074524}
   m_Layer: 0
   m_Name: Object-Addons
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12681,7 +12681,7 @@ GameObject:
   - component: {fileID: 1376988778}
   m_Layer: 0
   m_Name: Objects
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

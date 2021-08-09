@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: -48538497814483971}
   - component: {fileID: -7739512749151043851}
   - component: {fileID: -796204133719302828}
-  - component: {fileID: -6588839284309493319}
+  - component: {fileID: -6391453813175133986}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -133,10 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2d2f0fd8212c74b92f2233b895a9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 2
+  damageDealt: 0
   speed: 5
   lifespan: 3
---- !u!50 &-6588839284309493319
+--- !u!50 &-6391453813175133986
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -144,16 +144,16 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498348727028264967}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
+  m_CollisionDetection: 0
+  m_Constraints: 0
