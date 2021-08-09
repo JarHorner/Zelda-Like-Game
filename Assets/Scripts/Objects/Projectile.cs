@@ -19,11 +19,6 @@ public class Projectile : MonoBehaviour
         rb= GetComponent<Rigidbody2D>();
     }
 
-    void Start()
-    {
-       // rb.AddForce(transform.forward * speed);
-        //Destroy(gameObject, lifespan);
-    }
     void Update() {
         rb.velocity = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized * speed;
         Destroy (gameObject, lifespan);
