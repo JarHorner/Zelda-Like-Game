@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.tag == "OutOfWater")
         {
             animator.SetBool("isSwimming", false);
-            moveSpeed = 6f;
+            moveSpeed = 5f;
         }
         else if (collider.gameObject.tag == "Key") 
         {

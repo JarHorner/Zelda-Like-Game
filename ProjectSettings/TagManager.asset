@@ -11,6 +11,7 @@ TagManager:
   - OutOfWater
   - Key
   - Object
+  - MovableBlock
   layers:
   - Default
   - TransparentFX
@@ -51,11 +52,11 @@ TagManager:
   - name: Ground
     uniqueID: 4152180407
     locked: 0
-  - name: Enemy
-    uniqueID: 3911437975
-    locked: 0
   - name: Object
     uniqueID: 1236758561
+    locked: 0
+  - name: Enemy
+    uniqueID: 3911437975
     locked: 0
   - name: NPC
     uniqueID: 2674060969
