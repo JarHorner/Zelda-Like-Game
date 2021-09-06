@@ -9,6 +9,9 @@ public class LogEnemy : MonoBehaviour
     public Transform spawnLocation;
     private Animator animator;
     private Transform target;
+    private bool moving = false;
+    [SerializeField] private AudioSource movementAudio;
+    [SerializeField] private AudioSource hitAudio;
     [SerializeField] private float speed = 0f;
     [SerializeField] private float maxRange = 0f;
     [SerializeField] private float minRange = 0f;
@@ -44,6 +47,12 @@ public class LogEnemy : MonoBehaviour
     public void followPlayer() 
     {
         animator.SetBool("isMoving", true);
+        //ensures only one exists and plays the movement sound.
+        if (!moving)
+        {
+            movementAudio.Play();
+            moving = true;
+        }
         //ensures animations are working when sprite is moving
         animator.SetFloat("Horizontal", (target.position.x - transform.position.x));
         animator.SetFloat("Vertical", (target.position.y - transform.position.y));
@@ -62,14 +71,22 @@ public class LogEnemy : MonoBehaviour
         //starts idle animation when destination is reached
         if (transform.position == spawnLocation.transform.position) 
         {
+            //is moving is true when log reaches spawnpoint, makes it false and stops movement sound.
+            if (moving)
+            {
+                movementAudio.Stop();
+                moving = false;
+            }
             animator.SetBool("isMoving", false);
         }
     }
 
+    //pushes the enemy a set amount when in contact with players sword.
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Sword")
         {
+            hitAudio.Play();
             Vector2 difference = transform.position - other.transform.position;
             transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
         }

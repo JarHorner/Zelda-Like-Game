@@ -55,7 +55,6 @@ public class PlayerStats : MonoBehaviour
         {
             baseExp = Mathf.RoundToInt((baseExp + 100) * 1.1f);
             expToLevelUp[i] = baseExp;
-            Debug.Log("Exp at Level " + (i + 1) + " is " + expToLevelUp[i]);
             yield return expToLevelUp[i];
         }
     }

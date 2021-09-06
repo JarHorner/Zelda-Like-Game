@@ -9,6 +9,7 @@ public class PushableBlock : MonoBehaviour
     private Animator playerAnim;
     private float y;
     private float x;
+    public float pushingTime = 0.5f;
 
     #endregion
 
@@ -27,14 +28,19 @@ public class PushableBlock : MonoBehaviour
 
         if (collider.gameObject.tag == "Player")
         {
+            pushingTime -= Time.deltaTime;
             playerAnim.SetBool("isPushing", true);
-            if (y > rb.transform.position.y || y < rb.transform.position.y)
+            if (pushingTime <= 0)
             {
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            } 
-            else if (x > rb.transform.position.x || x < rb.transform.position.x)
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                if (y > rb.transform.position.y || y < rb.transform.position.y)
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                } 
+                else if (x > rb.transform.position.x || x < rb.transform.position.x)
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                }
             }
         }
     }
@@ -43,7 +49,8 @@ public class PushableBlock : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             playerAnim.SetBool("isPushing", false);
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePosition;
+            pushingTime = 0.5f;
         }
     }
 

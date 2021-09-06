@@ -72,13 +72,5 @@ public class WaterEel : MonoBehaviour
         Instantiate(bulletPrefab, projectileSpawnLoc.position, projectileSpawnLoc.rotation);
     }
 
-    // private private void OnTriggerEnter2D(Collider2D other) 
-    // {
-    //     if (other.gameObject.tag == "Projectile")
-    //     {
-    //         Physics2D.IgnoreCollision(other.collider, this.GetComponent<CircleCollider2D>());
-    //     }
-    // }
-
     #endregion
 }

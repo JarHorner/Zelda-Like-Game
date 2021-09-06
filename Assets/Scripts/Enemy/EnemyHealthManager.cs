@@ -17,10 +17,16 @@ public class EnemyHealthManager : MonoBehaviour
     private SoundManager soundManager;
     private PlayerStats playerStats;
     [SerializeField] private int expValue;
+    private AudioSource[] allAudioSources;
     private Vector3 startingCoordinates;
     #endregion
 
     #region Unity Methods
+
+    void Awake() 
+    {
+        allAudioSources = FindObjectsOfType<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +99,14 @@ public class EnemyHealthManager : MonoBehaviour
     public Vector3 getStartingCoordinates() 
     {
         return startingCoordinates;
+    }
+
+    private void StopAllAudio() 
+    {
+        foreach (AudioSource audioS in allAudioSources) 
+        {
+            audioS.Stop();
+        }
     }
 
     #endregion
