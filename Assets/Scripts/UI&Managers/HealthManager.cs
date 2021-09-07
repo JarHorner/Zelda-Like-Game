@@ -15,6 +15,7 @@ public class HealthManager : MonoBehaviour
     private bool animBeforeDeath;
     private Rigidbody2D rb;
     [SerializeField] private AudioClip death;
+    [SerializeField] private AudioSource hit;
     private SoundManager soundManager;
     private bool flashActive;
     [SerializeField] private float flashLength = 0f;
@@ -106,6 +107,7 @@ public class HealthManager : MonoBehaviour
     //Method that calculates the amount of health player has left after hit, active the flashing and starts process of reloading scene at death
     public void HurtPlayer(int damageNum)
     {
+        hit.Play();
         currHealth -= damageNum;
         flashActive = true;
         flashCounter = flashLength;

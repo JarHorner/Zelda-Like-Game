@@ -40,6 +40,7 @@
      <Compile Include="Assets\Scripts\World\FlickeringLight.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySpawnController.cs" />
      <Compile Include="Assets\Scripts\World\Water.cs" />
+     <Compile Include="Assets\Scripts\World\PushableBlock.cs" />
      <Compile Include="Assets\Scripts\Enemy\WaterEel.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Enemy\LogEnemy.cs" />
@@ -58,7 +59,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerStartPoint.cs" />
      <Compile Include="Assets\Scripts\World\CameraController.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\HealthManager.cs" />
-     <Compile Include="Assets\Scripts\World\PushableBlock.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\Volume2D.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

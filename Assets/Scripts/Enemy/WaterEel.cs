@@ -11,6 +11,9 @@ public class WaterEel : MonoBehaviour
     private GameObject bullet;
     private Transform projectileSpawnLoc;
     public GameObject bulletPrefab;
+    [SerializeField] private AudioSource movementSound;
+    [SerializeField] private AudioSource shootingSound;
+    private bool hasRisen = false;
     private float timeToAttack = 2.15f;
     [SerializeField] private float maxRange = 0f;
     [SerializeField] private float minRange = 0f;
@@ -31,12 +34,17 @@ public class WaterEel : MonoBehaviour
     {
         target = FindObjectOfType<PlayerController>().transform;
         StartCoroutine(trackPlayer());
-        //depending on where the target is, the enemy will either follow or walk back
+        //depending on where the target is, the enemy will either rise and start shooting, or sink and wait
         if (target != null)
         {
             if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) 
             {
                 animator.SetBool("PlayerIsClose", true);
+                if (!hasRisen)
+                {
+                    movementSound.Play();
+                    hasRisen = true;
+                }
                 if (timeToAttack <= 0) {
                     shoot();
                     timeToAttack = 2.15f;
@@ -46,6 +54,11 @@ public class WaterEel : MonoBehaviour
             if(Vector3.Distance(target.position, transform.position) >= maxRange)
             {
                 animator.SetBool("PlayerIsClose", false);
+                if (hasRisen)
+                {
+                    movementSound.Play();
+                    hasRisen = false;
+                }
                 timeToAttack = 2.15f;
             }
         }
@@ -64,11 +77,13 @@ public class WaterEel : MonoBehaviour
         bulletPrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
         SpriteRenderer sprite = this.GetComponent<SpriteRenderer>();
 
+        //ensures that the bullet goes behind the eel sprite that shots upwards
         if (sprite.sprite.name == "Water_Eel_3")
         {
             bulletPrefab.GetComponent<SpriteRenderer>().sortingOrder = 0;
             Debug.Log("Bullet Behind");
         }
+        shootingSound.Play();
         Instantiate(bulletPrefab, projectileSpawnLoc.position, projectileSpawnLoc.rotation);
     }
 

@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     public float speed = 10f;
     public float lifespan = 3f;
     private Rigidbody2D rb;
+    [SerializeField] private AudioSource movingSound;
     private Vector3 playerPosition;
     private Vector3 currentPosition;
     #endregion
@@ -21,6 +22,9 @@ public class Projectile : MonoBehaviour
         rb= GetComponent<Rigidbody2D>();
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
         //playerPosition.y += 0.5f;
+    }
+    void Start() {
+        movingSound.Play();
     }
 
     void Update() {

@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
     #region Variables
         public Animator transition;
         [SerializeField] private int sceneIndex;
-        [SerializeField] private float transitionTime = 1f;
+        private float transitionTime = 1f;
         private PlayerController player;
         public string exitPoint;
     #endregion
@@ -27,6 +27,9 @@ public class SceneLoader : MonoBehaviour
         {
             //loads the next level
             player.startPoint = exitPoint;
+            //finds inactive gameobject
+            //GameObject obj = this.gameObject.transform.Find("CircleWipe").gameObject;
+            //obj.SetActive(true);
             LoadScene();
         }
     }

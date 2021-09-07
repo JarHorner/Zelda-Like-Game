@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public string startPoint;
+    public AudioSource swingSound;
+    [SerializeField] private AudioClip[] swingClips;
     private Vector2 movement;
     private static bool playerExists;
     private Collider2D capsule;
@@ -80,6 +82,8 @@ public class PlayerController : MonoBehaviour
         {
             attackCounter = attackTime;
             animator.SetBool("isAttacking", true);
+            swingSound.clip = swingClips[Random.Range(0, swingClips.Length)];
+            swingSound.Play();
             isAttacking = true;
         }
     }

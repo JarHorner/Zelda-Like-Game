@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private Animator playerAnimator;
     private SoundManager soundManager;
     private AudioSource bgMusic;
+    [SerializeField] AudioSource openMenu;
     private bool isPaused = false;
     private bool inventoryOpen = false;
     
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
             {
                 Pause(true);
                 inventoryOpen = true;
+                openMenu.Play();
                 uiManager.inventoryScreen.SetActive(true);
             }
         }

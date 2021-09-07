@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -1554279178693191353}
   - component: {fileID: 236695931122281817}
   - component: {fileID: 1277055805621302895}
+  - component: {fileID: 2564962669533737509}
   m_Layer: 0
   m_Name: Log_Enemy
   m_TagString: Enemy
@@ -99,13 +100,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5526459411903359677}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -207,7 +208,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0a439e247c10d9a4892c6b508937f95e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -301,9 +302,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1ee962c7bc69fc142b1812a8d5228bb1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 23be2a48108f5594aa5d33ed69f24005, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -387,6 +388,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2564962669533737509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526459411903359677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656bd2a2c63bcec4fbbb4ea7169307cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 236695931122281817}
+  minDist: 0.5
+  maxDist: 12
+  maxVolume: 0.5
 --- !u!1 &5526459412359467414
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour
     #region Variables
     private Vector3 centerPoint = new Vector3(0,0,0);
     [SerializeField] private AudioClip backgroundMusic;
-    private GameObject gameObj;
     #endregion
 
     #region Unity Methods
@@ -73,6 +72,7 @@ public class SoundManager : MonoBehaviour
         newSound.AddComponent(typeof(AudioSource));
         AudioSource source = newSound.GetComponent<AudioSource>();
         source.clip = clip;
+        source.priority = 0;
         source.volume = 0.2f;
         source.loop = true;
         source.Play();

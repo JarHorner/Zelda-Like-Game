@@ -9,7 +9,7 @@ public class LogEnemy : MonoBehaviour
     public Transform spawnLocation;
     private Animator animator;
     private Transform target;
-    private bool moving = false;
+    private bool isMoving = false;
     [SerializeField] private AudioSource movementAudio;
     [SerializeField] private AudioSource hitAudio;
     [SerializeField] private float speed = 0f;
@@ -48,10 +48,10 @@ public class LogEnemy : MonoBehaviour
     {
         animator.SetBool("isMoving", true);
         //ensures only one exists and plays the movement sound.
-        if (!moving)
+        if (!isMoving)
         {
             movementAudio.Play();
-            moving = true;
+            isMoving = true;
         }
         //ensures animations are working when sprite is moving
         animator.SetFloat("Horizontal", (target.position.x - transform.position.x));
@@ -72,10 +72,10 @@ public class LogEnemy : MonoBehaviour
         if (transform.position == spawnLocation.transform.position) 
         {
             //is moving is true when log reaches spawnpoint, makes it false and stops movement sound.
-            if (moving)
+            if (isMoving)
             {
                 movementAudio.Stop();
-                moving = false;
+                isMoving = false;
             }
             animator.SetBool("isMoving", false);
         }
