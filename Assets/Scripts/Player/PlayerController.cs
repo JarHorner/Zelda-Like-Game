@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public string startPoint;
     public AudioSource swingSound;
+    public AudioSource movingSound;
+    private bool isWalking = false;
     [SerializeField] private AudioClip[] swingClips;
     private Vector2 movement;
     private static bool playerExists;
@@ -62,8 +64,26 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
+            isWalking = true;
+        } 
+        else
+        {
+            isWalking = false;
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        if (isWalking)
+        {
+            if (!movingSound.isPlaying)
+            {
+                movingSound.Play();
+            }
+        }
+        else
+        {
+            movingSound.Stop();
+        }
+        
 
         //if attacking stops movement, carries out the animation, then reverts back
         if (isAttacking)
