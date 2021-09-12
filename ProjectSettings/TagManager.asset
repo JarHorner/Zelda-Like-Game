@@ -70,3 +70,6 @@ TagManager:
   - name: Projectile
     uniqueID: 3028208169
     locked: 0
+  - name: UI_Popup
+    uniqueID: 58807881
+    locked: 0

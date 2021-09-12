@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 1
+  damagePopup: {fileID: -6122320544183807488, guid: 83f95567f196dbe4b8470c4406da8c59, type: 3}
 --- !u!114 &3577476947126792600
 MonoBehaviour:
   m_ObjectHideFlags: 0

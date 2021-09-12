@@ -56,10 +56,6 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        // else if (other.gameObject.tag == "Enemy")
-        // {
-        //     Physics2D.IgnoreCollision(other.collider, this.GetComponent<CircleCollider2D>());
-        // }
     }
 
     #endregion

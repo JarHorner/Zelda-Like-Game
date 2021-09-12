@@ -16,6 +16,7 @@ public class HealthManager : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private AudioClip death;
     [SerializeField] private AudioSource hit;
+    [SerializeField] private DamagePopup damagePopup;
     private SoundManager soundManager;
     private bool flashActive;
     [SerializeField] private float flashLength = 0f;
@@ -108,6 +109,7 @@ public class HealthManager : MonoBehaviour
     public void HurtPlayer(int damageNum)
     {
         hit.Play();
+        damagePopup.Create(this.transform.position, damageNum);
         currHealth -= damageNum;
         flashActive = true;
         flashCounter = flashLength;

@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 1
+  damagePopup: {fileID: -6122320544183807488, guid: 83f95567f196dbe4b8470c4406da8c59, type: 3}
 --- !u!114 &-1554279178693191353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +416,7 @@ GameObject:
   - component: {fileID: 5526459412359467496}
   - component: {fileID: 5526459412359467415}
   m_Layer: 0
-  m_Name: EnemySpawnController
+  m_Name: Log_Enemy_Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
