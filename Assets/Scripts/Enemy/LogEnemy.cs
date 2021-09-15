@@ -11,7 +11,6 @@ public class LogEnemy : MonoBehaviour
     private Transform target;
     private bool isMoving = false;
     [SerializeField] private AudioSource movementAudio;
-    [SerializeField] private AudioSource hitAudio;
     [SerializeField] private float speed = 0f;
     [SerializeField] private float maxRange = 0f;
     [SerializeField] private float minRange = 0f;
@@ -78,17 +77,6 @@ public class LogEnemy : MonoBehaviour
                 isMoving = false;
             }
             animator.SetBool("isMoving", false);
-        }
-    }
-
-    //pushes the enemy a set amount when in contact with players sword.
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Sword")
-        {
-            hitAudio.Play();
-            Vector2 difference = transform.position - other.transform.position;
-            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
         }
     }
 

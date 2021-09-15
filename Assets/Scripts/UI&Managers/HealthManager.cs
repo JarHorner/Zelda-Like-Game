@@ -109,7 +109,9 @@ public class HealthManager : MonoBehaviour
     public void HurtPlayer(int damageNum)
     {
         hit.Play();
-        damagePopup.Create(this.transform.position, damageNum);
+        //positions damage text, and creates the popup
+        Vector3 popupLocation = new Vector3(this.transform.position.x, this.transform.position.y + 1, 0);
+        damagePopup.Create(popupLocation, damageNum);
         currHealth -= damageNum;
         flashActive = true;
         flashCounter = flashLength;
@@ -124,6 +126,7 @@ public class HealthManager : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             rb.isKinematic = true;
             animator.SetBool("isDead", true);
+            animator.SetBool("isSwimming", false);
             reloading = true;
         }
     }

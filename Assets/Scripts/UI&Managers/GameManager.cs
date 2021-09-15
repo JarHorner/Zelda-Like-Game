@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //pauses the the timescale of the game is true, if false, only the player (good for cutscene-ish stuff)
     public void Pause(bool timePause) 
     {
         if (timePause)
@@ -89,6 +90,7 @@ public class GameManager : MonoBehaviour
         playerAnimator.speed = 0;
     }
 
+    //returns the changes during a Pause back to normal
     public void UnPause() 
     {
         bgMusic = soundManager.GetComponentInChildren<AudioSource>();

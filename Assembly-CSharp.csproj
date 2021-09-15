@@ -40,9 +40,10 @@
      <Compile Include="Assets\Scripts\World\FlickeringLight.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySpawnController.cs" />
      <Compile Include="Assets\Scripts\World\Water.cs" />
-     <Compile Include="Assets\Scripts\World\PushableBlock.cs" />
+     <Compile Include="Assets\Scripts\Objects\PushableBlock.cs" />
      <Compile Include="Assets\Scripts\Enemy\WaterEel.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\DamagePopup.cs" />
      <Compile Include="Assets\Scripts\Enemy\LogEnemy.cs" />
      <Compile Include="Assets\Scripts\Objects\Projectile.cs" />
      <Compile Include="Assets\Scripts\World\AreaTransitions.cs" />
@@ -50,7 +51,7 @@
      <Compile Include="Assets\Scripts\World\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Player\Sword.cs" />
-     <Compile Include="Assets\Scripts\Objects\OpenDoor.cs" />
+     <Compile Include="Assets\Scripts\World\OpenDungeonDoor.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSpawnController.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\SoundManager.cs" />
@@ -60,8 +61,9 @@
      <Compile Include="Assets\Scripts\Player\PlayerStartPoint.cs" />
      <Compile Include="Assets\Scripts\World\CameraController.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\HealthManager.cs" />
-     <Compile Include="Assets\Scripts\DamagePopup.cs" />
-     <Compile Include="Assets\GameAssests.cs" />
+     <Compile Include="Assets\Scripts\Objects\Switch_Key_Appear.cs" />
+     <Compile Include="Assets\Scripts\Objects\Open_Key_Door.cs" />
+     <Compile Include="Assets\Scripts\Objects\Switch_Open_Door.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

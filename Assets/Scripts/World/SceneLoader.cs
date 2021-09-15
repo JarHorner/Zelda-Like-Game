@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
     #region Variables
         public Animator transition;
         [SerializeField] private int sceneIndex;
-        private float transitionTime = 1f;
+        private float transitionTime = 0.9f;
         private PlayerController player;
         public string exitPoint;
     #endregion

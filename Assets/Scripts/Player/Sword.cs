@@ -15,13 +15,13 @@ public class Sword : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
     }
+
 
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -30,7 +30,14 @@ public class Sword : MonoBehaviour
             this.gameObject.SetActive(false);
             EnemyHealthManager eHealthMan;
             eHealthMan = other.gameObject.GetComponent<EnemyHealthManager>();
+            Debug.Log("Enemy Hit!");
             eHealthMan.HurtEnemy(damageDealt);
+            //pushes enemy back if not on water layer (4)
+            if (other.gameObject.layer != 4)
+            {
+                Vector2 difference = other.transform.position - transform.position;
+                other.transform.position = new Vector2(other.transform.position.x + difference.x, other.transform.position.y + difference.y);
+            }
         }
     }
 

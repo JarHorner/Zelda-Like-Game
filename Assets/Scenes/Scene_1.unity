@@ -123,107 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &3564456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6739439183785785560, guid: 51769a067a6677844945d411b2e401a7, type: 3}
-  m_PrefabInstance: {fileID: 6739439184475310697}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &3564459
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3564456}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3d477ee2e58fb6049b8a94e937300631, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.6
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &28126741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5526459411903359677, guid: 40f91202a3deb274b82fdb9e89990023, type: 3}
@@ -386,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7127721786679367182, guid: 0a397ab5eb7baa840bc9492824ba9b9b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7127721786679367182, guid: 0a397ab5eb7baa840bc9492824ba9b9b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28922,7 +28821,7 @@ GameObject:
   - component: {fileID: 625111860}
   - component: {fileID: 625111859}
   m_Layer: 0
-  m_Name: BIg Object
+  m_Name: Big Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29455,7 +29354,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1620906327
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2fc801679cb860342a6c6c1d132f1cb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31938,7 +31837,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 662271495
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -43278,7 +43177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7127721786679367182, guid: 0a397ab5eb7baa840bc9492824ba9b9b, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7127721786679367182, guid: 0a397ab5eb7baa840bc9492824ba9b9b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43481,7 +43380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957370982514884816, guid: 3f535e97ed130bd4f94d6958205d726e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5957370982514884816, guid: 3f535e97ed130bd4f94d6958205d726e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -43522,6 +43421,14 @@ PrefabInstance:
     - target: {fileID: 5957370982514884826, guid: 3f535e97ed130bd4f94d6958205d726e, type: 3}
       propertyPath: m_Name
       value: Water_Eel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957370982514884826, guid: 3f535e97ed130bd4f94d6958205d726e, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957370982514884826, guid: 3f535e97ed130bd4f94d6958205d726e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -43766,7 +43673,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 662271495
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -46968,7 +46875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4867698049484468437, guid: 3ee2b5782665ed8408bf4b3e21921645, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4867698049484468437, guid: 3ee2b5782665ed8408bf4b3e21921645, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47487,6 +47394,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1854534536068893020, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6739439183785785560, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -47538,9 +47449,14 @@ PrefabInstance:
     - target: {fileID: 6739439183785785563, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: openMenu
       value: 
-      objectReference: {fileID: 3564459}
+      objectReference: {fileID: 6739439184475310698}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+--- !u!82 &6739439184475310698 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1854534536068893020, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+  m_PrefabInstance: {fileID: 6739439184475310697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8531996010788583843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47602,7 +47518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7127721786679367182, guid: 0a397ab5eb7baa840bc9492824ba9b9b, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7127721786679367182, guid: 0a397ab5eb7baa840bc9492824ba9b9b, type: 3}
       propertyPath: m_LocalPosition.x

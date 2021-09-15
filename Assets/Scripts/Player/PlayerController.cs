@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
     private bool isAttacking = false;
-    public Rigidbody2D rb;
-    public Animator animator;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator animator;
     public string startPoint;
     public AudioSource swingSound;
     public AudioSource movingSound;
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
-    //enables swimming in the water
+    //enables swimming in the water, grabbing a key
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "OutOfWater")

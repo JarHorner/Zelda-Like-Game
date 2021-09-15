@@ -11,21 +11,22 @@ public class EnemyHealthManager : MonoBehaviour
     private Animator animator;
     private bool flashActive;
     [SerializeField] private float flashLength = 0f;
+    [SerializeField] private AudioClip hit;
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip death;
     private float flashCounter = 0f;
+    public float waitToHurt = 0f;
     private SpriteRenderer enemySprite;
-    private SoundManager soundManager;
     private PlayerStats playerStats;
     [SerializeField] private int expValue;
-    private AudioSource[] allAudioSources;
     private Vector3 startingCoordinates;
     #endregion
 
     #region Unity Methods
 
-    void Awake() 
+    public void AddToList<T>(T t)
     {
-        allAudioSources = FindObjectsOfType<AudioSource>();
+
     }
 
     // Start is called before the first frame update
@@ -33,7 +34,6 @@ public class EnemyHealthManager : MonoBehaviour
     {
         animator = this.gameObject.GetComponent<Animator>();
         enemySprite = this.gameObject.GetComponent<SpriteRenderer>();
-        soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
         playerStats = FindObjectOfType<PlayerStats>();
         startingCoordinates = this.transform.position;
     }
@@ -41,6 +41,12 @@ public class EnemyHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //updates timer for enemy to take damage again, but on counts down if over 0
+        if (waitToHurt > 0)
+        {
+            waitToHurt -= Time.deltaTime;
+        }
+
         //if true, starts process of changing the players alpha level to flash when hit
         if (flashActive)
         {
@@ -83,15 +89,21 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void HurtEnemy(int damageToGive) 
     {
-        currHealth -= damageToGive;
-        flashActive = true;
-        flashCounter = flashLength;
-        if (currHealth <= 0) 
+        if (waitToHurt <= 0)
         {
-            soundManager.Play(death);
-            playerStats.currentExp += expValue;
-            this.gameObject.SetActive(false);
-            //Destroy(gameObject);
+            currHealth -= damageToGive;
+            flashActive = true;
+            flashCounter = flashLength;
+            soundManager.Play(hit);
+            if (currHealth <= 0) 
+            {
+                soundManager.Play(death);
+                playerStats.currentExp += expValue;
+                this.gameObject.SetActive(false);
+            }
+            //gives variable some time so enemy cant be chain hit
+            waitToHurt = 0.5f; 
+
         }
     }
 
@@ -99,14 +111,6 @@ public class EnemyHealthManager : MonoBehaviour
     public Vector3 getStartingCoordinates() 
     {
         return startingCoordinates;
-    }
-
-    private void StopAllAudio() 
-    {
-        foreach (AudioSource audioS in allAudioSources) 
-        {
-            audioS.Stop();
-        }
     }
 
     #endregion

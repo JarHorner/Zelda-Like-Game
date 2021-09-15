@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         //starts coroutine setting up exp values to level
-        menuLevelText.text = "Level:   " + playerLevel;
+        menuLevelText.text = "LEVEL:   " + playerLevel;
         expToLevelUp = new int[maxLevel];
         StartCoroutine(ExpToLevel());
     }
@@ -38,15 +38,15 @@ public class PlayerStats : MonoBehaviour
         {
             playerLevel += 1;
             currentExp = 0;
-            menuLevelText.text = "Level:   " + playerLevel;
+            menuLevelText.text = "LEVEL:   " + playerLevel;
         }
     }
 
     void LateUpdate()
     {
         //changed exp values after every frame
-        menuCurrentExpText.text = "Current Exp:    " + currentExp;
-        menuExpNextlevelText.text = "Exp to next level:    " + Mathf.Abs(currentExp - expToLevelUp[playerLevel]);
+        menuCurrentExpText.text = "CURRENT EXP:    " + currentExp;
+        menuExpNextlevelText.text = "EXP TO NEXT LEVEL:    " + Mathf.Abs(currentExp - expToLevelUp[playerLevel]);
     }
 
     private IEnumerator ExpToLevel() 

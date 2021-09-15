@@ -33,6 +33,11 @@ public class UIManager : MonoBehaviour
         hpText.text = $"HP: {healthManager.currHealth}/{healthManager.maxHealth}";
     }
 
+    public int getKeyCount()
+    {
+        return int.Parse(keyCount.text);
+    }
+
     public void addKey() 
     {
         int newCount = int.Parse(keyCount.text) + 1;
