@@ -10,7 +10,7 @@ public class OpenKeyDoor : MonoBehaviour
     private GameManager gameManager;
     [SerializeField] private Animator animator;
     [SerializeField] private int doorNum;
-    private bool staysOpen = false;
+    [SerializeField] private AudioSource openDoor;
     #endregion
 
     #region Unity Methods
@@ -37,11 +37,11 @@ public class OpenKeyDoor : MonoBehaviour
 
     IEnumerator OpenDoor() {
         //pauses game while animations play (so player cannot move)
-        Debug.Log("Id" + doorNum);
+        openDoor.Play();
         gameManager.Pause(false);
         animator.SetBool("Open", true);
         uIManager.removeKey(dungeonManager.getDungeonName());
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1f);
         gameManager.UnPause();
         dungeonManager.addDoorStayOpen(doorNum);
     }

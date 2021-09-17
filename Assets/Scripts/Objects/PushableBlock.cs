@@ -11,7 +11,8 @@ public class PushableBlock : MonoBehaviour
     private float y;
     private float x;
     private float pushingTime = 0.2f;
-
+    [SerializeField] private bool isPushable = false;
+    private bool isOnTheMove = false;
     #endregion
 
     #region Unity Methods
@@ -22,9 +23,10 @@ public class PushableBlock : MonoBehaviour
 
     void Update() 
     {
-         if (pushingTime <= 0)
+        StartCoroutine(CheckMoving());
+        if (pushingTime <= 0)
         {
-            if (!movingSound.isPlaying)
+            if (!movingSound.isPlaying && isOnTheMove)
             {
                 movingSound.Play();
             }
@@ -32,8 +34,23 @@ public class PushableBlock : MonoBehaviour
         else
         {
             movingSound.Stop();
+            isOnTheMove = false;
         }
         
+    }
+
+    private IEnumerator CheckMoving()
+    {
+         float startPosX = this.transform.position.x;
+         float startPosY = this.transform.position.y;
+         yield return new WaitForSeconds(1f);
+         float finalPosX = this.transform.position.x - startPosX;
+         float finalPosY = this.transform.position.y - startPosY;
+
+        if(finalPosX > 0.05 || finalPosX < -0.05)
+           isOnTheMove = true;
+        else if (finalPosY > 0.05 || finalPosY < -0.05)
+            isOnTheMove = true;
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -46,21 +63,25 @@ public class PushableBlock : MonoBehaviour
 
         if (collider.gameObject.tag == "Player")
         {
-            pushingTime -= Time.deltaTime;
             //sets players pushing animation
             playerAnim.SetBool("isPushing", true);
-            //when the player has been pushing a certain amt of time, the block will move based on the direction the play is facing
-            if (pushingTime <= 0)
+
+            if (isPushable)
             {
-                //changes the constraints to only allow certain movement ex. if pushing right, wont ever slide upo or down.
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                if (y > rb.transform.position.y || y < rb.transform.position.y)
+                pushingTime -= Time.deltaTime;
+                //when the player has been pushing a certain amt of time, the block will move based on the direction the play is facing
+                if (pushingTime <= 0)
                 {
-                    rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-                } 
-                else if (x > rb.transform.position.x || x < rb.transform.position.x)
-                {
-                    rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                    //changes the constraints to only allow certain movement ex. if pushing right, wont ever slide upo or down.
+                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    if (y > rb.transform.position.y || y < rb.transform.position.y)
+                    {
+                        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                    } 
+                    else if (x > rb.transform.position.x || x < rb.transform.position.x)
+                    {
+                        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                    }
                 }
             }
         }

@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5200721618323926545}
   movingSound: {fileID: 6396060363984897159}
+  isPushable: 0
 --- !u!82 &6396060363984897159
 AudioSource:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f237c7ba53bf4d64aaeda2f666cbcba1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0

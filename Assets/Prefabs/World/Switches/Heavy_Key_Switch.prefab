@@ -95,9 +95,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5cd4c7458e8e28d44b594b3fbd8e0cc2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -193,6 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f86e6efdce47443a9e4838354fd550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyName: 
+  pressDown: {fileID: 7014129351170893285}
 --- !u!58 &7014129351170893291
 CircleCollider2D:
   m_ObjectHideFlags: 0

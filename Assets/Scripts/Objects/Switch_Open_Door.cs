@@ -7,6 +7,10 @@ public class Switch_Open_Door : MonoBehaviour
     #region variables
     private GameManager gameManager;
     private Animator doorAnimator;
+    [SerializeField] AudioSource pressDown;
+    [SerializeField] AudioSource doorAudioSource;
+    [SerializeField] AudioClip doorOpen;
+    [SerializeField] AudioClip doorClose;
 
     #endregion
 
@@ -22,6 +26,7 @@ public class Switch_Open_Door : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "MovableBlock")
         {
+            pressDown.Play();
             StartCoroutine(OpenDoor());
         }
     }
@@ -36,17 +41,21 @@ public class Switch_Open_Door : MonoBehaviour
 
     IEnumerator OpenDoor() {
         //pauses game while animations play (so player cannot move)
+        doorAudioSource.clip = doorOpen;
+        doorAudioSource.Play();
         gameManager.Pause(false);
         doorAnimator.SetBool("Open", true);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1f);
         gameManager.UnPause();
     }
 
     IEnumerator CloseDoor() {
         //pauses game while animations play (so player cannot move)
+        doorAudioSource.clip = doorClose;
+        doorAudioSource.Play();
         gameManager.Pause(false);
         doorAnimator.SetBool("Open", false);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1f);
         gameManager.UnPause();
     }
     #endregion

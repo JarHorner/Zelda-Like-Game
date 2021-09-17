@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MutableKeyValPair<Key, Value> : MonoBehaviour
+public class MutableKeyValPair<Key, Value>
 {
     public Key key { get; set; }
     public Value value { get; set; }
