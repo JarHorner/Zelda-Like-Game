@@ -7,8 +7,8 @@ public class HealthManager : MonoBehaviour
 {
 
     #region Variables
-    public int currHealth;
-    public int maxHealth;
+    [SerializeField] private int currHealth;
+    [SerializeField] private int maxHealth;
     private float waitToLoad = 1.8f;
     private bool reloading;
     private Animator animator;
@@ -129,6 +129,21 @@ public class HealthManager : MonoBehaviour
             animator.SetBool("isSwimming", false);
             reloading = true;
         }
+    }
+
+    public int getCurrentHealth()
+    {
+        return currHealth;
+    }
+
+    public void setCurrentHealth(int newHealth)
+    {
+        currHealth = newHealth;
+    }
+
+    public int getMaxHealth()
+    {
+        return maxHealth;
     }
 
     #endregion

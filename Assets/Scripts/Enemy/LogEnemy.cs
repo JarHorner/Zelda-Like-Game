@@ -6,7 +6,7 @@ public class LogEnemy : MonoBehaviour
 {
 
     #region Variables
-    public Transform spawnLocation;
+    [SerializeField] private Transform spawnLocation;
     private Animator animator;
     private Transform target;
     private bool isMoving = false;

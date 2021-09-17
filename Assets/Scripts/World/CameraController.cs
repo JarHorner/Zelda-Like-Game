@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform target;
-    public float smoothing;
-    public Vector2 minPosition;
-    public Vector2 maxPosition;
-    public bool maintainWidth = true;
+    private Transform target;
+    [SerializeField] private float smoothing;
+    [SerializeField] private Vector2 minPosition;
+    [SerializeField] private Vector2 maxPosition;
+    private bool maintainWidth = true;
     private float defaultWidth;
 
     // Start is called before the first frame update
@@ -47,5 +47,20 @@ public class CameraController : MonoBehaviour
                 transform.position = Vector3.Lerp(position, targetPosition, smoothing);
             }
         }
+    }
+
+    public void setMinPosition(Vector2 newMinPosition)
+    {
+        minPosition = newMinPosition;
+    }
+
+    public void setMaxPosition(Vector2 newMaxPosition)
+    {
+        maxPosition = newMaxPosition;
+    }
+
+    public void setTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }

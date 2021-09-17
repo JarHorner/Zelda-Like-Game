@@ -6,9 +6,9 @@ public class EnemySpawnController : MonoBehaviour
 {
 
     #region Variables
-    public GameObject enemy;
-    public GameObject enemyPrefab;
-    public GameObject spawnLocation;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject spawnLocation;
     private int? enemyID;
     #endregion
 

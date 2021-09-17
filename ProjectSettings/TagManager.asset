@@ -12,6 +12,8 @@ TagManager:
   - Key
   - Object
   - MovableBlock
+  - DungeonKey
+  - KeyDoor
   layers:
   - Default
   - TransparentFX

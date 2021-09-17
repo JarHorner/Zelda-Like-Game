@@ -6,10 +6,10 @@ public class PlayerSpawnController : MonoBehaviour
 {
 
     #region Variables
-    public GameObject player;
+    [SerializeField] private GameObject player;
     private HealthManager healthManager;
-    public GameObject playerPrefab;
-    public GameObject spawnLocation;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject spawnLocation;
     private CameraController cam;
     #endregion
 
@@ -17,34 +17,33 @@ public class PlayerSpawnController : MonoBehaviour
 
     void Awake()
     {
+        //if player does not exist, instantiates the player and sets up the camera. if he does finds him and attechs camera
         if (GameObject.FindGameObjectWithTag("Player") == null)
         {
             Debug.Log("Spawning Player");
             player = Instantiate(playerPrefab);
             cam = FindObjectOfType<CameraController>();
             player.transform.position = spawnLocation.transform.position;
-            cam.target = player.transform;
         }
         else
         {
             player = GameObject.FindWithTag("Player");
             cam = FindObjectOfType<CameraController>();
-            cam.target = player.transform;
         }
         healthManager = FindObjectOfType<HealthManager>();
         if (healthManager.revive == true) {
             player = GameObject.FindWithTag("Player");
             player.transform.position = spawnLocation.transform.position;
             cam = FindObjectOfType<CameraController>();
-            cam.target = player.transform;
         }
+        cam.setTarget(player.transform);
     }
 
     void Start() {
         //ensures player has full health again after dying
-        if (healthManager.currHealth <= 0) 
+        if (healthManager.getCurrentHealth() <= 0) 
         {
-            healthManager.currHealth = healthManager.maxHealth;
+            healthManager.setCurrentHealth(healthManager.getMaxHealth());
         }
     }
 

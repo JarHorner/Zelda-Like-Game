@@ -21,20 +21,16 @@ public class FlickeringLight : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void FixedUpdate() 
     {
+        //while the light is on, coroutine runs
         if(!isRunning) StartCoroutine(Flicker());
     }
 
     IEnumerator Flicker() 
     {
         isRunning = true;
+        //checks location of player relative to light (only flickers if player can see light)
         float locationDiff = Vector3.Distance(player.transform.position, this.transform.position);
         while (locationDiff < 16)
         {

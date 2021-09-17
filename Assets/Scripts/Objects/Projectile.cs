@@ -6,9 +6,9 @@ public class Projectile : MonoBehaviour
 {
     #region Variables
     private HealthManager healthManager;
-    public int damageDealt = 2;
-    public float speed = 10f;
-    public float lifespan = 3f;
+    [SerializeField] private int damageDealt = 2;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float lifespan = 3f;
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
     private Vector3 playerPosition;

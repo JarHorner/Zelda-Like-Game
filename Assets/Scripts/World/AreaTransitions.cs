@@ -8,9 +8,9 @@ public class AreaTransitions : MonoBehaviour
     #region Variables
     private CameraController cam;
     private GameObject[] enemies;
-    public Vector2 newMinPosition;
-    public Vector2 newMaxPosition;
-    public Vector3 movePlayer;
+    [SerializeField] private Vector2 newMinPosition;
+    [SerializeField] private Vector2 newMaxPosition;
+    [SerializeField] private Vector3 movePlayer;
 
 
     #endregion
@@ -31,8 +31,8 @@ public class AreaTransitions : MonoBehaviour
         if (collider.gameObject.tag == "Player") 
         {
             //changes camera min/max positions to simulate move somewhere new
-            cam.minPosition = newMinPosition;
-            cam.maxPosition = newMaxPosition;
+            cam.setMinPosition(newMinPosition);
+            cam.setMaxPosition(newMaxPosition);
             //moves player into area
             collider.transform.position += movePlayer;
             //resets enemies that are out of place
@@ -44,7 +44,7 @@ public class AreaTransitions : MonoBehaviour
                     Vector3 cords = eHealthMan.getStartingCoordinates();
                     go.transform.position = cords;
                     go.gameObject.SetActive(true);
-                    eHealthMan.currHealth = eHealthMan.maxHealth;
+                    eHealthMan.setCurrentHealth(eHealthMan.getMaxHealth());
                 }
             }
 

@@ -8,22 +8,10 @@ public class MainMenu : MonoBehaviour
 {
 
     #region Variables
-    public Button startButton;
+    [SerializeField] private Button startButton;
     #endregion
 
     #region Unity Methods
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void StartGame() 
     {

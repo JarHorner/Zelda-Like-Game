@@ -7,10 +7,11 @@ public class SceneLoader : MonoBehaviour
 {
 
     #region Variables
-        public Animator transition;
+        [SerializeField] private Animator transition;
         [SerializeField] private int sceneIndex;
         private float transitionTime = 0.9f;
         private PlayerController player;
+        private UIManager uIManager;
         public string exitPoint;
     #endregion
 
@@ -19,6 +20,7 @@ public class SceneLoader : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        uIManager = FindObjectOfType<UIManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) 
@@ -26,10 +28,7 @@ public class SceneLoader : MonoBehaviour
         if (collider.gameObject.tag == "Player") 
         {
             //loads the next level
-            player.startPoint = exitPoint;
-            //finds inactive gameobject
-            //GameObject obj = this.gameObject.transform.Find("CircleWipe").gameObject;
-            //obj.SetActive(true);
+            player.setStartPoint(exitPoint);
             LoadScene();
         }
     }
@@ -45,6 +44,11 @@ public class SceneLoader : MonoBehaviour
         transition.SetTrigger("Start");
         Debug.Log("Loading Level");
 
+        if(levelIndex == 5)
+            //first dungeon number is 0
+            uIManager.changeKeyCount(0);
+        else
+            uIManager.changeKeyCount();
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelIndex);

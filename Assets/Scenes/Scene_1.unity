@@ -43293,11 +43293,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427ffa51e74864f428ab34b98ce07668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6917644370152633475, guid: 6bcfe87c7db3ad3499408c01ce4159d5, type: 3}
   smoothing: 0.1
   minPosition: {x: -3.21, y: 5.35}
   maxPosition: {x: 2.09, y: 9.79}
-  maintainWidth: 1
 --- !u!81 &1341388631
 AudioListener:
   m_ObjectHideFlags: 0

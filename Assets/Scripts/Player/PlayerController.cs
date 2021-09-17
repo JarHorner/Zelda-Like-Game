@@ -14,14 +14,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     public string startPoint;
-    public AudioSource swingSound;
-    public AudioSource movingSound;
+    [SerializeField] private  AudioSource swingSound;
+    [SerializeField] private  AudioSource movingSound;
     private bool isWalking = false;
     [SerializeField] private AudioClip[] swingClips;
     private Vector2 movement;
     private static bool playerExists;
     private Collider2D capsule;
     private UIManager uiManager;
+    private DungeonManager dungeonManager;
 
     #endregion
 
@@ -29,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     void Awake() {
         uiManager = GameObject.FindObjectOfType<UIManager>();
-        Debug.Log($"found {uiManager}");
     }
 
     void Start() {
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy (gameObject);
         }
+        dungeonManager = FindObjectOfType<DungeonManager>();
     }
 
     // Update is called once per frame
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
         if (movement != Vector2.zero)
         {
+            //sets new directions from the movement and sets bool, to play walking sound
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             isWalking = true;
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
+        //plays walking sound, does not if already playing
         if (isWalking)
         {
             if (!movingSound.isPlaying)
@@ -84,7 +87,6 @@ public class PlayerController : MonoBehaviour
             movingSound.Stop();
         }
         
-
         //if attacking stops movement, carries out the animation, then reverts back
         if (isAttacking)
         {
@@ -125,9 +127,25 @@ public class PlayerController : MonoBehaviour
         }
         else if (collider.gameObject.tag == "Key") 
         {
-            uiManager.addKey();
+            uiManager.addKey(dungeonManager.getDungeonName());
             Destroy(collider.gameObject);
         }
+        else if (collider.gameObject.tag == "DungeonKey") 
+        {
+            //actives dungeon 1 (Will need to change)
+            uiManager.activateDungeonKey(0);
+            Destroy(collider.gameObject);
+        }
+    }
+
+    public string getStartPoint()
+    {
+        return startPoint;
+    }
+
+    public void setStartPoint(string newStartPoint)
+    {
+        startPoint = newStartPoint;
     }
     
     #endregion

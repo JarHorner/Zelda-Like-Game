@@ -8,20 +8,19 @@ public class PlayerStats : MonoBehaviour
 {
 
     #region Variables
-    public int playerLevel = 1;
-    public int maxLevel = 10;
-    public TMP_Text menuLevelText;
-    public TMP_Text menuCurrentExpText;
-    public TMP_Text menuExpNextlevelText;
-    public int currentExp = 0;
-    public int[] expToLevelUp;
+    [SerializeField] private int playerLevel = 1;
+    [SerializeField] private int maxLevel = 10;
+    [SerializeField] private TMP_Text menuLevelText;
+    [SerializeField] private TMP_Text menuCurrentExpText;
+    [SerializeField] private TMP_Text menuExpNextlevelText;
+    [SerializeField] private int currentExp = 0;
+    private int[] expToLevelUp;
     private int baseExp = 0;
 
     #endregion
 
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
         //starts coroutine setting up exp values to level
@@ -30,7 +29,6 @@ public class PlayerStats : MonoBehaviour
         StartCoroutine(ExpToLevel());
     }
 
-    // Update is called once per frame
     void Update()
     {
         //if exp is enough to level up, UI changes happen
@@ -53,10 +51,17 @@ public class PlayerStats : MonoBehaviour
     {
         for (int i = 1;i < maxLevel; i++)
         {
+            //algorithm setting up exp to level (can always be changed)
             baseExp = Mathf.RoundToInt((baseExp + 100) * 1.1f);
             expToLevelUp[i] = baseExp;
             yield return expToLevelUp[i];
         }
+    }
+
+    //basic setter, but adds parameter
+    public void setCurrentExp(int addedExp)
+    {
+        currentExp += addedExp;
     }
 
     #endregion

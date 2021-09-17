@@ -7,7 +7,7 @@ public class Water : MonoBehaviour
     #region Variables
 
     private PlayerController player;
-    private Animator animator;
+    private Animator playerAnimator;
 
     #endregion
     
@@ -15,15 +15,16 @@ public class Water : MonoBehaviour
 
     void Start() {
         player = FindObjectOfType<PlayerController>();
-        animator = player.GetComponent<Animator>();
+        playerAnimator = player.GetComponent<Animator>();
     }
+
     //enables swimming in the water
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "Player") 
         {
-            Debug.Log("Swimming Active");
-            animator.SetBool("isSwimming", true);
+            //sets swimming animation and new player speed
+            playerAnimator.SetBool("isSwimming", true);
             player.moveSpeed = 4f;
         }
     

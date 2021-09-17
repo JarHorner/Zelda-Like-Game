@@ -6,9 +6,9 @@ public class Volume2D : MonoBehaviour
 {
     #region Variables
     private Transform listenerTransform;
-    public AudioSource audioSource;
-    public float minDist = 0.5f;
-    public float maxDist = 12f;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private float minDist = 0.5f;
+    [SerializeField] private float maxDist = 12f;
 
     public float maxVolume;
 

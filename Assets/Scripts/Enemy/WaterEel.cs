@@ -5,12 +5,12 @@ using UnityEngine;
 public class WaterEel : MonoBehaviour
 {
     #region Variables
-    public Transform spawnLocation;
+    [SerializeField] private Transform spawnLocation;
     private Animator animator;
     private Transform target;
     private GameObject bullet;
     private Transform projectileSpawnLoc;
-    public GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private AudioSource movementSound;
     [SerializeField] private AudioSource shootingSound;
     private bool hasRisen = false;

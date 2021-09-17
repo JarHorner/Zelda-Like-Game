@@ -6,8 +6,8 @@ public class EnemyHealthManager : MonoBehaviour
 {
 
     #region Variables
-    public int currHealth;
-    public int maxHealth;
+    [SerializeField] private int currHealth;
+    [SerializeField] private int maxHealth;
     private Animator animator;
     private bool flashActive;
     [SerializeField] private float flashLength = 0f;
@@ -23,11 +23,6 @@ public class EnemyHealthManager : MonoBehaviour
     #endregion
 
     #region Unity Methods
-
-    public void AddToList<T>(T t)
-    {
-
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -98,7 +93,7 @@ public class EnemyHealthManager : MonoBehaviour
             if (currHealth <= 0) 
             {
                 soundManager.Play(death);
-                playerStats.currentExp += expValue;
+                playerStats.setCurrentExp(expValue);
                 this.gameObject.SetActive(false);
             }
             //gives variable some time so enemy cant be chain hit
@@ -113,5 +108,14 @@ public class EnemyHealthManager : MonoBehaviour
         return startingCoordinates;
     }
 
+    public int getMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public void setCurrentHealth(int newHealth)
+    {
+        currHealth = newHealth;
+    }
     #endregion
 }

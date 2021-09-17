@@ -5,7 +5,7 @@ using UnityEngine;
 public class PushableBlock : MonoBehaviour
 {
     #region Variables
-    public Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;
     private Animator playerAnim;
     [SerializeField] private AudioSource movingSound;
     private float y;

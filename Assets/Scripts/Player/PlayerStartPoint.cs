@@ -9,8 +9,8 @@ public class PlayerStartPoint : MonoBehaviour
         private PlayerController player;
         private CameraController cam;
         public string pointName; 
-        public Vector2 minPosition;
-        public Vector2 maxPosition;
+        [SerializeField] private Vector2 minPosition;
+        [SerializeField] private Vector2 maxPosition;
     #endregion
 
     #region Unity Methods
@@ -29,16 +29,10 @@ public class PlayerStartPoint : MonoBehaviour
             player.transform.position = transform.position;
 
             cam = FindObjectOfType<CameraController>();
-            cam.target = player.transform;
-            cam.minPosition = minPosition;
-            cam.maxPosition = maxPosition;
+            cam.setTarget(player.transform);
+            cam.setMinPosition(minPosition);
+            cam.setMaxPosition(maxPosition);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     #endregion
