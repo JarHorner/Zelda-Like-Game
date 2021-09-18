@@ -7155,7 +7155,7 @@ Transform:
   - {fileID: 1057626830}
   - {fileID: 1235001947}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &993666604
 GameObject:
@@ -7227,7 +7227,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1057626829
 GameObject:
@@ -11431,7 +11431,6 @@ MonoBehaviour:
   smoothing: 0.1
   minPosition: {x: -30.24, y: 5.59}
   maxPosition: {x: 2.19, y: 9.91}
-  maintainWidth: 1
 --- !u!81 &1341388631
 AudioListener:
   m_ObjectHideFlags: 0
@@ -11467,7 +11466,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -15710,7 +15709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6762088745811239400, guid: 461cebba272650f4fbdfc19dc1e08633, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6762088745811239400, guid: 461cebba272650f4fbdfc19dc1e08633, type: 3}
       propertyPath: m_LocalPosition.x

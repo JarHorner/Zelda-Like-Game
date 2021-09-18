@@ -54,14 +54,17 @@ TagManager:
   - name: Ground
     uniqueID: 4152180407
     locked: 0
-  - name: Object
-    uniqueID: 1236758561
-    locked: 0
   - name: Item
     uniqueID: 202031375
     locked: 0
+  - name: Object
+    uniqueID: 1236758561
+    locked: 0
   - name: Player
     uniqueID: 662271495
+    locked: 0
+  - name: PlayerBehindObject
+    uniqueID: 382560707
     locked: 0
   - name: NPC
     uniqueID: 2674060969

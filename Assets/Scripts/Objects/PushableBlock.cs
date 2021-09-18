@@ -11,7 +11,6 @@ public class PushableBlock : MonoBehaviour
     private float y;
     private float x;
     private float pushingTime = 0.2f;
-    [SerializeField] private bool isPushable = false;
     private bool isOnTheMove = false;
     #endregion
 
@@ -66,22 +65,19 @@ public class PushableBlock : MonoBehaviour
             //sets players pushing animation
             playerAnim.SetBool("isPushing", true);
 
-            if (isPushable)
+            pushingTime -= Time.deltaTime;
+            //when the player has been pushing a certain amt of time, the block will move based on the direction the play is facing
+            if (pushingTime <= 0)
             {
-                pushingTime -= Time.deltaTime;
-                //when the player has been pushing a certain amt of time, the block will move based on the direction the play is facing
-                if (pushingTime <= 0)
+                //changes the constraints to only allow certain movement ex. if pushing right, wont ever slide upo or down.
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                if (y > rb.transform.position.y || y < rb.transform.position.y)
                 {
-                    //changes the constraints to only allow certain movement ex. if pushing right, wont ever slide upo or down.
-                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                    if (y > rb.transform.position.y || y < rb.transform.position.y)
-                    {
-                        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-                    } 
-                    else if (x > rb.transform.position.x || x < rb.transform.position.x)
-                    {
-                        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-                    }
+                    rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+                } 
+                else if (x > rb.transform.position.x || x < rb.transform.position.x)
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 }
             }
         }

@@ -6,7 +6,7 @@ public class Switch_Key_Appear : MonoBehaviour
 {
     #region Variables
     private bool usedSwitch = false;
-    [SerializeField] string keyName;
+    [SerializeField] GameObject key;
     [SerializeField] AudioSource pressDown;
 
     #endregion
@@ -17,14 +17,11 @@ public class Switch_Key_Appear : MonoBehaviour
         {
             pressDown.Play();
             //finds key, then enables the sprite renderer so it can be picked up
-            if (GameObject.Find(keyName))
-            {
-                GameObject key = GameObject.Find(keyName);
-                key.GetComponent<CapsuleCollider2D>().enabled = true;
-                key.GetComponent<SpriteRenderer>().enabled = true;
-                //turns trigger on switch off
-                usedSwitch = true;
-            }
+            Debug.Log("Found");
+            key.GetComponent<CapsuleCollider2D>().enabled = true;
+            key.GetComponent<SpriteRenderer>().enabled = true;
+            //turns trigger on switch off
+            usedSwitch = true;
         }
     }
 
