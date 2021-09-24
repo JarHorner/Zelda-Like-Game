@@ -15,17 +15,12 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame() 
     {
-        SceneManager.LoadScene("Cutscene");
+        SceneManager.LoadScene("Scene_1");
     }
 
     public void ExitGame() 
     {
         Application.Quit();
-    }
-
-    public void CreditMenu() 
-    {
-        
     }
 
     #endregion

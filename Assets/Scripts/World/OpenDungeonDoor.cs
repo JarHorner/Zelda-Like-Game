@@ -20,7 +20,7 @@ public class OpenDungeonDoor : MonoBehaviour
         uiManager = GameObject.FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
         //if dungeon has been opened, it stays opened
-        if (uiManager.isDungeon1Opened()) {
+        if (Dungeon1Manager.isDungeon1Opened()) {
             statueAnimator.SetBool("Opened", true);
             entranceAnimator.SetBool("Opened", true);
             statueAnimator.Play("Base Layer.Sink_Idle", 0, 1f);
@@ -29,7 +29,7 @@ public class OpenDungeonDoor : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider) {
         //if player has key, start coroutine of dungeon-opening animation
-        if (collider.gameObject.tag == "Player" && uiManager.isDungeonKeyActive("Dungeon0")) 
+        if (collider.gameObject.tag == "Player" && uiManager.isDungeonKeyActive("Dungeon0Key")) 
         {
             StartCoroutine(OpenDungeon());
         }
@@ -38,7 +38,7 @@ public class OpenDungeonDoor : MonoBehaviour
         //pauses game mamager while animations play (so player cannot move)
         gameManager.Pause(false);
         //sets flag so dungeon stays open
-        uiManager.OpenDungeon1();
+        Dungeon1Manager.OpenDungeon1();
         //starts the process of animations
         statueAnimator.SetBool("hasKey", true);
         entranceAnimator.SetBool("hasKey", true);

@@ -18,7 +18,6 @@ public class PlayerStartPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Placing Player & Camera");
         //places player and camera according to the start point
         player = FindObjectOfType<PlayerController>();
         
@@ -26,6 +25,7 @@ public class PlayerStartPoint : MonoBehaviour
         
         if(player.startPoint == pointName)
         {
+            Debug.Log("Placing Player & Camera");
             player.transform.position = transform.position;
 
             cam = FindObjectOfType<CameraController>();

@@ -59867,7 +59867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3726765480781481267, guid: 9278fc40222de9f45974a43f2f754ce1, type: 3}
       propertyPath: m_Name
-      value: Dungeon_1_Entrance_Key
+      value: Dungeon0Key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9278fc40222de9f45974a43f2f754ce1, type: 3}

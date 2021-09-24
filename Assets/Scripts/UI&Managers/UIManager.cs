@@ -8,15 +8,13 @@ public class UIManager : MonoBehaviour
 {
 
     #region Variables
-        //variable ensures when changing scenes dungeon 1 is still open
-        private bool dungeon1Opened = false;
-        [SerializeField] Image dungeon1Key;
+        [SerializeField] Image dungeon0Key;
         private HealthManager healthManager;
         [SerializeField] private Slider healthBar;
         [SerializeField] private TMP_Text hpText;
         [SerializeField] private TMP_Text keyCount;
-        private List<MutableKeyValPair<string, int>> keys = new List<MutableKeyValPair<string, int>>();
-        private List<MutableKeyValPair<string, bool>> dungeonKeys = new List<MutableKeyValPair<string, bool>>();
+        private List<MutableKeyValPair<string, int>> dungeonkeys = new List<MutableKeyValPair<string, int>>();
+        private List<MutableKeyValPair<string, bool>> dungeonEntranceKeys = new List<MutableKeyValPair<string, bool>>();
         [SerializeField] private GameObject pauseScreen;
         [SerializeField] private GameObject inventoryScreen;
     #endregion
@@ -28,12 +26,12 @@ public class UIManager : MonoBehaviour
         //creates a keyvaluepair list to store amount of keys for each dungeon
         for (int i = 0; i < 8; i++)
         {
-            keys.Add(new MutableKeyValPair<string, int>("Dungeon" + i, 0));
+            dungeonkeys.Add(new MutableKeyValPair<string, int>("Dungeon" + i, 0));
         }
         //creates a keyvaluepair list to store the keys to open each dungeon
         for (int i = 0; i < 8; i++)
         {
-            dungeonKeys.Add(new MutableKeyValPair<string, bool>("Dungeon" + i, false));
+            dungeonEntranceKeys.Add(new MutableKeyValPair<string, bool>($"Dungeon{i}Key", false));
         }
     }
 
@@ -41,7 +39,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         healthManager = FindObjectOfType<HealthManager>();
-        Debug.Log("Called!");
+        keyCount.text = "-";
     }
 
     // Update is called once per frame
@@ -61,7 +59,7 @@ public class UIManager : MonoBehaviour
         }
         else 
         {
-            foreach(var item in keys)
+            foreach(var item in dungeonkeys)
             {
                 if (item.key.Contains(dungeonNum.ToString()))
                 {
@@ -75,7 +73,7 @@ public class UIManager : MonoBehaviour
     //gets the key count of a certain dungeon
     public int getKeyCount(string dungeonName)
     {
-        foreach (var item in keys)
+        foreach (var item in dungeonkeys)
         {
             if (item.key == dungeonName)
             {
@@ -87,7 +85,7 @@ public class UIManager : MonoBehaviour
 
     public void addKey(string dungeonName) 
     {
-        foreach (var item in keys)
+        foreach (var item in dungeonkeys)
         {
             if (item.key == dungeonName)
             {
@@ -98,7 +96,7 @@ public class UIManager : MonoBehaviour
     }
     public void removeKey(string dungeonName)
     {
-        foreach (var item in keys)
+        foreach (var item in dungeonkeys)
         {
             if (item.key == dungeonName)
             {
@@ -107,17 +105,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
-    public void OpenDungeon1()
-    {
-        dungeon1Opened = true;
-    }
-
-    public bool isDungeon1Opened()
-    {
-        return dungeon1Opened;
-    }
-
     public GameObject getPauseScreen()
     {
         return pauseScreen;
@@ -128,17 +115,23 @@ public class UIManager : MonoBehaviour
         return inventoryScreen;
     }
 
-    public void activateDungeonKey(int dungeonNum)
+    public void activateDungeonKey(string dungeonKeyName)
     {
-        dungeonKeys[dungeonNum].value = true;
-        dungeon1Key.gameObject.SetActive(true);
+        foreach (var item in dungeonEntranceKeys)
+        {
+            if (item.key == dungeonKeyName)
+            {
+                item.value = true;
+                dungeon0Key.gameObject.SetActive(true);
+            }
+        }
     }
 
-    public bool isDungeonKeyActive(string dungeonName)
+    public bool isDungeonKeyActive(string dungeonKeyName)
     {
-        foreach (var key in dungeonKeys)
+        foreach (var key in dungeonEntranceKeys)
         {
-            if (key.key == dungeonName && key.value == true)
+            if (key.key == dungeonKeyName && key.value == true)
             {
                 return true;
             }

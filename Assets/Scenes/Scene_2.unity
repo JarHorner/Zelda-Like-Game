@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427ffa51e74864f428ab34b98ce07668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   smoothing: 0.1
   minPosition: {x: 4.17, y: -3.2}
   maxPosition: {x: 6.31, y: 7.15}
@@ -7813,6 +7814,10 @@ PrefabInstance:
       propertyPath: sceneIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3311636641783883925, guid: c7b9398203516494f9dfdd13459b8faf, type: 3}
+      propertyPath: transitionObject
+      value: 
+      objectReference: {fileID: 1480591671}
     - target: {fileID: 4577477105143089723, guid: c7b9398203516494f9dfdd13459b8faf, type: 3}
       propertyPath: m_Controller
       value: 
@@ -7935,6 +7940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b9398203516494f9dfdd13459b8faf, type: 3}
+--- !u!1 &1480591671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8401582145801074, guid: c7b9398203516494f9dfdd13459b8faf, type: 3}
+  m_PrefabInstance: {fileID: 1480591670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1626631992
 PrefabInstance:
   m_ObjectHideFlags: 0

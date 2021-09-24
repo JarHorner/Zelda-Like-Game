@@ -32,6 +32,7 @@ public class SoundManager : MonoBehaviour
         AudioSource source = newSound.GetComponent<AudioSource>();
         source.clip = clip;
         source.priority = 0;
+        source.volume = 0.2f;
         source.Play();
         Destroy(newSound, 1f);
     }

@@ -14,7 +14,7 @@ public class WaterEel : MonoBehaviour
     [SerializeField] private AudioSource movementSound;
     [SerializeField] private AudioSource shootingSound;
     private bool hasRisen = false;
-    private float timeToAttack = 2.15f;
+    private float timeToAttack = 1.8f;
     [SerializeField] private float maxRange = 0f;
     [SerializeField] private float minRange = 0f;
 
@@ -47,7 +47,7 @@ public class WaterEel : MonoBehaviour
                 }
                 if (timeToAttack <= 0) {
                     shoot();
-                    timeToAttack = 2.15f;
+                    timeToAttack = 1.8f;
                 }
                 timeToAttack -= Time.deltaTime;
             }
@@ -59,7 +59,7 @@ public class WaterEel : MonoBehaviour
                     movementSound.Play();
                     hasRisen = false;
                 }
-                timeToAttack = 2.15f;
+                timeToAttack = 1.8f;
             }
         }
     }

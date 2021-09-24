@@ -25,6 +25,8 @@ public class Water : MonoBehaviour
         {
             //sets swimming animation and new player speed
             playerAnimator.SetBool("isSwimming", true);
+            player.setPlayerSwimming(true);
+            player.setPlayerWalking(false);
             player.moveSpeed = 4f;
         }
     

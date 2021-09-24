@@ -35,6 +35,9 @@ public class HealthManager : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         playerSprite = this.gameObject.GetComponent<SpriteRenderer>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        //used when save button is working
+        if (PlayerPrefs.GetInt("PlayerCurrHp") != 0)
+            currHealth = PlayerPrefs.GetInt("PlayerCurrHp");
     }
 
     // Update is called once per frame

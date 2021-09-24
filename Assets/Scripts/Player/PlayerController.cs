@@ -11,18 +11,19 @@ public class PlayerController : MonoBehaviour
     private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
     private bool isAttacking = false;
+    private bool isWalking = false;
+    private bool isSwimming = false;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     public string startPoint;
     [SerializeField] private  AudioSource swingSound;
-    [SerializeField] private  AudioSource movingSound;
-    private bool isWalking = false;
+    [SerializeField] private  AudioSource walkingSound;
+    [SerializeField] private  AudioSource swimmingSound;
     [SerializeField] private AudioClip[] swingClips;
     private Vector2 movement;
     private static bool playerExists;
     private Collider2D capsule;
     private UIManager uiManager;
-    private DungeonManager dungeonManager;
 
     #endregion
 
@@ -44,7 +45,6 @@ public class PlayerController : MonoBehaviour
         {
             Destroy (gameObject);
         }
-        dungeonManager = FindObjectOfType<DungeonManager>();
     }
 
     // Update is called once per frame
@@ -74,17 +74,29 @@ public class PlayerController : MonoBehaviour
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        //plays walking sound, does not if already playing
-        if (isWalking)
+        if (isSwimming && isWalking)
         {
-            if (!movingSound.isPlaying)
+            if (!swimmingSound.isPlaying)
             {
-                movingSound.Play();
+                swimmingSound.Play();
             }
         }
         else
         {
-            movingSound.Stop();
+            swimmingSound.Stop();
+        }
+
+        //plays walking sound, does not if already playing
+        if (isWalking)
+        {
+            if (!walkingSound.isPlaying)
+            {
+                walkingSound.Play();
+            }
+        }
+        else
+        {
+            walkingSound.Stop();
         }
         
         //if attacking stops movement, carries out the animation, then reverts back
@@ -123,17 +135,20 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.tag == "OutOfWater")
         {
             animator.SetBool("isSwimming", false);
+            if (isSwimming)
+                isSwimming = false;
             moveSpeed = 5f;
         }
         else if (collider.gameObject.tag == "Key") 
         {
-            uiManager.addKey(dungeonManager.getDungeonName());
+            //will need to change with more dungeons
+            uiManager.addKey(Dungeon1Manager.getDungeonName());
             Destroy(collider.gameObject);
         }
         else if (collider.gameObject.tag == "DungeonKey") 
         {
-            //actives dungeon 1 (Will need to change)
-            uiManager.activateDungeonKey(0);
+            Debug.Log(collider.name);
+            uiManager.activateDungeonKey(collider.name);
             Destroy(collider.gameObject);
         }
     }
@@ -147,6 +162,13 @@ public class PlayerController : MonoBehaviour
     {
         startPoint = newStartPoint;
     }
-    
+    public void setPlayerWalking(bool status)
+    {
+        isWalking = status;
+    }
+    public void setPlayerSwimming(bool status)
+    {
+        isSwimming = status;
+    }
     #endregion
 }

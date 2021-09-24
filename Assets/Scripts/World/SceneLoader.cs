@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
     #region Variables
         [SerializeField] private Animator transition;
         [SerializeField] private int sceneIndex;
-        private float transitionTime = 0.9f;
+        private float transitionTime = 1f;
         private PlayerController player;
         private UIManager uIManager;
         public string exitPoint;
@@ -43,7 +43,7 @@ public class SceneLoader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         Debug.Log("Loading Level");
-
+        //scene index of first level
         if(levelIndex == 5)
             //first dungeon number is 0
             uIManager.changeKeyCount(0);

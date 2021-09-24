@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5200721618323926544}
   - component: {fileID: 5200721618323926551}
-  - component: {fileID: 5200721618323926546}
   - component: {fileID: 5200721618323926545}
   - component: {fileID: 5200721618323926547}
   - component: {fileID: 6396060363984897159}
+  - component: {fileID: 2095581838808296971}
   m_Layer: 0
   m_Name: Pushable_Block
   m_TagString: MovableBlock
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1236758561
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e8e8d1feb45df8a4d81f06a10fc62040, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,35 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &5200721618323926546
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5200721618323926550}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.4375, y: -0.5}
-      - {x: -0.4375, y: 0.5}
-      - {x: 0.5625, y: 0.5}
-      - {x: 0.5625, y: -0.5}
 --- !u!50 &5200721618323926545
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +103,7 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
@@ -148,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2061571b75189439f876f44e79a9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5200721618323926545}
   movingSound: {fileID: 6396060363984897159}
 --- !u!82 &6396060363984897159
 AudioSource:
@@ -246,3 +216,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &2095581838808296971
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200721618323926550}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.97, y: 0.97}
+  m_EdgeRadius: 0
