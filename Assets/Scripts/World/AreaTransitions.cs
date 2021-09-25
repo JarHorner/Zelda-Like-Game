@@ -6,6 +6,8 @@ public class AreaTransitions : MonoBehaviour
 {
 
     #region Variables
+    //used to keep track of the players last location
+    [SerializeField] private static Vector2 lastPlayerLocation;
     private CameraController cam;
     private GameObject[] enemies;
     [SerializeField] private Vector2 newMinPosition;
@@ -35,6 +37,7 @@ public class AreaTransitions : MonoBehaviour
             cam.setMaxPosition(newMaxPosition);
             //moves player into area
             collider.transform.position += movePlayer;
+            lastPlayerLocation = collider.transform.position;
             //resets enemies that are out of place
             if (enemies != null)
             {
@@ -49,6 +52,11 @@ public class AreaTransitions : MonoBehaviour
             }
 
         }
+    }
+
+    public Vector2 LastPlayerLocation
+    {
+        get { return lastPlayerLocation; }
     }
 
     #endregion

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
     private bool isAttacking = false;
-    private bool isWalking = false;
+    private bool isMoving = false;
     private bool isSwimming = false;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private static bool playerExists;
     private Collider2D capsule;
     private UIManager uiManager;
+    private bool doubleUpAttack;
 
     #endregion
 
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         uiManager = GameObject.FindObjectOfType<UIManager>();
     }
 
+    //Singleton affect code
     void Start() {
         if (!playerExists)
         {
@@ -47,7 +49,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         //enables collider after being disable while loading new scene
@@ -66,15 +67,16 @@ public class PlayerController : MonoBehaviour
             //sets new directions from the movement and sets bool, to play walking sound
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
-            isWalking = true;
+            isMoving = true;
         } 
         else
         {
-            isWalking = false;
+            isMoving = false;
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if (isSwimming && isWalking)
+        //plays swimming sound if in water and moving, does not if already playing
+        if (isSwimming && isMoving)
         {
             if (!swimmingSound.isPlaying)
             {
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //plays walking sound, does not if already playing
-        if (isWalking)
+        if (isMoving)
         {
             if (!walkingSound.isPlaying)
             {
@@ -98,8 +100,27 @@ public class PlayerController : MonoBehaviour
         {
             walkingSound.Stop();
         }
+
+        //if not currently attacking, starts the animation, but it attack has been pressed again, another attack
+        //animation is qued up. Creating smooth attack if attack is spammed.
+        if (!isAttacking)
+        {
+            if (Input.GetKeyDown(KeyCode.R) || doubleUpAttack)
+            {
+                isAttacking = true;
+                doubleUpAttack = false;
+                attackCounter = attackTime;
+                animator.SetBool("isAttacking", true);
+                swingSound.clip = swingClips[Random.Range(0, swingClips.Length)];
+                swingSound.Play();
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            doubleUpAttack = true;
+        }
         
-        //if attacking stops movement, carries out the animation, then reverts back
+        //attacking stops movement, carries out the animation, then reverts back
         if (isAttacking)
         {
             movement = Vector2.zero;
@@ -109,16 +130,6 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("isAttacking", false);
                 isAttacking = false;
             }
-        }
-
-        //attack animation is started when pressing R key
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            attackCounter = attackTime;
-            animator.SetBool("isAttacking", true);
-            swingSound.clip = swingClips[Random.Range(0, swingClips.Length)];
-            swingSound.Play();
-            isAttacking = true;
         }
     }
 
@@ -153,22 +164,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public string getStartPoint()
+    public Vector2 Movement
     {
-        return startPoint;
+        set { movement = value; }
     }
-
-    public void setStartPoint(string newStartPoint)
+    public string StartPoint
     {
-        startPoint = newStartPoint;
+        get { return startPoint; }
+        set { startPoint = value; }
     }
-    public void setPlayerWalking(bool status)
+    public bool PlayerMoving
     {
-        isWalking = status;
+        set { isMoving = value; }
     }
-    public void setPlayerSwimming(bool status)
+    public bool PlayerSwimming
     {
-        isSwimming = status;
+        set { isSwimming = value; }
     }
     #endregion
 }

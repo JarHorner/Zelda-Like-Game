@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5074703350734892903}
   - component: {fileID: 3779465761586973117}
   - component: {fileID: 7223219172735220171}
+  - component: {fileID: -3858118316570107433}
   m_Layer: 0
   m_Name: Falling_Floor
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -142786889
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 828233605474524578, guid: a1f5fd2ed6cc19544940c649983321ff, type: 3}
+  m_Sprite: {fileID: 828233605474524578, guid: c09c78258bb215841b21b7d60348cc06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.3, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &3779465761586973117
 MonoBehaviour:
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc3fb738c5a68847a659505daa1a74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 7223219172735220171}
 --- !u!95 &7223219172735220171
 Animator:
   serializedVersion: 3
@@ -142,3 +144,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3858118316570107433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518711215615468125}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4cc5353e4870546822a5476f6ae07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

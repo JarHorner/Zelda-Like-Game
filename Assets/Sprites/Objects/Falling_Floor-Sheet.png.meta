@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a1f5fd2ed6cc19544940c649983321ff
+guid: c09c78258bb215841b21b7d60348cc06
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -32,6 +32,9 @@ TextureImporter:
   - first:
       213: 5983251411262282745
     second: Falling_Floor-Sheet_9
+  - first:
+      213: -2238867509765551124
+    second: Falling_Floor-Sheet_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -330,10 +333,31 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Falling_Floor-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cebc245acd1fde0e0800000000000000
+      internalID: -2238867509765551124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1e7943024fc000d4a8f5c10ac6c2b110
+    spriteID: 622d7976a3d1ac84fbafc9762913f30c
     internalID: 0
     vertices: []
     indices: 

@@ -28,7 +28,7 @@ public class SceneLoader : MonoBehaviour
         if (collider.gameObject.tag == "Player") 
         {
             //loads the next level
-            player.setStartPoint(exitPoint);
+            player.StartPoint = exitPoint;
             LoadScene();
         }
     }

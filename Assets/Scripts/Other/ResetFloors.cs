@@ -17,6 +17,7 @@ public class ResetFloors : MonoBehaviour
         for (int i = 0; i < go.transform.childCount; i++)
         {
             resetableObjects.Add(go.transform.GetChild(i).GetComponent<FallingFloor>());
+            Debug.Log(resetableObjects[i].ToString());
         }
     }
 
@@ -26,7 +27,13 @@ public class ResetFloors : MonoBehaviour
         {
             foreach (FallingFloor floor in resetableObjects)
             {
-                floor.gameObject.SetActive(true);
+                floor.GetComponent<Pitfall>().enabled = false;
+                floor.GetComponent<Animator>().SetBool("SteppedOn", false);
+                // if (!floor.gameObject.activeSelf)
+                // {
+                //     Debug.Log("not active");
+                //     floor.gameObject.SetActive(true);
+                // }
             }
             Debug.Log("Room Reset!");
         }

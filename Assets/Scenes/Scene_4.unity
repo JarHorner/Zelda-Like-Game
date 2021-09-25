@@ -46901,7 +46901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6909730345375804043, guid: 3ee2b5782665ed8408bf4b3e21921645, type: 3}
       propertyPath: movePlayer.x
-      value: 9.4
+      value: 9.45
       objectReference: {fileID: 0}
     - target: {fileID: 6909730345375804043, guid: 3ee2b5782665ed8408bf4b3e21921645, type: 3}
       propertyPath: newMaxPosition.x
@@ -46921,7 +46921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7719065220846767820, guid: 3ee2b5782665ed8408bf4b3e21921645, type: 3}
       propertyPath: movePlayer.x
-      value: -9.4
+      value: -9.45
       objectReference: {fileID: 0}
     - target: {fileID: 7719065220846767820, guid: 3ee2b5782665ed8408bf4b3e21921645, type: 3}
       propertyPath: newMaxPosition.x
@@ -72020,8 +72020,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1168731720}
-  - {fileID: 566791071}
   - {fileID: 1173044276}
+  - {fileID: 566791071}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
