@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -142786889
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ff9df6771d5f96b4a9d29e433181514c, type: 3}
+  m_Sprite: {fileID: 7203449881745831660, guid: 3510d7db8f43ed94f962de774d429f3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e617a8cdb23a74a92f43149a4c251a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTimer: {fileID: 0}
+  doorAnimator: {fileID: 0}
   pressDown: {fileID: 9085950561113690426}
   doorAudioSource: {fileID: 0}
   doorOpen: {fileID: 0}
@@ -360,12 +360,12 @@ SpriteRenderer:
   m_SortingLayerID: 1236758561
   m_SortingLayer: 3
   m_SortingOrder: 4
-  m_Sprite: {fileID: -873334394555549460, guid: fbd5450ba1269ad49a00aade5abcee82, type: 3}
+  m_Sprite: {fileID: -5998774516921030229, guid: 3510d7db8f43ed94f962de774d429f3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2.0625}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -388,8 +388,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2.0625}
-    newSize: {x: 2, y: 2.0625}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -414,8 +414,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2.0625}
-    newSize: {x: 2, y: 2.0625}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
