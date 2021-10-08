@@ -6,11 +6,14 @@ public class SwitchTimedDoor : MonoBehaviour
 {
     #region variables
     private GameManager gameManager;
+    private bool usedSwitch = false;
+    private bool isRunning = false;
     [SerializeField] private Animator doorAnimator;
     [SerializeField] private AudioSource pressDown;
     [SerializeField] private AudioSource doorAudioSource;
     [SerializeField] private AudioClip doorOpen;
     [SerializeField] private AudioClip doorClose;
+    private IEnumerator coroutine;
 
     #endregion
 
@@ -23,15 +26,18 @@ public class SwitchTimedDoor : MonoBehaviour
     
     //if door will open when player walks over switch
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Player")
+        if (other.tag == "Player" & !usedSwitch)
         {
             pressDown.Play();
-            StartCoroutine(OpenDoor());
+            usedSwitch = true;
+            coroutine = OpenDoor();
+            StartCoroutine(coroutine);
         }
     }
 
     IEnumerator OpenDoor() {
         //pauses game while animations play (so player cannot move)
+        isRunning = true;
         doorAudioSource.clip = doorOpen;
         doorAudioSource.Play();
         gameManager.Pause(false);
@@ -39,6 +45,7 @@ public class SwitchTimedDoor : MonoBehaviour
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();
         yield return new WaitForSeconds(15f);
+        isRunning = false;
         StartCoroutine(CloseDoor());
     }
 
@@ -48,8 +55,21 @@ public class SwitchTimedDoor : MonoBehaviour
         doorAudioSource.Play();
         gameManager.Pause(false);
         doorAnimator.SetBool("Open", false);
+        usedSwitch = false;
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();
+    }
+
+    public void resetDoor()
+    {
+        StopCoroutine(coroutine);
+        doorAnimator.SetBool("Open", false);
+        usedSwitch = false;
+    }
+
+    public bool IsRunning
+    {
+        get { return isRunning; }
     }
     #endregion
 }

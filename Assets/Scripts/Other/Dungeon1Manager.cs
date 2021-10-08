@@ -9,6 +9,7 @@ public static class Dungeon1Manager
     private static bool isOpened = false;
     private static string dungeonName = "Dungeon0";
     private static List<MutableKeyValPair<int, bool>> keyDoors = new List<MutableKeyValPair<int, bool>>();
+    private static List<MutableKeyValPair<int, bool>> chests = new List<MutableKeyValPair<int, bool>>();
     #endregion
 
     #region Unity Methods
@@ -27,6 +28,26 @@ public static class Dungeon1Manager
         foreach (var item in keyDoors)
         {
             if (item.key == doorNum)
+            {
+                Debug.Log(item.value);
+                return item.value;
+            }
+        }
+        return false;
+    }
+
+    //adds a new chest to stay opened to list, used in OpenChest Update function when player unlocks door
+    public static void addChestStayOpen(int chestNum)
+    {
+        keyDoors.Add(new MutableKeyValPair<int, bool>(chestNum, true));
+    }
+
+    //checks to see if chestNum is in list, if not, chest will not be opened when scene loads
+    public static bool getChestStayOpen(int chestNum)
+    {
+        foreach (var item in keyDoors)
+        {
+            if (item.key == chestNum)
             {
                 Debug.Log(item.value);
                 return item.value;
