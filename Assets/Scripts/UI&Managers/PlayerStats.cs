@@ -59,7 +59,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     //basic setter, but adds parameter
-    public void setCurrentExp(int addedExp)
+    public void SetCurrentExp(int addedExp)
     {
         currentExp += addedExp;
     }

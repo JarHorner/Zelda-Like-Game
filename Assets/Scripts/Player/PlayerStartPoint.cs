@@ -29,9 +29,9 @@ public class PlayerStartPoint : MonoBehaviour
             player.transform.position = transform.position;
 
             cam = FindObjectOfType<CameraController>();
-            cam.setTarget(player.transform);
-            cam.setMinPosition(minPosition);
-            cam.setMaxPosition(maxPosition);
+            cam.SetTarget(player.transform);
+            cam.SetMinPosition(minPosition);
+            cam.SetMaxPosition(maxPosition);
         }
     }
 

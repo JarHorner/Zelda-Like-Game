@@ -46,9 +46,9 @@ public class SceneLoader : MonoBehaviour
         //scene index of first level
         if(levelIndex == 5)
             //first dungeon number is 0
-            uIManager.changeKeyCount(0);
+            uIManager.ChangeKeyCount(0);
         else
-            uIManager.changeKeyCount();
+            uIManager.ChangeKeyCount();
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelIndex);

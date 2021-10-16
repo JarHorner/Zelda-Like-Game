@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
         [SerializeField] private Slider healthBar;
         [SerializeField] private TMP_Text hpText;
         [SerializeField] private TMP_Text keyCount;
+        [SerializeField] private TMP_Text moneyCount;
         private List<MutableKeyValPair<string, int>> dungeonkeys = new List<MutableKeyValPair<string, int>>();
         private List<MutableKeyValPair<string, bool>> dungeonEntranceKeys = new List<MutableKeyValPair<string, bool>>();
         [SerializeField] private GameObject pauseScreen;
@@ -45,13 +46,14 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthBar.maxValue = healthManager.getMaxHealth();
-        healthBar.value = healthManager.getCurrentHealth();
+        healthBar.maxValue = healthManager.GetMaxHealth();
+        healthBar.value = healthManager.GetCurrentHealth();
         //changes text of HP bar depending on previous calculations
-        hpText.text = $"HP: {healthManager.getCurrentHealth()}/{healthManager.getMaxHealth()}";
+        hpText.text = $"HP: {healthManager.GetCurrentHealth()}/{healthManager.GetMaxHealth()}";
     }
 
-    public void changeKeyCount(int? dungeonNum = null)
+    //changes key count to the amt of keys you have in a specific dungeon
+    public void ChangeKeyCount(int? dungeonNum = null)
     {
         if (dungeonNum == null) 
         {
@@ -71,7 +73,7 @@ public class UIManager : MonoBehaviour
     }
 
     //gets the key count of a certain dungeon
-    public int getKeyCount(string dungeonName)
+    public int GetKeyCount(string dungeonName)
     {
         foreach (var item in dungeonkeys)
         {
@@ -83,7 +85,8 @@ public class UIManager : MonoBehaviour
         return -1;
     }
 
-    public void addKey(string dungeonName) 
+    //adds key to certain dungeon
+    public void AddKey(string dungeonName) 
     {
         foreach (var item in dungeonkeys)
         {
@@ -94,7 +97,9 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-    public void removeKey(string dungeonName)
+
+    //removes key from certain dungeon
+    public void RemoveKey(string dungeonName)
     {
         foreach (var item in dungeonkeys)
         {
@@ -105,17 +110,42 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-    public GameObject getPauseScreen()
+
+    //gets the current amount of money
+    public string GetMoneyCount()
+    {
+        return moneyCount.ToString();
+    }
+
+    //adds money to total
+    public void AddMoney(int amt) 
+    {
+        string count = moneyCount.text;
+        Debug.Log(count);
+        int total = int.Parse(moneyCount.text) + amt;
+        Debug.Log(total.ToString());
+        moneyCount.text = total.ToString();
+    }
+
+    //remove money to total
+    public void RemoveMoney(int amt)
+    {
+        string count = moneyCount.text;
+        int total = int.Parse(moneyCount.text) - amt;
+        moneyCount.text = total.ToString();
+    }
+
+    public GameObject GetPauseScreen()
     {
         return pauseScreen;
     }
 
-    public GameObject getInventoryScreen()
+    public GameObject GetInventoryScreen()
     {
         return inventoryScreen;
     }
 
-    public void activateDungeonKey(string dungeonKeyName)
+    public void ActivateDungeonKey(string dungeonKeyName)
     {
         foreach (var item in dungeonEntranceKeys)
         {
@@ -127,7 +157,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public bool isDungeonKeyActive(string dungeonKeyName)
+    public bool IsDungeonKeyActive(string dungeonKeyName)
     {
         foreach (var key in dungeonEntranceKeys)
         {

@@ -17,7 +17,6 @@ public class ResetFloors : MonoBehaviour
         for (int i = 0; i < go.transform.childCount; i++)
         {
             resetableObjects.Add(go.transform.GetChild(i).GetComponent<FallingFloor>());
-            Debug.Log(resetableObjects[i].ToString());
         }
     }
 

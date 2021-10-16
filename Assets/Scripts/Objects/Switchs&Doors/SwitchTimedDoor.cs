@@ -60,7 +60,7 @@ public class SwitchTimedDoor : MonoBehaviour
         gameManager.UnPause();
     }
 
-    public void resetDoor()
+    public void ResetDoor()
     {
         StopCoroutine(coroutine);
         doorAnimator.SetBool("Open", false);

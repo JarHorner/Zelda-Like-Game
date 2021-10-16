@@ -33,8 +33,8 @@ public class AreaTransitions : MonoBehaviour
         if (collider.gameObject.tag == "Player") 
         {
             //changes camera min/max positions to simulate move somewhere new
-            cam.setMinPosition(newMinPosition);
-            cam.setMaxPosition(newMaxPosition);
+            cam.SetMinPosition(newMinPosition);
+            cam.SetMaxPosition(newMaxPosition);
             //moves player into area
             collider.transform.position += movePlayer;
             lastPlayerLocation = collider.transform.position;

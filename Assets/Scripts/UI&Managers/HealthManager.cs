@@ -134,17 +134,17 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public int getCurrentHealth()
+    public int GetCurrentHealth()
     {
         return currHealth;
     }
 
-    public void setCurrentHealth(int newHealth)
+    public void SetCurrentHealth(int newHealth)
     {
         currHealth = newHealth;
     }
 
-    public int getMaxHealth()
+    public int GetMaxHealth()
     {
         return maxHealth;
     }

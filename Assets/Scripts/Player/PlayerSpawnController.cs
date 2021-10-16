@@ -36,14 +36,14 @@ public class PlayerSpawnController : MonoBehaviour
             player.transform.position = spawnLocation.transform.position;
             cam = FindObjectOfType<CameraController>();
         }
-        cam.setTarget(player.transform);
+        cam.SetTarget(player.transform);
     }
 
     void Start() {
         //ensures player has full health again after dying
-        if (healthManager.getCurrentHealth() <= 0) 
+        if (healthManager.GetCurrentHealth() <= 0) 
         {
-            healthManager.setCurrentHealth(healthManager.getMaxHealth());
+            healthManager.SetCurrentHealth(healthManager.GetMaxHealth());
         }
     }
 

@@ -14,7 +14,7 @@ public class ResetTimedDoor : MonoBehaviour
     {
         if (collider.tag == "Player" && TimedDoor.IsRunning == true)
         {
-            TimedDoor.resetDoor();
+            TimedDoor.ResetDoor();
         }
     }
     #endregion

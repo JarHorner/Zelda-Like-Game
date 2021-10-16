@@ -49,17 +49,17 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void setMinPosition(Vector2 newMinPosition)
+    public void SetMinPosition(Vector2 newMinPosition)
     {
         minPosition = newMinPosition;
     }
 
-    public void setMaxPosition(Vector2 newMaxPosition)
+    public void SetMaxPosition(Vector2 newMaxPosition)
     {
         maxPosition = newMaxPosition;
     }
 
-    public void setTarget(Transform newTarget)
+    public void SetTarget(Transform newTarget)
     {
         target = newTarget;
     }

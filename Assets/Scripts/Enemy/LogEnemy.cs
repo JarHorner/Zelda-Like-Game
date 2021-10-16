@@ -33,17 +33,17 @@ public class LogEnemy : MonoBehaviour
         {
             if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) 
             {
-                followPlayer();
+                FollowPlayer();
             }
             else if(Vector3.Distance(target.position, transform.position) >= maxRange)
             {
-                walkBack();
+                WalkBack();
             }
         }
     }
 
     //when target gets in range, enemy moves to its loaction
-    public void followPlayer() 
+    public void FollowPlayer() 
     {
         animator.SetBool("isMoving", true);
         //ensures only one exists and plays the movement sound.
@@ -60,7 +60,7 @@ public class LogEnemy : MonoBehaviour
     }
 
     //when target gets out of range, enemy moves back to its spawn loaction
-    public void walkBack() 
+    public void WalkBack() 
     {
         //ensures animations are working when sprite is moving
         animator.SetFloat("Horizontal", (spawnLocation.position.x - transform.position.x));

@@ -45,13 +45,13 @@ public class GameManager : MonoBehaviour
             {
                 UnPause();
                 isPaused = false;
-                uiManager.getPauseScreen().SetActive(false);
+                uiManager.GetPauseScreen().SetActive(false);
             }
             else
             {
                 Pause(true);
                 isPaused = true;
-                uiManager.getPauseScreen().SetActive(true);
+                uiManager.GetPauseScreen().SetActive(true);
             }
         }
     }
@@ -65,14 +65,14 @@ public class GameManager : MonoBehaviour
             {
                 UnPause();
                 inventoryOpen = false;
-                uiManager.getInventoryScreen().SetActive(false);
+                uiManager.GetInventoryScreen().SetActive(false);
             }
             else
             {
                 Pause(true);
                 inventoryOpen = true;
                 openMenu.Play();
-                uiManager.getInventoryScreen().SetActive(true);
+                uiManager.GetInventoryScreen().SetActive(true);
             }
         }
     }

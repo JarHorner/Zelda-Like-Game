@@ -13,7 +13,7 @@ public class SwitchKeyAppear : MonoBehaviour
 
     #region Unity Variables
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "MovableBlock" && !usedSwitch)
+        if (other.tag == "MovableBlock" && !usedSwitch && key != null)
         {
             pressDown.Play();
             //finds key, then enables the sprite renderer so it can be picked up

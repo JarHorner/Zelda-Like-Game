@@ -4,49 +4,52 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -8554849171038001468
-    second: Items_Sheet_0
+    second: Money_1
   - first:
       213: 3099735581215405381
-    second: Items_Sheet_1
+    second: Money_5
   - first:
       213: -6905180895429618044
-    second: Items_Sheet_2
+    second: Money_10
   - first:
       213: 4955200175794654074
-    second: Items_Sheet_3
+    second: Money_20
   - first:
       213: -5735906595358694276
-    second: Items_Sheet_4
+    second: Money_50
   - first:
       213: -4703349947525902936
-    second: Items_Sheet_5
+    second: Money_100
   - first:
       213: 1626085822214214427
-    second: Items_Sheet_6
+    second: Money_250
   - first:
       213: 4628286507563444018
-    second: Items_Sheet_7
+    second: Money_500
   - first:
       213: -5109181271406423499
-    second: Items_Sheet_8
+    second: Health
   - first:
       213: -6672142709578998120
-    second: Items_Sheet_9
+    second: Magic
   - first:
       213: -7600662550680668395
-    second: Items_Sheet_10
+    second: Dungeon_Key
   - first:
       213: 8137042296558970115
-    second: Items_Sheet_11
+    second: Overworld_Key
   - first:
       213: 5185760739894697712
-    second: Items_Sheet_12
+    second: Arrow
   - first:
       213: -8311134769554861915
-    second: Items_Sheet_13
+    second: Wallet
   - first:
       213: -543606121332275878
-    second: Items_Sheet_14
+    second: Map
+  - first:
+      213: -5395386660183586465
+    second: Bow&Arrow
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Items_Sheet_0
+      name: Money_1
       rect:
         serializedVersion: 2
         x: 5
@@ -144,7 +147,7 @@ TextureImporter:
         width: 6
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,7 +160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_1
+      name: Money_5
       rect:
         serializedVersion: 2
         x: 21
@@ -165,7 +168,7 @@ TextureImporter:
         width: 6
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,7 +181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_2
+      name: Money_10
       rect:
         serializedVersion: 2
         x: 37
@@ -186,7 +189,7 @@ TextureImporter:
         width: 6
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,7 +202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_3
+      name: Money_20
       rect:
         serializedVersion: 2
         x: 53
@@ -207,7 +210,7 @@ TextureImporter:
         width: 6
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,7 +223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_4
+      name: Money_50
       rect:
         serializedVersion: 2
         x: 69
@@ -228,7 +231,7 @@ TextureImporter:
         width: 6
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,7 +244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_5
+      name: Money_100
       rect:
         serializedVersion: 2
         x: 81
@@ -249,7 +252,7 @@ TextureImporter:
         width: 13
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,7 +265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_6
+      name: Money_250
       rect:
         serializedVersion: 2
         x: 98
@@ -270,7 +273,7 @@ TextureImporter:
         width: 13
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,7 +286,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_7
+      name: Money_500
       rect:
         serializedVersion: 2
         x: 114
@@ -291,7 +294,7 @@ TextureImporter:
         width: 13
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -304,7 +307,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_8
+      name: Health
       rect:
         serializedVersion: 2
         x: 5
@@ -312,7 +315,7 @@ TextureImporter:
         width: 7
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,7 +328,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_9
+      name: Magic
       rect:
         serializedVersion: 2
         x: 21
@@ -333,7 +336,7 @@ TextureImporter:
         width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,7 +349,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_10
+      name: Dungeon_Key
       rect:
         serializedVersion: 2
         x: 35
@@ -354,7 +357,7 @@ TextureImporter:
         width: 10
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,7 +370,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_11
+      name: Overworld_Key
       rect:
         serializedVersion: 2
         x: 51
@@ -375,7 +378,7 @@ TextureImporter:
         width: 10
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -388,7 +391,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_12
+      name: Arrow
       rect:
         serializedVersion: 2
         x: 68
@@ -396,7 +399,7 @@ TextureImporter:
         width: 7
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -409,15 +412,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_13
+      name: Wallet
       rect:
         serializedVersion: 2
-        x: 112
-        y: 96
-        width: 16
-        height: 16
+        x: 81
+        y: 97
+        width: 15
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -430,15 +433,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items_Sheet_14
+      name: Map
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 15
-        height: 15
+        x: 112
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -450,10 +453,31 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Bow&Arrow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5940e52b6cbf15b0800000000000000
+      internalID: -5395386660183586465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 00f1cfa61e1c4e44eadf61fa47f15d22
+    spriteID: 6d476c962f768274f98648b2519bba2a
     internalID: 0
     vertices: []
     indices: 

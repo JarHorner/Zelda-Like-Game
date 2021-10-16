@@ -150,16 +150,10 @@ public class PlayerController : MonoBehaviour
                 isSwimming = false;
             moveSpeed = 5f;
         }
-        else if (collider.gameObject.tag == "Key") 
-        {
-            //will need to change with more dungeons
-            uiManager.addKey(Dungeon1Manager.getDungeonName());
-            Destroy(collider.gameObject);
-        }
         else if (collider.gameObject.tag == "DungeonKey") 
         {
             Debug.Log(collider.name);
-            uiManager.activateDungeonKey(collider.name);
+            uiManager.ActivateDungeonKey(collider.name);
             Destroy(collider.gameObject);
         }
     }

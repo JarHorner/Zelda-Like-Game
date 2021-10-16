@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Pixel Font SDF
   m_EditorClassIdentifier: 
-  hashCode: -517948081
+  hashCode: -743030742
   material: {fileID: 5301620953697768156}
-  materialHashCode: -229450225
+  materialHashCode: 2026052554
   m_Version: 1.1.0
   m_SourceFontFileGUID: 48715eabdb4d7594ba886837d78be864
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 48715eabdb4d7594ba886837d78be864, type: 3}

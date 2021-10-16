@@ -93,7 +93,7 @@ public class EnemyHealthManager : MonoBehaviour
             if (currHealth <= 0) 
             {
                 soundManager.Play(death);
-                playerStats.setCurrentExp(expValue);
+                playerStats.SetCurrentExp(expValue);
                 this.gameObject.SetActive(false);
             }
             //gives variable some time so enemy cant be chain hit

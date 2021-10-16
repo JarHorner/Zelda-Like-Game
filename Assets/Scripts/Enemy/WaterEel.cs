@@ -46,7 +46,7 @@ public class WaterEel : MonoBehaviour
                     hasRisen = true;
                 }
                 if (timeToAttack <= 0) {
-                    shoot();
+                    Shoot();
                     timeToAttack = 1.8f;
                 }
                 timeToAttack -= Time.deltaTime;
@@ -73,7 +73,7 @@ public class WaterEel : MonoBehaviour
         yield return null;
     }
 
-    public void shoot() {
+    public void Shoot() {
         bulletPrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
         SpriteRenderer sprite = this.GetComponent<SpriteRenderer>();
 
