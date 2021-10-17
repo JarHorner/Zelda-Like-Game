@@ -6,8 +6,10 @@ public class OpenKeyDoor : MonoBehaviour
 {
     #region Variables
     private UIManager uIManager;
+    private AllDungeonsManager allDungeonsManager;
     private GameManager gameManager;
     [SerializeField] private Animator animator;
+    [SerializeField] private int dungeonNum;
     [SerializeField] private int doorNum;
     [SerializeField] private AudioSource openDoor;
     #endregion
@@ -17,8 +19,9 @@ public class OpenKeyDoor : MonoBehaviour
     {
         uIManager = FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
+        allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
         //if door has been opened, it will stay opened after leaving dungeon
-        if(Dungeon0Manager.getDoorStayOpen(doorNum))
+        if(allDungeonsManager.GetDungeonManager(dungeonNum).GetDoorStayOpen(doorNum))
         {
             animator.SetBool("StaysOpened", true);
         }
@@ -27,7 +30,7 @@ public class OpenKeyDoor : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         //if player is against door and has a key, coroutine starts
-        if(other.tag == "Player" && uIManager.GetKeyCount(Dungeon0Manager.GetDungeonName()) > 0 && !Dungeon0Manager.getDoorStayOpen(doorNum))
+        if(other.tag == "Player" && uIManager.GetKeyCount(dungeonNum) > 0 && !allDungeonsManager.GetDungeonManager(dungeonNum).GetDoorStayOpen(doorNum))
         {
             StartCoroutine(OpenDoor());
         }
@@ -38,10 +41,10 @@ public class OpenKeyDoor : MonoBehaviour
         openDoor.Play();
         gameManager.Pause(false);
         animator.SetBool("Open", true);
-        uIManager.RemoveKey(Dungeon0Manager.GetDungeonName());
+        uIManager.RemoveKey(dungeonNum);
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();
-        Dungeon0Manager.AddDoorStayOpen(doorNum);
+        allDungeonsManager.GetDungeonManager(dungeonNum).AddDoorStayOpen(doorNum);
     }
     #endregion
 }

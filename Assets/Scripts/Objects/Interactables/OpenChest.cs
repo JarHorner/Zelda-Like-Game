@@ -6,9 +6,11 @@ public class OpenChest : MonoBehaviour
 {
     #region Variables
     private UIManager uIManager;
+    private AllDungeonsManager allDungeonsManager;
     private GameManager gameManager;
     private Animator chestAnim;
     [SerializeField] private int chestNum;
+    [SerializeField] private int dungeonNum;
     private bool canOpenChest = false;
     [SerializeField] private GameObject item;
     [SerializeField] private AudioSource audioSource;
@@ -20,9 +22,10 @@ public class OpenChest : MonoBehaviour
     void Start() 
     {
         uIManager = FindObjectOfType<UIManager>();
+        allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
         gameManager = FindObjectOfType<GameManager>();
         chestAnim = GetComponent<Animator>();
-        if(Dungeon0Manager.GetChestStayOpen(chestNum))
+        if(allDungeonsManager.GetDungeonManager(dungeonNum).GetChestStayOpen(chestNum))
         {
             chestAnim.SetBool("isOpened", true);
         }
@@ -30,7 +33,7 @@ public class OpenChest : MonoBehaviour
 
     void Update() 
     {
-        if (canOpenChest && !Dungeon0Manager.GetChestStayOpen(chestNum))
+        if (canOpenChest && !allDungeonsManager.GetDungeonManager(dungeonNum).GetChestStayOpen(chestNum))
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -51,7 +54,7 @@ public class OpenChest : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         Destroy(item);
         gameManager.UnPause();
-        Dungeon0Manager.AddChestStayOpen(chestNum);
+        allDungeonsManager.GetDungeonManager(dungeonNum).AddChestStayOpen(chestNum);
     }
 
     private void GetItem()
@@ -67,7 +70,7 @@ public class OpenChest : MonoBehaviour
         }
         else if (itemSpriteName.Contains("Key"))
         {
-            uIManager.AddKey(Dungeon0Manager.GetDungeonName());
+            uIManager.AddKey(dungeonNum);
         }
     }
 

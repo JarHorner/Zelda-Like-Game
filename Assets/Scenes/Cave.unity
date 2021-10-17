@@ -6414,9 +6414,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6739439183785785560, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6739439183785785562, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6739439183785785562, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6591,7 +6595,7 @@ PrefabInstance:
       objectReference: {fileID: 4076203359333438738, guid: 461cebba272650f4fbdfc19dc1e08633, type: 3}
     - target: {fileID: 899221043106403402, guid: b1784bf27e095634d912edde17ad00d9, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 899221043106403402, guid: b1784bf27e095634d912edde17ad00d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6645,6 +6649,10 @@ PrefabInstance:
     - target: {fileID: 2087593768604613281, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087593768604613281, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2087593768604613282, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
       propertyPath: m_RootOrder
@@ -7988,6 +7996,10 @@ PrefabInstance:
     - target: {fileID: 4577477106194804399, guid: c7b9398203516494f9dfdd13459b8faf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176681161943954004, guid: c7b9398203516494f9dfdd13459b8faf, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5176681161943954004, guid: c7b9398203516494f9dfdd13459b8faf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60145,7 +60157,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3196973712193098977, guid: 2750ef642be81ef4187e7a6031867fbf, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3196973712193098977, guid: 2750ef642be81ef4187e7a6031867fbf, type: 3}
       propertyPath: m_LocalPosition.x

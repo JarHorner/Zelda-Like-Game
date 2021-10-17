@@ -8,16 +8,14 @@ public class UIManager : MonoBehaviour
 {
 
     #region Variables
-        [SerializeField] Image dungeon0Key;
-        private HealthManager healthManager;
-        [SerializeField] private Slider healthBar;
-        [SerializeField] private TMP_Text hpText;
-        [SerializeField] private TMP_Text keyCount;
-        [SerializeField] private TMP_Text moneyCount;
-        private List<MutableKeyValPair<string, int>> dungeonkeys = new List<MutableKeyValPair<string, int>>();
-        private List<MutableKeyValPair<string, bool>> dungeonEntranceKeys = new List<MutableKeyValPair<string, bool>>();
-        [SerializeField] private GameObject pauseScreen;
-        [SerializeField] private GameObject inventoryScreen;
+    private HealthManager healthManager;
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private TMP_Text hpText;
+    [SerializeField] private TMP_Text keyCount;
+    [SerializeField] private TMP_Text moneyCount;
+    private List<MutableKeyValPair<int, int>> dungeonkeys = new List<MutableKeyValPair<int, int>>();
+    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject inventoryScreen;
     #endregion
 
     #region Unity Methods
@@ -27,12 +25,7 @@ public class UIManager : MonoBehaviour
         //creates a keyvaluepair list to store amount of keys for each dungeon
         for (int i = 0; i < 8; i++)
         {
-            dungeonkeys.Add(new MutableKeyValPair<string, int>("Dungeon" + i, 0));
-        }
-        //creates a keyvaluepair list to store the keys to open each dungeon
-        for (int i = 0; i < 8; i++)
-        {
-            dungeonEntranceKeys.Add(new MutableKeyValPair<string, bool>($"Dungeon{i}Key", false));
+            dungeonkeys.Add(new MutableKeyValPair<int, int>(i, 0));
         }
     }
 
@@ -63,7 +56,7 @@ public class UIManager : MonoBehaviour
         {
             foreach(var item in dungeonkeys)
             {
-                if (item.key.Contains(dungeonNum.ToString()))
+                if (item.key == dungeonNum)
                 {
                     Debug.Log("Got Here!");
                     keyCount.text = item.value.ToString();
@@ -73,11 +66,11 @@ public class UIManager : MonoBehaviour
     }
 
     //gets the key count of a certain dungeon
-    public int GetKeyCount(string dungeonName)
+    public int GetKeyCount(int dungeonNum)
     {
         foreach (var item in dungeonkeys)
         {
-            if (item.key == dungeonName)
+            if (item.key == dungeonNum)
             {
                 return item.value;
             }
@@ -86,11 +79,11 @@ public class UIManager : MonoBehaviour
     }
 
     //adds key to certain dungeon
-    public void AddKey(string dungeonName) 
+    public void AddKey(int dungeonNum) 
     {
         foreach (var item in dungeonkeys)
         {
-            if (item.key == dungeonName)
+            if (item.key == dungeonNum)
             {
                 item.value += 1;
                 keyCount.text = $"{item.value}";
@@ -99,11 +92,11 @@ public class UIManager : MonoBehaviour
     }
 
     //removes key from certain dungeon
-    public void RemoveKey(string dungeonName)
+    public void RemoveKey(int dungeonNum)
     {
         foreach (var item in dungeonkeys)
         {
-            if (item.key == dungeonName)
+            if (item.key == dungeonNum)
             {
                 item.value -= 1;
                 keyCount.text = $"{item.value}";
@@ -144,30 +137,5 @@ public class UIManager : MonoBehaviour
     {
         return inventoryScreen;
     }
-
-    public void ActivateDungeonKey(string dungeonKeyName)
-    {
-        foreach (var item in dungeonEntranceKeys)
-        {
-            if (item.key == dungeonKeyName)
-            {
-                item.value = true;
-                dungeon0Key.gameObject.SetActive(true);
-            }
-        }
-    }
-
-    public bool IsDungeonKeyActive(string dungeonKeyName)
-    {
-        foreach (var key in dungeonEntranceKeys)
-        {
-            if (key.key == dungeonKeyName && key.value == true)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
     #endregion
 }

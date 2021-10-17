@@ -7,6 +7,8 @@ public class Key : MonoBehaviour
 {
     #region Variables
     private UIManager uiManager;
+    private AllDungeonsManager allDungeonsManager;
+    [SerializeField] private int dungeonNum;
     [SerializeField] private int keyNum;
     #endregion
 
@@ -15,7 +17,8 @@ public class Key : MonoBehaviour
     void Start() 
     {
         uiManager = FindObjectOfType<UIManager>();
-        if(Dungeon0Manager.GetKeyStayDestroyed(keyNum))
+        allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
+        if(allDungeonsManager.GetDungeonManager(dungeonNum).GetKeyStayDestroyed(keyNum))
         {
             Destroy(gameObject);
         }
@@ -24,11 +27,11 @@ public class Key : MonoBehaviour
     //enables grabbing a key and adding to that dungeons place in UIManagers list.
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Player" && !Dungeon0Manager.GetKeyStayDestroyed(keyNum)) 
+        if (collider.gameObject.tag == "Player" && !allDungeonsManager.GetDungeonManager(dungeonNum).GetKeyStayDestroyed(keyNum)) 
         {
             //will need to change with more dungeons
-            uiManager.AddKey(Dungeon0Manager.GetDungeonName());
-            Dungeon0Manager.AddKeyStayDestoryed(keyNum);
+            uiManager.AddKey(dungeonNum);
+            allDungeonsManager.GetDungeonManager(dungeonNum).AddKeyStayDestoryed(keyNum);
             Destroy(gameObject);
         }
     }

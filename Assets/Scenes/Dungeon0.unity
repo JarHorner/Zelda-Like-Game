@@ -3392,6 +3392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2087593768604613281, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2087593768604613282, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -58954,6 +58958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6739439183785785560, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6739439183785785562, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -61427,6 +61435,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 407550446}
     m_Modifications:
+    - target: {fileID: -5173819628159900544, guid: 17be22a3c40f1f74fbccba296f1b982f, type: 3}
+      propertyPath: dungeonManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3085426335879179754, guid: 17be22a3c40f1f74fbccba296f1b982f, type: 3}
       propertyPath: m_Sprite
       value: 

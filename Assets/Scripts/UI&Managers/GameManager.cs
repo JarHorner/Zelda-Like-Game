@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
     #region Variables
-    
+    private string playerLocation;
     private UIManager uiManager;
     private GameObject player;
     private Animator playerAnimator;
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerAnimator = player.GetComponent<Animator>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
+        ChangePlayerLocation();
+        Debug.Log(playerLocation);
     }
 
     // Update is called once per frame
@@ -98,6 +101,17 @@ public class GameManager : MonoBehaviour
         bgMusic.volume = 0.2f;
         player.GetComponent<PlayerController>().enabled = true;
         playerAnimator.speed = 1;
+    }
+
+    private void ChangePlayerLocation()
+    {
+        var scene = SceneManager.GetActiveScene();
+        playerLocation = scene.name;
+    }
+
+    public string PlayerLocation
+    {
+        get { return playerLocation; }
     }
 
     #endregion

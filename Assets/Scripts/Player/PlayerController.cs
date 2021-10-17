@@ -150,12 +150,6 @@ public class PlayerController : MonoBehaviour
                 isSwimming = false;
             moveSpeed = 5f;
         }
-        else if (collider.gameObject.tag == "DungeonKey") 
-        {
-            Debug.Log(collider.name);
-            uiManager.ActivateDungeonKey(collider.name);
-            Destroy(collider.gameObject);
-        }
     }
 
     public Vector2 Movement

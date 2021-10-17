@@ -8,7 +8,8 @@ public class OpenDungeonDoor : MonoBehaviour
 
     [SerializeField] private Animator statueAnimator;
     [SerializeField] private Animator entranceAnimator;
-    private UIManager uiManager;
+    [SerializeField] private int dungeonNum;
+    private AllDungeonsManager allDungeonsManager;
     private GameManager gameManager;
 
     #endregion
@@ -17,10 +18,10 @@ public class OpenDungeonDoor : MonoBehaviour
 
     void Start() 
     {  
-        uiManager = GameObject.FindObjectOfType<UIManager>();
+        allDungeonsManager = GameObject.FindObjectOfType<AllDungeonsManager>();
         gameManager = FindObjectOfType<GameManager>();
         //if dungeon has been opened, it stays opened
-        if (Dungeon0Manager.IsDungeon0Opened()) {
+        if (allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened()) {
             statueAnimator.SetBool("Opened", true);
             entranceAnimator.SetBool("Opened", true);
             statueAnimator.Play("Base Layer.Sink_Idle", 0, 1f);
@@ -29,7 +30,7 @@ public class OpenDungeonDoor : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider) {
         //if player has key, start coroutine of dungeon-opening animation
-        if (collider.gameObject.tag == "Player" && uiManager.IsDungeonKeyActive("Dungeon0Key")) 
+        if (collider.gameObject.tag == "Player" && allDungeonsManager.IsDungeonKeyActive(dungeonNum)) 
         {
             StartCoroutine(OpenDungeon());
         }
@@ -38,7 +39,7 @@ public class OpenDungeonDoor : MonoBehaviour
         //pauses game mamager while animations play (so player cannot move)
         gameManager.Pause(false);
         //sets flag so dungeon stays open
-        Dungeon0Manager.OpenDungeon0();
+        allDungeonsManager.GetDungeonManager(dungeonNum).OpenDungeon();
         //starts the process of animations
         statueAnimator.SetBool("hasKey", true);
         entranceAnimator.SetBool("hasKey", true);

@@ -58,7 +58,7 @@
      <Compile Include="Assets\Scripts\Enemy\Projectile.cs" />
      <Compile Include="Assets\Scripts\World\AreaTransitions.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\OpenKeyDoor.cs" />
-     <Compile Include="Assets\Scripts\Other\Dungeon0Manager.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\DungeonManager.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\Volume2D.cs" />
      <Compile Include="Assets\Scripts\World\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\PlayerStats.cs" />
@@ -75,11 +75,13 @@
      <Compile Include="Assets\Scripts\Player\PlayerStartPoint.cs" />
      <Compile Include="Assets\Scripts\World\CameraController.cs" />
      <Compile Include="Assets\Scripts\Objects\Blocks\MoveOnceBlock.cs" />
+     <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\EnemyDoor.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\HealthManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Key.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\EnemyDoor.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\AllDungeonsManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\Pickups\DungeonEntranceKey.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

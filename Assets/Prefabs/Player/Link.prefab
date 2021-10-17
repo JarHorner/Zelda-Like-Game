@@ -3198,6 +3198,7 @@ Transform:
   - {fileID: 2960718305840323139}
   - {fileID: 5423684065231918555}
   - {fileID: 240665575182543476}
+  - {fileID: 8222270944276480979}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5453,13 +5454,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5c73597651b6746bb20ca50a60db95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeon0Key: {fileID: 8188454167792089272}
   healthBar: {fileID: 884539486218810787}
   hpText: {fileID: 138217972235771370}
   keyCount: {fileID: 2687391808098761894}
   moneyCount: {fileID: 7173476550067532214}
   pauseScreen: {fileID: 1050923150465768523}
   inventoryScreen: {fileID: 5791497552640416611}
+--- !u!1 &6783048978527602675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4227785028080443009}
+  - component: {fileID: 8905009047976895561}
+  m_Layer: 0
+  m_Name: DungeonManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4227785028080443009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6783048978527602675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8222270944276480979}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8905009047976895561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6783048978527602675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df95f84000d90204e9d7031334a5ed70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeon0Key: {fileID: 8188454167792089272}
+  dungeonManager: {fileID: 1334592607115218787, guid: ff9fd677a6878ff4d9b4dfb3bc599f0b, type: 3}
 --- !u!1 &6844715803136197837
 GameObject:
   m_ObjectHideFlags: 0
@@ -6386,6 +6431,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7554369992183730737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8222270944276480979}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8222270944276480979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554369992183730737}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 294.47293, y: 235.51434, z: -193.80777}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_Children:
+  - {fileID: 4227785028080443009}
+  m_Father: {fileID: 6762088745811239400}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7609053365928622477
 GameObject:
   m_ObjectHideFlags: 0
