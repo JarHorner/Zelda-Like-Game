@@ -195,7 +195,7 @@ MonoBehaviour:
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
   soundManager: {fileID: 2087593768604613283, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
   death: {fileID: 8300000, guid: e0954d070cf46cd40a83a4a2985c0fe2, type: 3}
-  waitToHurt: 0
+  waitToHurt: 0.5
   expValue: 10
 --- !u!82 &236695931122281817
 AudioSource:
@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ac7e4fed32b41498a927d6d5f5add5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  enemy: {fileID: 5526459411903359677}
+  enemyPrefab: {fileID: 5526459411903359677}
   spawnLocation: {fileID: 5526459412359467414}
+  newParent: {fileID: 444017698758511087, guid: e2f393b0e574c0745b8846a363c6d3ba, type: 3}

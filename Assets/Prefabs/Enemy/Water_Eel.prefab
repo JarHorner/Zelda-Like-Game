@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7680680545216337528}
   - component: {fileID: 567159650821475840}
   m_Layer: 0
-  m_Name: EnemySpawnController
+  m_Name: Water_Eel_Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   enemy: {fileID: 5957370982514884826}
   enemyPrefab: {fileID: 5957370982514884826}
   spawnLocation: {fileID: 1293553435377900482}
+  newParent: {fileID: 444017698758511087, guid: e2f393b0e574c0745b8846a363c6d3ba, type: 3}
 --- !u!1 &5957370982249684426
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ BoxCollider2D:
   m_Offset: {x: 0.002861023, y: 0.20477605}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.875, y: 1.9375}
     newSize: {x: 0.875, y: 1.9375}
     adaptiveTilingThreshold: 0.5
@@ -318,7 +319,7 @@ MonoBehaviour:
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
   soundManager: {fileID: 2087593768604613283, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
   death: {fileID: 8300000, guid: e0954d070cf46cd40a83a4a2985c0fe2, type: 3}
-  waitToHurt: 0
+  waitToHurt: 0.5
   expValue: 20
 --- !u!82 &6364700643000213208
 AudioSource:

@@ -28,12 +28,17 @@ public class LogEnemy : MonoBehaviour
     void Update()
     {
         target = FindObjectOfType<PlayerController>().transform;
+
         //depending on where the target is, the enemy will either follow or walk back
         if (target != null)
         {
             if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) 
             {
                 FollowPlayer();
+            }
+            else if (this.transform.position == spawnLocation.position)
+            {
+                animator.SetBool("isMoving", false);
             }
             else if(Vector3.Distance(target.position, transform.position) >= maxRange)
             {
@@ -62,6 +67,8 @@ public class LogEnemy : MonoBehaviour
     //when target gets out of range, enemy moves back to its spawn loaction
     public void WalkBack() 
     {
+        animator.SetBool("isMoving", true);
+
         //ensures animations are working when sprite is moving
         animator.SetFloat("Horizontal", (spawnLocation.position.x - transform.position.x));
         animator.SetFloat("Vertical", (spawnLocation.position.y - transform.position.y));

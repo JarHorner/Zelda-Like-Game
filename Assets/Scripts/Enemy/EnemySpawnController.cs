@@ -9,6 +9,7 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject spawnLocation;
+    [SerializeField] private GameObject newParent;
     private int? enemyID;
     #endregion
 
@@ -18,8 +19,9 @@ public class EnemySpawnController : MonoBehaviour
     void Awake() {
         //gets objects instance ID for easier spawning/resetting
         enemyID = this.transform.parent.GetInstanceID();
+
         //detatches the spawn of the enemy when loaded, so spawn location does not move with enemy 
-        this.transform.parent = null;
+        this.transform.SetParent(newParent.transform, true);
 
         if (enemyID != null) 
         {

@@ -37,7 +37,7 @@ public class DungeonManager
     //adds a new chest to stay opened to list, used in OpenChest Update function when player unlocks door
     public void AddChestStayOpen(int chestNum)
     {
-        keyDoors.Add(new MutableKeyValPair<int, bool>(chestNum, true));
+        chests.Add(new MutableKeyValPair<int, bool>(chestNum, true));
     }
 
     //checks to see if chestNum is in list, if not, chest will not be opened when scene loads
