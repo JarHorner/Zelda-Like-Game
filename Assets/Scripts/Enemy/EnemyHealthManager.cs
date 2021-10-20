@@ -15,6 +15,7 @@ public class EnemyHealthManager : MonoBehaviour
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip death;
     private float flashCounter = 0f;
+    //in code, eventually set to 1f.
     public float waitToHurt = 0f;
     private SpriteRenderer enemySprite;
     private PlayerStats playerStats;
@@ -24,7 +25,6 @@ public class EnemyHealthManager : MonoBehaviour
 
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = this.gameObject.GetComponent<Animator>();
@@ -33,7 +33,6 @@ public class EnemyHealthManager : MonoBehaviour
         startingCoordinates = this.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //updates timer for enemy to take damage again, but on counts down if over 0
@@ -42,7 +41,7 @@ public class EnemyHealthManager : MonoBehaviour
             waitToHurt -= Time.deltaTime;
         }
 
-        //if true, starts process of changing the players alpha level to flash when hit
+        //if true, starts process of changing the enemies alpha level to flash when hit
         if (flashActive)
         {
             if (flashCounter > flashLength * .99f)
@@ -82,12 +81,14 @@ public class EnemyHealthManager : MonoBehaviour
         }
     }
 
+    //causes damage to the enemies health, and if the enemies health is 0, player awarded exp and gameobject is deactivated. (Safer and easier then destroying)
     public void HurtEnemy(int damageToGive) 
     {
         if (waitToHurt <= 0)
         {
             currHealth -= damageToGive;
             flashActive = true;
+            //starts the flashing of enemy in Update()
             flashCounter = flashLength;
             soundManager.Play(hit);
             if (currHealth <= 0) 
@@ -97,7 +98,7 @@ public class EnemyHealthManager : MonoBehaviour
                 this.gameObject.SetActive(false);
             }
             //gives variable some time so enemy cant be chain hit
-            waitToHurt = 0.5f; 
+            waitToHurt = 1f; 
 
         }
     }
@@ -108,11 +109,13 @@ public class EnemyHealthManager : MonoBehaviour
         return startingCoordinates;
     }
 
+    //using when enemy is re-actived, to give full hp. (AreaTransitions)
     public int getMaxHealth()
     {
         return maxHealth;
     }
 
+    //used in tandem with getMaxHealth() to set enemies hp to max. (AreaTransitions)
     public void setCurrentHealth(int newHealth)
     {
         currHealth = newHealth;

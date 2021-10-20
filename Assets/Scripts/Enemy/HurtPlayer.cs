@@ -10,6 +10,7 @@ public class HurtPlayer : MonoBehaviour
         [SerializeField] private int damageDealt;
         private float waitToHurt = 1.5f;
         private bool isTouching;
+        //in code, eventually set to 1f.
         private float waitToHit = 0.0f;
         private HealthManager healthManager;
 
@@ -17,16 +18,14 @@ public class HurtPlayer : MonoBehaviour
 
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
         healthManager = FindObjectOfType<HealthManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if true, counts down to hurt player again. used so damage is not continuous
+        //if true, counts down to hurt player again. used so damage is not continuous when enemy is pressed against player.
         if (isTouching) {
             waitToHurt -= Time.deltaTime;
             if (waitToHurt <= 0)
@@ -43,6 +42,7 @@ public class HurtPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            //Placed so player can repeadly run back and forth into enemy and take damage. gives some leeway.
             if (waitToHit <= 0)
             {
                 Debug.Log("Hit");

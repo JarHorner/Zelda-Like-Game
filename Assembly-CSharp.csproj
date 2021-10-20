@@ -47,11 +47,12 @@
      <Compile Include="Assets\Scripts\Objects\Blocks\FreeMovePushableBlock.cs" />
      <Compile Include="Assets\Scripts\Other\ResetBlocks.cs" />
      <Compile Include="Assets\Scripts\Enemy\WaterEel.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\AllDungeonsManager.cs" />
      <Compile Include="Assets\Scripts\Other\MutableKeyValPair.cs" />
+     <Compile Include="Assets\Scripts\Objects\Pickups\DungeonEntranceKey.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\Pitfall.cs" />
      <Compile Include="Assets\Scripts\Other\BeatTimer.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Other\RemoveObjectForever.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\DamagePopup.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Money.cs" />
      <Compile Include="Assets\Scripts\Enemy\LogEnemy.cs" />
@@ -80,8 +81,7 @@
      <Compile Include="Assets\Scripts\Objects\Pickups\Key.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\UI&amp;Managers\AllDungeonsManager.cs" />
-     <Compile Include="Assets\Scripts\Objects\Pickups\DungeonEntranceKey.cs" />
+     <Compile Include="Assets\Scripts\Objects\Interactables\ChestAppear.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

@@ -6,13 +6,15 @@ public class Projectile : MonoBehaviour
 {
     #region Variables
     private HealthManager healthManager;
-    [SerializeField] private int damageDealt = 2;
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float lifespan = 3f;
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
     private Vector3 playerPosition;
     private Vector3 currentPosition;
+
+    //these three varibles can be adjusted at any time
+    [SerializeField] private int damageDealt = 2;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float lifespan = 3f;
     #endregion
 
     #region Unity Methods
@@ -20,13 +22,15 @@ public class Projectile : MonoBehaviour
     {
         healthManager = FindObjectOfType<HealthManager>();
         rb= GetComponent<Rigidbody2D>();
+        //finds players current position
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        //playerPosition.y += 0.5f;
     }
+
     void Start() {
         movingSound.Play();
     }
 
+    //ensures projectile when spawned goes the same speed towards and past the players location when instatiated.
     void Update() {
         //scale the movement on each axis by the directionOfTravel vector components
         Debug.DrawLine(playerPosition, transform.position, Color.blue);
@@ -36,12 +40,7 @@ public class Projectile : MonoBehaviour
             return;
 
         rb.AddForce(force * speed, ForceMode2D.Impulse);
-
-        //rb.velocity = force * speed;
-
-        //rb.AddForce(force, ForceMode2D.Impulse);
-        //transform.Translate(Vector3.left * (speed * Time.deltaTime));
-        //transform.position = Vector3.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
+        //destroys projectile if havent touched anything within its lifespan.
         Destroy (gameObject, lifespan);
     }
     

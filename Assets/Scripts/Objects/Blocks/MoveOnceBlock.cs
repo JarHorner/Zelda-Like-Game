@@ -13,12 +13,14 @@ public class MoveOnceBlock : MonoBehaviour
     [SerializeField] private AudioSource movingSound;
     private float startX, startY;
     private Vector2 newPosition;
-    private float pushingTime = 0.2f;
     private bool playSound = false;
     private bool isMoving = false;
-    private float blockLength = 1f; //1f on both axes. Distance to move one block-length 
     private bool canPush = false;
     private bool notMoved = true;
+
+    //these two varibles can be adjusted at any time
+    private float pushingTime = 0.2f;
+    private float blockLength = 1f; //1f on both axes. Distance to move one block-length 
     #endregion
 
     #region Methods
@@ -26,12 +28,15 @@ public class MoveOnceBlock : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnim = FindObjectOfType<PlayerController>().GetComponent<Animator>();
+        //sets the starting positions
         startX = transform.position.x;
         startY = transform.position.y;
     }
  
     void Update()
     {
+        //if player can push and the block hasnt moved yet, PushBlock() will be called with a different param 
+        //depending on the facing of the player.
         if (canPush && notMoved)
         {
             if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.C))
@@ -51,6 +56,8 @@ public class MoveOnceBlock : MonoBehaviour
                 PushBlock(false, new Vector2(startX - blockLength, startY));
             }
         }
+        //if player is pushing and the sound is not currently being played, new sound will play, creating a loop.
+        //will stop if not being pushed.
         if (pushingTime <= 0)
         {
             if (!movingSound.isPlaying && playSound)
@@ -65,6 +72,7 @@ public class MoveOnceBlock : MonoBehaviour
         }
     }
 
+    //moves the block in the direction and to the position params.
     private void PushBlock(bool direction, Vector2 position)
     {
         playerAnim.SetBool("isPushing", true);
@@ -83,6 +91,7 @@ public class MoveOnceBlock : MonoBehaviour
         }
     }
 
+    //movement happens here, ensures movement is not based on framerate.
     void FixedUpdate() 
     {
         if (isMoving)
@@ -91,7 +100,8 @@ public class MoveOnceBlock : MonoBehaviour
             {
                 Vector3 position = Vector3.MoveTowards(rb.position, newPosition, 1f * Time.deltaTime);
                 rb.MovePosition(position);
-            } else
+            } 
+            else
             {
                 isMoving = false;
                 rb.bodyType = RigidbodyType2D.Static;
@@ -100,16 +110,7 @@ public class MoveOnceBlock : MonoBehaviour
         }
     }
 
-    // private void OnCollisionEnter2D(Collision2D collider) 
-    // {
-    //     if (collider.gameObject.tag == "Object" || collider.gameObject.tag == "Walls")
-    //     {
-    //         Debug.Log("Collision");
-    //         transform.position = new Vector3(startX, startY, 0);
-    //         isMoving = false;
-    //     }
-    // }
-
+    //block can be pushed when players collider is within blocks.
     private void OnCollisionStay2D(Collision2D collider) 
     {
         if (collider.gameObject.tag == "Player")
@@ -118,6 +119,7 @@ public class MoveOnceBlock : MonoBehaviour
         }
     }
 
+    //gets the players animations back to regular movement and resets the time needed to push the block.
     private void OnCollisionExit2D(Collision2D collider) 
     {
         if (collider.gameObject.tag == "Player")

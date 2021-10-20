@@ -15,10 +15,11 @@ public class EnemyDoor : MonoBehaviour
     #endregion
 
     #region Methods
-    // Start is called before the first frame update
+
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        //takes all the children of the door and adds them to ArrayList. Used to decide when the door opens.
         int children = transform.childCount;
         for (int i = 0; i < children; i++)
         {
@@ -26,12 +27,13 @@ public class EnemyDoor : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //if door is not open, keeps checking if all enemies are defeated.
         if (doorNotOpen)
         {
             AllEnemiesDeactive();
+            //if all are defeated, opens door.
             if (enemiesDefeated)
             {
                 StartCoroutine(OpenEnemyDoor());
@@ -39,6 +41,7 @@ public class EnemyDoor : MonoBehaviour
         }
     }
 
+    //loops through ArrayList, checking if each enemy is active. if all are de-activated, allows to Update() to run Coroutine.
     private void AllEnemiesDeactive()
     {
         foreach (GameObject enemy in enemies)
@@ -55,9 +58,9 @@ public class EnemyDoor : MonoBehaviour
         }
     }
 
+    //uses the Pause() function from GameManager to prevent movement and play the animation of door opening.
     IEnumerator OpenEnemyDoor()
     {
-        //pauses game while animations play (so player cannot move)
         openDoor.Play();
         gameManager.Pause(false);
         animator.SetBool("Open", true);

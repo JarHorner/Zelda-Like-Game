@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Located with player under Managers empty object. In this location so it is never destoryed and carried on through each scene.
 public class AllDungeonsManager : MonoBehaviour
 {
     #region Variables

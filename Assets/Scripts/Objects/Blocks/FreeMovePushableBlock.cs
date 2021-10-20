@@ -20,12 +20,15 @@ public class FreeMovePushableBlock : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnim = FindObjectOfType<PlayerController>().GetComponent<Animator>();
+        //sets the starting positions
         startX = transform.position.x;
         startY = transform.position.y;
     }
  
     void Update()
     {
+        //if player can push, PushBlock() will be called with a different param 
+        //depending on the facing of the player.
         if (canPush)
         {
             if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.C))
@@ -59,6 +62,8 @@ public class FreeMovePushableBlock : MonoBehaviour
         }
     }
 
+
+    //moves the block in the direction params.
     private void PushBlock(bool direction)
     {
         playerAnim.SetBool("isPushing", true);
@@ -74,6 +79,7 @@ public class FreeMovePushableBlock : MonoBehaviour
         }
     }
 
+    //block can be pushed when players collider is within blocks.
     private void OnCollisionStay2D(Collision2D collider) 
     {
         if (collider.gameObject.tag == "Player")
@@ -82,6 +88,7 @@ public class FreeMovePushableBlock : MonoBehaviour
         }
     }
 
+    //gets the players animations back to regular movement and resets the time needed to push the block.
     private void OnCollisionExit2D(Collision2D collider) 
     {
         if (collider.gameObject.tag == "Player")

@@ -11,16 +11,14 @@ public class DungeonEntranceKey : MonoBehaviour
     #endregion
 
     #region Methods
-    public int getDungeonNum()
-    {
-        return dungeonNum;
-    }
 
     private void Start() 
     {
         allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
     }
 
+    //if player, picks up the item allowing the opening of a dungeon and showing in inventory.
+    //more into in AllDungeonsManager.
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.tag == "Player") 

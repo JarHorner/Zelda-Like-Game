@@ -12,6 +12,8 @@ public class SwitchKeyAppear : MonoBehaviour
     #endregion
 
     #region Unity Variables
+
+    //if block is moved over collider, switch has not been used before and key has not been picked up, key will appear.
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "MovableBlock" && !usedSwitch && key != null)
         {

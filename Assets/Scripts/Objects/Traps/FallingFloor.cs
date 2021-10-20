@@ -14,14 +14,14 @@ public class FallingFloor : MonoBehaviour
     #region Methods
     void Update() 
     {
+        //if the object is stepped on, the animation will play out.
         if (steppedOn)
         {
             falling -= Time.deltaTime;
 
+            //once animation is over, the object turns into a pitfall.
             if (falling <= 0)
             {
-                //animator.SetBool("SteppedOn", false);
-                //this.gameObject.SetActive(false);
                 falling = 1.8f;
                 steppedOn = false;
                 this.GetComponent<BoxCollider2D>().enabled = true;
@@ -30,6 +30,7 @@ public class FallingFloor : MonoBehaviour
         }
     }
 
+    //if player steps on collider, animation will begin, and the collider will be disabled to prevent interupting running animation.
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.tag == "Player")

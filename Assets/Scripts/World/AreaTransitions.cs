@@ -10,6 +10,7 @@ public class AreaTransitions : MonoBehaviour
     [SerializeField] private static Vector2 lastPlayerLocation;
     private CameraController cam;
     private GameObject[] enemies;
+    private GameManager gameManager;
     [SerializeField] private Vector2 newMinPosition;
     [SerializeField] private Vector2 newMaxPosition;
     [SerializeField] private Vector3 movePlayer;
@@ -25,6 +26,7 @@ public class AreaTransitions : MonoBehaviour
         cam = Camera.main.GetComponent<CameraController>();
         //enemies = FindObjectsOfType<LogEnemy>();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     //snaps camera to new location, moves player into boxed area and resets any enemies 
@@ -38,19 +40,22 @@ public class AreaTransitions : MonoBehaviour
             //moves player into area
             collider.transform.position += movePlayer;
             lastPlayerLocation = collider.transform.position;
-            //resets enemies that are out of place
-            if (enemies != null)
+
+            if (!gameManager.PlayerLocation.Contains("Dungeon"))
             {
-                foreach (GameObject go in enemies)
+                //resets enemies that are out of place
+                if (enemies != null)
                 {
-                    EnemyHealthManager eHealthMan = go.gameObject.GetComponent<EnemyHealthManager>();
-                    Vector3 cords = eHealthMan.getStartingCoordinates();
-                    go.transform.position = cords;
-                    go.gameObject.SetActive(true);
-                    eHealthMan.setCurrentHealth(eHealthMan.getMaxHealth());
+                    foreach (GameObject go in enemies)
+                    {
+                        EnemyHealthManager eHealthMan = go.gameObject.GetComponent<EnemyHealthManager>();
+                        Vector3 cords = eHealthMan.getStartingCoordinates();
+                        go.transform.position = cords;
+                        go.gameObject.SetActive(true);
+                        eHealthMan.setCurrentHealth(eHealthMan.getMaxHealth());
+                    }
                 }
             }
-
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Set at the beginning of room ajacent to a room with falling floors to reset each object.
 public class ResetFloors : MonoBehaviour
 {
     #region Variables
@@ -14,12 +15,14 @@ public class ResetFloors : MonoBehaviour
 
     void Start() 
     {
+        //adds each object into a list to easily reset.
         for (int i = 0; i < go.transform.childCount; i++)
         {
             resetableObjects.Add(go.transform.GetChild(i).GetComponent<FallingFloor>());
         }
     }
 
+    //if player is in collider, each object in list is enabled and set to default sprite.
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.tag == "Player")
@@ -28,11 +31,6 @@ public class ResetFloors : MonoBehaviour
             {
                 floor.GetComponent<Pitfall>().enabled = false;
                 floor.GetComponent<Animator>().SetBool("SteppedOn", false);
-                // if (!floor.gameObject.activeSelf)
-                // {
-                //     Debug.Log("not active");
-                //     floor.gameObject.SetActive(true);
-                // }
             }
             Debug.Log("Room Reset!");
         }

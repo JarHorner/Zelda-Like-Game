@@ -11,6 +11,8 @@ public class LogEnemy : MonoBehaviour
     private Transform target;
     private bool isMoving = false;
     [SerializeField] private AudioSource movementAudio;
+
+    //these three varibles can be adjusted at any time
     [SerializeField] private float speed = 0f;
     [SerializeField] private float maxRange = 0f;
     [SerializeField] private float minRange = 0f;
@@ -18,13 +20,11 @@ public class LogEnemy : MonoBehaviour
 
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         target = FindObjectOfType<PlayerController>().transform;
@@ -36,6 +36,7 @@ public class LogEnemy : MonoBehaviour
             {
                 FollowPlayer();
             }
+            //this prevents WalkBack() from being used every frame even with enemy in same place.
             else if (this.transform.position == spawnLocation.position)
             {
                 animator.SetBool("isMoving", false);

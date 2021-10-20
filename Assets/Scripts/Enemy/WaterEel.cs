@@ -14,6 +14,8 @@ public class WaterEel : MonoBehaviour
     [SerializeField] private AudioSource movementSound;
     [SerializeField] private AudioSource shootingSound;
     private bool hasRisen = false;
+
+    //these three varibles can be adjusted at any time
     private float timeToAttack = 1.8f;
     [SerializeField] private float maxRange = 0f;
     [SerializeField] private float minRange = 0f;
@@ -22,23 +24,23 @@ public class WaterEel : MonoBehaviour
     
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         projectileSpawnLoc = this.transform.Find("Projectile");
     }
 
-    // Update is called once per frame
     void Update()
     {
         target = FindObjectOfType<PlayerController>().transform;
+        //find the player and faces when the players location is.
         StartCoroutine(trackPlayer());
         //depending on where the target is, the enemy will either rise and start shooting, or sink and wait
         if (target != null)
         {
             if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) 
             {
+                //Eel rises and starts shooting
                 animator.SetBool("PlayerIsClose", true);
                 if (!hasRisen)
                 {
@@ -53,6 +55,7 @@ public class WaterEel : MonoBehaviour
             }
             if(Vector3.Distance(target.position, transform.position) >= maxRange)
             {
+                //Eel sinks and stops shooting
                 animator.SetBool("PlayerIsClose", false);
                 if (hasRisen)
                 {
@@ -73,6 +76,7 @@ public class WaterEel : MonoBehaviour
         yield return null;
     }
 
+    //see Projectile class. Instantiate is explained their.
     public void Shoot() {
         bulletPrefab.GetComponent<SpriteRenderer>().sortingOrder = 2;
         SpriteRenderer sprite = this.GetComponent<SpriteRenderer>();

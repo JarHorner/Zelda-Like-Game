@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66560fb90ba8214e925aba3cd5ab628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnLocation: {fileID: 5957370982514884816}
+  spawnLocation: {fileID: 7680680545216337528}
   bulletPrefab: {fileID: 1498348727028264967, guid: 84a9bd3eae06d3142a74331b2319dd86, type: 3}
   movementSound: {fileID: 6364700643000213208}
   shootingSound: {fileID: 9202259980422764049}

@@ -39,22 +39,24 @@ public class SwitchOpenDoor : MonoBehaviour
         }
     }
 
+    //uses the Pause() function from GameManager to prevent movement and play the animation of door opening.
     IEnumerator OpenDoor() {
-        //pauses game while animations play (so player cannot move)
         doorAudioSource.clip = doorOpen;
         doorAudioSource.Play();
         gameManager.Pause(false);
         doorAnimator.SetBool("Open", true);
+        //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();
     }
 
+    //uses the Pause() function from GameManager to prevent movement and play the animation of door closing.
     IEnumerator CloseDoor() {
-        //pauses game while animations play (so player cannot move)
         doorAudioSource.clip = doorClose;
         doorAudioSource.Play();
         gameManager.Pause(false);
         doorAnimator.SetBool("Open", false);
+        //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();
     }

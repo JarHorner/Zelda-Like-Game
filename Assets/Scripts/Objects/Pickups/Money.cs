@@ -15,7 +15,7 @@ public class Money : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
     }
     
-    //enables grabbing money and adding to total
+    //enables grabbing money and adding to total (UiManager)
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "Player")

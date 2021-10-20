@@ -18,6 +18,7 @@ public class Key : MonoBehaviour
     {
         uiManager = FindObjectOfType<UIManager>();
         allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
+        //if key has already been grabbed before, destroys object so it cant be re-collected.
         if(allDungeonsManager.GetDungeonManager(dungeonNum).GetKeyStayDestroyed(keyNum))
         {
             Destroy(gameObject);

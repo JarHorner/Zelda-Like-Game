@@ -7,6 +7,7 @@ public class BeatTimer : MonoBehaviour
 
     [SerializeField] private Animator doorAnimator;
 
+    //sets the doors animator bool to have the door stay opened for good.
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.tag == "Player")

@@ -26,10 +26,12 @@ public class Pitfall : MonoBehaviour
 
     void Update() 
     {
+        //if the player is falling animation plays and movement is stopped.
         if (falling)
         {
             animLength -= Time.deltaTime;
             player.Movement = Vector2.zero;
+            //once animation is finished, player is placed in their last postion and damage is taken.
             if (animLength <= 0)
             {
                 player.transform.position = areaTransition.LastPlayerLocation;
@@ -41,6 +43,8 @@ public class Pitfall : MonoBehaviour
             }
         }
     }
+
+    //plays the players falling animation and sets the falling bool to true (check Update())
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.tag == "Player" && enabled)
@@ -51,6 +55,7 @@ public class Pitfall : MonoBehaviour
         }
     }
 
+    //same as OnTriggerEnter2D() but ensures the player cannot glitch over anything!
     private void OnTriggerStay2D(Collider2D collider) 
     {
         if (collider.tag == "Player" && enabled)

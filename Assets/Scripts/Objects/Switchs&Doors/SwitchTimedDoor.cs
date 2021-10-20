@@ -24,42 +24,47 @@ public class SwitchTimedDoor : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
     
-    //if door will open when player walks over switch
+    //if players steps on collider and switch hasnt been used, door will open.
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player" & !usedSwitch)
         {
             pressDown.Play();
             usedSwitch = true;
+            //done like this so coroutine can be stopped if player leaves room. (Coroutines cannot be stopped if not an actual object).
             coroutine = OpenDoor();
             StartCoroutine(coroutine);
         }
     }
 
+    //uses the Pause() function from GameManager to prevent movement and play the animation of door opening.
     IEnumerator OpenDoor() {
-        //pauses game while animations play (so player cannot move)
         isRunning = true;
         doorAudioSource.clip = doorOpen;
         doorAudioSource.Play();
         gameManager.Pause(false);
         doorAnimator.SetBool("Open", true);
+        //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();
+        //sets an internal timer for the opened door. if 15 seconds pass, CloseDoor() will be played.
         yield return new WaitForSeconds(15f);
         isRunning = false;
         StartCoroutine(CloseDoor());
     }
 
+    //uses the Pause() function from GameManager to prevent movement and play the animation of door closing.
     IEnumerator CloseDoor() {
-        //pauses game while animations play (so player cannot move)
         doorAudioSource.clip = doorClose;
         doorAudioSource.Play();
         gameManager.Pause(false);
         doorAnimator.SetBool("Open", false);
         usedSwitch = false;
+        //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();
     }
 
+    //stops the current Coroutine (OpenDoor()) closing the door and allowing the switch to be pressed again.
     public void ResetDoor()
     {
         StopCoroutine(coroutine);
@@ -67,6 +72,7 @@ public class SwitchTimedDoor : MonoBehaviour
         usedSwitch = false;
     }
 
+    //checks if timer is currenly running.
     public bool IsRunning
     {
         get { return isRunning; }
