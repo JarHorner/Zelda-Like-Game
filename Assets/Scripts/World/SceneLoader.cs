@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour
         [SerializeField] private int sceneIndex;
         private float transitionTime = 1f;
         private PlayerController player;
+        private GameManager gameManager;
         private UIManager uIManager;
         public string exitPoint;
     #endregion
@@ -21,6 +22,7 @@ public class SceneLoader : MonoBehaviour
     {
         player = FindObjectOfType<PlayerController>();
         uIManager = FindObjectOfType<UIManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) 
@@ -43,12 +45,20 @@ public class SceneLoader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         Debug.Log("Loading Level");
-        //scene index of first level
-        if(levelIndex == 5)
-            //first dungeon number is 0
-            uIManager.ChangeKeyCount(0);
-        else
-            uIManager.ChangeKeyCount();
+
+        // //changes the amt of keys shown in the UI depending on scene (Will add more with more dungeons)
+        // if (gameManager.CurrentScene.Contains("Dungeon"))
+        // {
+        //     //gets the last index (which will be the number of the dungeon)
+        //     char dungeonNum = gameManager.CurrentScene[gameManager.CurrentScene.Length - 1];
+        //     //converts the char to int
+        //     uIManager.ChangeKeyCount(dungeonNum - 0);
+        // }
+        // else
+        // {
+        //     uIManager.ChangeKeyCount();
+        // }
+        
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelIndex);

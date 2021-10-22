@@ -20,11 +20,9 @@ public class AreaTransitions : MonoBehaviour
 
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main.GetComponent<CameraController>();
-        //enemies = FindObjectsOfType<LogEnemy>();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         gameManager = FindObjectOfType<GameManager>();
     }
@@ -41,7 +39,8 @@ public class AreaTransitions : MonoBehaviour
             collider.transform.position += movePlayer;
             lastPlayerLocation = collider.transform.position;
 
-            if (!gameManager.PlayerLocation.Contains("Dungeon"))
+            //if the transition is in a dungeon, the enemies are not "respawned".
+            if (!gameManager.CurrentScene.Contains("Dungeon"))
             {
                 //resets enemies that are out of place
                 if (enemies != null)

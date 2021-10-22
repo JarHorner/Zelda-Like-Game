@@ -9,98 +9,43 @@ public class UIManager : MonoBehaviour
 
     #region Variables
     private HealthManager healthManager;
+    private AllDungeonsManager allDungeonsManager;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private TMP_Text keyCount;
     [SerializeField] private TMP_Text moneyCount;
-    private List<MutableKeyValPair<int, int>> dungeonkeys = new List<MutableKeyValPair<int, int>>();
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject inventoryScreen;
     #endregion
 
     #region Unity Methods
 
-    void Awake() 
-    {
-        //creates a keyvaluepair list to store amount of keys for each dungeon
-        for (int i = 0; i < 8; i++)
-        {
-            dungeonkeys.Add(new MutableKeyValPair<int, int>(i, 0));
-        }
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         healthManager = FindObjectOfType<HealthManager>();
-        keyCount.text = "-";
+        allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        healthBar.maxValue = healthManager.GetMaxHealth();
-        healthBar.value = healthManager.GetCurrentHealth();
+        healthBar.maxValue = healthManager.MaxHealth;
+        healthBar.value = healthManager.CurrHealth;
         //changes text of HP bar depending on previous calculations
-        hpText.text = $"HP: {healthManager.GetCurrentHealth()}/{healthManager.GetMaxHealth()}";
+        hpText.text = $"HP: {healthManager.CurrHealth}/{healthManager.MaxHealth}";
     }
 
     //changes key count to the amt of keys you have in a specific dungeon
-    public void ChangeKeyCount(int? dungeonNum = null)
+    public void ChangeKeyCountText(int dungeonNum)
     {
-        if (dungeonNum == null) 
+        if (dungeonNum == -1) 
         {
             keyCount.text = "-";
         }
         else 
         {
-            foreach(var item in dungeonkeys)
-            {
-                if (item.key == dungeonNum)
-                {
-                    Debug.Log("Got Here!");
-                    keyCount.text = item.value.ToString();
-                }
-            }
-        }
-    }
-
-    //gets the key count of a certain dungeon
-    public int GetKeyCount(int dungeonNum)
-    {
-        foreach (var item in dungeonkeys)
-        {
-            if (item.key == dungeonNum)
-            {
-                return item.value;
-            }
-        }
-        return -1;
-    }
-
-    //adds key to certain dungeon
-    public void AddKey(int dungeonNum) 
-    {
-        foreach (var item in dungeonkeys)
-        {
-            if (item.key == dungeonNum)
-            {
-                item.value += 1;
-                keyCount.text = $"{item.value}";
-            }
-        }
-    }
-
-    //removes key from certain dungeon
-    public void RemoveKey(int dungeonNum)
-    {
-        foreach (var item in dungeonkeys)
-        {
-            if (item.key == dungeonNum)
-            {
-                item.value -= 1;
-                keyCount.text = $"{item.value}";
-            }
+            Debug.Log(allDungeonsManager.GetDungeonManager(dungeonNum));
+            int numOfKeys = allDungeonsManager.GetDungeonManager(dungeonNum).CurrentKeys;
+            keyCount.text = numOfKeys.ToString();
         }
     }
 

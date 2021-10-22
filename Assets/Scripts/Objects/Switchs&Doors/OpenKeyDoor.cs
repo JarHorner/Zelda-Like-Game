@@ -30,7 +30,7 @@ public class OpenKeyDoor : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         //if player is against door, has a key and door is not in the list of doors to stay open, coroutine starts
-        if(other.tag == "Player" && uIManager.GetKeyCount(dungeonNum) > 0 && !allDungeonsManager.GetDungeonManager(dungeonNum).GetDoorStayOpen(doorNum))
+        if(other.tag == "Player" && allDungeonsManager.GetDungeonManager(dungeonNum).CurrentKeys > 0 && !allDungeonsManager.GetDungeonManager(dungeonNum).GetDoorStayOpen(doorNum))
         {
             StartCoroutine(OpenDoor());
         }
@@ -41,7 +41,8 @@ public class OpenKeyDoor : MonoBehaviour
         openDoor.Play();
         gameManager.Pause(false);
         animator.SetBool("Open", true);
-        uIManager.RemoveKey(dungeonNum);
+        allDungeonsManager.GetDungeonManager(dungeonNum).CurrentKeys -= 1;
+        uIManager.ChangeKeyCountText(dungeonNum);
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();

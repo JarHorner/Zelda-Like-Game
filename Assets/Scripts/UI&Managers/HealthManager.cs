@@ -28,7 +28,6 @@ public class HealthManager : MonoBehaviour
 
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
@@ -40,7 +39,6 @@ public class HealthManager : MonoBehaviour
             currHealth = PlayerPrefs.GetInt("PlayerCurrHp");
     }
 
-    // Update is called once per frame
     void Update()
     {
         //called when player is dead, resetting variables changed at death and re-loading scene
@@ -108,7 +106,7 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    //Method that calculates the amount of health player has left after hit, active the flashing and starts process of reloading scene at death
+    //calculates the amount of health player has left after hit, active the flashing and starts process of reloading scene if dead
     public void HurtPlayer(int damageNum)
     {
         hit.Play();
@@ -134,19 +132,15 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public int GetCurrentHealth()
+    public int CurrHealth
     {
-        return currHealth;
+        get { return currHealth; }
+        set { currHealth = value; }
     }
 
-    public void SetCurrentHealth(int newHealth)
+    public int MaxHealth
     {
-        currHealth = newHealth;
-    }
-
-    public int GetMaxHealth()
-    {
-        return maxHealth;
+        get { return maxHealth; }
     }
 
     #endregion

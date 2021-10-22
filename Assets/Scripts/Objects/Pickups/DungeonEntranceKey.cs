@@ -23,7 +23,7 @@ public class DungeonEntranceKey : MonoBehaviour
     {
         if (collider.tag == "Player") 
         {
-            allDungeonsManager.ActivateDungeonKey(dungeonNum);
+            allDungeonsManager.ActivateDungeonEntranceKey(dungeonNum);
             Destroy(this.gameObject);
         }
     }

@@ -6,11 +6,14 @@ public class Sword : MonoBehaviour
 {
 
     #region Variables
+    //variable can be changed.
     [SerializeField] private int damageDealt = 1;
 
     #endregion
 
     #region Unity Methods
+
+    //if collider touches an enemy, it is deactivated to not "hit" multiple times, then deals damage towards the enemy hit.
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.tag == "Enemy") 

@@ -13,11 +13,13 @@ public class MainMenu : MonoBehaviour
 
     #region Unity Methods
 
+    //loads the first scene of the game
     public void StartGame() 
     {
         SceneManager.LoadScene("Scene_1");
     }
 
+    //exits the application.
     public void ExitGame() 
     {
         Application.Quit();

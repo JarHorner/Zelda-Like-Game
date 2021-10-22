@@ -15,9 +15,9 @@ public class PlayerSpawnController : MonoBehaviour
 
     #region Unity Methods  
 
+    //if player does not exist, instantiates the player and sets up the camera. if he does exist, finds him and attachs the camera.
     void Awake()
     {
-        //if player does not exist, instantiates the player and sets up the camera. if he does finds him and attechs camera
         if (GameObject.FindGameObjectWithTag("Player") == null)
         {
             Debug.Log("Spawning Player");
@@ -27,23 +27,26 @@ public class PlayerSpawnController : MonoBehaviour
         }
         else
         {
+            Debug.Log("Player Found");
             player = GameObject.FindWithTag("Player");
             cam = FindObjectOfType<CameraController>();
         }
         healthManager = FindObjectOfType<HealthManager>();
+        //if player died, and is reviving
         if (healthManager.revive == true) {
             player = GameObject.FindWithTag("Player");
             player.transform.position = spawnLocation.transform.position;
             cam = FindObjectOfType<CameraController>();
         }
+        //provides camera with target
         cam.SetTarget(player.transform);
     }
 
     void Start() {
         //ensures player has full health again after dying
-        if (healthManager.GetCurrentHealth() <= 0) 
+        if (healthManager.CurrHealth <= 0) 
         {
-            healthManager.SetCurrentHealth(healthManager.GetMaxHealth());
+            healthManager.CurrHealth = healthManager.MaxHealth;
         }
     }
 

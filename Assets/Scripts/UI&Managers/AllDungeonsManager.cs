@@ -30,6 +30,7 @@ public class AllDungeonsManager : MonoBehaviour
             dungeonEntranceKeys.Add(new MutableKeyValPair<int, bool>(i, false));
         }
     }
+
     //adds dungeon to to list
     private void AddDungeon(int num, DungeonManager manager)
     {
@@ -49,7 +50,8 @@ public class AllDungeonsManager : MonoBehaviour
         return null;
     }
 
-    public void ActivateDungeonKey(int dungeonNum)
+    //"activates" the dungeon key as true, so correlating dungeon animation can be played.
+    public void ActivateDungeonEntranceKey(int dungeonNum)
     {
         foreach (var item in dungeonEntranceKeys)
         {
@@ -61,7 +63,8 @@ public class AllDungeonsManager : MonoBehaviour
         }
     }
 
-    public bool IsDungeonKeyActive(int dungeonNum)
+    //Checks if the dungeon entrance key has been activated (picked up) to play opening dungeon animation.
+    public bool IsDungeonEntranceKeyActive(int dungeonNum)
     {
         foreach (var key in dungeonEntranceKeys)
         {

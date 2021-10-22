@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
     #region Variables
-    private string playerLocation;
-    private UIManager uiManager;
+    private string currentScene;
+    private UIManager uIManager;
     private GameObject player;
     private Animator playerAnimator;
     private SoundManager soundManager;
@@ -21,18 +21,29 @@ public class GameManager : MonoBehaviour
 
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
-        uiManager = FindObjectOfType<UIManager>();
+        ChangeCurrentScene();
+        uIManager = FindObjectOfType<UIManager>();
         player = GameObject.FindWithTag("Player");
         playerAnimator = player.GetComponent<Animator>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
-        ChangePlayerLocation();
-        Debug.Log(playerLocation);
+        Debug.Log(CurrentScene);
+        //changes the amt of keys shown in the UI depending on scene (Will add more with more dungeons)
+        if (CurrentScene.Contains("Dungeon"))
+        {
+            //gets the last index (which will be the number of the dungeon)
+            char dungeonNum = CurrentScene[CurrentScene.Length - 1];
+            Debug.Log(dungeonNum);
+            //converts the char to int
+            uIManager.ChangeKeyCountText(int.Parse(dungeonNum.ToString()));
+        }
+        else
+        {
+            uIManager.ChangeKeyCountText(-1);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         PauseGame();
@@ -48,13 +59,13 @@ public class GameManager : MonoBehaviour
             {
                 UnPause();
                 isPaused = false;
-                uiManager.GetPauseScreen().SetActive(false);
+                uIManager.GetPauseScreen().SetActive(false);
             }
             else
             {
                 Pause(true);
                 isPaused = true;
-                uiManager.GetPauseScreen().SetActive(true);
+                uIManager.GetPauseScreen().SetActive(true);
             }
         }
     }
@@ -68,19 +79,19 @@ public class GameManager : MonoBehaviour
             {
                 UnPause();
                 inventoryOpen = false;
-                uiManager.GetInventoryScreen().SetActive(false);
+                uIManager.GetInventoryScreen().SetActive(false);
             }
             else
             {
                 Pause(true);
                 inventoryOpen = true;
                 openMenu.Play();
-                uiManager.GetInventoryScreen().SetActive(true);
+                uIManager.GetInventoryScreen().SetActive(true);
             }
         }
     }
 
-    //pauses the the timescale of the game is true, if false, only the player (good for cutscene-ish stuff)
+    //pauses the the timescale of the game if true. if false, only the player will be stopped (good for cutscene stuff)
     public void Pause(bool timePause) 
     {
         if (timePause)
@@ -103,16 +114,15 @@ public class GameManager : MonoBehaviour
         playerAnimator.speed = 1;
     }
 
-    private void ChangePlayerLocation()
+    private void ChangeCurrentScene()
     {
         var scene = SceneManager.GetActiveScene();
-        playerLocation = scene.name;
+        currentScene = scene.name;
     }
 
-    public string PlayerLocation
+    public string CurrentScene
     {
-        get { return playerLocation; }
+        get { return currentScene; }
     }
-
     #endregion
 }

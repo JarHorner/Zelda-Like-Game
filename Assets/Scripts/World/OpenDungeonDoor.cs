@@ -20,7 +20,7 @@ public class OpenDungeonDoor : MonoBehaviour
     {  
         allDungeonsManager = GameObject.FindObjectOfType<AllDungeonsManager>();
         gameManager = FindObjectOfType<GameManager>();
-        //if dungeon has been opened, it stays opened
+        //if dungeon has been opened, it stays opened when transitioning into other scenes.
         if (allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened()) {
             statueAnimator.SetBool("Opened", true);
             entranceAnimator.SetBool("Opened", true);
@@ -30,7 +30,7 @@ public class OpenDungeonDoor : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider) {
         //if player has key, start coroutine of dungeon-opening animation
-        if (collider.gameObject.tag == "Player" && allDungeonsManager.IsDungeonKeyActive(dungeonNum)) 
+        if (collider.gameObject.tag == "Player" && allDungeonsManager.IsDungeonEntranceKeyActive(dungeonNum)) 
         {
             StartCoroutine(OpenDungeon());
         }

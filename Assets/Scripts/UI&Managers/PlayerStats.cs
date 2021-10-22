@@ -49,16 +49,16 @@ public class PlayerStats : MonoBehaviour
 
     private IEnumerator ExpToLevel() 
     {
+        //algorithm setting up exp to level (can always be changed)
         for (int i = 1;i < maxLevel; i++)
         {
-            //algorithm setting up exp to level (can always be changed)
             baseExp = Mathf.RoundToInt((baseExp + 100) * 1.1f);
             expToLevelUp[i] = baseExp;
             yield return expToLevelUp[i];
         }
     }
 
-    //basic setter, but adds parameter
+    //basic setter
     public void SetCurrentExp(int addedExp)
     {
         currentExp += addedExp;

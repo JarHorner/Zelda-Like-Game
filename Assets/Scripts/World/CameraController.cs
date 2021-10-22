@@ -11,7 +11,6 @@ public class CameraController : MonoBehaviour
     private bool maintainWidth = true;
     private float defaultWidth;
 
-    // Start is called before the first frame update
     void Start()
     {
         //maintains perfect width for default resolution
@@ -27,7 +26,6 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    // LateUpdate is called once per frame, but after Update() function
     void FixedUpdate()
     {
         if (target != null)
@@ -48,7 +46,6 @@ public class CameraController : MonoBehaviour
             }
         }
     }
-
     public void SetMinPosition(Vector2 newMinPosition)
     {
         minPosition = newMinPosition;

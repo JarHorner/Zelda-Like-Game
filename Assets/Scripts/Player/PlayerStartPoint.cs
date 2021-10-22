@@ -21,8 +21,12 @@ public class PlayerStartPoint : MonoBehaviour
         //places player and camera according to the start point
         player = FindObjectOfType<PlayerController>();
         
+        //needed to change players movement back to normal, if changed before starting again.
         player.moveSpeed = 6f;
         
+        //used to transport to the correct location, when multiple start points are in the same scene.
+        //example if player is given the 'dungeon in' string and enters scene, the player will start
+        //at the start point with the point name 'dungeon in'.
         if(player.startPoint == pointName)
         {
             Debug.Log("Placing Player & Camera");

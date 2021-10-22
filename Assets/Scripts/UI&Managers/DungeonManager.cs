@@ -6,14 +6,26 @@ using TMPro;
 public class DungeonManager
 {
     #region Variables
-    private bool isOpened = false;
-    private bool hasMap = false;
+    private bool isOpened;
+    private bool hasMap;
+    //Key: door number, Value: is door open
     private List<MutableKeyValPair<int, bool>> keyDoors = new List<MutableKeyValPair<int, bool>>();
+    //Key: chest number, Value: is chest open
     private List<MutableKeyValPair<int, bool>> chests = new List<MutableKeyValPair<int, bool>>();
+    //Key: key number, Value: is key collected
     private List<MutableKeyValPair<int, bool>> keys = new List<MutableKeyValPair<int, bool>>();
+    //Key: key number, Value: is key collected
+    private int currentKeys;
     #endregion
 
     #region Unity Methods
+
+    void Awake() 
+    {
+        currentKeys = 0;
+        isOpened = false;
+        hasMap = false;
+    }
 
     //adds a new door to stay opened to list, used in OpenKeyDoor when player unlocks door
     public void AddDoorStayOpen(int doorNum)
@@ -53,7 +65,7 @@ public class DungeonManager
         return false;
     }
 
-     //adds a new key to stay destroyed to list, used in Key OnTriggerEnter2D function when player unlocks door
+    //adds a new key to stay destroyed to list, used in Key OnTriggerEnter2D function when player unlocks door
     public void AddKeyStayDestoryed(int keyNum)
     {
         keys.Add(new MutableKeyValPair<int, bool>(keyNum, true));
@@ -72,21 +84,31 @@ public class DungeonManager
         return false;
     }
 
+    public int CurrentKeys
+    {
+        get { return currentKeys; }
+        set { currentKeys = value; }
+    }
+
+    //ensures the dungeon entrance is always opened, when changing scenes
     public void OpenDungeon()
     {
         isOpened = true;
     }
 
+    //checks is the dungeon entrance needs to stay opened.
     public bool IsDungeonOpened()
     {
         return isOpened;
     }
 
+    //ensures map has been picked up.
     public void GetMap()
     {
         hasMap = true;
     }
 
+    //checks to see if map has been picked up
     public bool HasMap()
     {
         return hasMap;

@@ -13,8 +13,7 @@ public class FlickeringLight : MonoBehaviour
     #endregion
 
     #region Unity Methods
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         flickeringLight = this.GetComponent<Light2D>();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,12 +31,14 @@ public class PlayerController : MonoBehaviour
 
     #region Unity Methods
 
-    void Awake() {
+    void Awake() 
+    {
         uiManager = GameObject.FindObjectOfType<UIManager>();
     }
 
     //Singleton affect code
-    void Start() {
+    void Start() 
+    {
         if (!playerExists)
         {
             playerExists = true;
@@ -101,8 +104,8 @@ public class PlayerController : MonoBehaviour
             walkingSound.Stop();
         }
 
-        //if not currently attacking, starts the animation, but it attack has been pressed again, another attack
-        //animation is qued up. Creating smooth attack if attack is spammed.
+        //if not currently attacking, starts the animation, if attack button has been pressed again, another attack
+        //animation is qued up. Creating smooth attacking if the attack button is spammed.
         if (!isAttacking)
         {
             if (Input.GetKeyDown(KeyCode.R) || doubleUpAttack)
@@ -111,6 +114,7 @@ public class PlayerController : MonoBehaviour
                 doubleUpAttack = false;
                 attackCounter = attackTime;
                 animator.SetBool("isAttacking", true);
+                //randomizes sounds used when attacking.
                 swingSound.clip = swingClips[Random.Range(0, swingClips.Length)];
                 swingSound.Play();
             }
@@ -133,14 +137,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //not stuck to framerate
+    //this is where the actual movement happens. better for performance, not tying movement to framerate.
     void FixedUpdate()
     {
         //enables movement
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
-    //enables swimming in the water, grabbing a key
+    //enables regular movement when colliding with OutOfWater trigger when leaving water.
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "OutOfWater")
@@ -151,6 +155,8 @@ public class PlayerController : MonoBehaviour
             moveSpeed = 5f;
         }
     }
+
+    //Getters and Setters for player variables.
 
     public Vector2 Movement
     {

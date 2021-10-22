@@ -80,7 +80,8 @@ public class OpenChest : MonoBehaviour
         }
         else if (itemSpriteName.Contains("Key"))
         {
-            uIManager.AddKey(dungeonNum);
+            allDungeonsManager.GetDungeonManager(dungeonNum).CurrentKeys += 1;
+            uIManager.ChangeKeyCountText(dungeonNum);
         }
         else if (itemSpriteName.Contains("Map"))
         {

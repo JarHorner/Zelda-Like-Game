@@ -24,6 +24,7 @@ public class DamagePopup : MonoBehaviour
         return damagePopup;
     }
 
+    //gives a value to the pop-up and sets disappear time, color and time in place.
     public void Setup(int damageAmount)
     {
         textMesh.SetText(damageAmount.ToString());
@@ -32,10 +33,11 @@ public class DamagePopup : MonoBehaviour
         timeInPlace = 0.1f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         timeInPlace -= Time.deltaTime;
+        //when the pop up has stayed in place for long enough, it moves upwards with its size decreasing each second.
+        //once the disappear time has reached, the value will start fading out then be destoryed.
         if  (timeInPlace < 0)
         {
             float moveYSpeed = 3f;
