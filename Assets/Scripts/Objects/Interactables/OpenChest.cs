@@ -6,7 +6,7 @@ public class OpenChest : MonoBehaviour
 {
     #region Variables
     private UIManager uIManager;
-    private AllDungeonsManager allDungeonsManager;
+    private DungeonManager dungeonManager;
     private GameManager gameManager;
     private Animator chestAnim;
     [SerializeField] private int chestNum;
@@ -22,11 +22,11 @@ public class OpenChest : MonoBehaviour
     void Start() 
     {
         uIManager = FindObjectOfType<UIManager>();
-        allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
+        dungeonManager = FindObjectOfType<AllDungeonsManager>().GetDungeonManager(dungeonNum);
         gameManager = FindObjectOfType<GameManager>();
         chestAnim = GetComponent<Animator>();
         //if chest has already been opened before, chest stays open so it cant be re-collected.
-        if(allDungeonsManager.GetDungeonManager(dungeonNum).GetChestStayOpen(chestNum))
+        if(dungeonManager.GetChestStayOpen(chestNum))
         {
             chestAnim.SetBool("isOpened", true);
         }
@@ -36,7 +36,7 @@ public class OpenChest : MonoBehaviour
     {
         //if player is within circle collider, chest has not been opened before and 'E' is pressed, chest is opened.
         //needs to check if chest has been opened again because the first check is only for animation.
-        if (canOpenChest && !allDungeonsManager.GetDungeonManager(dungeonNum).GetChestStayOpen(chestNum))
+        if (canOpenChest && !dungeonManager.GetChestStayOpen(chestNum))
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -61,7 +61,7 @@ public class OpenChest : MonoBehaviour
         Destroy(item);
         gameManager.UnPause();
         //adds chest to list so it cannot be opened again.
-        allDungeonsManager.GetDungeonManager(dungeonNum).AddChestStayOpen(chestNum);
+        dungeonManager.AddChestStayOpen(chestNum);
     }
 
     //gets the child of the object, which is the item within the chest, and determines what it is.
@@ -80,7 +80,7 @@ public class OpenChest : MonoBehaviour
         }
         else if (itemSpriteName.Contains("Key"))
         {
-            allDungeonsManager.GetDungeonManager(dungeonNum).CurrentKeys += 1;
+            dungeonManager.CurrentKeys += 1;
             uIManager.ChangeKeyCountText(dungeonNum);
         }
         else if (itemSpriteName.Contains("Map"))

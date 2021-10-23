@@ -39,6 +39,12 @@ public class AreaTransitions : MonoBehaviour
             collider.transform.position += movePlayer;
             lastPlayerLocation = collider.transform.position;
 
+            GameObject[] droppedItems = GameObject.FindGameObjectsWithTag("Item");
+            foreach (var item in droppedItems)
+            {
+                Destroy(item);
+            }
+
             //if the transition is in a dungeon, the enemies are not "respawned".
             if (!gameManager.CurrentScene.Contains("Dungeon"))
             {

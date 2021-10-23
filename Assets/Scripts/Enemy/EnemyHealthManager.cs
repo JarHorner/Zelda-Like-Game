@@ -14,8 +14,9 @@ public class EnemyHealthManager : MonoBehaviour
     [SerializeField] private AudioClip hit;
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip death;
+    [SerializeField] private RandomLoot randomLoot;
     private float flashCounter = 0f;
-    //in code, eventually set to 1f.
+    //in code, eventually set to 0.5f.
     public float waitToHurt = 0f;
     private SpriteRenderer enemySprite;
     private PlayerStats playerStats;
@@ -88,17 +89,19 @@ public class EnemyHealthManager : MonoBehaviour
         {
             currHealth -= damageToGive;
             flashActive = true;
-            //starts the flashing of enemy in Update()
-            flashCounter = flashLength;
             soundManager.Play(hit);
             if (currHealth <= 0) 
             {
                 soundManager.Play(death);
                 playerStats.SetCurrentExp(expValue);
+                //drops loot based on drop table
+                randomLoot.DropItem();
                 this.gameObject.SetActive(false);
             }
+            //starts the flashing of enemy in Update()
+            flashCounter = flashLength;
             //gives variable some time so enemy cant be chain hit
-            waitToHurt = 1f; 
+            waitToHurt = 0.5f; 
 
         }
     }

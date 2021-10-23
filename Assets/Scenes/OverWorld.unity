@@ -43355,6 +43355,10 @@ PrefabInstance:
       propertyPath: flashLength
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1397039940534892245, guid: 40f91202a3deb274b82fdb9e89990023, type: 3}
+      propertyPath: table.Array.data[2]
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 5526459411903359664, guid: 40f91202a3deb274b82fdb9e89990023, type: 3}
       propertyPath: m_Radius
       value: 0.22
@@ -47899,6 +47903,10 @@ PrefabInstance:
     - target: {fileID: 236695931122281817, guid: 40f91202a3deb274b82fdb9e89990023, type: 3}
       propertyPath: m_Volume
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397039940534892245, guid: 40f91202a3deb274b82fdb9e89990023, type: 3}
+      propertyPath: drops.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2564962669533737509, guid: 40f91202a3deb274b82fdb9e89990023, type: 3}
       propertyPath: maxDist

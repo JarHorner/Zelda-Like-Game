@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -1554279178693191353}
   - component: {fileID: 236695931122281817}
   - component: {fileID: 2564962669533737509}
+  - component: {fileID: 1397039940534892245}
   m_Layer: 0
   m_Name: Log_Enemy
   m_TagString: Enemy
@@ -195,6 +196,7 @@ MonoBehaviour:
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
   soundManager: {fileID: 2087593768604613283, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
   death: {fileID: 8300000, guid: e0954d070cf46cd40a83a4a2985c0fe2, type: 3}
+  randomLoot: {fileID: 1397039940534892245}
   waitToHurt: 0.5
   expValue: 10
 --- !u!82 &236695931122281817
@@ -309,6 +311,25 @@ MonoBehaviour:
   minDist: 0.5
   maxDist: 12
   maxVolume: 0.4
+--- !u!114 &1397039940534892245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526459411903359677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49f4d00485e6d441b2a4bd996fa6175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 0}
+  - {fileID: 3463233746944834832, guid: 1aec62755c9498d429cf1733b89a1b30, type: 3}
+  - {fileID: 8409851035980371809, guid: c89cad6aa7b9c814da91836b18597520, type: 3}
+  - {fileID: 3471238382761467840, guid: a919c81a1575ec044b0722e3fff36f16, type: 3}
+  - {fileID: 9133062843454066787, guid: 02836c2e681833743be467db74b32439, type: 3}
+  table: 210000001c0000001b0000000a00000002000000
 --- !u!1 &5526459412359467414
 GameObject:
   m_ObjectHideFlags: 0

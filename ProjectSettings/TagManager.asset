@@ -15,6 +15,7 @@ TagManager:
   - DungeonKey
   - KeyDoor
   - Walls
+  - Item
   layers:
   - Default
   - TransparentFX
