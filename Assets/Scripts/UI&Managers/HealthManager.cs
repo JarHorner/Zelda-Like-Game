@@ -15,6 +15,7 @@ public class HealthManager : MonoBehaviour
     private bool animBeforeDeath;
     private Rigidbody2D rb;
     [SerializeField] private AudioClip death;
+    [SerializeField] ParticleSystem deathBurst;
     [SerializeField] private AudioSource hit;
     [SerializeField] private DamagePopup damagePopup;
     private SoundManager soundManager;
@@ -119,6 +120,9 @@ public class HealthManager : MonoBehaviour
 
         if (currHealth <= 0)
         {
+            //spawns particles on death
+            ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
+            partSys.Play(true);
             //starts death animation
             Debug.Log("Dying!");
             animBeforeDeath = animator.GetCurrentAnimatorStateInfo(0).IsName("Swimming");

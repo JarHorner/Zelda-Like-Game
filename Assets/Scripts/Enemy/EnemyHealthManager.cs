@@ -14,6 +14,7 @@ public class EnemyHealthManager : MonoBehaviour
     [SerializeField] private AudioClip hit;
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip death;
+    [SerializeField] ParticleSystem deathBurst;
     [SerializeField] private RandomLoot randomLoot;
     private float flashCounter = 0f;
     //in code, eventually set to 0.5f.
@@ -92,6 +93,9 @@ public class EnemyHealthManager : MonoBehaviour
             soundManager.Play(hit);
             if (currHealth <= 0) 
             {
+                //spawns particles on death
+                ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
+                partSys.Play(true);
                 soundManager.Play(death);
                 playerStats.SetCurrentExp(expValue);
                 //drops loot based on drop table

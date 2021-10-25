@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e77a8b63dde7743915ec74592ca174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyCount: 10
+  moneyCount: 5
 --- !u!70 &2297117982943171443
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

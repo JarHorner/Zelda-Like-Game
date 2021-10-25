@@ -550,6 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 1
+  damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
 --- !u!1 &976102534692789722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,6 +1796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 1
+  damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
 --- !u!1 &2294981720079903969
 GameObject:
   m_ObjectHideFlags: 0
@@ -3346,6 +3348,7 @@ MonoBehaviour:
   currHealth: 5
   maxHealth: 5
   death: {fileID: 8300000, guid: 1e53fdc002398c64d8db79892351fbf1, type: 3}
+  deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
   hit: {fileID: 8086811746960731516}
   damagePopup: {fileID: -6122320544183807488, guid: 83f95567f196dbe4b8470c4406da8c59, type: 3}
   flashLength: 0.8
@@ -5504,7 +5507,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeon0Key: {fileID: 8188454167792089272}
-  dungeonManager: {fileID: 1334592607115218787, guid: ff9fd677a6878ff4d9b4dfb3bc599f0b, type: 3}
 --- !u!1 &6844715803136197837
 GameObject:
   m_ObjectHideFlags: 0
@@ -5582,6 +5584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 1
+  damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
 --- !u!1 &6899464115702352086
 GameObject:
   m_ObjectHideFlags: 0
@@ -6349,6 +6352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageDealt: 1
+  damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
 --- !u!1 &7526251663000199620
 GameObject:
   m_ObjectHideFlags: 0

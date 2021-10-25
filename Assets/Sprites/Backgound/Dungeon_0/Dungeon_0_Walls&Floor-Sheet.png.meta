@@ -1,0 +1,3308 @@
+fileFormatVersion: 2
+guid: 1825633ece7aaa74bb4674bfac710546
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3777996261494936916
+    second: Dungeon_0_Walls&Floor-Sheet_0
+  - first:
+      213: 5271135803225967353
+    second: Dungeon_0_Walls&Floor-Sheet_1
+  - first:
+      213: 4319625613587082572
+    second: Dungeon_0_Walls&Floor-Sheet_2
+  - first:
+      213: -4995055255281064529
+    second: Dungeon_0_Walls&Floor-Sheet_3
+  - first:
+      213: -4831424974875806075
+    second: Dungeon_0_Walls&Floor-Sheet_4
+  - first:
+      213: 4626900593309960560
+    second: Dungeon_0_Walls&Floor-Sheet_5
+  - first:
+      213: 7884468917711915051
+    second: Dungeon_0_Walls&Floor-Sheet_6
+  - first:
+      213: 9006182381588820928
+    second: Dungeon_0_Walls&Floor-Sheet_7
+  - first:
+      213: 279990062366923867
+    second: Dungeon_0_Walls&Floor-Sheet_8
+  - first:
+      213: -500287760988249305
+    second: Dungeon_0_Walls&Floor-Sheet_9
+  - first:
+      213: -7219953817067849062
+    second: Dungeon_0_Walls&Floor-Sheet_10
+  - first:
+      213: -2509230834540837893
+    second: Dungeon_0_Walls&Floor-Sheet_11
+  - first:
+      213: 6961441637673940714
+    second: Dungeon_0_Walls&Floor-Sheet_12
+  - first:
+      213: -5797707858243905901
+    second: Dungeon_0_Walls&Floor-Sheet_13
+  - first:
+      213: -3755039381209525976
+    second: Dungeon_0_Walls&Floor-Sheet_14
+  - first:
+      213: 1306411990433241124
+    second: Dungeon_0_Walls&Floor-Sheet_15
+  - first:
+      213: -611226676358064022
+    second: Dungeon_0_Walls&Floor-Sheet_16
+  - first:
+      213: 465119849801872563
+    second: Dungeon_0_Walls&Floor-Sheet_17
+  - first:
+      213: -6588031575896072730
+    second: Dungeon_0_Walls&Floor-Sheet_18
+  - first:
+      213: -4437420286460386644
+    second: Dungeon_0_Walls&Floor-Sheet_19
+  - first:
+      213: -6687915143087636209
+    second: Dungeon_0_Walls&Floor-Sheet_20
+  - first:
+      213: 1974237431987729201
+    second: Dungeon_0_Walls&Floor-Sheet_21
+  - first:
+      213: -1625514873094476106
+    second: Dungeon_0_Walls&Floor-Sheet_22
+  - first:
+      213: 4338195991014078550
+    second: Dungeon_0_Walls&Floor-Sheet_23
+  - first:
+      213: -8643260941503807954
+    second: Dungeon_0_Walls&Floor-Sheet_24
+  - first:
+      213: 7234222798594562203
+    second: Dungeon_0_Walls&Floor-Sheet_25
+  - first:
+      213: -2353123319507107505
+    second: Dungeon_0_Walls&Floor-Sheet_26
+  - first:
+      213: 6241049645707449647
+    second: Dungeon_0_Walls&Floor-Sheet_27
+  - first:
+      213: -8270824258521072603
+    second: Dungeon_0_Walls&Floor-Sheet_28
+  - first:
+      213: 5152648452983022855
+    second: Dungeon_0_Walls&Floor-Sheet_29
+  - first:
+      213: -2059117280340916248
+    second: Dungeon_0_Walls&Floor-Sheet_30
+  - first:
+      213: 7271582075076998570
+    second: Dungeon_0_Walls&Floor-Sheet_31
+  - first:
+      213: 2587788900315087415
+    second: Dungeon_0_Walls&Floor-Sheet_32
+  - first:
+      213: 5462683428130754692
+    second: Dungeon_0_Walls&Floor-Sheet_33
+  - first:
+      213: 7332328201427923458
+    second: Dungeon_0_Walls&Floor-Sheet_34
+  - first:
+      213: 3695051218643140656
+    second: Dungeon_0_Walls&Floor-Sheet_35
+  - first:
+      213: 6626319862706540997
+    second: Dungeon_0_Walls&Floor-Sheet_36
+  - first:
+      213: -5152118623091395838
+    second: Dungeon_0_Walls&Floor-Sheet_37
+  - first:
+      213: -4340945533560701261
+    second: Dungeon_0_Walls&Floor-Sheet_38
+  - first:
+      213: 7816182388785849200
+    second: Dungeon_0_Walls&Floor-Sheet_39
+  - first:
+      213: 7673480587460174976
+    second: Dungeon_0_Walls&Floor-Sheet_40
+  - first:
+      213: 772908864173254203
+    second: Dungeon_0_Walls&Floor-Sheet_41
+  - first:
+      213: 3838730592942053538
+    second: Dungeon_0_Walls&Floor-Sheet_42
+  - first:
+      213: 7690354522644991218
+    second: Dungeon_0_Walls&Floor-Sheet_43
+  - first:
+      213: -6557220203775649495
+    second: Dungeon_0_Walls&Floor-Sheet_44
+  - first:
+      213: 1578628067309044842
+    second: Dungeon_0_Walls&Floor-Sheet_45
+  - first:
+      213: -3281191086142646917
+    second: Dungeon_0_Walls&Floor-Sheet_46
+  - first:
+      213: -6772792253468339486
+    second: Dungeon_0_Walls&Floor-Sheet_47
+  - first:
+      213: -3658484769590101984
+    second: Dungeon_0_Walls&Floor-Sheet_48
+  - first:
+      213: -5505130669229804317
+    second: Dungeon_0_Walls&Floor-Sheet_49
+  - first:
+      213: 3558971861698448785
+    second: Dungeon_0_Walls&Floor-Sheet_50
+  - first:
+      213: 3878839980764105508
+    second: Dungeon_0_Walls&Floor-Sheet_51
+  - first:
+      213: 8677148276263992982
+    second: Dungeon_0_Walls&Floor-Sheet_52
+  - first:
+      213: 6229804830784505757
+    second: Dungeon_0_Walls&Floor-Sheet_53
+  - first:
+      213: -1845973241325009716
+    second: Dungeon_0_Walls&Floor-Sheet_54
+  - first:
+      213: 647303155547632951
+    second: Dungeon_0_Walls&Floor-Sheet_55
+  - first:
+      213: -3000962128604509022
+    second: Dungeon_0_Walls&Floor-Sheet_56
+  - first:
+      213: 8070021543880077950
+    second: Dungeon_0_Walls&Floor-Sheet_57
+  - first:
+      213: -2534210295148589511
+    second: Dungeon_0_Walls&Floor-Sheet_58
+  - first:
+      213: 4789440366803397848
+    second: Dungeon_0_Walls&Floor-Sheet_59
+  - first:
+      213: -8783909524084546862
+    second: Dungeon_0_Walls&Floor-Sheet_60
+  - first:
+      213: -3327605488118643106
+    second: Dungeon_0_Walls&Floor-Sheet_61
+  - first:
+      213: -3666859731455816729
+    second: Dungeon_0_Walls&Floor-Sheet_62
+  - first:
+      213: 9206733513124916763
+    second: Dungeon_0_Walls&Floor-Sheet_63
+  - first:
+      213: 8141993619728190926
+    second: Dungeon_0_Walls&Floor-Sheet_64
+  - first:
+      213: 7037568467224317421
+    second: Dungeon_0_Walls&Floor-Sheet_65
+  - first:
+      213: 951932933367067977
+    second: Dungeon_0_Walls&Floor-Sheet_66
+  - first:
+      213: -4133202828809016946
+    second: Dungeon_0_Walls&Floor-Sheet_67
+  - first:
+      213: -7215693562906189477
+    second: Dungeon_0_Walls&Floor-Sheet_68
+  - first:
+      213: -7530920845261684490
+    second: Dungeon_0_Walls&Floor-Sheet_69
+  - first:
+      213: 3128465070671375584
+    second: Dungeon_0_Walls&Floor-Sheet_70
+  - first:
+      213: -1380537694559620190
+    second: Dungeon_0_Walls&Floor-Sheet_71
+  - first:
+      213: -1949190145448141314
+    second: Dungeon_0_Walls&Floor-Sheet_72
+  - first:
+      213: 4701545170741275455
+    second: Dungeon_0_Walls&Floor-Sheet_73
+  - first:
+      213: 1598117424114042720
+    second: Dungeon_0_Walls&Floor-Sheet_74
+  - first:
+      213: 618213937599532516
+    second: Dungeon_0_Walls&Floor-Sheet_75
+  - first:
+      213: -6595678151463761466
+    second: Dungeon_0_Walls&Floor-Sheet_76
+  - first:
+      213: -916545254067752323
+    second: Dungeon_0_Walls&Floor-Sheet_77
+  - first:
+      213: -7882319306922580505
+    second: Dungeon_0_Walls&Floor-Sheet_78
+  - first:
+      213: 802215302821073185
+    second: Dungeon_0_Walls&Floor-Sheet_79
+  - first:
+      213: -4718016321142601560
+    second: Dungeon_0_Walls&Floor-Sheet_80
+  - first:
+      213: 8408291508373097578
+    second: Dungeon_0_Walls&Floor-Sheet_81
+  - first:
+      213: -8668662782824338302
+    second: Dungeon_0_Walls&Floor-Sheet_82
+  - first:
+      213: -2449145248446543076
+    second: Dungeon_0_Walls&Floor-Sheet_83
+  - first:
+      213: -6232566582888465136
+    second: Dungeon_0_Walls&Floor-Sheet_84
+  - first:
+      213: -9181107742457538971
+    second: Dungeon_0_Walls&Floor-Sheet_85
+  - first:
+      213: 1992235857425953578
+    second: Dungeon_0_Walls&Floor-Sheet_86
+  - first:
+      213: 2147994585875630873
+    second: Dungeon_0_Walls&Floor-Sheet_87
+  - first:
+      213: -5220491744074787274
+    second: Dungeon_0_Walls&Floor-Sheet_88
+  - first:
+      213: 1494257253227328192
+    second: Dungeon_0_Walls&Floor-Sheet_89
+  - first:
+      213: 1964124007275097238
+    second: Dungeon_0_Walls&Floor-Sheet_90
+  - first:
+      213: -4041314256727047109
+    second: Dungeon_0_Walls&Floor-Sheet_91
+  - first:
+      213: 5997616512046575008
+    second: Dungeon_0_Walls&Floor-Sheet_92
+  - first:
+      213: -8342354538335150287
+    second: Dungeon_0_Walls&Floor-Sheet_93
+  - first:
+      213: 5470713432388430233
+    second: Dungeon_0_Walls&Floor-Sheet_94
+  - first:
+      213: 3991181866916993951
+    second: Dungeon_0_Walls&Floor-Sheet_95
+  - first:
+      213: -533653073323090135
+    second: Dungeon_0_Walls&Floor-Sheet_96
+  - first:
+      213: 2650178196764223143
+    second: Dungeon_0_Walls&Floor-Sheet_97
+  - first:
+      213: -4115882612143980904
+    second: Dungeon_0_Walls&Floor-Sheet_98
+  - first:
+      213: 9145645300406596916
+    second: Dungeon_0_Walls&Floor-Sheet_99
+  - first:
+      213: 3810859677601241145
+    second: Dungeon_0_Walls&Floor-Sheet_100
+  - first:
+      213: 4348615027585354115
+    second: Dungeon_0_Walls&Floor-Sheet_101
+  - first:
+      213: 8305507943953171071
+    second: Dungeon_0_Walls&Floor-Sheet_102
+  - first:
+      213: -1152350132295237718
+    second: Dungeon_0_Walls&Floor-Sheet_103
+  - first:
+      213: 2488820498919587925
+    second: Dungeon_0_Walls&Floor-Sheet_104
+  - first:
+      213: 98084962022833537
+    second: Dungeon_0_Walls&Floor-Sheet_105
+  - first:
+      213: 3331576413821511100
+    second: Dungeon_0_Walls&Floor-Sheet_106
+  - first:
+      213: -6509237165228182300
+    second: Dungeon_0_Walls&Floor-Sheet_107
+  - first:
+      213: 1022458614314240331
+    second: Dungeon_0_Walls&Floor-Sheet_108
+  - first:
+      213: -7832168865007312936
+    second: Dungeon_0_Walls&Floor-Sheet_109
+  - first:
+      213: 7835037267525903621
+    second: Dungeon_0_Walls&Floor-Sheet_110
+  - first:
+      213: 4495987343657865828
+    second: Dungeon_0_Walls&Floor-Sheet_111
+  - first:
+      213: 2315984642749481205
+    second: Dungeon_0_Walls&Floor-Sheet_112
+  - first:
+      213: -6896001506191690890
+    second: Dungeon_0_Walls&Floor-Sheet_113
+  - first:
+      213: 9123847187399233373
+    second: Dungeon_0_Walls&Floor-Sheet_114
+  - first:
+      213: -7118072187451732382
+    second: Dungeon_0_Walls&Floor-Sheet_115
+  - first:
+      213: 6246850499949443409
+    second: Dungeon_0_Walls&Floor-Sheet_116
+  - first:
+      213: -5804901056840916560
+    second: Dungeon_0_Walls&Floor-Sheet_117
+  - first:
+      213: -1857522586591513289
+    second: Dungeon_0_Walls&Floor-Sheet_118
+  - first:
+      213: 493383302286080633
+    second: Dungeon_0_Walls&Floor-Sheet_119
+  - first:
+      213: -8871324192503553182
+    second: Dungeon_0_Walls&Floor-Sheet_120
+  - first:
+      213: -3138273786807449785
+    second: Dungeon_0_Walls&Floor-Sheet_121
+  - first:
+      213: 4985393999555766684
+    second: Dungeon_0_Walls&Floor-Sheet_122
+  - first:
+      213: -220933801275357768
+    second: Dungeon_0_Walls&Floor-Sheet_123
+  - first:
+      213: -7129270352565677804
+    second: Dungeon_0_Walls&Floor-Sheet_124
+  - first:
+      213: 3687828601804719627
+    second: Dungeon_0_Walls&Floor-Sheet_125
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa27d6ba6cd19bc0800000000000000
+      internalID: -3777996261494936916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa802ad516d62940800000000000000
+      internalID: 5271135803225967353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d6984fb9462fb30800000000000000
+      internalID: 4319625613587082572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa52683d5bffdaab0800000000000000
+      internalID: -4995055255281064529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586b395559453fcb0800000000000000
+      internalID: -4831424974875806075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 079c843439d063040800000000000000
+      internalID: 4626900593309960560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28c3daf4b24b6d60800000000000000
+      internalID: 7884468917711915051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c3bbf4c8236cfc70800000000000000
+      internalID: 9006182381588820928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5c15007a79b2e300800000000000000
+      internalID: 279990062366923867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723e1d89eee9e09f0800000000000000
+      internalID: -500287760988249305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9af1fe91429dcb90800000000000000
+      internalID: -7219953817067849062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf38cb7b9db6d2dd0800000000000000
+      internalID: -2509230834540837893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae63b2249420c9060800000000000000
+      internalID: 6961441637673940714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39691e5ab676a8fa0800000000000000
+      internalID: -5797707858243905901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821576de39b63ebc0800000000000000
+      internalID: -3755039381209525976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428951c98ce412210800000000000000
+      internalID: 1306411990433241124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a685f66839c7487f0800000000000000
+      internalID: -611226676358064022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b47c610a00747600800000000000000
+      internalID: 465119849801872563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed58a5cf2c9294a0800000000000000
+      internalID: -6588031575896072730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2aa6a82cd1b62c0800000000000000
+      internalID: -4437420286460386644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f014e488c90cf23a0800000000000000
+      internalID: -6687915143087636209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13378e30c76e56b10800000000000000
+      internalID: 1974237431987729201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bee614d5d20179e0800000000000000
+      internalID: -1625514873094476106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658fa62e44e543c30800000000000000
+      internalID: 4338195991014078550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e38a8b7f7fc0880800000000000000
+      internalID: -8643260941503807954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b98d2488e4f156460800000000000000
+      internalID: 7234222798594562203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41471ceec6085fd0800000000000000
+      internalID: -2353123319507107505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2558f51699ac9650800000000000000
+      internalID: 6241049645707449647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52cfa275821283d80800000000000000
+      internalID: -8270824258521072603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705e484d772e18740800000000000000
+      internalID: 5152648452983022855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e749624ebb8c63e0800000000000000
+      internalID: -2059117280340916248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa5ff0cee59d9e460800000000000000
+      internalID: 7271582075076998570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732cafc4b4ca9e320800000000000000
+      internalID: 2587788900315087415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4809526a2a95fcb40800000000000000
+      internalID: 5462683428130754692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202b0be96a9a1c560800000000000000
+      internalID: 7332328201427923458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03049129185774330800000000000000
+      internalID: 3695051218643140656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c11db0beca65fb50800000000000000
+      internalID: 6626319862706540997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20376fdc86fff78b0800000000000000
+      internalID: -5152118623091395838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bebbca590dd1c3c0800000000000000
+      internalID: -4340945533560701261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 073ae3f7878a87c60800000000000000
+      internalID: 7816182388785849200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0846b6e30fdad7a60800000000000000
+      internalID: 7673480587460174976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b362cc4548ce9ba00800000000000000
+      internalID: 772908864173254203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a85cb4c229e54530800000000000000
+      internalID: 3838730592942053538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fcc21f61b0a9ba60800000000000000
+      internalID: 7690354522644991218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92910ff57f21005a0800000000000000
+      internalID: -6557220203775649495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a64ca600dd968e510800000000000000
+      internalID: 1578628067309044842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b751a46771ed672d0800000000000000
+      internalID: -3281191086142646917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2908a44553202a0800000000000000
+      internalID: -6772792253468339486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 2}
+        - {x: -7, y: 7}
+        - {x: -1, y: 7}
+        - {x: -1, y: 2}
+      - - {x: -6, y: -8}
+        - {x: -6, y: 2}
+        - {x: -2, y: 2}
+        - {x: -2, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 028b76c4c737a3dc0800000000000000
+      internalID: -3658484769590101984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: 2}
+        - {x: 1, y: 7}
+        - {x: 7, y: 7}
+        - {x: 7, y: 2}
+      - - {x: 2, y: -8}
+        - {x: 2, y: 2}
+        - {x: 6, y: 2}
+        - {x: 6, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4f272e2d8d993b0800000000000000
+      internalID: -5505130669229804317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 2}
+        - {x: -1, y: 6}
+        - {x: 8, y: 6}
+        - {x: 8, y: 2}
+      - - {x: -7, y: 1}
+        - {x: -7, y: 7}
+        - {x: -1, y: 7}
+        - {x: -1, y: 1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d852e4d02046130800000000000000
+      internalID: 3558971861698448785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: 1}
+        - {x: 1, y: 7}
+        - {x: 7, y: 7}
+        - {x: 7, y: 1}
+      - - {x: -8, y: 2}
+        - {x: -8, y: 6}
+        - {x: 1, y: 6}
+        - {x: 1, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b070a596864d530800000000000000
+      internalID: 3878839980764105508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ebb1e326c6b6870800000000000000
+      internalID: 8677148276263992982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d974ce69c76b47650800000000000000
+      internalID: 6229804830784505757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc442fd0e19c166e0800000000000000
+      internalID: -1845973241325009716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735f7685aceabf800800000000000000
+      internalID: 647303155547632951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acc02408d07a56d0800000000000000
+      internalID: -3000962128604509022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e72b8bc56d97eff60800000000000000
+      internalID: 8070021543880077950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ec783d92da4dcd0800000000000000
+      internalID: -2534210295148589511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dcab3853a2877240800000000000000
+      internalID: 4789440366803397848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d225c5b3d8491680800000000000000
+      internalID: -8783909524084546862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e564c006078f1d1d0800000000000000
+      internalID: -3327605488118643106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb44698082bc1dc0800000000000000
+      internalID: -3666859731455816729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1eae7fc953e4cf70800000000000000
+      internalID: 9206733513124916763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: -1}
+        - {x: -6, y: 8}
+        - {x: -2, y: 8}
+        - {x: -2, y: -1}
+      - - {x: -7, y: -7}
+        - {x: -7, y: -1}
+        - {x: -1, y: -1}
+        - {x: -1, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd456b1f0c2ef070800000000000000
+      internalID: 8141993619728190926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: -1}
+        - {x: 2, y: 8}
+        - {x: 6, y: 8}
+        - {x: 6, y: -1}
+      - - {x: 1, y: -7}
+        - {x: 1, y: -1}
+        - {x: 7, y: -1}
+        - {x: 7, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded456bfb377aa160800000000000000
+      internalID: 7037568467224317421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: -7}
+        - {x: -7, y: -1}
+        - {x: -1, y: -1}
+        - {x: -1, y: -7}
+      - - {x: 0, y: -6}
+        - {x: 0, y: -2}
+        - {x: 8, y: -2}
+        - {x: 8, y: -6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 945f65795f1f53d00800000000000000
+      internalID: 951932933367067977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: -6}
+        - {x: -8, y: -2}
+        - {x: 1, y: -2}
+        - {x: 1, y: -6}
+      - - {x: 1, y: -7}
+        - {x: 1, y: -1}
+        - {x: 7, y: -1}
+        - {x: 7, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89e2340de9e3a6c0800000000000000
+      internalID: -4133202828809016946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5167e65fe4bcdb90800000000000000
+      internalID: -7215693562906189477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0c79a446bcc7790800000000000000
+      internalID: -7530920845261684490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eca59d086a8a6b20800000000000000
+      internalID: 3128465070671375584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3bcbcf74857dce0800000000000000
+      internalID: -1380537694559620190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_72
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd1fd4d3e513f4e0800000000000000
+      internalID: -1949190145448141314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_73
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bac754c6e3f3140800000000000000
+      internalID: 4701545170741275455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_74
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0670ead7457ad2610800000000000000
+      internalID: 1598117424114042720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_75
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4edc0d10d46549800800000000000000
+      internalID: 618213937599532516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_76
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c98239aaa17774a0800000000000000
+      internalID: -6595678151463761466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_77
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d72b8be82f6c743f0800000000000000
+      internalID: -916545254067752323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_78
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e52da84a506c9290800000000000000
+      internalID: -7882319306922580505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_79
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: -7}
+        - {x: 1, y: -2}
+        - {x: 7, y: -2}
+        - {x: 7, y: -7}
+      - - {x: 2, y: -8}
+        - {x: 2, y: -6}
+        - {x: 6, y: -6}
+        - {x: 6, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121580e419a022b00800000000000000
+      internalID: 802215302821073185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_80
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: -7}
+        - {x: -8, y: -3}
+        - {x: 8, y: -3}
+        - {x: 8, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8cccd272d368eb0800000000000000
+      internalID: -4718016321142601560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_81
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: -7}
+        - {x: -7, y: -2}
+        - {x: -1, y: -2}
+        - {x: -1, y: -7}
+      - - {x: -6, y: -8}
+        - {x: -6, y: -5}
+        - {x: -2, y: -5}
+        - {x: -2, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c038ce39040b470800000000000000
+      internalID: 8408291508373097578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_82
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c2b18a029b2b780800000000000000
+      internalID: -8668662782824338302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_83
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b02076f53e20ed0800000000000000
+      internalID: -2449145248446543076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_84
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d76f3e6b97189a0800000000000000
+      internalID: -6232566582888465136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 566da3ed627269080800000000000000
+      internalID: -9181107742457538971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_86
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a237baef4f7d5ab10800000000000000
+      internalID: 1992235857425953578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_87
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b449ef1b53fcd10800000000000000
+      internalID: 2147994585875630873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_88
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63610990b661d87b0800000000000000
+      internalID: -5220491744074787274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_89
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c27aad0e0bacb410800000000000000
+      internalID: 1494257253227328192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_90
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ce274d068f14b10800000000000000
+      internalID: 1964124007275097238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_91
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b340016681e5ae7c0800000000000000
+      internalID: -4041314256727047109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_92
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0adad83e070db3350800000000000000
+      internalID: 5997616512046575008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_93
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: -8}
+        - {x: 2, y: 8}
+        - {x: 6, y: 8}
+        - {x: 6, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f5a204fb00a3c80800000000000000
+      internalID: -8342354538335150287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_94
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: -8}
+        - {x: -6, y: 8}
+        - {x: -2, y: 8}
+        - {x: -2, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9996875b1e0ebeb40800000000000000
+      internalID: 5470713432388430233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_95
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: -8}
+        - {x: -6, y: 2}
+        - {x: -2, y: 2}
+        - {x: -2, y: -8}
+      - - {x: 0, y: 2}
+        - {x: 0, y: 6}
+        - {x: 8, y: 6}
+        - {x: 8, y: 2}
+      - - {x: -7, y: 2}
+        - {x: -7, y: 7}
+        - {x: -1, y: 7}
+        - {x: -1, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b519303c6836730800000000000000
+      internalID: 3991181866916993951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_96
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 2}
+        - {x: -8, y: 6}
+        - {x: 8, y: 6}
+        - {x: 8, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f18437b551898f0800000000000000
+      internalID: -533653073323090135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_97
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: 2}
+        - {x: 1, y: 7}
+        - {x: 7, y: 7}
+        - {x: 7, y: 2}
+      - - {x: 2, y: -8}
+        - {x: 2, y: 3}
+        - {x: 6, y: 3}
+        - {x: 6, y: -8}
+      - - {x: -8, y: 2}
+        - {x: -8, y: 6}
+        - {x: 1, y: 6}
+        - {x: 1, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a6ed99570357c420800000000000000
+      internalID: 2650178196764223143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e73f5329271e6c0800000000000000
+      internalID: -4115882612143980904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_99
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435b47ce1fbdbee70800000000000000
+      internalID: 9145645300406596916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_100
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 938184c9fa4e2e430800000000000000
+      internalID: 3810859677601241145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_101
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3898620e352695c30800000000000000
+      internalID: 4348615027585354115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_102
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7283867877134370800000000000000
+      internalID: 8305507943953171071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_103
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaffaabf8a70200f0800000000000000
+      internalID: -1152350132295237718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_104
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55000d3be011a8220800000000000000
+      internalID: 2488820498919587925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_105
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18dbd27d0c77c5100800000000000000
+      internalID: 98084962022833537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_106
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: 0}
+        - {x: 1, y: 6}
+        - {x: 8, y: 6}
+        - {x: 8, y: 0}
+      - - {x: 2, y: 6}
+        - {x: 2, y: 8}
+        - {x: 6, y: 8}
+        - {x: 6, y: 6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5a6efc8132c3e20800000000000000
+      internalID: 3331576413821511100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_107
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 1}
+        - {x: -8, y: 5}
+        - {x: 8, y: 5}
+        - {x: 8, y: 1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4bdcf194b8aa5a0800000000000000
+      internalID: -6509237165228182300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_108
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 0}
+        - {x: -8, y: 6}
+        - {x: -1, y: 6}
+        - {x: -1, y: 0}
+      - - {x: -6, y: 5}
+        - {x: -6, y: 8}
+        - {x: -2, y: 8}
+        - {x: -2, y: 5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b490db741b0803e00800000000000000
+      internalID: 1022458614314240331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_109
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: -8}
+        - {x: -6, y: 8}
+        - {x: -2, y: 8}
+        - {x: -2, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df5d54f9eb8e4390800000000000000
+      internalID: -7832168865007312936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_110
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: -8}
+        - {x: 2, y: 8}
+        - {x: 6, y: 8}
+        - {x: 6, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50524dc02e4abbc60800000000000000
+      internalID: 7835037267525903621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_111
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46211651ba4f46e30800000000000000
+      internalID: 4495987343657865828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_112
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0c75013c7042020800000000000000
+      internalID: 2315984642749481205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_113
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673b2ecaa2b7c40a0800000000000000
+      internalID: -6896001506191690890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_114
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fc0ed3daa6e9e70800000000000000
+      internalID: 9123847187399233373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_115
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e0a550f07873d90800000000000000
+      internalID: -7118072187451732382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_116
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1593576be6541b650800000000000000
+      internalID: 6246850499949443409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_117
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b125b69e39d07fa0800000000000000
+      internalID: -5804901056840916560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_118
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735b2ff8c01c836e0800000000000000
+      internalID: -1857522586591513289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_119
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97afed6df79d8d600800000000000000
+      internalID: 493383302286080633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_120
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2632f7236a9b2e480800000000000000
+      internalID: -8871324192503553182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_121
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2, y: -6}
+        - {x: -2, y: -2}
+        - {x: 8, y: -2}
+        - {x: 8, y: -6}
+      - - {x: -6, y: -1}
+        - {x: -6, y: 8}
+        - {x: -2, y: 8}
+        - {x: -2, y: -1}
+      - - {x: -7, y: -7}
+        - {x: -7, y: -1}
+        - {x: -1, y: -1}
+        - {x: -1, y: -7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7470c614e9c9274d0800000000000000
+      internalID: -3138273786807449785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_122
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: -6}
+        - {x: -8, y: -2}
+        - {x: 8, y: -2}
+        - {x: 8, y: -6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99a2e8cd6daf2540800000000000000
+      internalID: 4985393999555766684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_123
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: -1}
+        - {x: 2, y: 8}
+        - {x: 6, y: 8}
+        - {x: 6, y: -1}
+      - - {x: 1, y: -7}
+        - {x: 1, y: -1}
+        - {x: 7, y: -1}
+        - {x: 7, y: -7}
+      - - {x: -8, y: -6}
+        - {x: -8, y: -2}
+        - {x: 2, y: -2}
+        - {x: 2, y: -6}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b50b18d0e51fecf0800000000000000
+      internalID: -220933801275357768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_124
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4115997036ebf0d90800000000000000
+      internalID: -7129270352565677804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Walls&Floor-Sheet_125
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06881b039ccd2330800000000000000
+      internalID: 3687828601804719627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fe3eb6a8254aa604b9bd3ae364238a7f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

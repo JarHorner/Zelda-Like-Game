@@ -12,7 +12,7 @@ public class HurtPlayer : MonoBehaviour
         private bool isTouching;
         //in code, eventually set to 1f.
         private float waitToHit = 0.0f;
-        private HealthManager healthManager;
+        private HealthManager playerHealthManager;
 
     #endregion
 
@@ -20,7 +20,7 @@ public class HurtPlayer : MonoBehaviour
 
     void Start()
     {
-        healthManager = FindObjectOfType<HealthManager>();
+        playerHealthManager = FindObjectOfType<HealthManager>();
     }
 
     void Update()
@@ -30,7 +30,7 @@ public class HurtPlayer : MonoBehaviour
             waitToHurt -= Time.deltaTime;
             if (waitToHurt <= 0)
             {
-                healthManager.HurtPlayer(damageDealt);
+                playerHealthManager.HurtPlayer(damageDealt);
                 waitToHurt = 1.5f;
             }
         }
@@ -46,7 +46,7 @@ public class HurtPlayer : MonoBehaviour
             if (waitToHit <= 0)
             {
                 Debug.Log("Hit");
-                healthManager.HurtPlayer(damageDealt);
+                playerHealthManager.HurtPlayer(damageDealt);
                 waitToHit = 1f;
             }
         }
