@@ -8,6 +8,7 @@ public class LogEnemy : MonoBehaviour
     #region Variables
     [SerializeField] private Transform spawnLocation;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private Transform target;
     private bool isMoving = false;
     [SerializeField] private AudioSource movementAudio;
@@ -23,6 +24,7 @@ public class LogEnemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -63,6 +65,18 @@ public class LogEnemy : MonoBehaviour
         animator.SetFloat("Vertical", (target.position.y - transform.position.y));
         //walks enemy to target
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
+        Debug.Log(clipInfo[0].clip.name);
+        if (clipInfo[0].clip.name == "Log_Enemy_Walk_Down")
+        {
+            spriteRenderer.sortingLayerName = "Player";
+            spriteRenderer.sortingOrder = 0;
+        }
+        else
+        {
+            spriteRenderer.sortingLayerName = "Enemy";
+            spriteRenderer.sortingOrder = 1;
+        }
     }
 
     //when target gets out of range, enemy moves back to its spawn loaction

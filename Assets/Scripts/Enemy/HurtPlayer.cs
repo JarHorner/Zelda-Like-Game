@@ -30,7 +30,7 @@ public class HurtPlayer : MonoBehaviour
             waitToHurt -= Time.deltaTime;
             if (waitToHurt <= 0)
             {
-                playerHealthManager.HurtPlayer(damageDealt);
+                playerHealthManager.DamagePlayer(damageDealt);
                 waitToHurt = 1.5f;
             }
         }
@@ -46,7 +46,7 @@ public class HurtPlayer : MonoBehaviour
             if (waitToHit <= 0)
             {
                 Debug.Log("Hit");
-                playerHealthManager.HurtPlayer(damageDealt);
+                playerHealthManager.DamagePlayer(damageDealt);
                 waitToHit = 1f;
             }
         }

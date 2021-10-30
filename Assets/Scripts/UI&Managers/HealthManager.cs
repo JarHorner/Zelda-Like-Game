@@ -14,6 +14,7 @@ public class HealthManager : MonoBehaviour
     private Animator animator;
     private bool animBeforeDeath;
     private Rigidbody2D rb;
+    private CapsuleCollider2D capsuleCollider;
     [SerializeField] private AudioClip death;
     [SerializeField] ParticleSystem deathBurst;
     [SerializeField] private AudioSource hit;
@@ -32,6 +33,7 @@ public class HealthManager : MonoBehaviour
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
+        capsuleCollider = this.gameObject.GetComponent<CapsuleCollider2D>();
         animator = this.gameObject.GetComponent<Animator>();
         playerSprite = this.gameObject.GetComponent<SpriteRenderer>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
@@ -50,7 +52,6 @@ public class HealthManager : MonoBehaviour
             if (waitToLoad <= 0)
             {
                 animator.SetBool("isDead", false);
-                Debug.Log(animBeforeDeath);
                 //checks to see if current animation state is swimming to reset animations before respawn
                 if (animBeforeDeath) 
                 {
@@ -62,6 +63,7 @@ public class HealthManager : MonoBehaviour
                 reloading = false;
                 waitToLoad = 2f;
                 Debug.Log("Loaded!");
+                capsuleCollider.enabled = true;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 revive = true;
             }
@@ -108,7 +110,7 @@ public class HealthManager : MonoBehaviour
     }
 
     //calculates the amount of health player has left after hit, active the flashing and starts process of reloading scene if dead
-    public void HurtPlayer(int damageNum)
+    public void DamagePlayer(int damageNum)
     {
         hit.Play();
         //positions damage text, and creates the popup
@@ -125,11 +127,13 @@ public class HealthManager : MonoBehaviour
             partSys.Play(true);
             //starts death animation
             Debug.Log("Dying!");
-            animBeforeDeath = animator.GetCurrentAnimatorStateInfo(0).IsName("Swimming");
+            //if player was swimming when died, this variable is true and when spawns again, wont be swimming.
+            animBeforeDeath = animator.GetCurrentAnimatorStateInfo(0).IsTag("Swimming");
             if (soundManager != null)
                 soundManager.Play(death);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             rb.isKinematic = true;
+            capsuleCollider.enabled = false;
             animator.SetBool("isDead", true);
             animator.SetBool("isSwimming", false);
             reloading = true;

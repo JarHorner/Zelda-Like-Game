@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Hit");
-            healthManager.HurtPlayer(damageDealt);
+            healthManager.DamagePlayer(damageDealt);
             Destroy(gameObject);
         } 
         else if (other.gameObject.tag == "Object")

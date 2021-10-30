@@ -36,7 +36,7 @@ public class Pitfall : MonoBehaviour
             {
                 player.transform.position = areaTransition.LastPlayerLocation;
                 playerAnim.SetBool("isFalling", false); 
-                healthManager.HurtPlayer(1);
+                healthManager.DamagePlayer(1);
                 player.moveSpeed = 6f;
                 animLength = 0.5f;
                 falling = false;

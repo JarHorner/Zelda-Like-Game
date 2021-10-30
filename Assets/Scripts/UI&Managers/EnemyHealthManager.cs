@@ -84,7 +84,7 @@ public class EnemyHealthManager : MonoBehaviour
     }
 
     //causes damage to the enemies health, and if the enemies health is 0, player awarded exp and gameobject is deactivated. (Safer and easier then destroying)
-    public void HurtEnemy(int damageToGive) 
+    public void DamageEnemy(int damageToGive) 
     {
         if (waitToHurt <= 0)
         {
