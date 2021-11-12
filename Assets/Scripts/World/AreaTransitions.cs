@@ -14,8 +14,6 @@ public class AreaTransitions : MonoBehaviour
     [SerializeField] private Vector2 newMinPosition;
     [SerializeField] private Vector2 newMaxPosition;
     [SerializeField] private Vector3 movePlayer;
-
-
     #endregion
 
     #region Unity Methods

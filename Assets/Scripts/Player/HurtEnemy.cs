@@ -25,15 +25,11 @@ public class HurtEnemy : MonoBehaviour
             //spawns particles when hitting enemy
             ParticleSystem partSys = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
             partSys.Play(true);
-            eHealthMan.DamageEnemy(damageDealt);
-            //pushes enemy back if not on water layer (4)
-            if (other.gameObject.layer != 4)
-            {
-                Vector2 difference = other.transform.position - transform.position;
-                other.transform.position = new Vector2(other.transform.position.x + difference.x, other.transform.position.y + difference.y);
-            }
+            eHealthMan.DamageEnemy(damageDealt, this.transform);
         }
     }
+
+
 
     #endregion
 }

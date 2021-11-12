@@ -27,6 +27,11 @@ public class SwitchOpenDoor : MonoBehaviour
         if (other.tag == "MovableBlock")
         {
             pressDown.Play();
+            if (transform.parent.gameObject.transform.childCount == 3)
+            {
+               Animator otherDoorAnimator = this.transform.parent.gameObject.GetComponentInChildren<Animator>();
+               otherDoorAnimator.SetBool("Open", true);
+            }
             StartCoroutine(OpenDoor());
         }
     }
@@ -35,6 +40,11 @@ public class SwitchOpenDoor : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "MovableBlock")
         {
+            if (transform.parent.gameObject.transform.childCount == 3)
+            {
+               Animator otherDoorAnimator = this.transform.parent.gameObject.transform.Find("Other_Switch_Door").GetComponent<Animator>();
+               otherDoorAnimator.SetBool("Open", false);
+            }
             StartCoroutine(CloseDoor());
         }
     }

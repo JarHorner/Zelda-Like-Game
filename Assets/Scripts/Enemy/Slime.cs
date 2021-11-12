@@ -13,11 +13,11 @@ public class Slime : MonoBehaviour
     private Vector2 moveDirection;
     private bool moving;
     [SerializeField] private float moveSpeed;
-
     private Rigidbody2D rb;
     private Vector3 position;
     private Vector3 fallingPosition;
     private CapsuleCollider2D capsuleCollider;
+    [SerializeField] private GameObject alarmArea;
     private Animator animator;
     private float formAnimTime;
     private bool fallen;
@@ -51,8 +51,6 @@ public class Slime : MonoBehaviour
             {
                 timeToMoveCounter -= Time.deltaTime;
                 rb.velocity = moveDirection;
-                //transform.position = Vector3.MoveTowards(transform.position, moveDirection, moveSpeed * Time.deltaTime);
-                //rb.MovePosition(rb.position + moveDirection.normalized * moveSpeed * Time.fixedDeltaTime);
                 if(timeToMoveCounter <= 0f)
                 {
                     moving = false;
@@ -105,17 +103,13 @@ public class Slime : MonoBehaviour
     {
         if (other.tag == "Player" && !fallen)
         {
+            Destroy(alarmArea);
             fallen = true;
             this.transform.position = fallingPosition;
             animator.SetTrigger("Fall");
             falling = true;
             this.GetComponent<SpriteRenderer>().enabled = true;
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other) 
-    {
-        
     }
     #endregion
 }
