@@ -209,11 +209,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e617a8cdb23a74a92f43149a4c251a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorAnimator: {fileID: 0}
+  doorAnimator: {fileID: 7913907121815167902}
   pressDown: {fileID: 9085950561113690426}
-  doorAudioSource: {fileID: 0}
-  doorOpen: {fileID: 0}
-  doorClose: {fileID: 0}
+  doorAudioSource: {fileID: 5162078321962960143}
+  doorOpen: {fileID: 8300000, guid: 98ae471669ac7f14caab3c5224de0e4b, type: 3}
+  doorClose: {fileID: 8300000, guid: 9a9b16190e8ee9645bb1302315565c5d, type: 3}
 --- !u!1 &2177179268543455390
 GameObject:
   m_ObjectHideFlags: 0

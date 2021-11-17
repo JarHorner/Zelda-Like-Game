@@ -13,6 +13,7 @@ public class SwitchTimedDoor : MonoBehaviour
     [SerializeField] private AudioSource doorAudioSource;
     [SerializeField] private AudioClip doorOpen;
     [SerializeField] private AudioClip doorClose;
+    [SerializeField] private float timeToBeat;
     private IEnumerator coroutine;
 
     #endregion
@@ -46,8 +47,8 @@ public class SwitchTimedDoor : MonoBehaviour
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
         gameManager.UnPause();
-        //sets an internal timer for the opened door. if 15 seconds pass, CloseDoor() will be played.
-        yield return new WaitForSeconds(15f);
+        //sets an internal timer for the opened door. CloseDoor() will be played, if not beaten.
+        yield return new WaitForSeconds(timeToBeat);
         isRunning = false;
         StartCoroutine(CloseDoor());
     }
