@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 1236758561
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2598708308671713084, guid: 3510d7db8f43ed94f962de774d429f3d, type: 3}
+  m_Sprite: {fileID: -406535292930862318, guid: 0029067f7920fd34e92868c03b2c0adc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestNum: 0
+  dungeonNum: 0
   item: {fileID: 6299957831646824978}
   audioSource: {fileID: 1187059866221863615}
 --- !u!58 &2885265070231428988

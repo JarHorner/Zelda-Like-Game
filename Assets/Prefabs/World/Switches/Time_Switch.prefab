@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -142786889
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7203449881745831660, guid: 3510d7db8f43ed94f962de774d429f3d, type: 3}
+  m_Sprite: {fileID: -8307647125438161115, guid: 0029067f7920fd34e92868c03b2c0adc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -214,6 +214,7 @@ MonoBehaviour:
   doorAudioSource: {fileID: 5162078321962960143}
   doorOpen: {fileID: 8300000, guid: 98ae471669ac7f14caab3c5224de0e4b, type: 3}
   doorClose: {fileID: 8300000, guid: 9a9b16190e8ee9645bb1302315565c5d, type: 3}
+  timeToBeat: 0
 --- !u!1 &2177179268543455390
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +361,7 @@ SpriteRenderer:
   m_SortingLayerID: 1236758561
   m_SortingLayer: 3
   m_SortingOrder: 4
-  m_Sprite: {fileID: -5998774516921030229, guid: 3510d7db8f43ed94f962de774d429f3d, type: 3}
+  m_Sprite: {fileID: 1389907227750647939, guid: 0029067f7920fd34e92868c03b2c0adc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
