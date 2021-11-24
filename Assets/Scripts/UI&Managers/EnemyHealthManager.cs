@@ -47,7 +47,6 @@ public class EnemyHealthManager : MonoBehaviour
             if (knockbackTime <= 0f)
             {
                 rb.velocity = Vector3.zero;
-                rb.isKinematic = true;
                 isHit = false;
                 knockbackTime = 0.2f;
             }
@@ -134,7 +133,7 @@ public class EnemyHealthManager : MonoBehaviour
     public void PushBack(Transform weaponTrans)
     {
         isHit = true;
-        rb.isKinematic = false;
+        //rb.isKinematic = false;
         Vector2 difference = weaponTrans.position - transform.position;
         rb.AddForce(-difference * 0.05f);
     }

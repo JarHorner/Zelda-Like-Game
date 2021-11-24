@@ -28,7 +28,7 @@ public class AreaTransitions : MonoBehaviour
     //snaps camera to new location, moves player into boxed area and resets any enemies 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Player") 
+        if (collider.gameObject.tag == "Player" && collider.GetType() != typeof(BoxCollider2D)) 
         {
             //changes camera min/max positions to simulate move somewhere new
             cam.SetMinPosition(newMinPosition);

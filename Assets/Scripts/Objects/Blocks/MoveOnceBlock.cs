@@ -119,7 +119,6 @@ public class MoveOnceBlock : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            Debug.Log("Got in");
             canPush = true;
         }
     }

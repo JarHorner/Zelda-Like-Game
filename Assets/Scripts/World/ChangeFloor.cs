@@ -7,7 +7,7 @@ public class ChangeFloor : MonoBehaviour
     #region Variables
     private PlayerController player;
     [SerializeField] private Animator changeFloorTransition;
-    private float transitionTime = 1f;
+    private float transitionTime = 1.5f;
     [SerializeField] private AudioSource stairs;
     [SerializeField] private GameObject moveLocation;
     private CameraController cam;
@@ -31,15 +31,16 @@ public class ChangeFloor : MonoBehaviour
             transitionTime -= Time.deltaTime;
             if (transitionTime <= 0f)
             {
-                //ensures camera follows to players moved position
                 player.transform.position = moveLocation.transform.position;
-
+                //ensures camera follows to players moved position
                 cam = FindObjectOfType<CameraController>();
                 cam.SetMinPosition(minPosition);
                 cam.SetMaxPosition(maxPosition);
+                changeFloorTransition.ResetTrigger("Start");
 
                 changeFloorTransition.SetTrigger("End");
                 changingFloor = false;
+                transitionTime = 1.5f;
             }
         }
     }

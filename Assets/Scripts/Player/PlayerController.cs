@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
+    private bool doubleUpAttack;
     private bool isAttacking = false;
     private bool isMoving = false;
     private bool isSwimming = false;
@@ -23,9 +24,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip[] swingClips;
     private Vector2 movement;
     private static bool playerExists;
-    private Collider2D capsule;
+    private Collider2D hitBox;
     private UIManager uiManager;
-    private bool doubleUpAttack;
+
+    private bool onConveyor = false;
 
     #endregion
 
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
         if (!playerExists)
         {
             playerExists = true;
-            capsule = this.GetComponent<CapsuleCollider2D>();
+            hitBox = this.GetComponent<CapsuleCollider2D>();
             //ensures same player object is not destoyed when loading new scences
             DontDestroyOnLoad(this.gameObject);
         }
@@ -56,9 +58,9 @@ public class PlayerController : MonoBehaviour
     {
         //enables collider after being disable while loading new scene
         //used to enemies dont push player while loading 
-        if (capsule.enabled == false)
+        if (hitBox.enabled == false)
         {
-            capsule.enabled = true;
+            hitBox.enabled = true;
         }
 
         //gets input
@@ -174,6 +176,11 @@ public class PlayerController : MonoBehaviour
     public bool PlayerSwimming
     {
         set { isSwimming = value; }
+    }
+    public bool OnConveyor
+    {
+        get { return onConveyor; }
+        set { onConveyor = value; }
     }
     #endregion
 }
