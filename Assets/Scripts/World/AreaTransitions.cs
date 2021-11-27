@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class AreaTransitions : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class AreaTransitions : MonoBehaviour
     [SerializeField] private Vector2 newMinPosition;
     [SerializeField] private Vector2 newMaxPosition;
     [SerializeField] private Vector3 movePlayer;
+    [SerializeField] private bool needLocationText = false;
+    [SerializeField] private string placeName;
+    [SerializeField] private GameObject locationText;
+    private TMP_Text placeText;
     #endregion
 
     #region Unity Methods
@@ -37,6 +43,13 @@ public class AreaTransitions : MonoBehaviour
             collider.transform.position += movePlayer;
             lastPlayerLocation = collider.transform.position;
 
+            if (needLocationText)
+            {
+                placeText = locationText.GetComponent<TMP_Text>();
+                StartCoroutine(PlaceNameCo());
+            }
+
+            //Destorys items that were not picked up
             GameObject[] droppedItems = GameObject.FindGameObjectsWithTag("Item");
             foreach (var item in droppedItems)
             {
@@ -60,6 +73,14 @@ public class AreaTransitions : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator PlaceNameCo()
+    {
+        placeText.text = placeName;
+        locationText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        locationText.SetActive(false);
     }
 
     public Vector2 LastPlayerLocation

@@ -7,8 +7,6 @@ public class ConveyorBelt : MonoBehaviour
     #region Variables
     [SerializeField] private Vector2 speed;
     private PlayerController playerController;
-    private bool alreadyOnConveyor = false;
-
     #endregion
 
     #region Methods

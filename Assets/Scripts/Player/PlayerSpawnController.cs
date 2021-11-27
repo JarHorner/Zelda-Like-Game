@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerSpawnController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerSpawnController : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject spawnLocation;
     private CameraController cam;
+    [SerializeField] private string placeName;
+    public DialogLocationCanvas locationCanvas;
     #endregion
 
     #region Unity Methods  
@@ -48,6 +51,17 @@ public class PlayerSpawnController : MonoBehaviour
         {
             healthManager.CurrHealth = healthManager.MaxHealth;
         }
+
+        locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
+        StartCoroutine(PlaceNameCo());
+    }
+
+    private IEnumerator PlaceNameCo()
+    {
+        locationCanvas.LocationText.text = placeName;
+        locationCanvas.LocationText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        locationCanvas.LocationText.gameObject.SetActive(false);
     }
 
     #endregion

@@ -16,6 +16,7 @@ TagManager:
   - KeyDoor
   - Walls
   - Item
+  - DialogCanvas
   layers:
   - Default
   - TransparentFX
