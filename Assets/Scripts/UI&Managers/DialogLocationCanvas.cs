@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogLocationCanvas : MonoBehaviour
 {
     #region Variables
     private static bool exists;
-
     [SerializeField] private TMP_Text locationText;
+    [SerializeField] private GameObject dialogBox;
 
     #endregion
 
@@ -33,6 +34,11 @@ public class DialogLocationCanvas : MonoBehaviour
     {
         get { return locationText; }
         set { locationText = value; }
+    }
+
+    public GameObject DialogBox
+    {
+        get { return dialogBox; }
     }
 
     #endregion

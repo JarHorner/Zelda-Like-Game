@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
         bgMusic = soundManager.GetComponentInChildren<AudioSource>();
-        bgMusic.volume = 0.02f;
+        bgMusic.volume = 0.1f;
         player.GetComponent<PlayerController>().enabled = false;
         playerAnimator.speed = 0;
     }

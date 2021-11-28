@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\DamagePopup.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Money.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\DialogLocationCanvas.cs" />
      <Compile Include="Assets\Scripts\Enemy\LogEnemy.cs" />
      <Compile Include="Assets\Scripts\Enemy\Projectile.cs" />
      <Compile Include="Assets\Scripts\World\AreaTransitions.cs" />
@@ -87,7 +88,7 @@
      <Compile Include="Assets\Scripts\Objects\Pickups\Key.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\UI&amp;Managers\DialogLocationCanvas.cs" />
+     <Compile Include="Assets\Scripts\Objects\Interactables\Sign.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
