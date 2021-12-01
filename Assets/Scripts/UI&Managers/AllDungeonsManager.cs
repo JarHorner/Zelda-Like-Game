@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class AllDungeonsManager : MonoBehaviour
 {
     #region Variables
+    //private bool exists = false;
     [SerializeField] Image dungeon0Key;
     [SerializeField] DungeonManager dungeonManager;
     private List<MutableKeyValPair<int, DungeonManager>> dungeons = new List<MutableKeyValPair<int, DungeonManager>>();
@@ -17,6 +18,18 @@ public class AllDungeonsManager : MonoBehaviour
 
     void Awake() 
     {
+        // //singleton effect
+        // if (!exists)
+        // {
+        //     exists = true;
+        //     //ensures same player object is not destoyed when loading new scences
+        //     DontDestroyOnLoad(this.gameObject);
+        // }
+        // else
+        // {
+        //     Destroy (gameObject);
+        // }
+
         //creates a keyvaluepair list to store amount of dungeons. (Will be improved with more dungeons)
         for (int i = 0; i < 8; i++)
         {

@@ -13,7 +13,8 @@ public class PlayerSpawnController : MonoBehaviour
     [SerializeField] private GameObject spawnLocation;
     private CameraController cam;
     [SerializeField] private string placeName;
-    public DialogLocationCanvas locationCanvas;
+    private DialogLocationCanvas locationCanvas;
+    private bool justSpawned = true;
     #endregion
 
     #region Unity Methods  
@@ -51,17 +52,15 @@ public class PlayerSpawnController : MonoBehaviour
         {
             healthManager.CurrHealth = healthManager.MaxHealth;
         }
-
-        locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
-        StartCoroutine(PlaceNameCo());
     }
-
-    private IEnumerator PlaceNameCo()
+    private void Update() 
     {
-        locationCanvas.LocationText.text = placeName;
-        locationCanvas.LocationText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        locationCanvas.LocationText.gameObject.SetActive(false);
+        if (justSpawned)
+        {
+            locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
+            StartCoroutine(locationCanvas.PlaceNameCo(placeName));
+            justSpawned = false;
+        }
     }
 
     #endregion

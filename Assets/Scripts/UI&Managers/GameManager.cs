@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     #region Variables
+    private bool exists = false;
     private string currentScene;
     private UIManager uIManager;
     private GameObject player;
@@ -14,12 +15,29 @@ public class GameManager : MonoBehaviour
     private SoundManager soundManager;
     private AudioSource bgMusic;
     [SerializeField] AudioSource openMenu;
+    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject inventoryScreen;
     private bool isPaused = false;
     private bool inventoryOpen = false;
     
     #endregion
 
     #region Unity Methods
+
+    private void Awake() 
+    {
+        //Singleton Effect
+        if (!exists)
+        {
+            exists = true;
+            //ensures same player object is not destoyed when loading new scences
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy (gameObject);
+        }
+    }
 
     void Start()
     {
@@ -59,13 +77,13 @@ public class GameManager : MonoBehaviour
             {
                 UnPause();
                 isPaused = false;
-                uIManager.GetPauseScreen().SetActive(false);
+                pauseScreen.SetActive(false);
             }
             else
             {
                 Pause(true);
                 isPaused = true;
-                uIManager.GetPauseScreen().SetActive(true);
+                pauseScreen.SetActive(true);
             }
         }
     }
@@ -79,14 +97,14 @@ public class GameManager : MonoBehaviour
             {
                 UnPause();
                 inventoryOpen = false;
-                uIManager.GetInventoryScreen().SetActive(false);
+                inventoryScreen.SetActive(false);
             }
             else
             {
                 Pause(true);
                 inventoryOpen = true;
                 openMenu.Play();
-                uIManager.GetInventoryScreen().SetActive(true);
+                inventoryScreen.SetActive(true);
             }
         }
     }

@@ -14,7 +14,6 @@ public class DungeonManager
     private List<MutableKeyValPair<int, bool>> chests = new List<MutableKeyValPair<int, bool>>();
     //Key: key number, Value: is key collected
     private List<MutableKeyValPair<int, bool>> keys = new List<MutableKeyValPair<int, bool>>();
-    //Key: key number, Value: is key collected
     private int currentKeys;
     #endregion
 

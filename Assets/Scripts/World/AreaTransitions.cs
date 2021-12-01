@@ -18,8 +18,10 @@ public class AreaTransitions : MonoBehaviour
     [SerializeField] private Vector3 movePlayer;
     [SerializeField] private bool needLocationText = false;
     [SerializeField] private string placeName;
-    [SerializeField] private GameObject locationText;
-    private TMP_Text placeText;
+    private DialogLocationCanvas locationCanvas;
+    private bool locationAppearing;
+    private float animTime = 3f;
+    private static bool textUp;
     #endregion
 
     #region Unity Methods
@@ -29,12 +31,30 @@ public class AreaTransitions : MonoBehaviour
         cam = Camera.main.GetComponent<CameraController>();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         gameManager = FindObjectOfType<GameManager>();
+        locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
+    }
+
+    void Update() 
+    {
+        //if location text is appearing, counts down the anim time to turn it off
+        if (locationAppearing)
+        {
+            animTime -= Time.deltaTime;
+            if (animTime <= 0)
+            {
+                locationCanvas.LocationTextAnim.SetBool("Fading", false);
+                locationCanvas.LocationText.text = "";
+                locationAppearing = false;
+                animTime = 3f;
+            }
+
+        }
     }
 
     //snaps camera to new location, moves player into boxed area and resets any enemies 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Player" && collider.GetType() != typeof(BoxCollider2D)) 
+        if (collider.gameObject.tag == "Player" && collider.GetType() != typeof(BoxCollider2D))
         {
             //changes camera min/max positions to simulate move somewhere new
             cam.SetMinPosition(newMinPosition);
@@ -43,10 +63,22 @@ public class AreaTransitions : MonoBehaviour
             collider.transform.position += movePlayer;
             lastPlayerLocation = collider.transform.position;
 
-            if (needLocationText)
+            //if area is changing, but location is already displaying, changes text to newer area
+            if (textUp)
             {
-                placeText = locationText.GetComponent<TMP_Text>();
-                StartCoroutine(PlaceNameCo());
+                Debug.Log("Here");
+                locationAppearing = false;
+                locationCanvas.LocationTextAnim.SetBool("Fading", false);
+                locationCanvas.LocationText.text = "";
+                animTime = 3f;
+            }
+            //if area is changing, will display location text
+            if (needLocationText && !locationAppearing)
+            {
+                locationCanvas.LocationText.text = placeName;
+                locationCanvas.LocationTextAnim.SetBool("Fading", true);
+                locationAppearing = true;
+                textUp = true;
             }
 
             //Destorys items that were not picked up
@@ -73,14 +105,6 @@ public class AreaTransitions : MonoBehaviour
                 }
             }
         }
-    }
-
-    private IEnumerator PlaceNameCo()
-    {
-        placeText.text = placeName;
-        locationText.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        locationText.SetActive(false);
     }
 
     public Vector2 LastPlayerLocation

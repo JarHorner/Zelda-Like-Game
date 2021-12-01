@@ -10,9 +10,9 @@ public class PlayerStats : MonoBehaviour
     #region Variables
     [SerializeField] private int playerLevel = 1;
     [SerializeField] private int maxLevel = 10;
-    [SerializeField] private TMP_Text menuLevelText;
-    [SerializeField] private TMP_Text menuCurrentExpText;
-    [SerializeField] private TMP_Text menuExpNextlevelText;
+    [SerializeField] private TMP_Text menuLevelNum;
+    [SerializeField] private TMP_Text menuCurrentExpNum;
+    [SerializeField] private TMP_Text menuExpNextLevelNum;
     [SerializeField] private int currentExp = 0;
     private int[] expToLevelUp;
     private int baseExp = 0;
@@ -24,7 +24,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         //starts coroutine setting up exp values to level
-        menuLevelText.text = "LEVEL:   " + playerLevel;
+        menuLevelNum.text = playerLevel.ToString();
         expToLevelUp = new int[maxLevel];
         StartCoroutine(ExpToLevel());
     }
@@ -36,15 +36,15 @@ public class PlayerStats : MonoBehaviour
         {
             playerLevel += 1;
             currentExp = 0;
-            menuLevelText.text = "LEVEL:   " + playerLevel;
+            menuLevelNum.text = playerLevel.ToString();
         }
     }
 
     void LateUpdate()
     {
         //changed exp values after every frame
-        menuCurrentExpText.text = "CURRENT EXP:    " + currentExp;
-        menuExpNextlevelText.text = "EXP TO NEXT LEVEL:    " + Mathf.Abs(currentExp - expToLevelUp[playerLevel]);
+        menuCurrentExpNum.text = currentExp.ToString();
+        menuExpNextLevelNum.text = Mathf.Abs(currentExp - expToLevelUp[playerLevel]).ToString();
     }
 
     private IEnumerator ExpToLevel() 

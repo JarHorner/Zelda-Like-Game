@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\UI&amp;Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\World\ChangeFloor.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSpawnController.cs" />
+     <Compile Include="Assets\Scripts\Objects\Interactables\Sign.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Enemy\HurtPlayer.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\MainMenu.cs" />
@@ -88,7 +89,8 @@
      <Compile Include="Assets\Scripts\Objects\Pickups\Key.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\Objects\Interactables\Sign.cs" />
+     <Compile Include="Assets\Scripts\Objects\Traps\ArrowTrap.cs" />
+     <Compile Include="Assets\Scripts\Objects\Traps\TrapArrow.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

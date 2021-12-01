@@ -9,7 +9,6 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
     private Vector3 playerPosition;
-    private Vector3 currentPosition;
 
     //these three varibles can be adjusted at any time
     [SerializeField] private int damageDealt = 2;
@@ -24,6 +23,11 @@ public class Projectile : MonoBehaviour
         rb= GetComponent<Rigidbody2D>();
         //finds players current position
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+                
+                
+        //scale the movement on each axis by the directionOfTravel vector components
+        Vector2 force = (playerPosition - transform.position).normalized;
+        rb.AddForce(force * speed, ForceMode2D.Impulse);
     }
 
     void Start() {
@@ -32,14 +36,6 @@ public class Projectile : MonoBehaviour
 
     //ensures projectile when spawned goes the same speed towards and past the players location when instatiated.
     void Update() {
-        //scale the movement on each axis by the directionOfTravel vector components
-        Debug.DrawLine(playerPosition, transform.position, Color.blue);
-        Vector2 force = (playerPosition - transform.position).normalized;
-
-        if(Vector3.Dot(rb.velocity, force) < 0)
-            return;
-
-        rb.AddForce(force * speed, ForceMode2D.Impulse);
         //destroys projectile if havent touched anything within its lifespan.
         Destroy (gameObject, lifespan);
     }

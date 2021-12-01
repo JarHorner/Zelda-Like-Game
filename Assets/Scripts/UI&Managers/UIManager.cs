@@ -14,8 +14,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private TMP_Text keyCount;
     [SerializeField] private TMP_Text moneyCount;
-    [SerializeField] private GameObject pauseScreen;
-    [SerializeField] private GameObject inventoryScreen;
     #endregion
 
     #region Unity Methods
@@ -71,16 +69,6 @@ public class UIManager : MonoBehaviour
         string count = moneyCount.text;
         int total = int.Parse(moneyCount.text) - amt;
         moneyCount.text = total.ToString();
-    }
-
-    public GameObject GetPauseScreen()
-    {
-        return pauseScreen;
-    }
-
-    public GameObject GetInventoryScreen()
-    {
-        return inventoryScreen;
     }
     #endregion
 }
