@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 
     #region Variables
     private HealthManager healthManager;
-    private AllDungeonsManager allDungeonsManager;
+    [SerializeField] private AllDungeonsManager allDungeonsManager;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TMP_Text hpText;
     [SerializeField] private TMP_Text keyCount;
@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         healthManager = FindObjectOfType<HealthManager>();
-        allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
+        //allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
     }
 
     void Update()

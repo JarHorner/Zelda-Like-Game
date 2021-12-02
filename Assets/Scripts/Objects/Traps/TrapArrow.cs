@@ -21,6 +21,7 @@ public class TrapArrow : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         healthManager = FindObjectOfType<HealthManager>();
+        //adds impulse force at start so the speed stays the same.
         rb.AddForce(new Vector2(0.0f, -speed), ForceMode2D.Impulse);
     }
     void Update() 
@@ -29,6 +30,7 @@ public class TrapArrow : MonoBehaviour
         Destroy (gameObject, lifespan);
     }
 
+    
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.tag == "Player")
@@ -37,10 +39,10 @@ public class TrapArrow : MonoBehaviour
             healthManager.DamagePlayer(damageDealt);
             Destroy(gameObject);
         } 
-        // else if (other.gameObject.tag == "Object")
-        // {
-        //     Destroy(gameObject);
-        // }
+        else if (other.gameObject.tag == "Object")
+        {
+            Destroy(gameObject);
+        }
     }
 
     #endregion

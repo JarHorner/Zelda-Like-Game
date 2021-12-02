@@ -14,6 +14,8 @@ public class ConveyorBelt : MonoBehaviour
     {
         playerController = FindObjectOfType<PlayerController>();
     }
+
+    //moves the player the way the conveyor is facing
     private void OnTriggerStay2D(Collider2D other) 
     {
         if (other.tag == "Player" && other.GetType() != typeof(BoxCollider2D))

@@ -7,7 +7,7 @@ public class FallingFloor : MonoBehaviour
     #region Variables
     [SerializeField] private Animator animator;
     private bool steppedOn = false;
-    private float falling = 1.8f;
+    private float falling = 1.3f;
 
     #endregion
 
@@ -22,7 +22,7 @@ public class FallingFloor : MonoBehaviour
             //once animation is over, the object turns into a pitfall.
             if (falling <= 0)
             {
-                falling = 1.8f;
+                falling = 1.3f;
                 steppedOn = false;
                 this.GetComponent<BoxCollider2D>().enabled = true;
                 this.GetComponent<Pitfall>().enabled = true;
