@@ -83,6 +83,10 @@ public class OpenChest : MonoBehaviour
             dungeonManager.CurrentKeys += 1;
             uIManager.ChangeKeyCountText(dungeonNum);
         }
+        else if (itemSpriteName.Contains("Arrow"))
+        {
+
+        }
         else if (itemSpriteName.Contains("Map"))
         {
 

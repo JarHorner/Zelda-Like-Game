@@ -43,13 +43,40 @@ TextureImporter:
     second: Arrow
   - first:
       213: -8311134769554861915
-    second: Wallet
-  - first:
-      213: -543606121332275878
     second: Map
   - first:
+      213: -543606121332275878
+    second: Wallet_1
+  - first:
       213: -5395386660183586465
-    second: Bow&Arrow
+    second: Wallet_2
+  - first:
+      213: 3226102912221574941
+    second: Bow
+  - first:
+      213: -1388951440661209245
+    second: Boss_Key
+  - first:
+      213: -131876487205062741
+    second: Wallet_3
+  - first:
+      213: 7400709677136175799
+    second: Fire_Spell
+  - first:
+      213: -1947415453603967657
+    second: Wind_Spell
+  - first:
+      213: -4919746307063835048
+    second: Ice_Spell
+  - first:
+      213: -9127623851113077736
+    second: Earth_Spell
+  - first:
+      213: -5737773086987976583
+    second: Lightning_Spell
+  - first:
+      213: 2447262657082577813
+    second: Dungeon_0_Key
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +140,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -125,7 +152,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -352,9 +379,9 @@ TextureImporter:
       name: Dungeon_Key
       rect:
         serializedVersion: 2
-        x: 35
+        x: 36
         y: 96
-        width: 10
+        width: 8
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -373,9 +400,9 @@ TextureImporter:
       name: Overworld_Key
       rect:
         serializedVersion: 2
-        x: 51
+        x: 52
         y: 96
-        width: 10
+        width: 8
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -412,13 +439,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wallet
+      name: Map
       rect:
         serializedVersion: 2
-        x: 81
-        y: 97
-        width: 15
-        height: 13
+        x: 80
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,13 +460,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Map
+      name: Wallet_1
       rect:
         serializedVersion: 2
-        x: 112
-        y: 96
-        width: 16
-        height: 16
+        x: 98
+        y: 97
+        width: 13
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,13 +481,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bow&Arrow
+      name: Wallet_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 113
+        y: 97
         width: 15
-        height: 15
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,10 +501,199 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Bow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17f1db818b65cc20800000000000000
+      internalID: 3226102912221574941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Key
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 78
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f1f11160479bce0800000000000000
+      internalID: -1388951440661209245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wallet_3
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 81
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba77ae9980b7b2ef0800000000000000
+      internalID: -131876487205062741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Spell
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 64
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b26f7f9d3a94b660800000000000000
+      internalID: 7400709677136175799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_Spell
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d44d976f369f4e0800000000000000
+      internalID: -1947415453603967657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice_Spell
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 64
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8569b66bccc89bbb0800000000000000
+      internalID: -4919746307063835048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Earth_Spell
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 65
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814a507b77a245180800000000000000
+      internalID: -9127623851113077736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lightning_Spell
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 64
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970094407c55f50b0800000000000000
+      internalID: -5737773086987976583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dungeon_0_Key
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5935c73ab6c66f120800000000000000
+      internalID: 2447262657082577813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6d476c962f768274f98648b2519bba2a
+    spriteID: 7c08d03519bc55749a4a050d6c17ca01
     internalID: 0
     vertices: []
     indices: 

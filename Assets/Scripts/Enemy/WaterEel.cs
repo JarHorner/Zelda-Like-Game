@@ -16,7 +16,7 @@ public class WaterEel : MonoBehaviour
     private bool hasRisen = false;
 
     //these three varibles can be adjusted at any time
-    private float timeToAttack = 1.8f;
+    private float timeToAttack = 1.25f;
     [SerializeField] private float maxRange = 0f;
     [SerializeField] private float minRange = 0f;
 
@@ -49,7 +49,7 @@ public class WaterEel : MonoBehaviour
                 }
                 if (timeToAttack <= 0) {
                     Shoot();
-                    timeToAttack = 1.8f;
+                    timeToAttack = 1.25f;
                 }
                 timeToAttack -= Time.deltaTime;
             }
@@ -62,7 +62,7 @@ public class WaterEel : MonoBehaviour
                     movementSound.Play();
                     hasRisen = false;
                 }
-                timeToAttack = 1.8f;
+                timeToAttack = 1.25f;
             }
         }
     }
