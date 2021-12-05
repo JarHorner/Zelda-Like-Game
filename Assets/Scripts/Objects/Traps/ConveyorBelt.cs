@@ -21,7 +21,6 @@ public class ConveyorBelt : MonoBehaviour
         if (other.tag == "Player" && other.GetType() != typeof(BoxCollider2D))
         {
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(speed);
-            Debug.Log($"{this.name} is moving");
         }
         
     }

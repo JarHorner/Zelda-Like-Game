@@ -78,7 +78,11 @@ public class OpenChest : MonoBehaviour
             Debug.Log(moneyAmt);
             uIManager.AddMoney(moneyAmt);
         }
-        else if (itemSpriteName.Contains("Key"))
+        else if (itemSpriteName.Contains("Boss_Key"))
+        {
+            dungeonManager.HasBossKey = true;
+        }
+        else if (itemSpriteName.Contains("Dungeon_Key"))
         {
             dungeonManager.CurrentKeys += 1;
             uIManager.ChangeKeyCountText(dungeonNum);
@@ -89,7 +93,7 @@ public class OpenChest : MonoBehaviour
         }
         else if (itemSpriteName.Contains("Map"))
         {
-
+            dungeonManager.HasMap = true;
         }
     }
 

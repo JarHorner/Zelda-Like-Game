@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Objects\Traps\TrapArrow.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\EnemyHealthManager.cs" />
      <Compile Include="Assets\Scripts\Other\ResetTimedDoor.cs" />
      <Compile Include="Assets\Scripts\World\FlickeringLight.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Scripts\Other\Volume2D.cs" />
      <Compile Include="Assets\Scripts\World\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\Objects\Traps\ArrowTrap.cs" />
      <Compile Include="Assets\Scripts\Player\HurtEnemy.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Health.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchTimedDoor.cs" />
@@ -89,8 +91,9 @@
      <Compile Include="Assets\Scripts\Objects\Pickups\Key.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\Objects\Traps\ArrowTrap.cs" />
-     <Compile Include="Assets\Scripts\Objects\Traps\TrapArrow.cs" />
+     <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\OpenBossDoor.cs" />
+     <Compile Include="Assets\Scripts\Objects\Pickups\BossKey.cs" />
+     <Compile Include="Assets\Scripts\Other\CloseDoorBehind.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

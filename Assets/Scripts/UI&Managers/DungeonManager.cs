@@ -6,8 +6,9 @@ using TMPro;
 public class DungeonManager
 {
     #region Variables
-    private bool isOpened;
+    private bool isDungeonOpened;
     private bool hasMap;
+    private bool hasBossKey;
     //Key: door number, Value: is door open
     private List<MutableKeyValPair<int, bool>> keyDoors = new List<MutableKeyValPair<int, bool>>();
     //Key: chest number, Value: is chest open
@@ -22,8 +23,9 @@ public class DungeonManager
     void Awake() 
     {
         currentKeys = 0;
-        isOpened = false;
+        isDungeonOpened = false;
         hasMap = false;
+        hasBossKey = false;
     }
 
     //adds a new door to stay opened to list, used in OpenKeyDoor when player unlocks door
@@ -89,28 +91,22 @@ public class DungeonManager
         set { currentKeys = value; }
     }
 
-    //ensures the dungeon entrance is always opened, when changing scenes
-    public void OpenDungeon()
+    public bool IsDungeonOpened
     {
-        isOpened = true;
+        get { return isDungeonOpened; }
+        set { isDungeonOpened = value; }
     }
 
-    //checks is the dungeon entrance needs to stay opened.
-    public bool IsDungeonOpened()
+    public bool HasMap
     {
-        return isOpened;
+        get { return hasMap; }
+        set { hasMap = value; }
     }
 
-    //ensures map has been picked up.
-    public void GetMap()
+    public bool HasBossKey
     {
-        hasMap = true;
-    }
-
-    //checks to see if map has been picked up
-    public bool HasMap()
-    {
-        return hasMap;
+        get { return hasBossKey; }
+        set { hasBossKey = value; }
     }
     #endregion
 }

@@ -37,7 +37,8 @@ public class OpenKeyDoor : MonoBehaviour
     }
 
     //uses the Pause() function from GameManager to prevent movement and play the animation of door opening.
-    IEnumerator OpenDoor() {
+    IEnumerator OpenDoor() 
+    {
         openDoor.Play();
         gameManager.Pause(false);
         animator.SetBool("Open", true);

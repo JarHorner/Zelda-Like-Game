@@ -46,6 +46,5 @@ public class ArrowTrap : MonoBehaviour
             shootAgainTime = 1f;
         }
     }
-
     #endregion
 }

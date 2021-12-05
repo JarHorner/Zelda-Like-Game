@@ -99,7 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: 1
   speed: 10
-  lifespan: 3
+  lifespan: 10
+  direction: 
 --- !u!50 &4661237312626147229
 Rigidbody2D:
   serializedVersion: 4

@@ -7,11 +7,11 @@ public class TrapArrow : MonoBehaviour
     #region Variables
     private Rigidbody2D rb;
     private HealthManager healthManager;
-    
+    private GameObject spawn;
     //these three varibles can be adjusted at any time
     [SerializeField] private int damageDealt = 1;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float lifespan = 3f;
+    [SerializeField] private float lifespan;
 
     #endregion
 
@@ -21,8 +21,9 @@ public class TrapArrow : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         healthManager = FindObjectOfType<HealthManager>();
+        spawn = this.transform.parent.gameObject;
         //adds impulse force at start so the speed stays the same.
-        rb.AddForce(new Vector2(0.0f, -speed), ForceMode2D.Impulse);
+        ShootDirection();
     }
     void Update() 
     {
@@ -30,7 +31,6 @@ public class TrapArrow : MonoBehaviour
         Destroy (gameObject, lifespan);
     }
 
-    
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.tag == "Player")
@@ -38,10 +38,28 @@ public class TrapArrow : MonoBehaviour
             Debug.Log("Hit");
             healthManager.DamagePlayer(damageDealt);
             Destroy(gameObject);
-        } 
-        else if (other.gameObject.tag == "Object")
+        }
+    }
+
+    private void ShootDirection()
+    {
+        Debug.Log(this.transform.parent.gameObject.transform.rotation.z);
+        Debug.Log(spawn.transform.parent.gameObject.transform.rotation.z);
+        if (spawn.transform.parent.gameObject.transform.rotation.z == 0)
         {
-            Destroy(gameObject);
+            rb.AddForce(new Vector2(0.0f, -speed), ForceMode2D.Impulse);
+        }
+        // else if (this.transform.rotation.z == 180)
+        // {
+        //     rb.AddForce(new Vector2(0.0f, -speed), ForceMode2D.Impulse);
+        // }
+        // else if (this.transform.rotation.z == -90)
+        // {
+        //     rb.AddForce(new Vector2(-speed, -0.0f), ForceMode2D.Impulse);
+        // }
+        else if(spawn.transform.parent.gameObject.transform.rotation.z == 90)
+        {
+            rb.AddForce(new Vector2(speed, -0.0f), ForceMode2D.Impulse);
         }
     }
 

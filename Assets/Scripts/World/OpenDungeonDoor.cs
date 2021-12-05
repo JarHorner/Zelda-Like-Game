@@ -21,7 +21,7 @@ public class OpenDungeonDoor : MonoBehaviour
         allDungeonsManager = GameObject.FindObjectOfType<AllDungeonsManager>();
         gameManager = FindObjectOfType<GameManager>();
         //if dungeon has been opened, it stays opened when transitioning into other scenes.
-        if (allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened()) {
+        if (allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened) {
             statueAnimator.SetBool("Opened", true);
             entranceAnimator.SetBool("Opened", true);
             statueAnimator.Play("Base Layer.Sink_Idle", 0, 1f);
@@ -39,7 +39,7 @@ public class OpenDungeonDoor : MonoBehaviour
         //pauses game mamager while animations play (so player cannot move)
         gameManager.Pause(false);
         //sets flag so dungeon stays open
-        allDungeonsManager.GetDungeonManager(dungeonNum).OpenDungeon();
+        allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened = true;
         //starts the process of animations
         statueAnimator.SetBool("hasKey", true);
         entranceAnimator.SetBool("hasKey", true);
