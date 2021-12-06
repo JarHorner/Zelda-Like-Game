@@ -26,9 +26,7 @@ public class PlayerController : MonoBehaviour
     private static bool playerExists;
     private Collider2D hitBox;
     private UIManager uiManager;
-
     private bool onConveyor = false;
-
     #endregion
 
     #region Unity Methods
@@ -110,7 +108,7 @@ public class PlayerController : MonoBehaviour
         //animation is qued up. Creating smooth attacking if the attack button is spammed.
         if (!isAttacking)
         {
-            if (Input.GetKeyDown(KeyCode.R) || doubleUpAttack)
+            if (Input.GetButtonDown("Attack") || doubleUpAttack)
             {
                 isAttacking = true;
                 doubleUpAttack = false;
@@ -121,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 swingSound.Play();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.R))
+        else if (Input.GetButtonDown("Attack"))
         {
             doubleUpAttack = true;
         }

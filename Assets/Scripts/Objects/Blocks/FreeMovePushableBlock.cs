@@ -31,19 +31,19 @@ public class FreeMovePushableBlock : MonoBehaviour
         //depending on the facing of the player.
         if (canPush)
         {
-            if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.C))
+            if (Input.GetKey(KeyCode.UpArrow) && Input.GetButtonDown("Push"))
             {
                 PushBlock(true);
             }
-            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.C))
+            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetButtonDown("Push"))
             {
                 PushBlock(true);
             }
-            else if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.C))
+            else if (Input.GetKey(KeyCode.RightArrow) && Input.GetButtonDown("Push"))
             {
                 PushBlock(false);
             }
-            else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.C))
+            else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetButtonDown("Push"))
             {
                 PushBlock(false);
             }

@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     //Pause the game by changing timeScale, reducing volume, opening pause panel and disabling PlayerController script to stop movement
     private void PauseGame()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetButtonDown("Pause"))
         {
             if(isPaused)
             {
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     //almost the same as the PauseGame() method but will be opening a different screen.
     private void InventoryScreen()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetButtonDown("Inventory"))
         {
             if (inventoryOpen)
             {

@@ -41,23 +41,22 @@ public class TrapArrow : MonoBehaviour
         }
     }
 
+    //depending on the z rotation of the ArrowTrap, the arrow will shoot in that direction.
     private void ShootDirection()
     {
-        Debug.Log(this.transform.parent.gameObject.transform.rotation.z);
-        Debug.Log(spawn.transform.parent.gameObject.transform.rotation.z);
         if (spawn.transform.parent.gameObject.transform.rotation.z == 0)
         {
             rb.AddForce(new Vector2(0.0f, -speed), ForceMode2D.Impulse);
         }
-        // else if (this.transform.rotation.z == 180)
-        // {
-        //     rb.AddForce(new Vector2(0.0f, -speed), ForceMode2D.Impulse);
-        // }
-        // else if (this.transform.rotation.z == -90)
-        // {
-        //     rb.AddForce(new Vector2(-speed, -0.0f), ForceMode2D.Impulse);
-        // }
-        else if(spawn.transform.parent.gameObject.transform.rotation.z == 90)
+        else if (spawn.transform.parent.gameObject.transform.rotation.z == 1)
+        {
+            rb.AddForce(new Vector2(0.0f, speed), ForceMode2D.Impulse);
+        }
+        else if (spawn.transform.parent.gameObject.transform.rotation.z < 0)
+        {
+            rb.AddForce(new Vector2(-speed, -0.0f), ForceMode2D.Impulse);
+        }
+        else if(spawn.transform.parent.gameObject.transform.rotation.z > 0)
         {
             rb.AddForce(new Vector2(speed, -0.0f), ForceMode2D.Impulse);
         }

@@ -39,19 +39,19 @@ public class MoveOnceBlock : MonoBehaviour
         //depending on the facing of the player.
         if (canPush && notMoved)
         {
-            if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.C))
+            if (Input.GetKey(KeyCode.UpArrow) && Input.GetButtonDown("Push"))
             {
                 PushBlock(true, new Vector2(startX, startY + blockLength));
             }
-            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.C))
+            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetButtonDown("Push"))
             {
                 PushBlock(true, new Vector2(startX, startY - blockLength));
             }
-            else if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.C))
+            else if (Input.GetKey(KeyCode.RightArrow) && Input.GetButtonDown("Push"))
             {
                 PushBlock(false, new Vector2(startX + blockLength, startY));
             }
-            else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.C))
+            else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetButtonDown("Push"))
             {
                 PushBlock(false, new Vector2(startX - blockLength, startY));
             }

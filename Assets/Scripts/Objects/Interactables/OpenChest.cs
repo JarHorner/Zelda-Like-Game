@@ -38,7 +38,7 @@ public class OpenChest : MonoBehaviour
         //needs to check if chest has been opened again because the first check is only for animation.
         if (canOpenChest && !dungeonManager.GetChestStayOpen(chestNum))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("Interact"))
             {
                 StartCoroutine(Open());
             }

@@ -25,16 +25,15 @@ public class Sign : MonoBehaviour
     {
         if (paused)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetButtonDown("Interact"))
             {
                 gameManager.UnPause();
                 dialogCanvas.DialogBox.gameObject.SetActive(false);
             }
         }
 
-        if (canRead && Input.GetKeyDown(KeyCode.Q))
+        if (canRead && Input.GetButtonDown("Interact"))
         {
-            Debug.Log("Pressed Q");
             dialogCanvas.DialogBox.gameObject.SetActive(true);
             TMP_Text dialogText = dialogCanvas.DialogBox.GetComponentInChildren<TMP_Text>();
             dialogText.text = text;
@@ -46,7 +45,6 @@ public class Sign : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        Debug.Log("in-front of sign");
         if (other.tag == "Player")
         {
             canRead = true;
@@ -55,7 +53,6 @@ public class Sign : MonoBehaviour
 
         private void OnTriggerExit2D(Collider2D other) 
     {
-        Debug.Log("in-front of sign");
         if (other.tag == "Player")
         {
             canRead = false;
