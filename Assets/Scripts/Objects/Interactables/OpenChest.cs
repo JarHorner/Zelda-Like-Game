@@ -8,6 +8,7 @@ public class OpenChest : MonoBehaviour
     private UIManager uIManager;
     private DungeonManager dungeonManager;
     private GameManager gameManager;
+    private InventoryManager inventoryManager;
     private Animator chestAnim;
     [SerializeField] private int chestNum;
     [SerializeField] private int dungeonNum;
@@ -24,6 +25,7 @@ public class OpenChest : MonoBehaviour
         uIManager = FindObjectOfType<UIManager>();
         dungeonManager = FindObjectOfType<AllDungeonsManager>().GetDungeonManager(dungeonNum);
         gameManager = FindObjectOfType<GameManager>();
+        inventoryManager = FindObjectOfType<InventoryManager>();
         chestAnim = GetComponent<Animator>();
         //if chest has already been opened before, chest stays open so it cant be re-collected.
         if(dungeonManager.GetChestStayOpen(chestNum))
@@ -94,6 +96,10 @@ public class OpenChest : MonoBehaviour
         else if (itemSpriteName.Contains("Map"))
         {
             dungeonManager.HasMap = true;
+        }
+        else if (itemSpriteName.Contains("Bow"))
+        {
+            FindObjectOfType<InventoryManager>().PopulateInventorySlot("Bow");
         }
     }
 

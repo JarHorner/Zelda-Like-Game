@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcc45b7b97d5bf4c9eacb7409c44a29, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: 
+  itemName: Bow
+  itemDescription: Shoot an arrow pressing a button. Remember to protect your eyes!
+  itemImage: {fileID: 3226102912221574941, guid: bbf6a59b365e2d94d9a58fd2be84f20b, type: 3}
+  numberHeld: 1
+  usable: 0
+  unique: 1
