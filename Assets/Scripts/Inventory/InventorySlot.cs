@@ -17,14 +17,41 @@ public class InventorySlot : MonoBehaviour
     #endregion
 
     #region Methods
+    //puts item in inventory (sprite, number held, etc.) and becomes clickable.
     public void Setup(InventoryItem item, InventoryManager manager)
     {
-        thisItem = item;
-        thisManager = manager;
+        if (thisItem != null)
+        {
+            int numHeld = int.Parse(itemNumberText.text) + thisItem.pickupValue;
+            itemNumberText.text = "" + numHeld;
+        }
+        else
+        {
+            thisItem = item;
+            thisManager = manager;
+            if (thisItem)
+            {
+                itemImage.GetComponent<Image>().enabled = true;
+                itemImage.sprite = thisItem.itemImage;
+                if (!thisItem.unique)
+                {
+                    int numHeld = thisItem.numberHeld + thisItem.pickupValue;
+                    itemNumberText.text = "" + numHeld;
+                }
+                else
+                {
+                    itemNumberText.text = "";
+                }
+            }
+        }
+    }
+
+    //when clicked on, shows the name and description of item.
+    public void ShowDescriptionAndButton()
+    {
         if (thisItem)
         {
-            itemImage.sprite = thisItem.itemImage;
-            itemNumberText.text = "" + thisItem.numberHeld;
+            thisManager.SetTextAndButton(thisItem.itemDescription, thisItem.itemName, thisItem.usable, thisItem);
         }
     }
 

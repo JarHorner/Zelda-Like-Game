@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bbf6a59b365e2d94d9a58fd2be84f20b
+guid: 6327f5604eb9a1f46b8dbac24ab4c712
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -46,37 +46,40 @@ TextureImporter:
     second: Map
   - first:
       213: -543606121332275878
-    second: Wallet_1
+    second: Small_Wallet
   - first:
       213: -5395386660183586465
-    second: Wallet_2
+    second: Medium_Wallet
   - first:
       213: 3226102912221574941
     second: Bow
   - first:
       213: -1388951440661209245
-    second: Boss_Key
+    second: Stun_Bomb
   - first:
       213: -131876487205062741
-    second: Wallet_3
+    second: Boss_Key
   - first:
       213: 7400709677136175799
-    second: Fire_Spell
+    second: Large_Wallet
   - first:
       213: -1947415453603967657
-    second: Wind_Spell
+    second: Fire_Magic
   - first:
       213: -4919746307063835048
-    second: Ice_Spell
+    second: Wind_Magic
   - first:
       213: -9127623851113077736
-    second: Earth_Spell
+    second: Ice_Magic
   - first:
       213: -5737773086987976583
-    second: Lightning_Spell
+    second: Earth_Magic
   - first:
       213: 2447262657082577813
-    second: Dungeon_0_Key
+    second: Lightning_Magic
+  - first:
+      213: -5913162871272531253
+    second: Dungeon0_Key
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -140,7 +143,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -152,7 +155,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -274,7 +277,7 @@ TextureImporter:
       name: Money_100
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 114
         width: 13
         height: 13
@@ -460,7 +463,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wallet_1
+      name: Small_Wallet
       rect:
         serializedVersion: 2
         x: 98
@@ -481,7 +484,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wallet_2
+      name: Medium_Wallet
       rect:
         serializedVersion: 2
         x: 113
@@ -523,13 +526,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Key
+      name: Stun_Bomb
       rect:
         serializedVersion: 2
-        x: 99
-        y: 78
-        width: 11
-        height: 18
+        x: 18
+        y: 80
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -544,13 +547,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wallet_3
+      name: Boss_Key
       rect:
         serializedVersion: 2
-        x: 113
-        y: 81
-        width: 15
-        height: 13
+        x: 99
+        y: 78
+        width: 11
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -565,13 +568,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fire_Spell
+      name: Large_Wallet
       rect:
         serializedVersion: 2
-        x: 2
-        y: 64
-        width: 13
-        height: 15
+        x: 113
+        y: 81
+        width: 15
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -586,12 +589,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wind_Spell
+      name: Fire_Magic
       rect:
         serializedVersion: 2
-        x: 16
+        x: 2
         y: 64
-        width: 16
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -607,13 +610,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ice_Spell
+      name: Wind_Magic
       rect:
         serializedVersion: 2
-        x: 33
+        x: 16
         y: 64
-        width: 15
-        height: 16
+        width: 16
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -628,13 +631,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Earth_Spell
+      name: Ice_Magic
       rect:
         serializedVersion: 2
-        x: 49
-        y: 65
+        x: 33
+        y: 64
         width: 15
-        height: 13
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -649,13 +652,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning_Spell
+      name: Earth_Magic
       rect:
         serializedVersion: 2
-        x: 66
-        y: 64
-        width: 13
-        height: 15
+        x: 49
+        y: 65
+        width: 15
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -670,13 +673,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dungeon_0_Key
+      name: Lightning_Magic
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 15
-        height: 23
+        x: 66
+        y: 64
+        width: 13
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -690,10 +693,31 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Dungeon0_Key
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bca95c6a2b930fda0800000000000000
+      internalID: -5913162871272531253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7c08d03519bc55749a4a050d6c17ca01
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

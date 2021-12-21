@@ -44,6 +44,7 @@
      <Compile Include="Assets\Scripts\World\Water.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\PauseScreen.cs" />
      <Compile Include="Assets\Scripts\Other\ResetFloors.cs" />
+     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchOpenDoor.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\ConveyorBelt.cs" />
      <Compile Include="Assets\Scripts\Objects\Blocks\FreeMovePushableBlock.cs" />
@@ -51,6 +52,7 @@
      <Compile Include="Assets\Scripts\Other\ResetBlocks.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\ChestAppear.cs" />
      <Compile Include="Assets\Scripts\Enemy\WaterEel.cs" />
+     <Compile Include="Assets\Scripts\Inventory\PlayerInventory.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\AllDungeonsManager.cs" />
      <Compile Include="Assets\Scripts\Other\MutableKeyValPair.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\DungeonEntranceKey.cs" />
@@ -75,9 +77,11 @@
      <Compile Include="Assets\Scripts\Objects\Pickups\Health.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchTimedDoor.cs" />
      <Compile Include="Assets\Scripts\World\OpenDungeonDoor.cs" />
+     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\World\ChangeFloor.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSpawnController.cs" />
+     <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\Sign.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Enemy\HurtPlayer.cs" />
@@ -94,10 +98,8 @@
      <Compile Include="Assets\Scripts\Objects\Pickups\BossKey.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
-     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
-     <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
-     <Compile Include="Assets\Scripts\Inventory\PlayerInventory.cs" />
+     <Compile Include="Assets\Scripts\Inventory\Items\StunBomb.cs" />
+     <Compile Include="Assets\Scripts\Inventory\Items\HealthReaction.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

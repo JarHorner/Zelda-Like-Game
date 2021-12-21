@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private Animator playerAnimator;
     private SoundManager soundManager;
     private AudioSource bgMusic;
+    [SerializeField] InventoryManager inventoryManager;
     [SerializeField] AudioSource openMenu;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject inventoryScreen;
@@ -102,6 +103,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 Pause(true);
+                inventoryManager.SetTextAndButton("", "", false, null);
                 inventoryOpen = true;
                 openMenu.Play();
                 inventoryScreen.SetActive(true);

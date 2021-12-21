@@ -10,38 +10,61 @@ public class InventoryManager : MonoBehaviour
     public PlayerInventory playerInventory;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private GameObject useButton;
     public List<InventorySlot> myInventorySlots = new List<InventorySlot>();
+    public InventoryItem currentItem;
     #endregion
 
     #region Methods
 
-    public void SetText(string description, string name)
+    //Sets the text and description to certain item. Used in InventorySlot when clicking on button.
+    public void SetTextAndButton(string description, string name, bool buttonActive, InventoryItem newItem)
     {
         descriptionText.text = description;
         nameText.text = name;
+        if (buttonActive)
+        {
+            useButton.SetActive(true);
+        }
+        else
+        {
+            useButton.SetActive(false);
+        }
+        currentItem = newItem;
     }
 
+    //used when picking up new item, ex. OpenChest.
     public void PopulateInventorySlot(string itemName)
     {
         if (playerInventory)
         {
-            Debug.Log("got here 1");
             for (int i = 0; i < playerInventory.myInventory.Count; i++)
             {
-                Debug.Log("got here 2");
-                if (playerInventory.myInventory[i].ToString().Contains(itemName))
+                if (playerInventory.myInventory[i] == null)
                 {
-                    Debug.Log("setting up bow");
+                    //Move on, will delete later
+                }
+                else if (playerInventory.myInventory[i].ToString().Contains(itemName))
+                {
+                    Debug.Log("setting up item");
                     myInventorySlots[i].Setup(playerInventory.myInventory[i], this);
+                    break;
                 }
             }
         }
-        Debug.Log("finished");
     }
+
+    public void UseButtonPressed() 
+    {
+        if (currentItem)
+        {
+            currentItem.Use();
+        }
+    }
+
     void Start() 
     {
-        PopulateInventorySlot("Bow");
-        SetText("", "");
+        PopulateInventorySlot("Heal");
     }
 
     #endregion

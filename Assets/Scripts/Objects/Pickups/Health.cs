@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
         {
             if (healthManager.CurrHealth != healthManager.MaxHealth)
             {
-                healthManager.CurrHealth++;
+                healthManager.Heal(1);
             }
             Destroy(this.gameObject);
         }

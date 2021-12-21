@@ -140,6 +140,15 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    public void Heal(int healAmt) 
+    {
+        currHealth += healAmt;
+        if (currHealth > maxHealth)
+        {
+            currHealth = maxHealth;
+        }
+    }
+
     public int CurrHealth
     {
         get { return currHealth; }

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcc45b7b97d5bf4c9eacb7409c44a29, type: 3}
+  m_Name: StunBomb
+  m_EditorClassIdentifier: 
+  itemName: Stun Bomb
+  itemDescription: Throw a Stun Bomb pressing a button. Stuns enemies in blast radius,
+    to get a quick hit in. Somehow your immune...
+  itemImage: {fileID: -1388951440661209245, guid: 6327f5604eb9a1f46b8dbac24ab4c712, type: 3}
+  numberHeld: 0
+  pickupValue: 2
+  usable: 1
+  unique: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
