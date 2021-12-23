@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -67,6 +68,23 @@ public class GameManager : MonoBehaviour
     {
         PauseGame();
         InventoryScreen();
+
+        //if game isnt pasued, and proper button is pressed, uses that items event.
+        if (Time.timeScale != 0 && Input.GetButtonDown("UseItem1"))
+        {
+            if (inventoryManager.usableItems.myInventory[0] != null)
+                inventoryManager.usableItems.myInventory[0].Use();
+        }
+        if (Time.timeScale != 0 && Input.GetButtonDown("UseItem2"))
+        {
+            if (inventoryManager.usableItems.myInventory[1] != null)
+                inventoryManager.usableItems.myInventory[1].Use();
+        }
+        //ensures assigned an item to use from the inventory manager.
+        if (inventoryManager.AssignButtonMenuOpen)
+        {
+            inventoryManager.AssignToButton();
+        }
     }
 
     //Pause the game by changing timeScale, reducing volume, opening pause panel and disabling PlayerController script to stop movement

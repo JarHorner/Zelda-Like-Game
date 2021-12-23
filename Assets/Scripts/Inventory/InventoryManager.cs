@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
     #region Variables
     [Header("Inventory Information")]
     public PlayerInventory playerInventory;
+    public PlayerInventory usableItems;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private GameObject useButton;
+    [SerializeField] private GameObject assignButtonPopup;
+    private GameObject itemBox1;
+    private GameObject itemBox2;
     public List<InventorySlot> myInventorySlots = new List<InventorySlot>();
     public InventoryItem currentItem;
+    private bool buttonChosen = false;
+    private bool assignButtonMenuOpen = false;
     #endregion
 
     #region Methods
@@ -54,17 +61,74 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    //when use button is pressed, this activates the popup that allocates an assigned button.
     public void UseButtonPressed() 
     {
         if (currentItem)
         {
-            currentItem.Use();
+            assignButtonPopup.SetActive(true);
+            assignButtonMenuOpen = true;
         }
     }
 
+    //helps assign an item to a button, ensuring 2 of the same item cannot be in the item boxes. once item is assigned, popup is deactivated.
+    public void AssignToButton()
+    {
+        if (Input.GetButtonDown("UseItem1"))
+        {
+            itemBox1.GetComponent<Image>().enabled = true;
+            itemBox1.GetComponent<Image>().sprite = currentItem.itemImage;
+            usableItems.myInventory[0] = currentItem; 
+            buttonChosen = true;
+
+            if (usableItems.myInventory[1] == usableItems.myInventory[0])
+            {
+                itemBox2.GetComponent<Image>().sprite = null;
+                itemBox2.GetComponent<Image>().enabled = false;
+                usableItems.myInventory[1] = null;
+            }
+        }
+        else if (Input.GetButtonDown("UseItem2"))
+        {
+            itemBox2.GetComponent<Image>().enabled = true;
+            itemBox2.GetComponent<Image>().sprite = currentItem.itemImage;
+            usableItems.myInventory[1] = currentItem;
+            buttonChosen = true;
+
+            if (usableItems.myInventory[0] == usableItems.myInventory[1])
+            {
+                itemBox1.GetComponent<Image>().sprite = null;
+                itemBox1.GetComponent<Image>().enabled = false;
+                usableItems.myInventory[0] = null;
+            }
+        }
+        if (buttonChosen)
+        {
+            buttonChosen = false;
+            assignButtonPopup.SetActive(false);
+            assignButtonMenuOpen = false;
+        }
+    }
+
+    //will be deleted eventually. Resets the Scriptable Object.
+    void Awake() 
+    {
+        usableItems.Reset();
+    }
+
+    //gets the item boxes and populates some items in inventory. populated items will be removed eventually.
     void Start() 
     {
+        itemBox1 = GameObject.Find("ItemBox1").transform.GetChild(0).gameObject;
+        itemBox2 = GameObject.Find("ItemBox2").transform.GetChild(0).gameObject;
         PopulateInventorySlot("Heal");
+        PopulateInventorySlot("PowerGloves");
+        PopulateInventorySlot("SwimmingMedal");
+    }
+
+    public bool AssignButtonMenuOpen
+    {
+        get { return assignButtonMenuOpen; }
     }
 
     #endregion

@@ -16,6 +16,7 @@ public class InventoryItem : ScriptableObject
     public bool unique;
     public UnityEvent thisEvent;
 
+    //used event assigned to this item
     public void Use()
     {
         Debug.Log("Using Item");

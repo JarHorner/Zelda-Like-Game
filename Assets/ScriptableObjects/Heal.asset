@@ -15,10 +15,10 @@ MonoBehaviour:
   itemName: Heal
   itemDescription: Recover 2 Health. Always good to have the upperhand!
   itemImage: {fileID: -5109181271406423499, guid: 6327f5604eb9a1f46b8dbac24ab4c712, type: 3}
-  numberHeld: 1
+  numberHeld: -1
   pickupValue: 0
   usable: 1
-  unique: 0
+  unique: 1
   thisEvent:
     m_PersistentCalls:
       m_Calls:
