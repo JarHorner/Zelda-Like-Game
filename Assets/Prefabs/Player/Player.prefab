@@ -2268,7 +2268,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f9865f990858f1f43b50391e7f738a76, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
@@ -4286,7 +4286,7 @@ PrefabInstance:
     - target: {fileID: 7740917265764702664, guid: f57e90ae36d95dd43b4b89d602311583, type: 3}
       propertyPath: dungeon0Key
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6336260409723030730, guid: a5a7ed8726221ee4cbdc7ce3b9fbfaab, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f57e90ae36d95dd43b4b89d602311583, type: 3}
 --- !u!4 &5523758570651708810 stripped

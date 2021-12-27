@@ -131,5 +131,10 @@ public class InventoryManager : MonoBehaviour
         get { return assignButtonMenuOpen; }
     }
 
+    public GameObject AssignButtonPopup
+    {
+        get { return assignButtonPopup; }
+    }
+
     #endregion
 }

@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
 
     #region Variables
+    private static bool exists;
     private Vector3 centerPoint = new Vector3(0,0,0);
     [SerializeField] private AudioClip backgroundMusic;
     #endregion
@@ -17,6 +18,18 @@ public class SoundManager : MonoBehaviour
     {
         //starts by playing background music when entering scene
         PlayBackground(backgroundMusic);
+
+        // //Singleton Effect
+        // if (!exists)
+        // {
+        //     exists = true;
+        //     //ensures same player object is not destoyed when loading new scences
+        //     DontDestroyOnLoad(this.gameObject);
+        // }
+        // else
+        // {
+        //     Destroy (gameObject);
+        // }
     }
 
     //creates a new GameObject, gives it a AudioSource component and adds the parameter as the clip then plays it.

@@ -298,7 +298,7 @@ InputManager:
     descriptiveName: Player pushes object
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: q
+    positiveButton: c
     altNegativeButton: 
     altPositiveButton: joystick button 5
     gravity: 1000

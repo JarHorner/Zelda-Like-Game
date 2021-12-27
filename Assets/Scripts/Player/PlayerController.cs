@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     #region Variables
+    //used to keep track of the players last location
+    private static Vector2 lastPlayerLocation;
     public float moveSpeed;
     private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
@@ -34,6 +36,8 @@ public class PlayerController : MonoBehaviour
     void Awake() 
     {
         uiManager = GameObject.FindObjectOfType<UIManager>();
+        lastPlayerLocation = new Vector2(0, 0);
+        Debug.Log(lastPlayerLocation);
     }
 
     //Singleton affect code
@@ -158,9 +162,21 @@ public class PlayerController : MonoBehaviour
 
     //Getters and Setters for player variables.
 
+   public Vector2 LastPlayerLocation
+    {
+        get { return lastPlayerLocation; }
+        set { lastPlayerLocation = value; }
+    }
+
     public Vector2 Movement
     {
+        get { return movement; }
         set { movement = value; }
+    }
+
+    public Animator Animator
+    {
+        get { return animator; }
     }
     public string StartPoint
     {

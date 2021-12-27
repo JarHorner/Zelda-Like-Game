@@ -39,21 +39,27 @@ public class MoveOnceBlock : MonoBehaviour
         //depending on the facing of the player.
         if (canPush && notMoved)
         {
-            if (Input.GetKey(KeyCode.UpArrow) && Input.GetButtonDown("Push"))
+            if (Input.GetButton("Vertical") && Input.GetButton("Push"))
             {
-                PushBlock(true, new Vector2(startX, startY + blockLength));
+                if (Input.GetAxis("Vertical") > 0)
+                {
+                    PushBlock(true, new Vector2(startX, startY + blockLength));
+                }
+                else
+                {
+                    PushBlock(true, new Vector2(startX, startY - blockLength));
+                }
             }
-            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetButtonDown("Push"))
+            else if (Input.GetButton("Horizontal") && Input.GetButton("Push"))
             {
-                PushBlock(true, new Vector2(startX, startY - blockLength));
-            }
-            else if (Input.GetKey(KeyCode.RightArrow) && Input.GetButtonDown("Push"))
-            {
-                PushBlock(false, new Vector2(startX + blockLength, startY));
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetButtonDown("Push"))
-            {
-                PushBlock(false, new Vector2(startX - blockLength, startY));
+                if (Input.GetAxis("Horizontal") > 0)
+                {
+                    PushBlock(false, new Vector2(startX + blockLength, startY));
+                }
+                else
+                {
+                    PushBlock(false, new Vector2(startX - blockLength, startY));
+                }
             }
         }
         //if player is pushing and the sound is not currently being played, new sound will play, creating a loop.

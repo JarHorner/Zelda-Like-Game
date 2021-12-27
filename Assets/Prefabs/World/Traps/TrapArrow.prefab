@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4661237312626147230}
   - component: {fileID: 4661237312626147229}
   - component: {fileID: 4661237312626147228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TrapArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,9 +118,9 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &4661237312626147228
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

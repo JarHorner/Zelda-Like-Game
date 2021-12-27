@@ -8,11 +8,10 @@ public class AreaTransitions : MonoBehaviour
 {
 
     #region Variables
-    //used to keep track of the players last location
-    [SerializeField] private static Vector2 lastPlayerLocation;
     private CameraController cam;
     private GameObject[] enemies;
     private GameManager gameManager;
+    private PlayerController player;
     [SerializeField] private Vector2 newMinPosition;
     [SerializeField] private Vector2 newMaxPosition;
     [SerializeField] private Vector3 movePlayer;
@@ -31,6 +30,7 @@ public class AreaTransitions : MonoBehaviour
         cam = Camera.main.GetComponent<CameraController>();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         gameManager = FindObjectOfType<GameManager>();
+        player = FindObjectOfType<PlayerController>();
         locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
     }
 
@@ -61,7 +61,7 @@ public class AreaTransitions : MonoBehaviour
             cam.SetMaxPosition(newMaxPosition);
             //moves player into area
             collider.transform.position += movePlayer;
-            lastPlayerLocation = collider.transform.position;
+            player.LastPlayerLocation = collider.transform.position;
 
             //if area is changing, but location is already displaying, changes text to newer area
             if (textUp)
@@ -105,11 +105,6 @@ public class AreaTransitions : MonoBehaviour
                 }
             }
         }
-    }
-
-    public Vector2 LastPlayerLocation
-    {
-        get { return lastPlayerLocation; }
     }
 
     #endregion

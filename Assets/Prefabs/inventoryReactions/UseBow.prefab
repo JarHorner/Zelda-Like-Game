@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3584717117557857750
+--- !u!1 &1094790914323532281
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5964398359981444073}
-  - component: {fileID: 3562825147249432809}
+  - component: {fileID: 2626536718769462745}
+  - component: {fileID: 5451558535938801814}
   m_Layer: 0
-  m_Name: HealthReaction
+  m_Name: UseBow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5964398359981444073
+--- !u!4 &2626536718769462745
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3584717117557857750}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1094790914323532281}
+  m_LocalRotation: {x: -0.3101393, y: -0.18159917, z: 0.93122363, w: -0.060480688}
+  m_LocalPosition: {x: -1.5707643, y: 0.9767283, z: -2.1209917}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3562825147249432809
+--- !u!114 &5451558535938801814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3584717117557857750}
+  m_GameObject: {fileID: 1094790914323532281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbbac3609099b64ba5a336014deb055, type: 3}
+  m_Script: {fileID: 11500000, guid: df469a875166a9248bf1100e68c804d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthManager: {fileID: 265722949861545696, guid: 461cebba272650f4fbdfc19dc1e08633, type: 3}
+  projectile: {fileID: 3585022105265313117, guid: b87a6bd9c31506643af9b8b477449bd8, type: 3}

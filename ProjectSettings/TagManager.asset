@@ -17,6 +17,7 @@ TagManager:
   - Walls
   - Item
   - DialogCanvas
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -24,11 +25,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
   - Enemy
-  - 
-  - 
-  - 
+  - EnemyProjectile
+  - PlayerProjectile
+  - Player
+  - Walls
   - 
   - 
   - 

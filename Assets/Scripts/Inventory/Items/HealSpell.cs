@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthReaction : MonoBehaviour
+public class HealSpell : MonoBehaviour
 {
     #region Variables
     private HealthManager healthManager;

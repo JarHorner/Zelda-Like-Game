@@ -9,8 +9,8 @@ public class TrapArrow : MonoBehaviour
     private HealthManager healthManager;
     private GameObject spawn;
     //these three varibles can be adjusted at any time
-    [SerializeField] private int damageDealt = 1;
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private int damageDealt;
+    [SerializeField] private float speed;
     [SerializeField] private float lifespan;
 
     #endregion
@@ -31,7 +31,7 @@ public class TrapArrow : MonoBehaviour
         Destroy (gameObject, lifespan);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    public void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.tag == "Player")
         {
@@ -39,25 +39,33 @@ public class TrapArrow : MonoBehaviour
             healthManager.DamagePlayer(damageDealt);
             Destroy(gameObject);
         }
+        else if (other.gameObject.tag == "Object")
+        {
+            Destroy(gameObject);
+        }
     }
 
     //depending on the z rotation of the ArrowTrap, the arrow will shoot in that direction.
-    private void ShootDirection()
+    public virtual void ShootDirection()
     {
         if (spawn.transform.parent.gameObject.transform.rotation.z == 0)
         {
+            //moves down
             rb.AddForce(new Vector2(0.0f, -speed), ForceMode2D.Impulse);
         }
         else if (spawn.transform.parent.gameObject.transform.rotation.z == 1)
         {
+            //moves up
             rb.AddForce(new Vector2(0.0f, speed), ForceMode2D.Impulse);
         }
         else if (spawn.transform.parent.gameObject.transform.rotation.z < 0)
         {
+            //moves left
             rb.AddForce(new Vector2(-speed, -0.0f), ForceMode2D.Impulse);
         }
         else if(spawn.transform.parent.gameObject.transform.rotation.z > 0)
         {
+            //moves right
             rb.AddForce(new Vector2(speed, -0.0f), ForceMode2D.Impulse);
         }
     }

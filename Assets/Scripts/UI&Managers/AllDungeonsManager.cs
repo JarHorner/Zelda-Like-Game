@@ -8,7 +8,7 @@ public class AllDungeonsManager : MonoBehaviour
 {
     #region Variables
     //private bool exists = false;
-    [SerializeField] Image dungeon0Key;
+    [SerializeField] DungeonEntranceKey dungeon0Key;
     [SerializeField] DungeonManager dungeonManager;
     private List<MutableKeyValPair<int, DungeonManager>> dungeons = new List<MutableKeyValPair<int, DungeonManager>>();
     private List<MutableKeyValPair<int, bool>> dungeonEntranceKeys = new List<MutableKeyValPair<int, bool>>();

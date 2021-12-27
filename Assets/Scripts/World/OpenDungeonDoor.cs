@@ -5,10 +5,11 @@ using UnityEngine;
 public class OpenDungeonDoor : MonoBehaviour
 {
     #region Variables
-
+    [SerializeField] private AudioSource openDungeonToon;
     [SerializeField] private Animator statueAnimator;
     [SerializeField] private Animator entranceAnimator;
     [SerializeField] private int dungeonNum;
+    private SoundManager soundManager;
     private AllDungeonsManager allDungeonsManager;
     private GameManager gameManager;
 
@@ -20,6 +21,7 @@ public class OpenDungeonDoor : MonoBehaviour
     {  
         allDungeonsManager = GameObject.FindObjectOfType<AllDungeonsManager>();
         gameManager = FindObjectOfType<GameManager>();
+        soundManager = FindObjectOfType<SoundManager>();
         //if dungeon has been opened, it stays opened when transitioning into other scenes.
         if (allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened) {
             statueAnimator.SetBool("Opened", true);
@@ -38,12 +40,13 @@ public class OpenDungeonDoor : MonoBehaviour
     IEnumerator OpenDungeon() {
         //pauses game mamager while animations play (so player cannot move)
         gameManager.Pause(false);
+        openDungeonToon.Play();
         //sets flag so dungeon stays open
         allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened = true;
         //starts the process of animations
         statueAnimator.SetBool("hasKey", true);
         entranceAnimator.SetBool("hasKey", true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3.5f);
         entranceAnimator.SetBool("Opened", true);
         gameManager.UnPause();
     }

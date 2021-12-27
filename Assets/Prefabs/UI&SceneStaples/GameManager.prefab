@@ -2264,7 +2264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bbb3f15dddaf8468d5fae7121ec2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryManager: {fileID: 0}
+  inventoryManager: {fileID: 3748747570936572891}
   openMenu: {fileID: 1435399725334900033}
   pauseScreen: {fileID: 1435399724428166049}
   inventoryScreen: {fileID: 1435399725363030797}

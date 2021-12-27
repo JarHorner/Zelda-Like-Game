@@ -31,19 +31,11 @@ public class FreeMovePushableBlock : MonoBehaviour
         //depending on the facing of the player.
         if (canPush)
         {
-            if (Input.GetKey(KeyCode.UpArrow) && Input.GetButtonDown("Push"))
+            if (Input.GetButton("Vertical") && Input.GetButton("Push"))
             {
                 PushBlock(true);
             }
-            else if (Input.GetKey(KeyCode.DownArrow) && Input.GetButtonDown("Push"))
-            {
-                PushBlock(true);
-            }
-            else if (Input.GetKey(KeyCode.RightArrow) && Input.GetButtonDown("Push"))
-            {
-                PushBlock(false);
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow) && Input.GetButtonDown("Push"))
+            else if (Input.GetButton("Horizontal") && Input.GetButton("Push"))
             {
                 PushBlock(false);
             }
@@ -85,6 +77,7 @@ public class FreeMovePushableBlock : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             canPush = true;
+            Debug.Log(canPush);
         }
     }
 

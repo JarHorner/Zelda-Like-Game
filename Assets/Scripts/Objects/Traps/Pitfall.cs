@@ -34,7 +34,7 @@ public class Pitfall : MonoBehaviour
             //once animation is finished, player is placed in their last postion and damage is taken.
             if (animLength <= 0)
             {
-                player.transform.position = areaTransition.LastPlayerLocation;
+                player.transform.position = player.LastPlayerLocation;
                 playerAnim.SetBool("isFalling", false); 
                 healthManager.DamagePlayer(1);
                 player.moveSpeed = 6f;

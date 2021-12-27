@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Objects\Traps\Pitfall.cs" />
      <Compile Include="Assets\Scripts\Other\BeatTimer.cs" />
      <Compile Include="Assets\Scripts\Enemy\RandomLoot.cs" />
+     <Compile Include="Assets\Scripts\Inventory\Items\Arrow.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\OpenBossDoor.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\DamagePopup.cs" />
@@ -73,6 +74,7 @@
      <Compile Include="Assets\Scripts\Other\Volume2D.cs" />
      <Compile Include="Assets\Scripts\World\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\Inventory\Items\Bow.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\ArrowTrap.cs" />
      <Compile Include="Assets\Scripts\Player\HurtEnemy.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Health.cs" />
@@ -82,7 +84,7 @@
      <Compile Include="Assets\Scripts\UI&amp;Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\World\ChangeFloor.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSpawnController.cs" />
-     <Compile Include="Assets\Scripts\Inventory\Items\HealthReaction.cs" />
+     <Compile Include="Assets\Scripts\Inventory\Items\HealSpell.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\Sign.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\SoundManager.cs" />
@@ -100,6 +102,9 @@
      <Compile Include="Assets\Scripts\Objects\Pickups\BossKey.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
+     <Compile Include="Assets\Scripts\Objects\Traps\Target.cs" />
+     <Compile Include="Assets\Scripts\Objects\Traps\TargetManager.cs" />
+     <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\TargetDoor.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

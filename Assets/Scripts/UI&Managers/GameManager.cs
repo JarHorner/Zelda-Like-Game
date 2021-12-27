@@ -8,11 +8,9 @@ public class GameManager : MonoBehaviour
 {
 
     #region Variables
-    private bool exists = false;
+    private static bool exists;
     private string currentScene;
     private UIManager uIManager;
-    private GameObject player;
-    private Animator playerAnimator;
     private SoundManager soundManager;
     private AudioSource bgMusic;
     [SerializeField] InventoryManager inventoryManager;
@@ -45,9 +43,6 @@ public class GameManager : MonoBehaviour
     {
         ChangeCurrentScene();
         uIManager = FindObjectOfType<UIManager>();
-        player = GameObject.FindWithTag("Player");
-        playerAnimator = player.GetComponent<Animator>();
-        soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
         Debug.Log(CurrentScene);
         //changes the amt of keys shown in the UI depending on scene (Will add more with more dungeons)
         if (CurrentScene.Contains("Dungeon"))
@@ -116,6 +111,8 @@ public class GameManager : MonoBehaviour
             {
                 UnPause();
                 inventoryOpen = false;
+                //ensures if player closes inventory on popup, it will close as well
+                inventoryManager.AssignButtonPopup.SetActive(false);
                 inventoryScreen.SetActive(false);
             }
             else
@@ -136,20 +133,22 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+        soundManager = FindObjectOfType<SoundManager>();
         bgMusic = soundManager.GetComponentInChildren<AudioSource>();
-        bgMusic.volume = 0.1f;
-        player.GetComponent<PlayerController>().enabled = false;
-        playerAnimator.speed = 0;
+        bgMusic.volume = 0.05f;
+        FindObjectOfType<PlayerController>().enabled = false;
+        FindObjectOfType<PlayerController>().GetComponent<Animator>().speed = 0;
     }
 
     //returns the changes during a Pause back to normal
     public void UnPause() 
     {
+        soundManager = FindObjectOfType<SoundManager>();
         bgMusic = soundManager.GetComponentInChildren<AudioSource>();
         Time.timeScale = 1;
         bgMusic.volume = 0.2f;
-        player.GetComponent<PlayerController>().enabled = true;
-        playerAnimator.speed = 1;
+        FindObjectOfType<PlayerController>().enabled = true;
+        FindObjectOfType<PlayerController>().GetComponent<Animator>().speed = 1;
     }
 
     private void ChangeCurrentScene()
