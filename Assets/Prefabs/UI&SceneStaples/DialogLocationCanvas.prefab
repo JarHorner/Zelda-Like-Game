@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locationText: {fileID: 8301174285590320722}
+  locationTextAnim: {fileID: 351734474247160631}
   dialogBox: {fileID: 8301174283671528280}
 --- !u!1 &8301174285366639156
 GameObject:

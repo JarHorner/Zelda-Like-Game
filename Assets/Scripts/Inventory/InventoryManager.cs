@@ -122,6 +122,7 @@ public class InventoryManager : MonoBehaviour
         itemBox1 = GameObject.Find("ItemBox1").transform.GetChild(0).gameObject;
         itemBox2 = GameObject.Find("ItemBox2").transform.GetChild(0).gameObject;
         PopulateInventorySlot("Heal");
+        PopulateInventorySlot("Bow");
         PopulateInventorySlot("PowerGloves");
         PopulateInventorySlot("SwimmingMedal");
     }

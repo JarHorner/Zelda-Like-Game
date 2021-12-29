@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 3
   maxHealth: 3
+  animator: {fileID: 5776612138868295505}
   flashLength: 0.5
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
   soundManager: {fileID: 2087593768604613283, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
@@ -323,6 +324,7 @@ MonoBehaviour:
   deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
   randomLoot: {fileID: -2047292962569818985}
   waitToHurt: 0.5
+  enemySprite: {fileID: 8651130449372874257}
   expValue: 20
 --- !u!82 &6364700643000213208
 AudioSource:

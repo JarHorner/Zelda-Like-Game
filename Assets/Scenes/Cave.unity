@@ -384,6 +384,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &76237628 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 351734474247160631, guid: 4fe9ccf37da0a51499f92b3ef732efd7, type: 3}
+  m_PrefabInstance: {fileID: 1811889975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &114544881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,7 +504,7 @@ PrefabInstance:
     - target: {fileID: 1435399725334900035, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: inventoryManager
       value: 
-      objectReference: {fileID: 143565755}
+      objectReference: {fileID: 0}
     - target: {fileID: 1435399725334900095, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -514,17 +519,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51769a067a6677844945d411b2e401a7, type: 3}
---- !u!114 &143565755 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3748747570936572891, guid: 51769a067a6677844945d411b2e401a7, type: 3}
-  m_PrefabInstance: {fileID: 143565754}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d906af974d7b5546a29f6c0e45b8c36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &167633175
 GameObject:
   m_ObjectHideFlags: 0
@@ -5248,7 +5242,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.3
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000b73e7df797ce23e92170b749a9ee629f0fc10a0c07767927
+  m_ApplyToSortingLayers: 00000000b73e7df70fc10a0c2170b74907767927c369cd16a9ee629f97ce23e929ca7eb449568103
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -7112,7 +7106,7 @@ GameObject:
   - component: {fileID: 778521034}
   m_Layer: 0
   m_Name: Object-Player Behind
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7150,7 +7144,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 53e687d66a4f6d34a871516f214af158, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7168,9 +7162,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 662271495
-  m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingLayerID: 382560707
+  m_SortingLayer: 5
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8346,7 +8340,7 @@ GameObject:
   - component: {fileID: 1222446380}
   - component: {fileID: 1222446382}
   - component: {fileID: 1222446383}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -13245,7 +13239,7 @@ GameObject:
   - component: {fileID: 1376988778}
   m_Layer: 0
   m_Name: Objects
-  m_TagString: Water
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25506,7 +25500,7 @@ GameObject:
   - component: {fileID: 1656414245}
   m_Layer: 0
   m_Name: OutOfWater
-  m_TagString: Ground
+  m_TagString: OutOfWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36820,7 +36814,7 @@ GameObject:
   - component: {fileID: 1807992219}
   m_Layer: 0
   m_Name: Object-Player Behind Addons
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36876,9 +36870,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 662271495
-  m_SortingLayer: 4
-  m_SortingOrder: 3
+  m_SortingLayerID: 382560707
+  m_SortingLayer: 5
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -36936,6 +36930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogLocationCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8301174284661466482, guid: 4fe9ccf37da0a51499f92b3ef732efd7, type: 3}
+      propertyPath: locationTextAnim
+      value: 
+      objectReference: {fileID: 76237628}
     - target: {fileID: 8301174284661466483, guid: 4fe9ccf37da0a51499f92b3ef732efd7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -37035,7 +37033,7 @@ GameObject:
   - component: {fileID: 1879978601}
   m_Layer: 0
   m_Name: Entrances
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37093,7 +37091,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -142786889
   m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -37154,7 +37152,7 @@ GameObject:
   - component: {fileID: 1893704109}
   - component: {fileID: 1893704110}
   - component: {fileID: 1893704111}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Object
   m_Icon: {fileID: 0}

@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,7 +43,7 @@ public class HurtPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //Placed so player can repeadly run back and forth into enemy and take damage. gives some leeway.
+            //Placed so player can't repeadly run back and forth into enemy and take damage. gives some leeway.
             if (waitToHit <= 0)
             {
                 Debug.Log("Hit");

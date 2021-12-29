@@ -8,7 +8,7 @@ public class EnemyHealthManager : MonoBehaviour
     #region Variables
     [SerializeField] private int currHealth;
     [SerializeField] private int maxHealth;
-    private Animator animator;
+    [SerializeField] private Animator animator;
     private bool isHit;
     private float knockbackTime = 0.2f;
     private Rigidbody2D rb;
@@ -22,7 +22,7 @@ public class EnemyHealthManager : MonoBehaviour
     private float flashCounter = 0f;
     //in code, eventually set to 0.5f.
     public float waitToHurt = 0f;
-    private SpriteRenderer enemySprite;
+    [SerializeField] private SpriteRenderer enemySprite;
     private PlayerStats playerStats;
     [SerializeField] private int expValue;
     private Vector3 startingCoordinates;
@@ -33,8 +33,6 @@ public class EnemyHealthManager : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        enemySprite = GetComponent<SpriteRenderer>();
         playerStats = FindObjectOfType<PlayerStats>();
         startingCoordinates = this.transform.position;
     }
@@ -104,7 +102,7 @@ public class EnemyHealthManager : MonoBehaviour
         if (waitToHurt <= 0)
         {
             currHealth -= damageToGive;
-            //pushes enemy back if not on water layer (4)
+            //pushes enemy back if not on water
             if (gameObject.layer != 4)
             {
                 PushBack(weaponTrans);
@@ -118,42 +116,88 @@ public class EnemyHealthManager : MonoBehaviour
                 partSys.Play(true);
                 soundManager.Play(death);
                 playerStats.SetCurrentExp(expValue);
+
+                //if no parent, just sets object off, if has parent, sets parent off
+                if (transform.parent == null)
+                    this.gameObject.SetActive(false);
+                else
+                    this.gameObject.transform.parent.gameObject.SetActive(false);
+
                 //drops loot based on drop table
                 randomLoot.DropItem();
-                this.gameObject.SetActive(false);
             }
             //starts the flashing of enemy in Update()
             flashCounter = flashLength;
             //gives variable some time so enemy cant be chain hit
             waitToHurt = 0.5f; 
+        }
+    }
 
+    public void DamageBoss(int damageToGive, Transform weaponTrans) 
+    {
+        if (waitToHurt <= 0)
+        {
+            currHealth -= damageToGive;
+
+            flashActive = true;
+            soundManager.Play(hit);
+            animator.SetTrigger("Hurt");
+            if (currHealth <= 0) 
+            {
+                //spawns particles on death
+                ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
+                partSys.Play(true);
+                soundManager.Play(death);
+                playerStats.SetCurrentExp(expValue);
+
+                StartCoroutine(PlayOutDeathAnimation());
+                //drops loot based on drop table
+                randomLoot.DropItem();
+            }
+            //starts the flashing of enemy in Update()
+            flashCounter = flashLength;
+            //gives variable some time so enemy cant be chain hit
+            waitToHurt = 0.5f; 
         }
     }
 
     public void PushBack(Transform weaponTrans)
     {
+        Debug.Log("Pushed");
         isHit = true;
         //rb.isKinematic = false;
         Vector2 difference = weaponTrans.position - transform.position;
         rb.AddForce(-difference * 0.05f);
     }
 
-    //used in AreaTransitions script to move enemies back to original position
-    public Vector3 getStartingCoordinates() 
+    IEnumerator PlayOutDeathAnimation()
     {
-        return startingCoordinates;
+        animator.SetBool("Death", true);
+        yield return new WaitForSeconds(2f);
+        //if no parent, just sets object off, if has parent, sets parent off
+        if (transform.parent == null)
+            this.gameObject.SetActive(false);
+        else
+            this.gameObject.transform.parent.gameObject.SetActive(false);
+    }
+
+    //used in AreaTransitions script to move enemies back to original position
+    public Vector3 StartingCoordinate
+    {
+        get { return startingCoordinates; }
     }
 
     //using when enemy is re-actived, to give full hp. (AreaTransitions)
-    public int getMaxHealth()
+    public int MaxHealth
     {
-        return maxHealth;
+        get { return maxHealth; }
     }
 
     //used in tandem with getMaxHealth() to set enemies hp to max. (AreaTransitions)
-    public void setCurrentHealth(int newHealth)
+    public int CurrentHealth
     {
-        currHealth = newHealth;
+        get { return currHealth; }
+        set {currHealth = value; }
     }
     #endregion
 }

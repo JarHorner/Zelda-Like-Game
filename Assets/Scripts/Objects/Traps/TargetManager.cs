@@ -18,6 +18,12 @@ public class TargetManager : MonoBehaviour
     #endregion
 
     #region Methods
+    private void Start() {
+        foreach (var item in targets)
+        {
+            Debug.Log(item.ToString());
+        }
+    }
 
     void Update() 
     {
@@ -50,7 +56,7 @@ public class TargetManager : MonoBehaviour
     //checks if each target in List is hit
     private void AllTargetsHit()
     {
-        allTargetsHit = targets.Any(o => o.Hit != false);
+        allTargetsHit = targets.All(o => o.Hit == true);
     }
 
     private void OpenDoor()

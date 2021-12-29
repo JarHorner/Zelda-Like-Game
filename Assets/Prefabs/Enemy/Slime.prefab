@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4614514940023859732}
   - component: {fileID: 4614514940023859733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slime_Enemy_Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 4614514940832172942}
   - component: {fileID: 4614514940832172941}
   - component: {fileID: 4614514940832172940}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 2
   maxHealth: 2
+  animator: {fileID: 4614514940832172937}
   flashLength: 0.5
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
   soundManager: {fileID: 2087593768604613283, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
@@ -232,6 +233,7 @@ MonoBehaviour:
   deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
   randomLoot: {fileID: 4614514940832172941}
   waitToHurt: 0.5
+  enemySprite: {fileID: 4614514940832172933}
   expValue: 10
 --- !u!114 &4614514940832172942
 MonoBehaviour:
@@ -371,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1209332827249373974}
   - component: {fileID: 349355329077962259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alarm Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

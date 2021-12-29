@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 432718611}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,8 +202,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1991633995
-  m_SortingLayer: 0
+  m_SortingLayerID: -142786889
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7192,7 +7192,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000b5134a899b43974a6594c833
+  m_ApplyToSortingLayers: 00000000b73e7df70fc10a0c2170b74907767927c369cd16a9ee629f97ce23e929ca7eb449568103
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -7245,7 +7245,7 @@ GameObject:
   - component: {fileID: 1057626834}
   m_Layer: 0
   m_Name: Objects
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7302,9 +7302,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1991633995
-  m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingLayerID: 1236758561
+  m_SortingLayer: 3
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -10320,7 +10320,7 @@ GameObject:
   - component: {fileID: 1099225373}
   m_Layer: 0
   m_Name: Pathway
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10376,8 +10376,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1991633995
-  m_SortingLayer: 0
+  m_SortingLayerID: -142786889
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -11250,7 +11250,7 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1991633995
+  m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -11677,9 +11677,9 @@ GameObject:
   - component: {fileID: 1817085386}
   - component: {fileID: 1817085390}
   - component: {fileID: 1817085389}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cliffs
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11751,9 +11751,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1991633995
-  m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: 1236758561
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -15201,7 +15201,7 @@ GameObject:
   - component: {fileID: 2136056128}
   m_Layer: 0
   m_Name: Object-Addons
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15257,9 +15257,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1991633995
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 1236758561
+  m_SortingLayer: 3
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -15755,7 +15755,7 @@ PrefabInstance:
     - target: {fileID: 1435399725334900035, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: inventoryManager
       value: 
-      objectReference: {fileID: 6739439184475310698}
+      objectReference: {fileID: 0}
     - target: {fileID: 1435399725363030797, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15810,17 +15810,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51769a067a6677844945d411b2e401a7, type: 3}
---- !u!114 &6739439184475310698 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3748747570936572891, guid: 51769a067a6677844945d411b2e401a7, type: 3}
-  m_PrefabInstance: {fileID: 6739439184475310697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d906af974d7b5546a29f6c0e45b8c36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6762088745784675050
 PrefabInstance:
   m_ObjectHideFlags: 0

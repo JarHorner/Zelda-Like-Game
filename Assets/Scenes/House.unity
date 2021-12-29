@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 266730111}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2900,7 +2900,7 @@ GameObject:
   - component: {fileID: 417543684}
   - component: {fileID: 417543687}
   - component: {fileID: 417543686}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -2960,7 +2960,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1236758561
   m_SortingLayer: 3
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -5884,7 +5884,7 @@ GameObject:
   - component: {fileID: 1019659521}
   m_Layer: 0
   m_Name: Objects_Player_Behind
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6162,7 +6162,7 @@ GameObject:
   - component: {fileID: 1153639045}
   m_Layer: 0
   m_Name: Entrances
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6429,7 +6429,7 @@ PrefabInstance:
     - target: {fileID: 1435399725334900035, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: inventoryManager
       value: 
-      objectReference: {fileID: 1225617139}
+      objectReference: {fileID: 0}
     - target: {fileID: 1435399725334900095, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -6440,17 +6440,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51769a067a6677844945d411b2e401a7, type: 3}
---- !u!114 &1225617139 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3748747570936572891, guid: 51769a067a6677844945d411b2e401a7, type: 3}
-  m_PrefabInstance: {fileID: 1225617138}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d906af974d7b5546a29f6c0e45b8c36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1311808721
 GameObject:
   m_ObjectHideFlags: 0
@@ -6464,7 +6453,7 @@ GameObject:
   - component: {fileID: 1311808723}
   m_Layer: 0
   m_Name: Object_Player_Behind_Addon
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6584,7 +6573,7 @@ GameObject:
   - component: {fileID: 1344092276}
   m_Layer: 0
   m_Name: Solid_Objects_Player_Behind
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6829,7 +6818,7 @@ GameObject:
   - component: {fileID: 1394399520}
   m_Layer: 0
   m_Name: Pathway
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8110,7 +8099,7 @@ GameObject:
   - component: {fileID: 1851017468}
   m_Layer: 0
   m_Name: Objects_Addons
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8168,7 +8157,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1236758561
   m_SortingLayer: 3
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8670,7 +8659,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1236758561
   m_SortingLayer: 3
-  m_SortingOrder: 4
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

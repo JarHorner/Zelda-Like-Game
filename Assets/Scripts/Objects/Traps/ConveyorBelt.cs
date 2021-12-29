@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConveyorBelt : MonoBehaviour
 {
     #region Variables
+    [Header("Change Axis of Speed depending on way moving")]
     [SerializeField] private Vector2 speed;
     private PlayerController playerController;
     #endregion

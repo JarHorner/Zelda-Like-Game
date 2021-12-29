@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 5526459411903359678}
   - component: {fileID: -6823046957075986464}
   - component: {fileID: -1554279178693191353}
+  - component: {fileID: 1397039940534892245}
   - component: {fileID: 236695931122281817}
   - component: {fileID: 2564962669533737509}
-  - component: {fileID: 1397039940534892245}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Log_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 2
   maxHealth: 2
+  animator: {fileID: 5526459411903359679}
   flashLength: 0.5
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
   soundManager: {fileID: 2087593768604613283, guid: c4bb499035fceff4eb7eae556ce647ec, type: 3}
@@ -199,7 +200,27 @@ MonoBehaviour:
   deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
   randomLoot: {fileID: 1397039940534892245}
   waitToHurt: 0.5
+  enemySprite: {fileID: 5526459411903359666}
   expValue: 10
+--- !u!114 &1397039940534892245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526459411903359677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49f4d00485e6d441b2a4bd996fa6175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 0}
+  - {fileID: 3463233746944834832, guid: 1aec62755c9498d429cf1733b89a1b30, type: 3}
+  - {fileID: 8409851035980371809, guid: c89cad6aa7b9c814da91836b18597520, type: 3}
+  - {fileID: 3471238382761467840, guid: a919c81a1575ec044b0722e3fff36f16, type: 3}
+  - {fileID: 9133062843454066787, guid: 02836c2e681833743be467db74b32439, type: 3}
+  table: 1e0000001d0000001c0000000a00000003000000
 --- !u!82 &236695931122281817
 AudioSource:
   m_ObjectHideFlags: 0
@@ -312,25 +333,6 @@ MonoBehaviour:
   minDist: 0.5
   maxDist: 12
   maxVolume: 0.4
---- !u!114 &1397039940534892245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5526459411903359677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a49f4d00485e6d441b2a4bd996fa6175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drops:
-  - {fileID: 0}
-  - {fileID: 3463233746944834832, guid: 1aec62755c9498d429cf1733b89a1b30, type: 3}
-  - {fileID: 8409851035980371809, guid: c89cad6aa7b9c814da91836b18597520, type: 3}
-  - {fileID: 3471238382761467840, guid: a919c81a1575ec044b0722e3fff36f16, type: 3}
-  - {fileID: 9133062843454066787, guid: 02836c2e681833743be467db74b32439, type: 3}
-  table: 1e0000001d0000001c0000000a00000003000000
 --- !u!1 &5526459412359467414
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5526459412359467496}
   - component: {fileID: 5526459412359467415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Log_Enemy_Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -26,11 +26,14 @@ public class Arrow : MonoBehaviour
     //does damamge to enemy, and connects with obejcts and walls.
     public void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
         {
             Debug.Log("Hit");
             enemyHealthManager = other.gameObject.GetComponent<EnemyHealthManager>();
-            enemyHealthManager.DamageEnemy(damageDealt, this.transform);
+            if (other.gameObject.tag == "Enemy")
+                enemyHealthManager.DamageEnemy(damageDealt, this.transform);
+            else
+                enemyHealthManager.DamageBoss(damageDealt, this.transform);
             Destroy(gameObject);
         }
         else if (other.gameObject.layer == 10) //layer 10 is Walls
@@ -58,6 +61,7 @@ public class Arrow : MonoBehaviour
         Debug.Log("Hit Wall");
         yield return new WaitForSeconds(0.13f);
         animator.SetBool("HitObject", true);
+        this.GetComponent<CapsuleCollider2D>().enabled = false;
         rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
@@ -68,6 +72,7 @@ public class Arrow : MonoBehaviour
         Debug.Log("Hit Object");
         yield return new WaitForSeconds(0.07f);
         animator.SetBool("HitObject", true);
+        this.GetComponent<CapsuleCollider2D>().enabled = false;
         rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);

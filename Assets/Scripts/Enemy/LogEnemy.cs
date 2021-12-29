@@ -66,7 +66,6 @@ public class LogEnemy : MonoBehaviour
         //walks enemy to target
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
-        Debug.Log(clipInfo[0].clip.name);
         if (clipInfo[0].clip.name == "Log_Enemy_Walk_Down")
         {
             spriteRenderer.sortingLayerName = "Player";

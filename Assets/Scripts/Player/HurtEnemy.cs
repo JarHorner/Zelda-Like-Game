@@ -27,6 +27,17 @@ public class HurtEnemy : MonoBehaviour
             partSys.Play(true);
             eHealthMan.DamageEnemy(damageDealt, this.transform);
         }
+        else if (other.tag == "Boss")
+        {
+            this.gameObject.SetActive(false);
+            EnemyHealthManager eHealthMan;
+            eHealthMan = other.gameObject.GetComponent<EnemyHealthManager>();
+            Debug.Log("Boss Hit!");
+            //spawns particles when hitting enemy
+            ParticleSystem partSys = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
+            partSys.Play(true);
+            eHealthMan.DamageBoss(damageDealt, this.transform);
+        }
     }
 
 

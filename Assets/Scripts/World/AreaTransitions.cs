@@ -88,6 +88,8 @@ public class AreaTransitions : MonoBehaviour
                 Destroy(item);
             }
 
+            if (gameManager == null)
+                gameManager = FindObjectOfType<GameManager>();
             //if the transition is in a dungeon, the enemies are not "respawned".
             if (!gameManager.CurrentScene.Contains("Dungeon"))
             {
@@ -97,10 +99,10 @@ public class AreaTransitions : MonoBehaviour
                     foreach (GameObject go in enemies)
                     {
                         EnemyHealthManager eHealthMan = go.gameObject.GetComponent<EnemyHealthManager>();
-                        Vector3 cords = eHealthMan.getStartingCoordinates();
+                        Vector3 cords = eHealthMan.StartingCoordinate;
                         go.transform.position = cords;
                         go.gameObject.SetActive(true);
-                        eHealthMan.setCurrentHealth(eHealthMan.getMaxHealth());
+                        eHealthMan.CurrentHealth = eHealthMan.MaxHealth;
                     }
                 }
             }
