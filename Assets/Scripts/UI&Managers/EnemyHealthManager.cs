@@ -19,6 +19,7 @@ public class EnemyHealthManager : MonoBehaviour
     [SerializeField] private AudioClip death;
     [SerializeField] ParticleSystem deathBurst;
     [SerializeField] private RandomLoot randomLoot;
+    public Weakness weaknesses;
     private float flashCounter = 0f;
     //in code, eventually set to 0.5f.
     public float waitToHurt = 0f;
@@ -102,11 +103,7 @@ public class EnemyHealthManager : MonoBehaviour
         if (waitToHurt <= 0)
         {
             currHealth -= damageToGive;
-            //pushes enemy back if not on water
-            if (gameObject.layer != 4)
-            {
-                PushBack(weaponTrans);
-            }
+            
             flashActive = true;
             soundManager.Play(hit);
             if (currHealth <= 0) 
@@ -117,11 +114,7 @@ public class EnemyHealthManager : MonoBehaviour
                 soundManager.Play(death);
                 playerStats.SetCurrentExp(expValue);
 
-                //if no parent, just sets object off, if has parent, sets parent off
-                if (transform.parent == null)
-                    this.gameObject.SetActive(false);
-                else
-                    this.gameObject.transform.parent.gameObject.SetActive(false);
+                this.gameObject.SetActive(false);
 
                 //drops loot based on drop table
                 randomLoot.DropItem();
@@ -161,15 +154,6 @@ public class EnemyHealthManager : MonoBehaviour
         }
     }
 
-    public void PushBack(Transform weaponTrans)
-    {
-        Debug.Log("Pushed");
-        isHit = true;
-        //rb.isKinematic = false;
-        Vector2 difference = weaponTrans.position - transform.position;
-        rb.AddForce(-difference * 0.05f);
-    }
-
     IEnumerator PlayOutDeathAnimation()
     {
         animator.SetBool("Death", true);
@@ -185,6 +169,11 @@ public class EnemyHealthManager : MonoBehaviour
     public Vector3 StartingCoordinate
     {
         get { return startingCoordinates; }
+    }
+
+    public bool IsHit
+    {
+        set { isHit = value; }
     }
 
     //using when enemy is re-actived, to give full hp. (AreaTransitions)

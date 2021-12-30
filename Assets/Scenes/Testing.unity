@@ -727,7 +727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773849133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.311, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2039646424}
@@ -746,7 +746,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2339096, y: 1.58162}
+  m_Offset: {x: -0.2339096, y: 0}
   serializedVersion: 2
   m_Radius: 0.2446531
 --- !u!114 &773849136
@@ -770,6 +770,7 @@ MonoBehaviour:
   death: {fileID: 8300000, guid: e0954d070cf46cd40a83a4a2985c0fe2, type: 3}
   deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
   randomLoot: {fileID: 2039646428}
+  weaknesses: {fileID: 11400000, guid: 99d42696d1765f549a54af49049bd04e, type: 2}
   waitToHurt: 0.5
   enemySprite: {fileID: 2039646425}
   expValue: 150
@@ -10428,15 +10429,16 @@ GameObject:
   - component: {fileID: 2039646432}
   - component: {fileID: 2039646427}
   - component: {fileID: 2039646426}
-  - component: {fileID: 2039646434}
   - component: {fileID: 2039646431}
   - component: {fileID: 2039646428}
   - component: {fileID: 2039646429}
   - component: {fileID: 2039646433}
   - component: {fileID: 2039646430}
+  - component: {fileID: 2039646434}
+  - component: {fileID: 2039646435}
   m_Layer: 11
   m_Name: RockGolem
-  m_TagString: Object
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10449,7 +10451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039646423}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.31, y: -1.48, z: 0}
+  m_LocalPosition: {x: 8.31, y: 0.78, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 773849134}
@@ -10678,8 +10680,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 3.5625, y: 2.5}
+    pivot: {x: 0.50000066, y: 0.48551053}
+    oldSize: {x: 2.8125, y: 2.6875}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10715,9 +10717,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementAudio: {fileID: 2039646429}
   enemyHealthManager: {fileID: 773849136}
-  speed: 0
-  maxRange: 8
-  minRange: 0.8
+  speed: 5
+  groundPoundMaxRange: 15
+  groundPoundMinRange: 6
+  comboMaxRange: 5.9
+  comboMinRange: 0
 --- !u!114 &2039646433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10734,8 +10738,8 @@ MonoBehaviour:
   minDist: 0.5
   maxDist: 12
   maxVolume: 0
---- !u!70 &2039646434
-CapsuleCollider2D:
+--- !u!60 &2039646434
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10747,9 +10751,64 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01618796, y: 1.0939162}
-  m_Size: {x: 2.689437, y: 2.1152081}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.50000066, y: 0.48551053}
+    oldSize: {x: 2.8125, y: 2.6875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.2812481, y: 0.9451904}
+      - {x: 0.9062481, y: 1.3826904}
+      - {x: -0.7812519, y: 1.3826904}
+      - {x: -0.9687519, y: 1.1951904}
+      - {x: -1.4062519, y: 0.44519043}
+      - {x: -1.4062519, y: -0.9298096}
+      - {x: -1.0312519, y: -1.3048096}
+      - {x: 1.1562481, y: -1.3048096}
+      - {x: 1.4062481, y: -0.9923096}
+      - {x: 1.4062481, y: 0.6951904}
+    - - {x: -0.4687519, y: -0.24230957}
+      - {x: -0.5312519, y: -0.30480957}
+--- !u!114 &2039646435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039646423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c55c83d4c4dd1145ad5fbbab3c3df36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlphaTolerance: 20
+  DistanceThreshold: 8
+  Scale: 1
+  Decompose: 0
+  RunInPlayMode: 1
+  UseCache: 0
+  lastAlphaTolerance: 20
+  lastScale: 1
+  lastDistanceThreshold: 8
+  lastDecompose: 0
+  lastSprite: {fileID: -3137154765776395585, guid: 8f8cb429512ede1458a9aa09bb024820, type: 3}
+  lastRect:
+    serializedVersion: 2
+    x: 94
+    y: 400
+    width: 45
+    height: 43
+  lastOffset: {x: 22.500029, y: 20.876953}
+  lastPixelsPerUnit: 16
+  lastFlipX: 0
+  lastFlipY: 0
+  editorCache: []
 --- !u!114 &2083403655 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -3434269579074156549, guid: c49ee7a1ba7304a4ab777a4443683e5c, type: 3}

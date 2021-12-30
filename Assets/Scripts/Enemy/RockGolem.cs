@@ -17,8 +17,10 @@ public class RockGolem : MonoBehaviour
 
     [Header("these three varibles can be adjusted at any time")]
     [SerializeField] private float speed = 0f;
-    [SerializeField] private float maxRange = 0f;
-    [SerializeField] private float minRange = 0f;
+    [SerializeField] private float groundPoundMaxRange = 0f;
+    [SerializeField] private float groundPoundMinRange = 0f;
+    [SerializeField] private float comboMaxRange = 0f;
+    [SerializeField] private float comboMinRange = 0f;
 
     #endregion
 
@@ -37,7 +39,16 @@ public class RockGolem : MonoBehaviour
 
         if (target != null)
         {
-             if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) 
+            if (Vector3.Distance(target.position, transform.position) <= groundPoundMaxRange && Vector3.Distance(target.position, transform.position) >= groundPoundMinRange) 
+            {
+                comboTimer -= Time.deltaTime;
+                if (comboTimer <= 0f)
+                {
+                    animator.SetTrigger("GroundPoundAttack");
+                    comboTimer = 3.5f;
+                }
+            }
+            if (Vector3.Distance(target.position, transform.position) <= comboMaxRange && Vector3.Distance(target.position, transform.position) >= comboMinRange) 
             {
                 comboTimer -= Time.deltaTime;
                 if (comboTimer <= 0f)

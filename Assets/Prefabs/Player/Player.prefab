@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 168541996765126585}
   - component: {fileID: 3157172618913018484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Down_4
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3302426168385330996}
   - component: {fileID: 1310079464909980106}
   - component: {fileID: 340953318561175264}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KeyIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5011487518124176560}
   - component: {fileID: 6809180615832872249}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Right_5
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 2053635167321991192}
   - component: {fileID: 6967913665545593696}
   - component: {fileID: 5701919083534783014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HitBox_Left
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8511628926959139743}
   - component: {fileID: 5192328867946338638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Up_1
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 657281747378274341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Keys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 8285038714570797249}
   - component: {fileID: 7779611964121336158}
   - component: {fileID: 6591022633242077308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7379370326445256225}
   - component: {fileID: 8717006630808345671}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Left_4
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -606,7 +606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5752875456632270125}
   - component: {fileID: 665242664011932748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Left_2
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -688,7 +688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6665396381565869530}
   - component: {fileID: 2833866249273079319}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Right_4
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -770,7 +770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614131534606865981}
   - component: {fileID: 2363055487160578688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Up_4
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 6130297474073074731}
   - component: {fileID: 2484127984272593159}
   - component: {fileID: 3745838553022750401}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HitBox_Down
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 1307213293866403853}
   - component: {fileID: 5666967015624469465}
   - component: {fileID: 7173476550067532214}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MoneyCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1067,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2960718305840323139}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attack_Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2502646341950195732}
   - component: {fileID: 884539486218810787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1195,7 +1195,7 @@ GameObject:
   - component: {fileID: 1993150219126063784}
   - component: {fileID: 3984008625845596740}
   - component: {fileID: 9140308265247501697}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1268,7 +1268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8708919517858125893}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attack_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1305,7 +1305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4337368073329707531}
   - component: {fileID: 3818851616906687991}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Down_2
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -1388,7 +1388,7 @@ GameObject:
   - component: {fileID: 6655226360992547793}
   - component: {fileID: 5332688197721479425}
   - component: {fileID: 5157491880735771874}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019414527823511423}
   - component: {fileID: 6050459326225166550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Right_1
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -1544,7 +1544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4937147845264065917}
   - component: {fileID: 3385429269558382156}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Left_5
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -1626,7 +1626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7863216713344914593}
   - component: {fileID: 917592766592213379}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Up_5
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 6034933674294996713}
   - component: {fileID: 3330475194803506319}
   - component: {fileID: 1671497028313575321}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 7202337974094397423}
   - component: {fileID: 354280505460960099}
   - component: {fileID: 4967663174811367024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2390,7 +2390,7 @@ GameObject:
   - component: {fileID: 7561317297461052774}
   - component: {fileID: 9111101182451251991}
   - component: {fileID: 2687391808098761894}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KeyCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2522,7 +2522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5423684065231918555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Atack_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2559,7 +2559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3303894538160138382}
   - component: {fileID: 906095939441166030}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Down_5
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -2641,7 +2641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4924459751361003261}
   - component: {fileID: 1164020685792444032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Down_3
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -2724,7 +2724,7 @@ GameObject:
   - component: {fileID: 5245886390315722948}
   - component: {fileID: 6005762201048632215}
   - component: {fileID: 5159775561439879606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WalletImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,7 +2797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5388669411919573476}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2834,7 +2834,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1154042202119046896}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2871,7 +2871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7992675147676686822}
   - component: {fileID: 2644382116070271074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Left_3
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -2952,7 +2952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2092521793045208625}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attack_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2992,7 +2992,7 @@ GameObject:
   - component: {fileID: 7943579175982361749}
   - component: {fileID: 1080728515324063240}
   - component: {fileID: 5955645294667012050}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3112,7 +3112,7 @@ GameObject:
   - component: {fileID: 3370134158400383620}
   - component: {fileID: 8688104062865240750}
   - component: {fileID: 1193342879429384921}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HitBox_Right
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -3194,7 +3194,7 @@ GameObject:
   - component: {fileID: 3534155225737806703}
   - component: {fileID: 5130186519632739961}
   - component: {fileID: 138217972235771370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HPText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3328,7 +3328,7 @@ GameObject:
   - component: {fileID: 7656943755499126904}
   - component: {fileID: 6340656729930574609}
   - component: {fileID: 7161358675034502609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3402,7 +3402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701481387822756246}
   - component: {fileID: 1605650508844894564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Up_3
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -3485,7 +3485,7 @@ GameObject:
   - component: {fileID: 1662284118053814420}
   - component: {fileID: 185331349991379393}
   - component: {fileID: 1874748900854962757}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ItemBox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3562,7 +3562,7 @@ GameObject:
   - component: {fileID: 1089311200334202074}
   - component: {fileID: 498917594299184255}
   - component: {fileID: 7174855613957623062}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HitBox_Up
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -3645,7 +3645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7130941794777474584}
   - component: {fileID: 1426716815180114718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Down_1
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -3727,7 +3727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9197386022435779464}
   - component: {fileID: 4320750695518059702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Up_2
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -3809,7 +3809,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7038529114032894732}
   - component: {fileID: 8486482674534780490}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Right_2
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -3891,7 +3891,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3167344005275034877}
   - component: {fileID: 329968127762669069}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Right_3
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -3974,7 +3974,7 @@ GameObject:
   - component: {fileID: 1837364659104123382}
   - component: {fileID: 3587444641473932847}
   - component: {fileID: 1620739305516770127}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ItemBox2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4049,7 +4049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2817946577781232008}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4082,7 +4082,7 @@ GameObject:
   - component: {fileID: 8549284417214487235}
   - component: {fileID: 4573588949301321184}
   - component: {fileID: 70937026123467271}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4156,7 +4156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3320351530728717492}
   - component: {fileID: 5508298789508046920}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Slash_Left_1
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -4282,6 +4282,10 @@ PrefabInstance:
     - target: {fileID: 5682287819971394162, guid: f57e90ae36d95dd43b4b89d602311583, type: 3}
       propertyPath: m_Name
       value: DungeonManger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682287819971394162, guid: f57e90ae36d95dd43b4b89d602311583, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7740917265764702664, guid: f57e90ae36d95dd43b4b89d602311583, type: 3}
       propertyPath: dungeon0Key

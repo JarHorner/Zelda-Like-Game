@@ -7,7 +7,6 @@ public class Arrow : MonoBehaviour
     #region Variables
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
-    private EnemyHealthManager enemyHealthManager;
     //these three varibles can be adjusted at any time
     [SerializeField] private int damageDealt;
     [SerializeField] private float speed;
@@ -26,23 +25,35 @@ public class Arrow : MonoBehaviour
     //does damamge to enemy, and connects with obejcts and walls.
     public void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss")
-        {
-            Debug.Log("Hit");
-            enemyHealthManager = other.gameObject.GetComponent<EnemyHealthManager>();
-            if (other.gameObject.tag == "Enemy")
-                enemyHealthManager.DamageEnemy(damageDealt, this.transform);
-            else
-                enemyHealthManager.DamageBoss(damageDealt, this.transform);
-            Destroy(gameObject);
-        }
-        else if (other.gameObject.layer == 10) //layer 10 is Walls
+        if (other.gameObject.layer == 10) //layer 10 is Walls
         {
             StartCoroutine(ArrowHitWall());
         }
         else if (other.gameObject.tag == "Object")
         {
             StartCoroutine(ArrowHitObject());
+        }
+        else if (other.tag == "Enemy" || other.tag == "Boss")
+        {
+            EnemyHealthManager eHealthMan = other.gameObject.GetComponent<EnemyHealthManager>();
+            foreach (var weakness in eHealthMan.weaknesses.itemsWeakTo)
+            {
+                Debug.Log("cycle");
+                if (weakness == "Arrow")
+                {
+                    Debug.Log("Hit");
+                    if (other.gameObject.tag == "Enemy")
+                        eHealthMan.DamageEnemy(damageDealt, this.transform);
+                    else
+                        eHealthMan.DamageBoss(damageDealt, this.transform);
+                    Destroy(gameObject);
+                    break;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 

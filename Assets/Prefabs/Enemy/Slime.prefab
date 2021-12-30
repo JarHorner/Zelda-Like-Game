@@ -232,6 +232,7 @@ MonoBehaviour:
   death: {fileID: 8300000, guid: e0954d070cf46cd40a83a4a2985c0fe2, type: 3}
   deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
   randomLoot: {fileID: 4614514940832172941}
+  weaknesses: {fileID: 11400000, guid: 0d34a802a590edd4c94c4f2074c3122a, type: 2}
   waitToHurt: 0.5
   enemySprite: {fileID: 4614514940832172933}
   expValue: 10
