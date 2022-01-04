@@ -36,23 +36,30 @@ public class Arrow : MonoBehaviour
         else if (other.tag == "Enemy" || other.tag == "Boss")
         {
             EnemyHealthManager eHealthMan = other.gameObject.GetComponent<EnemyHealthManager>();
-            foreach (var weakness in eHealthMan.weaknesses.itemsWeakTo)
+            if (eHealthMan != null)
             {
-                Debug.Log("cycle");
-                if (weakness == "Arrow")
+                foreach (var weakness in eHealthMan.weaknesses.itemsWeakTo)
                 {
-                    Debug.Log("Hit");
-                    if (other.gameObject.tag == "Enemy")
-                        eHealthMan.DamageEnemy(damageDealt, this.transform);
+                    Debug.Log("cycle");
+                    if (weakness == "Arrow")
+                    {
+                        Debug.Log("Hit");
+                        if (other.gameObject.tag == "Enemy")
+                            eHealthMan.DamageEnemy(damageDealt, this.transform);
+                        else
+                            eHealthMan.DamageBoss(damageDealt, this.transform);
+                        Destroy(gameObject);
+                        break;
+                    }
                     else
-                        eHealthMan.DamageBoss(damageDealt, this.transform);
-                    Destroy(gameObject);
-                    break;
+                    {
+                        Destroy(gameObject);
+                    }
                 }
-                else
-                {
-                    Destroy(gameObject);
-                }
+            }
+            else 
+            {
+                Destroy(gameObject);
             }
         }
     }
@@ -70,22 +77,22 @@ public class Arrow : MonoBehaviour
     private IEnumerator ArrowHitWall()
     {
         Debug.Log("Hit Wall");
+        this.GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.13f);
         animator.SetBool("HitObject", true);
-        this.GetComponent<CapsuleCollider2D>().enabled = false;
         rb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 
     private IEnumerator ArrowHitObject()
     {
         Debug.Log("Hit Object");
-        yield return new WaitForSeconds(0.07f);
-        animator.SetBool("HitObject", true);
         this.GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.05f);
+        animator.SetBool("HitObject", true);
         rb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
     #endregion

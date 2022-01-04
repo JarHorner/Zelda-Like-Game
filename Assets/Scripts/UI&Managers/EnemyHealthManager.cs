@@ -143,7 +143,7 @@ public class EnemyHealthManager : MonoBehaviour
                 soundManager.Play(death);
                 playerStats.SetCurrentExp(expValue);
 
-                StartCoroutine(PlayOutDeathAnimation());
+                animator.SetBool("Death", true);
                 //drops loot based on drop table
                 randomLoot.DropItem();
             }
@@ -152,17 +152,6 @@ public class EnemyHealthManager : MonoBehaviour
             //gives variable some time so enemy cant be chain hit
             waitToHurt = 0.5f; 
         }
-    }
-
-    IEnumerator PlayOutDeathAnimation()
-    {
-        animator.SetBool("Death", true);
-        yield return new WaitForSeconds(2f);
-        //if no parent, just sets object off, if has parent, sets parent off
-        if (transform.parent == null)
-            this.gameObject.SetActive(false);
-        else
-            this.gameObject.transform.parent.gameObject.SetActive(false);
     }
 
     //used in AreaTransitions script to move enemies back to original position

@@ -48,6 +48,7 @@ public class HurtPlayer : MonoBehaviour
             {
                 Debug.Log("Hit");
                 playerHealthManager.DamagePlayer(damageDealt);
+
                 waitToHit = 1f;
             }
         }

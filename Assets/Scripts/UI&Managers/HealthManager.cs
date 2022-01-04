@@ -33,7 +33,6 @@ public class HealthManager : MonoBehaviour
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        capsuleCollider = this.gameObject.GetComponent<CapsuleCollider2D>();
         animator = this.gameObject.GetComponent<Animator>();
         playerSprite = this.gameObject.GetComponent<SpriteRenderer>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
@@ -63,7 +62,6 @@ public class HealthManager : MonoBehaviour
                 reloading = false;
                 waitToLoad = 2f;
                 Debug.Log("Loaded!");
-                capsuleCollider.enabled = true;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 revive = true;
             }
@@ -133,7 +131,6 @@ public class HealthManager : MonoBehaviour
                 soundManager.Play(death);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             rb.isKinematic = true;
-            capsuleCollider.enabled = false;
             animator.SetBool("isDead", true);
             animator.SetBool("isSwimming", false);
             reloading = true;

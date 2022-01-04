@@ -60,10 +60,10 @@ public class PlayerController : MonoBehaviour
     {
         //enables collider after being disable while loading new scene
         //used to enemies dont push player while loading 
-        if (hitBox.enabled == false)
-        {
-            hitBox.enabled = true;
-        }
+        // if (hitBox.enabled == false)
+        // {
+        //     hitBox.enabled = true;
+        // }
 
         //gets input
         movement.x = Input.GetAxisRaw("Horizontal");

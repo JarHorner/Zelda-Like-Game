@@ -8,6 +8,8 @@ public class DamagePopup : MonoBehaviour
     private float disappearTimer;
     private float timeInPlace;
     private Color textColor;
+    float moveYSpeed;
+    float moveXSpeed;
 
     void Awake()
     {
@@ -31,32 +33,33 @@ public class DamagePopup : MonoBehaviour
         textColor = textMesh.color;
         disappearTimer = 0.3f;
         timeInPlace = 0.1f;
+        moveYSpeed = 3f;
+        moveXSpeed = Random.Range(-2, 2);
     }
 
     void Update()
     {
         timeInPlace -= Time.deltaTime;
         //when the pop up has stayed in place for long enough, it moves upwards with its size decreasing each second.
-        //once the disappear time has reached, the value will start fading out then be destoryed.
-        if  (timeInPlace < 0)
+        //once the disappear time has reached, the value will start shinking down then be destoryed.
+        if (disappearTimer < 0)
         {
-            float moveYSpeed = 3f;
-            transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
+            transform.position += new Vector3(moveXSpeed, -moveYSpeed) * Time.deltaTime;
+            //Start shrinking
+            float disappearSpeed = 8f;
+            textMesh.fontSize -= disappearSpeed * Time.deltaTime;
+            textMesh.color = textColor;
+            if (textMesh.fontSize < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if  (timeInPlace < 0)
+        {
+            transform.position += new Vector3(moveXSpeed, moveYSpeed) * Time.deltaTime;
             textMesh.fontSize = 8;
 
             disappearTimer -= Time.deltaTime;
-            if (disappearTimer < 0)
-            {
-                //Start disappearing
-                float disappearSpeed = 5f;
-                textColor.a -= disappearSpeed * Time.deltaTime;
-                textMesh.color = textColor;
-                textMesh.fontSize = 6;
-                if (textColor.a < 0)
-                {
-                    Destroy(gameObject);
-                }
-            }
         }
     }
 }

@@ -1963,6 +1963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 5
   maxHealth: 5
+  capsuleCollider: {fileID: 8639585293712808832}
   death: {fileID: 8300000, guid: 1e53fdc002398c64d8db79892351fbf1, type: 3}
   deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
   hit: {fileID: 8086811746960731516}
