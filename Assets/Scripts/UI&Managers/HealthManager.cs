@@ -14,7 +14,6 @@ public class HealthManager : MonoBehaviour
     private Animator animator;
     private bool animBeforeDeath;
     private Rigidbody2D rb;
-    private CapsuleCollider2D capsuleCollider;
     [SerializeField] private AudioClip death;
     [SerializeField] ParticleSystem deathBurst;
     [SerializeField] private AudioSource hit;
@@ -64,6 +63,7 @@ public class HealthManager : MonoBehaviour
                 Debug.Log("Loaded!");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 revive = true;
+                this.gameObject.layer = 9;
             }
         }
 
@@ -120,6 +120,7 @@ public class HealthManager : MonoBehaviour
 
         if (currHealth <= 0)
         {
+            this.gameObject.layer = 0;
             //spawns particles on death
             ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
             partSys.Play(true);
@@ -130,7 +131,6 @@ public class HealthManager : MonoBehaviour
             if (soundManager != null)
                 soundManager.Play(death);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            rb.isKinematic = true;
             animator.SetBool("isDead", true);
             animator.SetBool("isSwimming", false);
             reloading = true;

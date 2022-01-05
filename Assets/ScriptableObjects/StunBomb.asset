@@ -16,8 +16,8 @@ MonoBehaviour:
   itemDescription: Throw a Stun Bomb pressing a button. Stuns enemies in blast radius,
     to get a quick hit in. Somehow your immune...
   itemImage: {fileID: -1388951440661209245, guid: 6327f5604eb9a1f46b8dbac24ab4c712, type: 3}
-  numberHeld: 0
-  pickupValue: 2
+  numberHeld: 5
+  maxNumberHeld: 10
   usable: 1
   unique: 0
   thisEvent:

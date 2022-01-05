@@ -76,9 +76,8 @@ public class Arrow : MonoBehaviour
 
     private IEnumerator ArrowHitWall()
     {
-        Debug.Log("Hit Wall");
+        yield return new WaitForSeconds(0.135f);
         this.GetComponent<CapsuleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.13f);
         animator.SetBool("HitObject", true);
         rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(0.5f);
@@ -87,9 +86,8 @@ public class Arrow : MonoBehaviour
 
     private IEnumerator ArrowHitObject()
     {
-        Debug.Log("Hit Object");
-        this.GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.05f);
+        this.GetComponent<CapsuleCollider2D>().enabled = false;
         animator.SetBool("HitObject", true);
         rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(0.5f);

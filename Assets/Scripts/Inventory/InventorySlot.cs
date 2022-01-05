@@ -22,7 +22,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (thisItem != null)
         {
-            int numHeld = int.Parse(itemNumberText.text) + thisItem.pickupValue;
+            int numHeld = int.Parse(itemNumberText.text);
             itemNumberText.text = "" + numHeld;
         }
         else
@@ -35,7 +35,7 @@ public class InventorySlot : MonoBehaviour
                 itemImage.sprite = thisItem.itemImage;
                 if (!thisItem.unique)
                 {
-                    int numHeld = thisItem.numberHeld + thisItem.pickupValue;
+                    int numHeld = thisItem.numberHeld;
                     itemNumberText.text = "" + numHeld;
                 }
                 else

@@ -22,7 +22,9 @@ public class TargetDoor : MonoBehaviour
     void Update()
     {
         if (doorOpen)
+        {
             StartCoroutine(OpenEnemyDoor());
+        }
     }
     
 

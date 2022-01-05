@@ -15,10 +15,10 @@ MonoBehaviour:
   itemName: Bow
   itemDescription: Shoot an arrow pressing a button. Remember to protect your eyes!
   itemImage: {fileID: 3226102912221574941, guid: 6327f5604eb9a1f46b8dbac24ab4c712, type: 3}
-  numberHeld: 0
-  pickupValue: 0
+  numberHeld: 30
+  maxNumberHeld: 30
   usable: 1
-  unique: 1
+  unique: 0
   thisEvent:
     m_PersistentCalls:
       m_Calls:

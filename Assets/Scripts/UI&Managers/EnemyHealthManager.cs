@@ -9,8 +9,6 @@ public class EnemyHealthManager : MonoBehaviour
     [SerializeField] private int currHealth;
     [SerializeField] private int maxHealth;
     [SerializeField] private Animator animator;
-    private bool isHit;
-    private float knockbackTime = 0.2f;
     private Rigidbody2D rb;
     private bool flashActive;
     [SerializeField] private float flashLength = 0f;
@@ -40,17 +38,6 @@ public class EnemyHealthManager : MonoBehaviour
 
     void Update()
     {
-        if (isHit)
-        {
-            knockbackTime -= Time.deltaTime;
-            if (knockbackTime <= 0f)
-            {
-                rb.velocity = Vector3.zero;
-                isHit = false;
-                knockbackTime = 0.2f;
-            }
-        }
-
         //updates timer for enemy to take damage again, but on counts down if over 0
         if (waitToHurt > 0)
         {
@@ -158,11 +145,6 @@ public class EnemyHealthManager : MonoBehaviour
     public Vector3 StartingCoordinate
     {
         get { return startingCoordinates; }
-    }
-
-    public bool IsHit
-    {
-        set { isHit = value; }
     }
 
     //using when enemy is re-actived, to give full hp. (AreaTransitions)

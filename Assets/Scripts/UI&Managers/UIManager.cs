@@ -48,9 +48,9 @@ public class UIManager : MonoBehaviour
     }
 
     //gets the current amount of money
-    public string GetMoneyCount()
+    public int GetMoneyCount()
     {
-        return moneyCount.ToString();
+        return int.Parse(moneyCount.text);
     }
 
     //adds money to total
@@ -70,5 +70,6 @@ public class UIManager : MonoBehaviour
         int total = int.Parse(moneyCount.text) - amt;
         moneyCount.text = total.ToString();
     }
+    
     #endregion
 }

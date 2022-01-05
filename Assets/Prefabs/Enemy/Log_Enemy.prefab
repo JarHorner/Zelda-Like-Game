@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.001
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   spawnLocation: {fileID: 5526459412359467496}
   movementAudio: {fileID: 236695931122281817}
   speed: 3
-  maxRange: 5
+  maxRange: 6
   minRange: 0.8
 --- !u!114 &-6823046957075986464
 MonoBehaviour:

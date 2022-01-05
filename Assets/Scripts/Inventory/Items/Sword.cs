@@ -23,13 +23,14 @@ public class Sword : MonoBehaviour
             {
                 if (weakness == "Sword")
                 {
-                    this.gameObject.SetActive(false);
+                    //this.gameObject.SetActive(false);
                     //spawns particles when hitting enemy
                     ParticleSystem partSys = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
                     partSys.Play(true);
                     if (other.gameObject.tag == "Enemy")
                     {
                         eHealthMan.DamageEnemy(damageDealt, this.transform);
+                        Debug.Log("Push Enemy");
                         PushBack(this.transform, other.GetComponent<Rigidbody2D>(), eHealthMan);
                     }
                     else
@@ -45,12 +46,19 @@ public class Sword : MonoBehaviour
     private void PushBack(Transform weaponTrans, Rigidbody2D enemyRb, EnemyHealthManager healthManager)
     {
         Debug.Log("Pushed");
-        healthManager.IsHit = true;
-        //rb.isKinematic = false;
-        Vector2 difference = weaponTrans.position - transform.position;
-        enemyRb.AddForce(-difference * 0.05f);
+        Vector2 difference = enemyRb.transform.position - weaponTrans.position;
+        difference = difference.normalized * 2f;
+        enemyRb.AddForce(difference, ForceMode2D.Impulse);
+        StartCoroutine(KnockCo(enemyRb));
     }
 
+    private IEnumerator KnockCo(Rigidbody2D enemyRb)
+    {
+        Debug.Log("Start");
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("Velocity to Zero");
+        enemyRb.velocity = Vector2.zero;
+    }
 
 
     #endregion

@@ -110,10 +110,9 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    //will be deleted eventually. Resets the Scriptable Object.
-    void Awake() 
+    private void OnApplicationQuit() 
     {
-        usableItems.Reset();
+        usableItems.Reset();    
     }
 
     //gets the item boxes and populates some items in inventory. populated items will be removed eventually.

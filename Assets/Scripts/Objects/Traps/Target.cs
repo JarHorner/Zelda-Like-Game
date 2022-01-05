@@ -37,6 +37,8 @@ public class Target : MonoBehaviour
                 Mathf.PingPong(Time.time/SecondsForOneLength, 1f)
             ) );
         }
+        if (hit == true && !audioSource.isPlaying)
+            audioSource.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
@@ -45,7 +47,6 @@ public class Target : MonoBehaviour
         {
             audioSource.Play();
             hit = true;
-            audioSource.enabled = false;
         }
     }
 

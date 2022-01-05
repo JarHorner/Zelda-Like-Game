@@ -43,4 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df469a875166a9248bf1100e68c804d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bowInvItem: {fileID: 11400000, guid: cf71ab43d2895394ea7b58af49da388b, type: 2}
   projectile: {fileID: 3585022105265313117, guid: b87a6bd9c31506643af9b8b477449bd8, type: 3}
+  amtArrows: 0
+  maxAmtArrows: 30

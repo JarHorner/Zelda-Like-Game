@@ -6,7 +6,8 @@ public class SwitchOpenDoor : MonoBehaviour
 {
     #region variables
     private GameManager gameManager;
-    private Animator doorAnimator;
+    [SerializeField] private Animator doorAnimator;
+    [SerializeField] private Animator secondDoorAnimator;
     [SerializeField] AudioSource pressDown;
     [SerializeField] AudioSource doorAudioSource;
     [SerializeField] AudioClip doorOpen;
@@ -27,10 +28,9 @@ public class SwitchOpenDoor : MonoBehaviour
         if (other.tag == "MovableBlock")
         {
             pressDown.Play();
-            if (transform.parent.gameObject.transform.childCount == 3)
+            if (secondDoorAnimator != null)
             {
-               Animator otherDoorAnimator = this.transform.parent.gameObject.GetComponentInChildren<Animator>();
-               otherDoorAnimator.SetBool("Open", true);
+               secondDoorAnimator.SetBool("Open", true);
             }
             StartCoroutine(OpenDoor());
         }

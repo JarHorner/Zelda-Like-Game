@@ -11,7 +11,7 @@ public class InventoryItem : ScriptableObject
     public string itemDescription;
     public Sprite itemImage;
     public int numberHeld;
-    public int pickupValue;
+    public int maxNumberHeld;
     public bool usable;
     public bool unique;
     public UnityEvent thisEvent;

@@ -109,7 +109,7 @@ RectTransform:
   m_GameObject: {fileID: 260884703335107088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 657281747378274341}
   m_RootOrder: 0
@@ -1786,13 +1786,13 @@ GameObject:
   - component: {fileID: 6650388066663356520}
   - component: {fileID: 4070599915947001214}
   - component: {fileID: 6762088746127464492}
-  - component: {fileID: 8639585293712808832}
   - component: {fileID: 265722949861545696}
   - component: {fileID: 2811056802118737538}
   - component: {fileID: 8086811746960731516}
   - component: {fileID: 7202337974094397423}
   - component: {fileID: 354280505460960099}
   - component: {fileID: 4967663174811367024}
+  - component: {fileID: 6488107386121981071}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1933,22 +1933,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &8639585293712808832
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4076203359333438738}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0102415085, y: -0.073013306}
-  m_Size: {x: 0.33968544, y: 0.38163185}
-  m_Direction: 0
 --- !u!114 &265722949861545696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1963,7 +1947,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHealth: 5
   maxHealth: 5
-  capsuleCollider: {fileID: 8639585293712808832}
   death: {fileID: 8300000, guid: 1e53fdc002398c64d8db79892351fbf1, type: 3}
   deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
   hit: {fileID: 8086811746960731516}
@@ -2174,7 +2157,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 88186e6563bf8d34ca6f8294c17ae808, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2380,6 +2363,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!70 &6488107386121981071
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4076203359333438738}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01024151, y: -0.07301331}
+  m_Size: {x: 0.3396854, y: 0.3816319}
+  m_Direction: 0
 --- !u!1 &4269135915950817361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,7 +2413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45, y: -105}
+  m_AnchoredPosition: {x: 31, y: -100.5}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9111101182451251991

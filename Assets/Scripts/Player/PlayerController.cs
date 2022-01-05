@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip[] swingClips;
     private Vector2 movement;
     private static bool playerExists;
-    private Collider2D hitBox;
     private UIManager uiManager;
     private bool onConveyor = false;
     #endregion
@@ -46,7 +45,6 @@ public class PlayerController : MonoBehaviour
         if (!playerExists)
         {
             playerExists = true;
-            hitBox = this.GetComponent<CapsuleCollider2D>();
             //ensures same player object is not destoyed when loading new scences
             DontDestroyOnLoad(this.gameObject);
         }
@@ -58,13 +56,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //enables collider after being disable while loading new scene
-        //used to enemies dont push player while loading 
-        // if (hitBox.enabled == false)
-        // {
-        //     hitBox.enabled = true;
-        // }
-
         //gets input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");

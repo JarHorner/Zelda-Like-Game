@@ -8,7 +8,6 @@ public class OpenChest : MonoBehaviour
     private UIManager uIManager;
     private DungeonManager dungeonManager;
     private GameManager gameManager;
-    private InventoryManager inventoryManager;
     private Animator chestAnim;
     [SerializeField] private int chestNum;
     [SerializeField] private int dungeonNum;
@@ -24,8 +23,7 @@ public class OpenChest : MonoBehaviour
     {
         uIManager = FindObjectOfType<UIManager>();
         dungeonManager = FindObjectOfType<AllDungeonsManager>().GetDungeonManager(dungeonNum);
-        gameManager = FindObjectOfType<GameManager>();
-        inventoryManager = FindObjectOfType<InventoryManager>();
+        gameManager = FindObjectOfType<GameManager>();;
         chestAnim = GetComponent<Animator>();
         //if chest has already been opened before, chest stays open so it cant be re-collected.
         if(dungeonManager.GetChestStayOpen(chestNum))
@@ -89,9 +87,10 @@ public class OpenChest : MonoBehaviour
             dungeonManager.CurrentKeys += 1;
             uIManager.ChangeKeyCountText(dungeonNum);
         }
-        else if (itemSpriteName.Contains("Arrow"))
+        else if (itemSpriteName.Contains("Health"))
         {
-
+            HealthManager healthManager = FindObjectOfType<HealthManager>();
+            healthManager.Heal(healthManager.MaxHealth);
         }
         else if (itemSpriteName.Contains("Map"))
         {

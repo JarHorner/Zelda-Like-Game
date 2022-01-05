@@ -6,8 +6,11 @@ public class Bow : MonoBehaviour
 {
     #region Variables
     private PlayerController player;
-    private InventoryManager inventoryManager;
+    private UIManager uiManager;
+    [SerializeField] private InventoryItem bowInvItem;
     [SerializeField] GameObject projectile;
+    [SerializeField] private int amtArrows;
+    [SerializeField] private int maxAmtArrows;
 
     #endregion
 
@@ -16,11 +19,15 @@ public class Bow : MonoBehaviour
 
     public void ShootArrow()
     {
-        player = FindObjectOfType<PlayerController>();
-        Debug.Log($"Horizontal: {player.Animator.GetFloat("Horizontal")}  Vertical: {player.Animator.GetFloat("Vertical")}");
-        Vector2 temp = new Vector2(player.Animator.GetFloat("Horizontal"), player.Animator.GetFloat("Vertical"));
-        Arrow arrow = Instantiate(projectile, player.gameObject.transform.position, Quaternion.identity).GetComponent<Arrow>();
-        arrow.Setup(temp, ShootDirection());
+        uiManager = FindObjectOfType<UIManager>();
+        if (bowInvItem.numberHeld != 0)
+        {
+            player = FindObjectOfType<PlayerController>();
+            Vector2 temp = new Vector2(player.Animator.GetFloat("Horizontal"), player.Animator.GetFloat("Vertical"));
+            Arrow arrow = Instantiate(projectile, player.gameObject.transform.position, Quaternion.identity).GetComponent<Arrow>();
+            arrow.Setup(temp, ShootDirection());
+            bowInvItem.numberHeld--;
+        }
     }
 
     //calculates the proper degree the player is facing, the arrow will shoot in that direction.

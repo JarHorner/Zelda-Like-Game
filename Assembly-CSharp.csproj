@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Other\ResetBlocks.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\ChestAppear.cs" />
      <Compile Include="Assets\Scripts\Enemy\WaterEel.cs" />
+     <Compile Include="Assets\Scripts\Other\DestroyOnExit.cs" />
      <Compile Include="Assets\Scripts\Inventory\PlayerInventory.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\AllDungeonsManager.cs" />
      <Compile Include="Assets\Scripts\Other\MutableKeyValPair.cs" />
@@ -74,6 +75,7 @@
      <Compile Include="Assets\Scripts\Inventory\Items\StunBomb.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\DungeonManager.cs" />
      <Compile Include="Assets\Scripts\Other\Volume2D.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyAttacks\EarthSpikes.cs" />
      <Compile Include="Assets\Scripts\World\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Inventory\Items\Bow.cs" />
@@ -110,8 +112,7 @@
      <Compile Include="Assets\Scripts\Objects\Pickups\BossKey.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\Enemy\EnemyAttacks\EarthSpikes.cs" />
-     <Compile Include="Assets\Scripts\Other\DestroyOnExit.cs" />
+     <Compile Include="Assets\Scripts\Objects\Pickups\ArrowPickup.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
