@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorAnimator: {fileID: 7913907121815167902}
+  timedDoor: {fileID: 670749133141847412}
 --- !u!1 &2754767786978909128
 GameObject:
   m_ObjectHideFlags: 0

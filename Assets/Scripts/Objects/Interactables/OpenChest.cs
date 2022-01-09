@@ -105,7 +105,7 @@ public class OpenChest : MonoBehaviour
     //player in range, so chest can be opened.
     private void OnTriggerEnter2D(Collider2D Collider) 
     {
-        if (Collider.tag == "Player") {
+        if (Collider.tag == "InteractBox") {
             canOpenChest = true;
         }
     }
@@ -113,7 +113,7 @@ public class OpenChest : MonoBehaviour
     //player not in range, so chest cant be opened.
     private void OnTriggerExit2D(Collider2D Collider) 
     {
-        if (Collider.tag == "Player") {
+        if (Collider.tag == "InteractBox") {
             canOpenChest = false;
         }
     }

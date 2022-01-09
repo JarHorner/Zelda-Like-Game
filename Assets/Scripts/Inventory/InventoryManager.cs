@@ -25,10 +25,13 @@ public class InventoryManager : MonoBehaviour
     #region Methods
 
     //Sets the text and description to certain item. Used in InventorySlot when clicking on button.
-    public void SetTextAndButton(string description, string name, bool buttonActive, InventoryItem newItem)
+    public void SetTextAndButton(string description, string name, bool buttonActive, InventoryItem newItem, GameObject itemText)
     {
-        descriptionText.text = description;
-        nameText.text = name;
+        if (itemText)
+        {
+            itemText.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
+            itemText.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = description;
+        }
         if (buttonActive)
         {
             useButton.SetActive(true);
@@ -102,12 +105,28 @@ public class InventoryManager : MonoBehaviour
                 usableItems.myInventory[0] = null;
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            buttonChosen = false;
+            assignButtonPopup.SetActive(false);
+            assignButtonMenuOpen = false;
+        }
         if (buttonChosen)
         {
             buttonChosen = false;
             assignButtonPopup.SetActive(false);
             assignButtonMenuOpen = false;
         }
+    }
+
+    public void SwitchScreen(GameObject screenToOpen)
+    {
+        screenToOpen.SetActive(true);
+    }
+
+    public void CloseScreen(GameObject screenToClose)
+    {
+        screenToClose.SetActive(false);
     }
 
     private void OnApplicationQuit() 
@@ -124,6 +143,8 @@ public class InventoryManager : MonoBehaviour
         PopulateInventorySlot("Bow");
         PopulateInventorySlot("PowerGloves");
         PopulateInventorySlot("SwimmingMedal");
+        PopulateInventorySlot("Sword");
+        PopulateInventorySlot("Shield");
     }
 
     public bool AssignButtonMenuOpen

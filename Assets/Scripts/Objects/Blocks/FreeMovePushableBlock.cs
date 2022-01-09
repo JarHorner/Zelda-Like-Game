@@ -13,6 +13,7 @@ public class FreeMovePushableBlock : MonoBehaviour
     private float pushingTime = 0.2f;
     private bool playSound = false;
     private bool canPush = false;
+    private bool notMoved = true;
     #endregion
 
     #region Methods
@@ -74,17 +75,16 @@ public class FreeMovePushableBlock : MonoBehaviour
     //block can be pushed when players collider is within blocks.
     private void OnCollisionStay2D(Collision2D collider) 
     {
-        if (collider.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "InteractBox")
         {
             canPush = true;
-            Debug.Log(canPush);
         }
     }
 
     //gets the players animations back to regular movement and resets the time needed to push the block.
     private void OnCollisionExit2D(Collision2D collider) 
     {
-        if (collider.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "InteractBox")
         {
             //sets the players animation back to idle/walking when not interacting with block
             playerAnim.SetBool("isPushing", false);
@@ -92,6 +92,21 @@ public class FreeMovePushableBlock : MonoBehaviour
             canPush = false;
             pushingTime = 0.2f;
         }
+    }
+
+    public bool NotMoved
+    {
+        set { notMoved = value; }
+    }
+
+    public float StartX
+    {
+        get { return startX; }
+    }
+
+    public float StartY
+    {
+        get { return startY; }
     }
     #endregion
 }

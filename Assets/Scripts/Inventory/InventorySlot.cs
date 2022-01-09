@@ -47,11 +47,11 @@ public class InventorySlot : MonoBehaviour
     }
 
     //when clicked on, shows the name and description of item.
-    public void ShowDescriptionAndButton()
+    public void ShowDescriptionAndButton(GameObject itemText)
     {
         if (thisItem)
         {
-            thisManager.SetTextAndButton(thisItem.itemDescription, thisItem.itemName, thisItem.usable, thisItem);
+            thisManager.SetTextAndButton(thisItem.itemDescription, thisItem.itemName, thisItem.usable, thisItem, itemText);
         }
     }
 

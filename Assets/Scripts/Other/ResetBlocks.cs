@@ -7,7 +7,9 @@ public class ResetBlocks : MonoBehaviour
 {
     #region Variables
     [SerializeField] private GameObject go;
-    private List<MoveOnceBlock> resetableObjects = new List<MoveOnceBlock>();
+    [SerializeField] private string typeOfBlock;
+    private List<MoveOnceBlock> moveOnceBlocks = new List<MoveOnceBlock>();
+    private List<FreeMovePushableBlock> freeMoveBlocks = new List<FreeMovePushableBlock>();
 
     #endregion
 
@@ -18,7 +20,10 @@ public class ResetBlocks : MonoBehaviour
         //adds each object into a list to easily reset.
         for (int i = 0; i < go.transform.childCount; i++)
         {
-            resetableObjects.Add(go.transform.GetChild(i).GetComponent<MoveOnceBlock>());
+            if (typeOfBlock.Equals("MoveOnce"))
+                moveOnceBlocks.Add(go.transform.GetChild(i).GetComponent<MoveOnceBlock>());
+            else if (typeOfBlock.Equals("FreeMove"))
+                freeMoveBlocks.Add(go.transform.GetChild(i).GetComponent<FreeMovePushableBlock>());
         }
     }
 
@@ -27,11 +32,23 @@ public class ResetBlocks : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            foreach (MoveOnceBlock block in resetableObjects)
+            if (typeOfBlock.Equals("MoveOnce"))
             {
-                block.transform.position = new Vector3(block.StartX, block.StartY, 0);
-                block.NotMoved = true;
-                block.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                foreach (MoveOnceBlock block in moveOnceBlocks)
+                {
+                    block.transform.position = new Vector3(block.StartX, block.StartY, 0);
+                    block.NotMoved = true;
+                    block.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                }
+            }
+            else if (typeOfBlock.Equals("FreeMove"))
+            {
+                foreach (FreeMovePushableBlock block in freeMoveBlocks)
+                {
+                    block.transform.position = new Vector3(block.StartX, block.StartY, 0);
+                    block.NotMoved = true;
+                    block.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                }
             }
             Debug.Log("Room Reset!");
         }

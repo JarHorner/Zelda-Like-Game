@@ -66,11 +66,11 @@ public class SwitchTimedDoor : MonoBehaviour
     }
 
     //stops the current Coroutine (OpenDoor()) closing the door and allowing the switch to be pressed again.
-    public void ResetDoor()
+    public void ResetDoor(bool doorOpen)
     {
         StopCoroutine(coroutine);
-        doorAnimator.SetBool("Open", false);
-        usedSwitch = false;
+        doorAnimator.SetBool("Open", doorOpen);
+        usedSwitch = doorOpen;
     }
 
     //checks if timer is currenly running.

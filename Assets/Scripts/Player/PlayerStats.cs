@@ -12,7 +12,6 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int maxLevel = 10;
     [SerializeField] private TMP_Text menuLevelNum;
     [SerializeField] private TMP_Text menuCurrentExpNum;
-    [SerializeField] private TMP_Text menuExpNextLevelNum;
     [SerializeField] private int currentExp = 0;
     private int[] expToLevelUp;
     private int baseExp = 0;
@@ -43,8 +42,7 @@ public class PlayerStats : MonoBehaviour
     void LateUpdate()
     {
         //changed exp values after every frame
-        menuCurrentExpNum.text = currentExp.ToString();
-        menuExpNextLevelNum.text = Mathf.Abs(currentExp - expToLevelUp[playerLevel]).ToString();
+        menuCurrentExpNum.text = $"{currentExp.ToString()} / {Mathf.Abs(currentExp - expToLevelUp[playerLevel]).ToString()}";
     }
 
     private IEnumerator ExpToLevel() 

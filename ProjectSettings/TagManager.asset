@@ -19,6 +19,7 @@ TagManager:
   - DialogCanvas
   - Projectile
   - Boss
+  - InteractBox
   layers:
   - Default
   - TransparentFX

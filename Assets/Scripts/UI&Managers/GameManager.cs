@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 Pause(true);
-                inventoryManager.SetTextAndButton("", "", false, null);
+                inventoryManager.SetTextAndButton("", "", false, null, null);
                 inventoryOpen = true;
                 openMenu.Play();
                 inventoryScreen.SetActive(true);
