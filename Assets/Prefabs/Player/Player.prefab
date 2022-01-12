@@ -800,7 +800,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 99588860949a55d40a32d1a8b01bfbda, type: 2}
   m_sharedMaterial: {fileID: 5278563286404179117, guid: 99588860949a55d40a32d1a8b01bfbda, type: 2}
@@ -1551,7 +1551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 99588860949a55d40a32d1a8b01bfbda, type: 2}
   m_sharedMaterial: {fileID: 5278563286404179117, guid: 99588860949a55d40a32d1a8b01bfbda, type: 2}
@@ -2229,6 +2229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1da2197f699a741ac3ee5b230bc81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   moveSpeed: 6
   rb: {fileID: 6650388066663356520}
   animator: {fileID: 6762088746127464492}
@@ -2482,7 +2483,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 88186e6563bf8d34ca6f8294c17ae808, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

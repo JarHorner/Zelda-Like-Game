@@ -116,32 +116,19 @@ public class MoveOnceBlock : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        
-    }
-
     //block can be pushed when players collider is within blocks.
     private void OnTriggerStay2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "InteractBox")
         {
             canPush = true;
         }
     }
 
-    // //block can be pushed when players collider is within blocks.
-    // private void OnCollisionStay2D(Collision2D collider) 
-    // {
-    //     if (collider.gameObject.tag == "Player")
-    //     {
-    //         canPush = true;
-    //     }
-    // }
-
     //gets the players animations back to regular movement and resets the time needed to push the block.
     private void OnTriggerExit2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "InteractBox")
         {
             //sets the players animation back to idle/walking when not interacting with block
             playerAnim.SetBool("isPushing", false);
@@ -150,19 +137,6 @@ public class MoveOnceBlock : MonoBehaviour
             pushingTime = 0.2f;
         }
     }
-
-    //gets the players animations back to regular movement and resets the time needed to push the block.
-    // private void OnCollisionExit2D(Collision2D collider) 
-    // {
-    //     if (collider.gameObject.tag == "Player")
-    //     {
-    //         //sets the players animation back to idle/walking when not interacting with block
-    //         playerAnim.SetBool("isPushing", false);
-    //         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-    //         canPush = false;
-    //         pushingTime = 0.2f;
-    //     }
-    // }
 
     public bool NotMoved
     {

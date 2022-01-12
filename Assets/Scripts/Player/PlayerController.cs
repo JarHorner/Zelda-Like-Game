@@ -5,18 +5,24 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+public enum PlayerState 
+{
+    walk,
+    attack,
+    interact
+}
+
 public class PlayerController : MonoBehaviour
 {
     #region Variables
+    public PlayerState currentState;
     //used to keep track of the players last location
     private static Vector2 lastPlayerLocation;
     public float moveSpeed;
-    private float attackTime = 0.25f;
     private float attackCounter = 0.25f;
-    private bool doubleUpAttack;
-    private bool isAttacking = false;
     private bool isMoving = false;
     private bool isSwimming = false;
+    private bool isCarrying = false;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     public string startPoint;
@@ -52,6 +58,9 @@ public class PlayerController : MonoBehaviour
         {
             Destroy (gameObject);
         }
+        currentState = PlayerState.walk;
+        animator.SetFloat("Horizontal", 0);
+        animator.SetFloat("Vertical", -1);
     }
 
     void Update()
@@ -60,18 +69,14 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (movement != Vector2.zero)
+        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
         {
-            //sets new directions from the movement and sets bool, to play walking sound
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
-            isMoving = true;
-        } 
-        else
-        {
-            isMoving = false;
+           StartCoroutine(PlayerAttack());
         }
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        else if (currentState == PlayerState.walk)
+        {
+            PlayerWalking();
+        }
 
         //plays swimming sound if in water and moving, does not if already playing
         if (isSwimming && isMoving)
@@ -98,45 +103,48 @@ public class PlayerController : MonoBehaviour
         {
             walkingSound.Stop();
         }
-
-        //if not currently attacking, starts the animation, if attack button has been pressed again, another attack
-        //animation is qued up. Creating smooth attacking if the attack button is spammed.
-        if (!isAttacking)
-        {
-            if (Input.GetButtonDown("Attack") || doubleUpAttack)
-            {
-                isAttacking = true;
-                doubleUpAttack = false;
-                attackCounter = attackTime;
-                animator.SetBool("isAttacking", true);
-                //randomizes sounds used when attacking.
-                swingSound.clip = swingClips[Random.Range(0, swingClips.Length)];
-                swingSound.Play();
-            }
-        }
-        else if (Input.GetButtonDown("Attack"))
-        {
-            doubleUpAttack = true;
-        }
-        
-        //attacking stops movement, carries out the animation, then reverts back
-        if (isAttacking)
-        {
-            movement = Vector2.zero;
-            attackCounter -= Time.deltaTime;
-            if (attackCounter <= 0)
-            {
-                animator.SetBool("isAttacking", false);
-                isAttacking = false;
-            }
-        }
     }
 
     //this is where the actual movement happens. better for performance, not tying movement to framerate.
     void FixedUpdate()
     {
-        //enables movement
-        rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+        if (currentState == PlayerState.walk)
+        {
+            //enables movement
+            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    private void PlayerWalking()
+    {
+        if (movement != Vector2.zero)
+        {
+            //sets new directions from the movement and sets bool, to play walking sound
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            isMoving = true;
+        } 
+        else
+        {
+            isMoving = false;
+        }
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+    }
+
+    //if not currently attacking, starts the animation, if attack button has been pressed again, another attack
+    //animation is qued up. Creating smooth attacking if the attack button is spammed.
+    private IEnumerator PlayerAttack()
+    {
+        currentState = PlayerState.attack;
+        animator.SetBool("isAttacking", true);
+        //randomizes sounds used when attacking.
+        swingSound.clip = swingClips[Random.Range(0, swingClips.Length)];
+        swingSound.Play();
+
+        yield return new WaitForSeconds(attackCounter);
+
+        animator.SetBool("isAttacking", false);
+        currentState = PlayerState.walk;
     }
 
     //enables regular movement when colliding with OutOfWater trigger when leaving water.
@@ -181,6 +189,11 @@ public class PlayerController : MonoBehaviour
     public bool PlayerSwimming
     {
         set { isSwimming = value; }
+    }
+    public bool IsCarrying
+    {
+        get { return isCarrying; }
+        set { isCarrying = value; }
     }
     public bool OnConveyor
     {
