@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour
     #region Variables
     [SerializeField] private int currHealth;
     [SerializeField] private int maxHealth;
-    private float waitToLoad = 1.8f;
+    private float waitToLoad = 1.6f;
     private bool reloading;
     private Animator animator;
     private bool animBeforeDeath;
@@ -23,6 +23,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private float flashLength = 0f;
     private float flashCounter = 0f;
     private SpriteRenderer playerSprite;
+    private PlayerController player;
     public bool revive;
 
     #endregion
@@ -34,6 +35,7 @@ public class HealthManager : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         animator = this.gameObject.GetComponent<Animator>();
         playerSprite = this.gameObject.GetComponent<SpriteRenderer>();
+        player = this.gameObject.GetComponent<PlayerController>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
         //used when save button is working
         if (PlayerPrefs.GetInt("PlayerCurrHp") != 0)
@@ -58,52 +60,23 @@ public class HealthManager : MonoBehaviour
                 }
                 rb.isKinematic = false;
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                player.currentState = PlayerState.walk;
                 reloading = false;
                 waitToLoad = 2f;
                 Debug.Log("Loaded!");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 revive = true;
-                this.gameObject.layer = 9;
             }
         }
 
-        //if true, starts process of changing the players alpha level to flash when hit
+        
         if (flashActive && !reloading)
         {
-            if (flashCounter > flashLength * .99f)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0.2f);
-            }
-            else if (flashCounter > flashLength * .82f)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
-            }
-            else if (flashCounter > flashLength * .66f)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0.2f);
-            }
-            else if (flashCounter > flashLength * .49f)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
-            }
-            else if (flashCounter > flashLength * .33f)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0.2f);
-            }
-            else if (flashCounter > flashLength * .16f)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
-            }
-            else if (flashCounter > 0)
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0.2f);
-            }
-            else
-            {
-                playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
-                flashActive = false;
-            }
+            //if true, starts process of changing the players alpha level to flash when hit
+            DamageFlashing.SpriteFlashing(flashLength, flashCounter, playerSprite);
             flashCounter -= Time.deltaTime;
+            if (flashCounter < 0)
+                flashActive = false;
         }
     }
 
@@ -120,19 +93,15 @@ public class HealthManager : MonoBehaviour
 
         if (currHealth <= 0)
         {
-            this.gameObject.layer = 0;
+            rb.isKinematic = true;
+            player.currentState = PlayerState.dead;
             //spawns particles on death
             ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
             partSys.Play(true);
-            //starts death animation
-            Debug.Log("Dying!");
             //if player was swimming when died, this variable is true and when spawns again, wont be swimming.
             animBeforeDeath = animator.GetCurrentAnimatorStateInfo(0).IsTag("Swimming");
             if (soundManager != null)
                 soundManager.Play(death);
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            animator.SetBool("isDead", true);
-            animator.SetBool("isSwimming", false);
             reloading = true;
         }
     }

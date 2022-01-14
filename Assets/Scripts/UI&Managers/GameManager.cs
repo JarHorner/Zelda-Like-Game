@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] InventoryManager inventoryManager;
     [SerializeField] AudioSource openMenu;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject optionsScreen;
     [SerializeField] private GameObject inventoryScreen;
     private bool isPaused = false;
     private bool inventoryOpen = false;
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
                 UnPause();
                 isPaused = false;
                 pauseScreen.SetActive(false);
+                optionsScreen.SetActive(false);
             }
             else
             {

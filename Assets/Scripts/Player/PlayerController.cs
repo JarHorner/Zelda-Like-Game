@@ -8,8 +8,10 @@ using UnityEngine.SceneManagement;
 public enum PlayerState 
 {
     walk,
+    swim,
     attack,
-    interact
+    interact,
+    dead
 }
 
 public class PlayerController : MonoBehaviour
@@ -73,9 +75,16 @@ public class PlayerController : MonoBehaviour
         {
            StartCoroutine(PlayerAttack());
         }
-        else if (currentState == PlayerState.walk)
+        else if (currentState == PlayerState.dead)
         {
-            PlayerWalking();
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            //if player was swimming when died, this variable is true and when spawns again, wont be swimming.
+            animator.SetBool("isDead", true);
+            animator.SetBool("isSwimming", false);
+        }
+        else if (currentState == PlayerState.walk || currentState == PlayerState.swim)
+        {
+            PlayerMoving();
         }
 
         //plays swimming sound if in water and moving, does not if already playing
@@ -108,14 +117,14 @@ public class PlayerController : MonoBehaviour
     //this is where the actual movement happens. better for performance, not tying movement to framerate.
     void FixedUpdate()
     {
-        if (currentState == PlayerState.walk)
+        if (currentState == PlayerState.walk || currentState == PlayerState.swim)
         {
             //enables movement
             rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
         }
     }
 
-    private void PlayerWalking()
+    private void PlayerMoving()
     {
         if (movement != Vector2.zero)
         {
@@ -150,7 +159,15 @@ public class PlayerController : MonoBehaviour
     //enables regular movement when colliding with OutOfWater trigger when leaving water.
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "OutOfWater")
+        if (collider.gameObject.tag == "Water") 
+        {
+            //sets swimming animation and new player speed
+            animator.SetBool("isSwimming", true);
+            currentState = PlayerState.swim;
+            isSwimming = true;
+            moveSpeed = 4f;
+        }
+        else if (collider.gameObject.tag == "OutOfWater")
         {
             animator.SetBool("isSwimming", false);
             if (isSwimming)
@@ -181,14 +198,6 @@ public class PlayerController : MonoBehaviour
     {
         get { return startPoint; }
         set { startPoint = value; }
-    }
-    public bool PlayerMoving
-    {
-        set { isMoving = value; }
-    }
-    public bool PlayerSwimming
-    {
-        set { isSwimming = value; }
     }
     public bool IsCarrying
     {

@@ -5,8 +5,7 @@ using UnityEngine;
 public class PauseScreen : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private UIManager uIManager;
-    [SerializeField] private HealthManager healthManager;
+    [SerializeField] private GameObject optionsMenu;
 
     #endregion
 
@@ -16,6 +15,11 @@ public class PauseScreen : MonoBehaviour
     {
         //PlayerPrefs.SetInt("PlayerCurrHp", healthManager.getCurrentHealth());
         //PlayerPrefs.SetInt("Dungeon1Open", uIManager.isDungeon1Opened());
+    }
+
+    public void OptionsMenu()
+    {
+        optionsMenu.SetActive(true);
     }
 
     //exits application

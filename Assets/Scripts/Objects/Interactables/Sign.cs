@@ -10,6 +10,7 @@ public class Sign : MonoBehaviour
     private DialogLocationCanvas dialogCanvas;
     private bool canRead = false;
     private GameManager gameManager;
+    private PlayerController player;
     private bool paused = false;
 
     #endregion
@@ -19,6 +20,7 @@ public class Sign : MonoBehaviour
     {
         dialogCanvas = FindObjectOfType<DialogLocationCanvas>();
         gameManager = FindObjectOfType<GameManager>();
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update() 
@@ -29,15 +31,17 @@ public class Sign : MonoBehaviour
             {
                 gameManager.UnPause();
                 dialogCanvas.DialogBox.gameObject.SetActive(false);
+                player.currentState = PlayerState.walk;
             }
         }
 
         if (canRead && Input.GetButtonDown("Interact"))
         {
             dialogCanvas.DialogBox.gameObject.SetActive(true);
+            player.currentState = PlayerState.interact;
             TMP_Text dialogText = dialogCanvas.DialogBox.GetComponentInChildren<TMP_Text>();
             dialogText.text = text;
-            gameManager.Pause(true);
+            gameManager.Pause(false);
             paused = true;
             canRead = false;
         }

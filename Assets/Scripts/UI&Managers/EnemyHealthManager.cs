@@ -44,43 +44,13 @@ public class EnemyHealthManager : MonoBehaviour
             waitToHurt -= Time.deltaTime;
         }
 
-        //if true, starts process of changing the enemies alpha level to flash when hit
         if (flashActive)
         {
-            if (flashCounter > flashLength * .99f)
-            {
-                enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 0.2f);
-            }
-            else if (flashCounter > flashLength * .82f)
-            {
-                enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 1f);
-            }
-            else if (flashCounter > flashLength * .66f)
-            {
-                enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 0.2f);
-            }
-            else if (flashCounter > flashLength * .49f)
-            {
-                enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 1f);
-            }
-            else if (flashCounter > flashLength * .33f)
-            {
-                enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 0.2f);
-            }
-            else if (flashCounter > flashLength * .16f)
-            {
-                enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 1f);
-            }
-            else if (flashCounter > 0)
-            {
-                enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 0.2f);
-            }
-            else
-            {
-                enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 1f);
-                flashActive = false;
-            }
+            //if true, starts process of changing the players alpha level to flash when hit
+            DamageFlashing.SpriteFlashing(flashLength, flashCounter, enemySprite);
             flashCounter -= Time.deltaTime;
+            if (flashCounter < 0)
+                flashActive = false;
         }
     }
 

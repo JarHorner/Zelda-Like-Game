@@ -969,6 +969,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4517568984689733258, guid: f511ff7858595a446a22b950551b5584, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8972622761228450185, guid: f511ff7858595a446a22b950551b5584, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -1096,6 +1100,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3196973712193098977, guid: 2750ef642be81ef4187e7a6031867fbf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196973712193098977, guid: 2750ef642be81ef4187e7a6031867fbf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.43
       objectReference: {fileID: 0}
@@ -1138,6 +1146,10 @@ PrefabInstance:
     - target: {fileID: 3196973712193098988, guid: 2750ef642be81ef4187e7a6031867fbf, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196973712193098989, guid: 2750ef642be81ef4187e7a6031867fbf, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3196973712193098990, guid: 2750ef642be81ef4187e7a6031867fbf, type: 3}
       propertyPath: maxPosition.x
@@ -1616,6 +1628,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8972622761228450184, guid: f511ff7858595a446a22b950551b5584, type: 3}
+      propertyPath: m_Size.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972622761228450184, guid: f511ff7858595a446a22b950551b5584, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972622761228450184, guid: f511ff7858595a446a22b950551b5584, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6070542431621985689, guid: 7dad33e9262b0594f81fe5f957358f6d, type: 3}
+    - target: {fileID: 8972622761228450184, guid: f511ff7858595a446a22b950551b5584, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8972622761228450185, guid: f511ff7858595a446a22b950551b5584, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -1741,7 +1769,7 @@ GameObject:
   - component: {fileID: 1734091331}
   m_Layer: 10
   m_Name: Walls
-  m_TagString: Object
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11892,7 +11920,7 @@ GameObject:
   - component: {fileID: 3303355480091502164}
   - component: {fileID: 3303355480091502163}
   - component: {fileID: 3303355480091502166}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Pits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11983,7 +12011,7 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -19141,7 +19169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5032621466137000036, guid: 73ef4210a0f8b7341bbb232945d8820f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.596758
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5032621466137000036, guid: 73ef4210a0f8b7341bbb232945d8820f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19292,6 +19320,10 @@ PrefabInstance:
     - target: {fileID: 8718969242988049007, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8839592565839701547, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51769a067a6677844945d411b2e401a7, type: 3}
