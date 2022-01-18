@@ -5,7 +5,7 @@ using UnityEngine;
 public class CloseDoorBehind : MonoBehaviour
 {
     #region Varibles
-    private GameManager gameManager;
+    private PauseGame pauseGame;
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource closeDoor;
     #endregion
@@ -13,7 +13,7 @@ public class CloseDoorBehind : MonoBehaviour
     #region Methods
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        pauseGame = FindObjectOfType<PauseGame>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
@@ -29,11 +29,11 @@ public class CloseDoorBehind : MonoBehaviour
     IEnumerator CloseDoor() 
     {
         closeDoor.Play();
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         animator.SetBool("Open", false);
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
-        gameManager.UnPause();
+        pauseGame.UnPause();
     }
 
     #endregion

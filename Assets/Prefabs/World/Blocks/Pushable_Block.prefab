@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2061571b75189439f876f44e79a9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
   movingSound: {fileID: 6396060363984897159}
 --- !u!82 &6396060363984897159
 AudioSource:

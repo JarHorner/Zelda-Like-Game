@@ -2230,6 +2230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
   moveSpeed: 6
   rb: {fileID: 6650388066663356520}
   animator: {fileID: 6762088746127464492}

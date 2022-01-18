@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FreeMovePushableBlock : MonoBehaviour
 {
     #region Variables
+    [SerializeField] InputActionAsset inputMaster;
+    private InputAction push, movement;
     private Animator playerAnim;
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
@@ -24,6 +27,11 @@ public class FreeMovePushableBlock : MonoBehaviour
         //sets the starting positions
         startX = transform.position.x;
         startY = transform.position.y;
+
+        var playerActionMap = inputMaster.FindActionMap("Player");
+
+        push = playerActionMap.FindAction("Push");
+        movement = playerActionMap.FindAction("Movement");
     }
  
     void Update()
@@ -32,11 +40,11 @@ public class FreeMovePushableBlock : MonoBehaviour
         //depending on the facing of the player.
         if (canPush)
         {
-            if (Input.GetButton("Vertical") && Input.GetButton("Push"))
+            if (movement.ReadValue<Vector2>().y != 0 && push.ReadValue<float>() == 1)
             {
                 PushBlock(true);
             }
-            else if (Input.GetButton("Horizontal") && Input.GetButton("Push"))
+            else if (movement.ReadValue<Vector2>().x != 0 && push.ReadValue<float>() == 1)
             {
                 PushBlock(false);
             }
@@ -55,7 +63,6 @@ public class FreeMovePushableBlock : MonoBehaviour
         }
     }
 
-
     //moves the block in the direction params.
     private void PushBlock(bool direction)
     {
@@ -73,16 +80,17 @@ public class FreeMovePushableBlock : MonoBehaviour
     }
 
     //block can be pushed when players collider is within blocks.
-    private void OnCollisionStay2D(Collision2D collider) 
+    private void OnTriggerStay2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "InteractBox")
         {
             canPush = true;
+            push.Enable();
         }
     }
 
     //gets the players animations back to regular movement and resets the time needed to push the block.
-    private void OnCollisionExit2D(Collision2D collider) 
+    private void OnTriggerExit2D(Collider2D collider) 
     {
         if (collider.gameObject.tag == "InteractBox")
         {
@@ -91,6 +99,7 @@ public class FreeMovePushableBlock : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             canPush = false;
             pushingTime = 0.2f;
+            push.Disable();
         }
     }
 

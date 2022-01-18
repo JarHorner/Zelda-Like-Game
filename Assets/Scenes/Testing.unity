@@ -770,7 +770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3434269579074156549, guid: c49ee7a1ba7304a4ab777a4443683e5c, type: 3}
       propertyPath: SecondsForOneLength
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1109424477587742897, guid: c49ee7a1ba7304a4ab777a4443683e5c, type: 3}
       propertyPath: m_RootOrder
@@ -11267,6 +11267,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1547908593876073800, guid: 4bcfc5fe0281e8944b34117e941ce316, type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7305955008145251483, guid: 4bcfc5fe0281e8944b34117e941ce316, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -19317,6 +19321,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8692944131029807189, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+      propertyPath: inputMaster
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
     - target: {fileID: 8718969242988049007, guid: 51769a067a6677844945d411b2e401a7, type: 3}
       propertyPath: m_Name
       value: GameManager

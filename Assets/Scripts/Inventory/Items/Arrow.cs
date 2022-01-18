@@ -7,6 +7,7 @@ public class Arrow : MonoBehaviour
     #region Variables
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource hit;
     //these three varibles can be adjusted at any time
     [SerializeField] private int damageDealt;
     [SerializeField] private float speed;
@@ -25,6 +26,7 @@ public class Arrow : MonoBehaviour
     //does damamge to enemy, and connects with obejcts and walls.
     public void OnTriggerEnter2D(Collider2D other) 
     {
+        hit.Play();
         if (other.gameObject.layer == 10) //layer 10 is Walls
         {
             StartCoroutine(ArrowHitWall());

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MoveOnceBlock : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class MoveOnceBlock : MonoBehaviour
     //Diagonal movement should be disabled
     //Once movement on an axis has occurred, movement should be disabled on the other axis
     #region Variables
+    [SerializeField] InputActionAsset inputMaster;
+    private InputAction push, movement;
     private Animator playerAnim;
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
@@ -31,6 +34,11 @@ public class MoveOnceBlock : MonoBehaviour
         //sets the starting positions
         startX = transform.position.x;
         startY = transform.position.y;
+
+        var playerActionMap = inputMaster.FindActionMap("Player");
+
+        push = playerActionMap.FindAction("Push");
+        movement = playerActionMap.FindAction("Movement");
     }
  
     void Update()
@@ -39,9 +47,9 @@ public class MoveOnceBlock : MonoBehaviour
         //depending on the facing of the player.
         if (canPush && notMoved)
         {
-            if (Input.GetButton("Vertical") && Input.GetButton("Push"))
+            if (movement.ReadValue<Vector2>().y != 0 && push.ReadValue<float>() == 1)
             {
-                if (Input.GetAxis("Vertical") > 0)
+                if (movement.ReadValue<Vector2>().y == 1)
                 {
                     PushBlock(true, new Vector2(startX, startY + blockLength));
                 }
@@ -50,9 +58,9 @@ public class MoveOnceBlock : MonoBehaviour
                     PushBlock(true, new Vector2(startX, startY - blockLength));
                 }
             }
-            else if (Input.GetButton("Horizontal") && Input.GetButton("Push"))
+            else if (movement.ReadValue<Vector2>().x != 0 && push.ReadValue<float>() == 1)
             {
-                if (Input.GetAxis("Horizontal") > 0)
+                if (movement.ReadValue<Vector2>().x == 1)
                 {
                     PushBlock(false, new Vector2(startX + blockLength, startY));
                 }
@@ -122,6 +130,7 @@ public class MoveOnceBlock : MonoBehaviour
         if (collider.gameObject.tag == "InteractBox")
         {
             canPush = true;
+            push.Enable();
         }
     }
 
@@ -135,6 +144,7 @@ public class MoveOnceBlock : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             canPush = false;
             pushingTime = 0.2f;
+            push.Disable();
         }
     }
 

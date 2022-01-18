@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf580f2a540b64341ab0f5097002acee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
   animator: {fileID: 8972622761228450182}
   potBreak: {fileID: -466963846892462536}
   loot: {fileID: 8972622761228450183}

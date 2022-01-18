@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public enum PlayerState 
 {
@@ -11,7 +12,8 @@ public enum PlayerState
     swim,
     attack,
     interact,
-    dead
+    dead,
+    menu
 }
 
 public class PlayerController : MonoBehaviour
@@ -20,6 +22,9 @@ public class PlayerController : MonoBehaviour
     public PlayerState currentState;
     //used to keep track of the players last location
     private static Vector2 lastPlayerLocation;
+    [SerializeField] private InputActionAsset inputMaster;
+    private InputAction move, attack, useItem1, useItem2, pause, inventory;
+    private GameManager gameManager;
     public float moveSpeed;
     private float attackCounter = 0.25f;
     private bool isMoving = false;
@@ -43,8 +48,18 @@ public class PlayerController : MonoBehaviour
     void Awake() 
     {
         uiManager = GameObject.FindObjectOfType<UIManager>();
+        gameManager = FindObjectOfType<GameManager>();
         lastPlayerLocation = new Vector2(0, 0);
         Debug.Log(lastPlayerLocation);
+
+        var playerActionMap = inputMaster.FindActionMap("Player");
+
+        move = playerActionMap.FindAction("Movement");
+        attack = playerActionMap.FindAction("Attack");
+        pause = playerActionMap.FindAction("Pause");
+        inventory = playerActionMap.FindAction("Inventory");
+        useItem1 = playerActionMap.FindAction("useItem1");
+        useItem2 = playerActionMap.FindAction("useItem2");
     }
 
     //Singleton affect code
@@ -64,27 +79,52 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Horizontal", 0);
         animator.SetFloat("Vertical", -1);
     }
+    private void OnEnable() 
+    {
+        move.Enable();
+        move.performed += PlayerMoving;
+        move.canceled += PlayerMoving;
+        attack.Enable();
+        attack.performed += PlayerAttack;
+        pause.Enable();
+        pause.performed += gameManager.OpenPauseMenu;
+        inventory.Enable();
+        inventory.performed += gameManager.OpenInventoryMenu;
+        useItem1.Enable();
+        useItem1.performed += gameManager.UseItem;
+        useItem2.Enable();
+        useItem2.performed += gameManager.UseItem;
+    }
+
+    private void OnDisable() 
+    {
+        move.Disable();
+        move.performed -= PlayerMoving;
+        move.canceled -= PlayerMoving;
+        attack.Disable();
+        attack.performed -= PlayerAttack;
+        pause.Disable();
+        pause.performed -= gameManager.OpenPauseMenu;
+        inventory.Disable();
+        inventory.performed -= gameManager.OpenInventoryMenu;
+        useItem1.Disable();
+        useItem1.performed -= gameManager.UseItem;
+        useItem2.Disable();
+        useItem2.performed -= gameManager.UseItem;
+    }
 
     void Update()
     {
-        //gets input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
+        if (move.triggered)
         {
-           StartCoroutine(PlayerAttack());
+            currentState = PlayerState.walk;
         }
-        else if (currentState == PlayerState.dead)
+        if (currentState == PlayerState.dead)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             //if player was swimming when died, this variable is true and when spawns again, wont be swimming.
             animator.SetBool("isDead", true);
             animator.SetBool("isSwimming", false);
-        }
-        else if (currentState == PlayerState.walk || currentState == PlayerState.swim)
-        {
-            PlayerMoving();
         }
 
         //plays swimming sound if in water and moving, does not if already playing
@@ -120,12 +160,16 @@ public class PlayerController : MonoBehaviour
         if (currentState == PlayerState.walk || currentState == PlayerState.swim)
         {
             //enables movement
-            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime * Time.timeScale);
         }
     }
 
-    private void PlayerMoving()
+    private void PlayerMoving(InputAction.CallbackContext context)
     {
+        //gets input
+        movement.x = move.ReadValue<Vector2>().x;
+        movement.y = move.ReadValue<Vector2>().y;
+
         if (movement != Vector2.zero)
         {
             //sets new directions from the movement and sets bool, to play walking sound
@@ -140,9 +184,14 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
+    private void PlayerAttack(InputAction.CallbackContext context)
+    {
+        StartCoroutine(AttackCo());
+    }
+
     //if not currently attacking, starts the animation, if attack button has been pressed again, another attack
     //animation is qued up. Creating smooth attacking if the attack button is spammed.
-    private IEnumerator PlayerAttack()
+    private IEnumerator AttackCo()
     {
         currentState = PlayerState.attack;
         animator.SetBool("isAttacking", true);

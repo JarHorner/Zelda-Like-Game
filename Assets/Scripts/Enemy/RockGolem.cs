@@ -11,14 +11,14 @@ public class RockGolem : MonoBehaviour
 
     //starts off at zero so he attacks upon sight, changed in code after first attack
     private float comboTimer = 2f;
-    private bool isMoving = false;
+    // private bool isMoving = false;
     [SerializeField] private AudioSource movementAudio;
     [SerializeField] private EnemyHealthManager enemyHealthManager;
     [SerializeField] private GameObject earthSpikes;
     private Vector3 earthSpikeLocation;
 
     [Header("these three varibles can be adjusted at any time")]
-    [SerializeField] private float speed = 0f;
+    // [SerializeField] private float speed = 0f;
     [SerializeField] private float spawnRange = 0f;
     [SerializeField] private float groundPoundMaxRange = 0f;
     [SerializeField] private float groundPoundMinRange = 0f;

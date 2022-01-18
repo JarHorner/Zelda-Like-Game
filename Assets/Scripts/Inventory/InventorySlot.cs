@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour
 {
@@ -47,11 +48,11 @@ public class InventorySlot : MonoBehaviour
     }
 
     //when clicked on, shows the name and description of item.
-    public void ShowDescriptionAndButton(GameObject itemText)
+    public void ShowDescription(GameObject itemText)
     {
         if (thisItem)
         {
-            thisManager.SetTextAndButton(thisItem.itemDescription, thisItem.itemName, thisItem.usable, thisItem, itemText);
+            thisManager.SetTextAndButton(thisItem.itemDescription, thisItem.itemName, thisItem, itemText);
         }
     }
 

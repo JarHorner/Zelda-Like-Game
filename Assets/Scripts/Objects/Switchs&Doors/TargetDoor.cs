@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetDoor : MonoBehaviour
 {
     #region Variables
-    private GameManager gameManager;
+    private PauseGame pauseGame;
     [SerializeField] private AudioSource openDoor;
     [SerializeField] private Animator animator;
     private bool doorOpen = false;
@@ -16,7 +16,7 @@ public class TargetDoor : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        pauseGame = FindObjectOfType<PauseGame>();
     }
 
     void Update()
@@ -32,11 +32,11 @@ public class TargetDoor : MonoBehaviour
     IEnumerator OpenEnemyDoor()
     {
         openDoor.Play();
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         animator.SetBool("Open", true);
         yield return new WaitForSeconds(1f);
         doorOpen = false;
-        gameManager.UnPause();
+        pauseGame.UnPause();
     }
 
     public bool DoorOpen

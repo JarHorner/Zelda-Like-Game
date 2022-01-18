@@ -11,7 +11,7 @@ public class OpenDungeonDoor : MonoBehaviour
     [SerializeField] private int dungeonNum;
     private SoundManager soundManager;
     private AllDungeonsManager allDungeonsManager;
-    private GameManager gameManager;
+    private PauseGame pauseGame;
 
     #endregion
 
@@ -20,7 +20,7 @@ public class OpenDungeonDoor : MonoBehaviour
     void Start() 
     {  
         allDungeonsManager = GameObject.FindObjectOfType<AllDungeonsManager>();
-        gameManager = FindObjectOfType<GameManager>();
+        pauseGame = FindObjectOfType<PauseGame>();
         soundManager = FindObjectOfType<SoundManager>();
         //if dungeon has been opened, it stays opened when transitioning into other scenes.
         if (allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened) {
@@ -39,7 +39,7 @@ public class OpenDungeonDoor : MonoBehaviour
     }
     IEnumerator OpenDungeon() {
         //pauses game mamager while animations play (so player cannot move)
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         openDungeonToon.Play();
         //sets flag so dungeon stays open
         allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened = true;
@@ -48,7 +48,7 @@ public class OpenDungeonDoor : MonoBehaviour
         entranceAnimator.SetBool("hasKey", true);
         yield return new WaitForSeconds(3.5f);
         entranceAnimator.SetBool("Opened", true);
-        gameManager.UnPause();
+        pauseGame.UnPause();
     }
 
 

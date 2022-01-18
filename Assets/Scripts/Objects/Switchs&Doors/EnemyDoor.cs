@@ -6,7 +6,7 @@ public class EnemyDoor : MonoBehaviour
 {
     #region Variables
     private ArrayList enemies = new ArrayList();
-    private GameManager gameManager;
+    private PauseGame pauseGame;
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource openDoor;
     private bool enemiesDefeated = false;
@@ -18,7 +18,7 @@ public class EnemyDoor : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        pauseGame = FindObjectOfType<PauseGame>();
         //takes all the children of the door and adds them to ArrayList. Used to decide when the door opens.
         int children = transform.childCount;
         for (int i = 0; i < children; i++)
@@ -62,11 +62,11 @@ public class EnemyDoor : MonoBehaviour
     IEnumerator OpenEnemyDoor()
     {
         openDoor.Play();
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         animator.SetBool("Open", true);
         yield return new WaitForSeconds(1f);
         doorNotOpen = false;
-        gameManager.UnPause();
+        pauseGame.UnPause();
     }
 
     #endregion

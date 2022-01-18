@@ -19,10 +19,6 @@ public class TargetManager : MonoBehaviour
 
     #region Methods
     private void Start() {
-        foreach (var item in targets)
-        {
-            Debug.Log(item.ToString());
-        }
     }
 
     void Update() 

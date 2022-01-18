@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
     //loads the first scene of the game
     public void StartGame() 
     {
-        SceneManager.LoadScene("Scene_1");
+        SceneManager.LoadScene("Cutscene");
     }
 
     //exits the application.

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwitchOpenDoor : MonoBehaviour
 {
     #region variables
-    private GameManager gameManager;
+    private PauseGame pauseGame;
     [SerializeField] private Animator doorAnimator;
     [SerializeField] private Animator secondDoorAnimator;
     [SerializeField] AudioSource pressDown;
@@ -19,7 +19,7 @@ public class SwitchOpenDoor : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        pauseGame = FindObjectOfType<PauseGame>();
         doorAnimator = this.transform.parent.gameObject.GetComponentInChildren<Animator>();
     }
     
@@ -53,22 +53,22 @@ public class SwitchOpenDoor : MonoBehaviour
     IEnumerator OpenDoor() {
         doorAudioSource.clip = doorOpen;
         doorAudioSource.Play();
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         doorAnimator.SetBool("Open", true);
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
-        gameManager.UnPause();
+        pauseGame.UnPause();
     }
 
     //uses the Pause() function from GameManager to prevent movement and play the animation of door closing.
     IEnumerator CloseDoor() {
         doorAudioSource.clip = doorClose;
         doorAudioSource.Play();
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         doorAnimator.SetBool("Open", false);
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
-        gameManager.UnPause();
+        pauseGame.UnPause();
     }
     #endregion
 }

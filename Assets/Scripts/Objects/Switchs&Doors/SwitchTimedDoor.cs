@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwitchTimedDoor : MonoBehaviour
 {
     #region variables
-    private GameManager gameManager;
+    private PauseGame pauseGame;
     private bool usedSwitch = false;
     private bool isRunning = false;
     [SerializeField] private Animator doorAnimator;
@@ -22,7 +22,7 @@ public class SwitchTimedDoor : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        pauseGame = FindObjectOfType<PauseGame>();
     }
     
     //if players steps on collider and switch hasnt been used, door will open.
@@ -42,11 +42,11 @@ public class SwitchTimedDoor : MonoBehaviour
         isRunning = true;
         doorAudioSource.clip = doorOpen;
         doorAudioSource.Play();
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         doorAnimator.SetBool("Open", true);
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
-        gameManager.UnPause();
+        pauseGame.UnPause();
         //sets an internal timer for the opened door. CloseDoor() will be played, if not beaten.
         yield return new WaitForSeconds(timeToBeat);
         isRunning = false;
@@ -57,12 +57,12 @@ public class SwitchTimedDoor : MonoBehaviour
     IEnumerator CloseDoor() {
         doorAudioSource.clip = doorClose;
         doorAudioSource.Play();
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         doorAnimator.SetBool("Open", false);
         usedSwitch = false;
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
-        gameManager.UnPause();
+        pauseGame.UnPause();
     }
 
     //stops the current Coroutine (OpenDoor()) closing the door and allowing the switch to be pressed again.

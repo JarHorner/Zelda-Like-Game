@@ -258,7 +258,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7417792175679787673, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7164141084251229425, guid: 51769a067a6677844945d411b2e401a7, type: 3}
+    - {fileID: 8587290770439493575, guid: 51769a067a6677844945d411b2e401a7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51769a067a6677844945d411b2e401a7, type: 3}
 --- !u!1001 &327752131
 PrefabInstance:
@@ -318,6 +324,10 @@ PrefabInstance:
     - target: {fileID: 6738057254830489430, guid: cc23a3171f6ed494f8ddc801a5b9060a, type: 3}
       propertyPath: m_Name
       value: Sign
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738057254830489430, guid: cc23a3171f6ed494f8ddc801a5b9060a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc23a3171f6ed494f8ddc801a5b9060a, type: 3}
@@ -29550,7 +29560,6 @@ GameObject:
   - component: {fileID: 958427503}
   - component: {fileID: 958427502}
   - component: {fileID: 958427501}
-  - component: {fileID: 958427504}
   m_Layer: 4
   m_Name: Water
   m_TagString: Water
@@ -31896,18 +31905,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &958427504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958427499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93eb61ec5d306134c9bb6fe07e4dcfe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1043891698
 GameObject:
   m_ObjectHideFlags: 0
@@ -44465,6 +44462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pot1
       objectReference: {fileID: 0}
+    - target: {fileID: 8972622761228450189, guid: f511ff7858595a446a22b950551b5584, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f511ff7858595a446a22b950551b5584, type: 3}
 --- !u!1001 &1720091746
@@ -46854,6 +46855,10 @@ PrefabInstance:
     - target: {fileID: 8972622761228450189, guid: f511ff7858595a446a22b950551b5584, type: 3}
       propertyPath: m_Name
       value: Pot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972622761228450189, guid: f511ff7858595a446a22b950551b5584, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f511ff7858595a446a22b950551b5584, type: 3}

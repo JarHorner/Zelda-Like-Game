@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
 
     #region Variables
+    [SerializeField] private InputActionAsset inputMaster;
+    private InputAction cancel, assignItem1, assignItem2;
     private static bool exists;
     private string currentScene;
     private UIManager uIManager;
-    private SoundManager soundManager;
-    private AudioSource bgMusic;
+    [SerializeField] PauseGame pauseGame;
     [SerializeField] InventoryManager inventoryManager;
     [SerializeField] AudioSource openMenu;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject pauseFirstButton, inventoryFirstButton;
     [SerializeField] private GameObject optionsScreen;
     [SerializeField] private GameObject inventoryScreen;
     private bool isPaused = false;
@@ -38,13 +42,17 @@ public class GameManager : MonoBehaviour
         {
             Destroy (gameObject);
         }
+        var uiActionMap = inputMaster.FindActionMap("UI");
+
+        cancel = uiActionMap.FindAction("Cancel");
+        assignItem1 = uiActionMap.FindAction("AssignItem1");
+        assignItem2 = uiActionMap.FindAction("AssignItem2");
     }
 
     void Start()
     {
         ChangeCurrentScene();
         uIManager = FindObjectOfType<UIManager>();
-        Debug.Log(CurrentScene);
         //changes the amt of keys shown in the UI depending on scene (Will add more with more dungeons)
         if (CurrentScene.Contains("Dungeon"))
         {
@@ -60,97 +68,104 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void UseItem(InputAction.CallbackContext context)
     {
-        PauseGame();
-        InventoryScreen();
+        FindItemToUse(context);
+    }
 
-        //if game isnt pasued, and proper button is pressed, uses that items event.
-        if (Time.timeScale != 0 && Input.GetButtonDown("UseItem1"))
+    private void FindItemToUse(InputAction.CallbackContext context)
+    {
+        Debug.Log(context.action.name);
+        if (Time.timeScale != 0 && context.action.name == "UseItem1")
         {
             if (inventoryManager.usableItems.myInventory[0] != null)
                 inventoryManager.usableItems.myInventory[0].Use();
         }
-        if (Time.timeScale != 0 && Input.GetButtonDown("UseItem2"))
+        else if (Time.timeScale != 0 && context.action.name == "UseItem2")
         {
             if (inventoryManager.usableItems.myInventory[1] != null)
                 inventoryManager.usableItems.myInventory[1].Use();
         }
-        //ensures assigned an item to use from the inventory manager.
-        if (inventoryManager.AssignButtonMenuOpen)
-        {
-            inventoryManager.AssignToButton();
-        }
+    }
+
+    //Used in PlayerController to access PauseGame method.
+    public void OpenPauseMenu(InputAction.CallbackContext context)
+    {
+        PauseGame();
     }
 
     //Pause the game by changing timeScale, reducing volume, opening pause panel and disabling PlayerController script to stop movement
     private void PauseGame()
     {
-        if(Input.GetButtonDown("Pause"))
+        if(!isPaused)
         {
-            if(isPaused)
-            {
-                UnPause();
-                isPaused = false;
-                pauseScreen.SetActive(false);
-                optionsScreen.SetActive(false);
-            }
-            else
-            {
-                Pause(true);
-                isPaused = true;
-                pauseScreen.SetActive(true);
-            }
+            pauseGame.Pause(true);
+            isPaused = true;
+            pauseScreen.SetActive(true);
+            optionsScreen.SetActive(false);
+
+            cancel.performed += OpenPauseMenu;
+            cancel.Enable();
+
+            //clear selected object
+            EventSystem.current.SetSelectedGameObject(null);
+            //set a new selected object
+            EventSystem.current.SetSelectedGameObject(pauseFirstButton);
         }
+        else
+        {
+            pauseGame.UnPause();
+            isPaused = false;
+            pauseScreen.SetActive(false);
+            optionsScreen.SetActive(false);
+
+            cancel.performed -= OpenPauseMenu;
+            cancel.Disable();
+        }
+    }
+
+    //Used in PlayerController to access InventoryScreen method.
+    public void OpenInventoryMenu(InputAction.CallbackContext context)
+    {
+        InventoryScreen();
     }
 
     //almost the same as the PauseGame() method but will be opening a different screen.
     private void InventoryScreen()
     {
-        if(Input.GetButtonDown("Inventory"))
+        if (!inventoryOpen)
         {
-            if (inventoryOpen)
-            {
-                UnPause();
-                inventoryOpen = false;
-                //ensures if player closes inventory on popup, it will close as well
-                inventoryManager.AssignButtonPopup.SetActive(false);
-                inventoryScreen.SetActive(false);
-            }
-            else
-            {
-                Pause(true);
-                inventoryManager.SetTextAndButton("", "", false, null, null);
-                inventoryOpen = true;
-                openMenu.Play();
-                inventoryScreen.SetActive(true);
-            }
-        }
-    }
+            pauseGame.Pause(true);
+            inventoryManager.SetTextAndButton("", "", null, null);
+            inventoryOpen = true;
+            openMenu.Play();
+            inventoryScreen.SetActive(true);
 
-    //pauses the the timescale of the game if true. if false, only the player will be stopped (good for cutscene stuff)
-    public void Pause(bool timePause) 
-    {
-        if (timePause)
+            assignItem1.performed += inventoryManager.AssignItem;
+            assignItem2.performed += inventoryManager.AssignItem;
+            cancel.performed += OpenInventoryMenu;
+            assignItem1.Enable();
+            assignItem2.Enable();
+            cancel.Enable();
+
+            //clear selected object
+            EventSystem.current.SetSelectedGameObject(null);
+            //set a new selected object
+            EventSystem.current.SetSelectedGameObject(inventoryFirstButton);
+        }
+        else
         {
-            Time.timeScale = 0;
-        }
-        soundManager = FindObjectOfType<SoundManager>();
-        bgMusic = soundManager.GetComponentInChildren<AudioSource>();
-        bgMusic.volume = 0.05f;
-        FindObjectOfType<PlayerController>().enabled = false;
-        FindObjectOfType<PlayerController>().GetComponent<Animator>().speed = 0;
-    }
+            pauseGame.UnPause();
+            inventoryOpen = false;
+            inventoryScreen.SetActive(false);
 
-    //returns the changes during a Pause back to normal
-    public void UnPause() 
-    {
-        soundManager = FindObjectOfType<SoundManager>();
-        bgMusic = soundManager.GetComponentInChildren<AudioSource>();
-        Time.timeScale = 1;
-        bgMusic.volume = 0.2f;
-        FindObjectOfType<PlayerController>().enabled = true;
-        FindObjectOfType<PlayerController>().GetComponent<Animator>().speed = 1;
+            assignItem1.performed -= inventoryManager.AssignItem;
+            assignItem2.performed -= inventoryManager.AssignItem;
+            cancel.performed -= OpenInventoryMenu;
+            assignItem1.Disable();
+            assignItem2.Disable();
+            cancel.Disable();
+        }
     }
 
     private void ChangeCurrentScene()
@@ -162,6 +177,11 @@ public class GameManager : MonoBehaviour
     public string CurrentScene
     {
         get { return currentScene; }
+    }
+
+    public bool InventoryOpen
+    {
+        get { return inventoryOpen; }
     }
     #endregion
 }

@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class OpenChest : MonoBehaviour 
 {
     #region Variables
+    [SerializeField] InputActionAsset inputMaster;
+    private InputAction interact;
     private UIManager uIManager;
     private DungeonManager dungeonManager;
-    private GameManager gameManager;
+    private PauseGame pauseGame;
     private Animator chestAnim;
     [SerializeField] private int chestNum;
     [SerializeField] private int dungeonNum;
@@ -23,34 +26,34 @@ public class OpenChest : MonoBehaviour
     {
         uIManager = FindObjectOfType<UIManager>();
         dungeonManager = FindObjectOfType<AllDungeonsManager>().GetDungeonManager(dungeonNum);
-        gameManager = FindObjectOfType<GameManager>();;
+        pauseGame = FindObjectOfType<PauseGame>();;
         chestAnim = GetComponent<Animator>();
         //if chest has already been opened before, chest stays open so it cant be re-collected.
         if(dungeonManager.GetChestStayOpen(chestNum))
         {
             chestAnim.SetBool("isOpened", true);
         }
+        var playerActionMap = inputMaster.FindActionMap("Player");
+
+        interact = playerActionMap.FindAction("Interact");
     }
 
-    void Update() 
+    private void InteractChest(InputAction.CallbackContext context)
     {
         //if player is within circle collider, chest has not been opened before and 'E' is pressed, chest is opened.
         //needs to check if chest has been opened again because the first check is only for animation.
         if (canOpenChest && !dungeonManager.GetChestStayOpen(chestNum))
         {
-            if (Input.GetButtonDown("Interact"))
-            {
-                StartCoroutine(Open());
-            }
+            StartCoroutine(Open());
         }
     }
 
     //uses the Pause() function from GameManager to prevent movement and play music of receiving chest item.
-    IEnumerator Open()
+    private IEnumerator Open()
     {
         canOpenChest = false;
         chestAnim.SetBool("isOpened", true);
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         audioSource.Play();
         //shows item of chest and places it above chest.
         item.GetComponent<SpriteRenderer>().enabled = true;
@@ -59,7 +62,7 @@ public class OpenChest : MonoBehaviour
         //after 1.5 seconds, everything returns to normal.
         yield return new WaitForSeconds(1.5f);
         Destroy(item);
-        gameManager.UnPause();
+        pauseGame.UnPause();
         //adds chest to list so it cannot be opened again.
         dungeonManager.AddChestStayOpen(chestNum);
     }
@@ -107,6 +110,8 @@ public class OpenChest : MonoBehaviour
     {
         if (Collider.tag == "InteractBox") {
             canOpenChest = true;
+            interact.performed += InteractChest;
+            interact.Enable();
         }
     }
 
@@ -115,6 +120,8 @@ public class OpenChest : MonoBehaviour
     {
         if (Collider.tag == "InteractBox") {
             canOpenChest = false;
+            interact.performed += InteractChest;
+            interact.Disable();
         }
     }
 

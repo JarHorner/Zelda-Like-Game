@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ecb576c0e0f6f44992156715472f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
   chestNum: 0
   dungeonNum: 0
   item: {fileID: 6949327475236325426}

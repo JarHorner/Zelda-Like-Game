@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660bd5ab68d765b4f801e9833fa23941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
   movingSound: {fileID: 8960509838063168684}
 --- !u!61 &2448984535157920362
 BoxCollider2D:

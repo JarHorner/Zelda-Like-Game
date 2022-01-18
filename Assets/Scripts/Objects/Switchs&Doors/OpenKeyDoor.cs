@@ -7,7 +7,7 @@ public class OpenKeyDoor : MonoBehaviour
     #region Variables
     private UIManager uIManager;
     private AllDungeonsManager allDungeonsManager;
-    private GameManager gameManager;
+    private PauseGame pauseGame;
     [SerializeField] private Animator animator;
     [SerializeField] private int dungeonNum;
     [SerializeField] private int doorNum;
@@ -18,7 +18,7 @@ public class OpenKeyDoor : MonoBehaviour
     void Start()
     {
         uIManager = FindObjectOfType<UIManager>();
-        gameManager = FindObjectOfType<GameManager>();
+        pauseGame = FindObjectOfType<PauseGame>();
         allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
         //if door has been opened, it will stay opened after leaving dungeon
         if(allDungeonsManager.GetDungeonManager(dungeonNum).GetDoorStayOpen(doorNum))
@@ -40,13 +40,13 @@ public class OpenKeyDoor : MonoBehaviour
     IEnumerator OpenDoor() 
     {
         openDoor.Play();
-        gameManager.Pause(false);
+        pauseGame.Pause(false);
         animator.SetBool("Open", true);
         allDungeonsManager.GetDungeonManager(dungeonNum).CurrentKeys -= 1;
         uIManager.ChangeKeyCountText(dungeonNum);
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
-        gameManager.UnPause();
+        pauseGame.UnPause();
         //adds chest to list so it cannot be opened again.
         allDungeonsManager.GetDungeonManager(dungeonNum).AddDoorStayOpen(doorNum);
     }

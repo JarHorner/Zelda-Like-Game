@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Sign : MonoBehaviour
 {
     #region Variables
+    [SerializeField] InputActionAsset inputMaster;
+    private InputAction interact;
     [SerializeField] private string text;
     private DialogLocationCanvas dialogCanvas;
     private bool canRead = false;
-    private GameManager gameManager;
+    private PauseGame pauseGame;
     private PlayerController player;
     private bool paused = false;
 
@@ -19,29 +22,34 @@ public class Sign : MonoBehaviour
     private void Start() 
     {
         dialogCanvas = FindObjectOfType<DialogLocationCanvas>();
-        gameManager = FindObjectOfType<GameManager>();
+        pauseGame = FindObjectOfType<PauseGame>();
         player = FindObjectOfType<PlayerController>();
+        var playerActionMap = inputMaster.FindActionMap("Player");
+
+        interact = playerActionMap.FindAction("Interact");
     }
 
     private void Update() 
     {
+
+    }
+
+    private void ReadSign(InputAction.CallbackContext context)
+    {
         if (paused)
         {
-            if (Input.GetButtonDown("Interact"))
-            {
-                gameManager.UnPause();
-                dialogCanvas.DialogBox.gameObject.SetActive(false);
-                player.currentState = PlayerState.walk;
-            }
+            pauseGame.UnPause();
+            dialogCanvas.DialogBox.gameObject.SetActive(false);
+            player.currentState = PlayerState.walk;
         }
 
-        if (canRead && Input.GetButtonDown("Interact"))
+        if (canRead)
         {
             dialogCanvas.DialogBox.gameObject.SetActive(true);
             player.currentState = PlayerState.interact;
             TMP_Text dialogText = dialogCanvas.DialogBox.GetComponentInChildren<TMP_Text>();
             dialogText.text = text;
-            gameManager.Pause(false);
+            pauseGame.Pause(false);
             paused = true;
             canRead = false;
         }
@@ -52,14 +60,21 @@ public class Sign : MonoBehaviour
         if (other.tag == "InteractBox")
         {
             canRead = true;
+            if (!interact.enabled)
+            {
+                interact.performed += ReadSign;
+                interact.Enable();
+            }
         }
     }
 
-        private void OnTriggerExit2D(Collider2D other) 
+    private void OnTriggerExit2D(Collider2D other) 
     {
         if (other.tag == "InteractBox")
         {
             canRead = false;
+            interact.performed -= ReadSign;
+            interact.Disable();
         }
     }
 
