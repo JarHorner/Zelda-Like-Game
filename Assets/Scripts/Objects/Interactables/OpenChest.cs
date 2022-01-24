@@ -8,7 +8,7 @@ public class OpenChest : MonoBehaviour
     #region Variables
     [SerializeField] InputActionAsset inputMaster;
     private InputAction interact;
-    private UIManager uIManager;
+    private PlayerUI playerUI;
     private DungeonManager dungeonManager;
     private PauseGame pauseGame;
     private Animator chestAnim;
@@ -24,7 +24,7 @@ public class OpenChest : MonoBehaviour
 
     void Start() 
     {
-        uIManager = FindObjectOfType<UIManager>();
+        playerUI = FindObjectOfType<PlayerUI>();
         dungeonManager = FindObjectOfType<AllDungeonsManager>().GetDungeonManager(dungeonNum);
         pauseGame = FindObjectOfType<PauseGame>();;
         chestAnim = GetComponent<Animator>();
@@ -79,7 +79,7 @@ public class OpenChest : MonoBehaviour
             int index = itemSpriteName.IndexOf('_');
             int moneyAmt = int.Parse(itemSpriteName.Substring(index + 1));
             Debug.Log(moneyAmt);
-            uIManager.AddMoney(moneyAmt);
+            playerUI.AddMoney(moneyAmt);
         }
         else if (itemSpriteName.Contains("Boss_Key"))
         {
@@ -88,7 +88,7 @@ public class OpenChest : MonoBehaviour
         else if (itemSpriteName.Contains("Dungeon_Key"))
         {
             dungeonManager.CurrentKeys += 1;
-            uIManager.ChangeKeyCountText(dungeonNum);
+            playerUI.ChangeKeyCountText(dungeonNum);
         }
         else if (itemSpriteName.Contains("Health"))
         {

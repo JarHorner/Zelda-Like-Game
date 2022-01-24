@@ -12,7 +12,6 @@ public class SceneLoader : MonoBehaviour
         private float transitionTime = 1f;
         private PlayerController player;
         private GameManager gameManager;
-        private UIManager uIManager;
         public string exitPoint;
     #endregion
 
@@ -21,7 +20,6 @@ public class SceneLoader : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        uIManager = FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
     }
 

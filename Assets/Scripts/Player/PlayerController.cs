@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private GameManager gameManager;
     public float moveSpeed;
     private float attackCounter = 0.25f;
+    private float shootCounter = 0f;
     private bool isMoving = false;
     private bool isSwimming = false;
     private bool isCarrying = false;
@@ -39,7 +40,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip[] swingClips;
     private Vector2 movement;
     private static bool playerExists;
-    private UIManager uiManager;
     private bool onConveyor = false;
     #endregion
 
@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
     void Awake() 
     {
-        uiManager = GameObject.FindObjectOfType<UIManager>();
         gameManager = FindObjectOfType<GameManager>();
         lastPlayerLocation = new Vector2(0, 0);
         Debug.Log(lastPlayerLocation);
@@ -152,6 +151,12 @@ public class PlayerController : MonoBehaviour
         {
             walkingSound.Stop();
         }
+
+        //when player has bow, ensures shooting arrows cannot be spammed
+        if (shootCounter > 0f)
+        {
+            shootCounter -= Time.deltaTime;
+        }
     }
 
     //this is where the actual movement happens. better for performance, not tying movement to framerate.
@@ -247,6 +252,11 @@ public class PlayerController : MonoBehaviour
     {
         get { return startPoint; }
         set { startPoint = value; }
+    }
+    public float ShootCounter
+    {
+        get { return shootCounter; }
+        set { shootCounter = value; }
     }
     public bool IsCarrying
     {

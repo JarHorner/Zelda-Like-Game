@@ -14,8 +14,8 @@ public class InventoryManager : MonoBehaviour
     public PlayerInventory usableItems;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI nameText;
-    private GameObject itemBox1;
-    private GameObject itemBox2;
+    [SerializeField] private GameObject itemBox1;
+    [SerializeField] private GameObject itemBox2;
     public List<InventorySlot> myInventorySlots = new List<InventorySlot>();
     public InventoryItem currentItem;
     #endregion
@@ -25,8 +25,6 @@ public class InventoryManager : MonoBehaviour
     //gets the item boxes and populates some items in inventory. populated items will be removed eventually.
     void Start() 
     {
-        itemBox1 = GameObject.Find("ItemBox1").transform.GetChild(0).gameObject;
-        itemBox2 = GameObject.Find("ItemBox2").transform.GetChild(0).gameObject;
         PopulateInventorySlot("Heal");
         PopulateInventorySlot("Bow");
         PopulateInventorySlot("PowerGloves");
@@ -77,27 +75,33 @@ public class InventoryManager : MonoBehaviour
         currentItem = EventSystem.current.currentSelectedGameObject.GetComponent<InventorySlot>().thisItem;
         if (context.action.name.Equals("AssignItem1") && currentItem.usable)
         {
-            itemBox1.GetComponent<Image>().enabled = true;
-            itemBox1.GetComponent<Image>().sprite = currentItem.itemImage;
+            itemBox1.transform.GetChild(0).GetComponent<Image>().enabled = true;
+            itemBox1.transform.GetChild(0).GetComponent<Image>().sprite = currentItem.itemImage;
+            if (currentItem.numberHeld > -1)
+                itemBox1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = currentItem.numberHeld.ToString();
             usableItems.myInventory[0] = currentItem; 
 
             if (usableItems.myInventory[1] == usableItems.myInventory[0])
             {
-                itemBox2.GetComponent<Image>().sprite = null;
-                itemBox2.GetComponent<Image>().enabled = false;
+                itemBox2.transform.GetChild(0).GetComponent<Image>().sprite = null;
+                itemBox2.transform.GetChild(0).GetComponent<Image>().enabled = false;
+                itemBox2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
                 usableItems.myInventory[1] = null;
             }
         }
         else if (context.action.name.Equals("AssignItem2") && currentItem.usable)
         {
-            itemBox2.GetComponent<Image>().enabled = true;
-            itemBox2.GetComponent<Image>().sprite = currentItem.itemImage;
+            itemBox2.transform.GetChild(0).GetComponent<Image>().enabled = true;
+            itemBox2.transform.GetChild(0).GetComponent<Image>().sprite = currentItem.itemImage;
+            if (currentItem.numberHeld > -1)
+                itemBox2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = currentItem.numberHeld.ToString();
             usableItems.myInventory[1] = currentItem;
 
             if (usableItems.myInventory[0] == usableItems.myInventory[1])
             {
-                itemBox1.GetComponent<Image>().sprite = null;
-                itemBox1.GetComponent<Image>().enabled = false;
+                itemBox1.transform.GetChild(0).GetComponent<Image>().sprite = null;
+                itemBox1.transform.GetChild(0).GetComponent<Image>().enabled = false;
+                itemBox1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
                 usableItems.myInventory[0] = null;
             }
         }

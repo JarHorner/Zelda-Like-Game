@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenKeyDoor : MonoBehaviour
 {
     #region Variables
-    private UIManager uIManager;
+    private PlayerUI playerUI;
     private AllDungeonsManager allDungeonsManager;
     private PauseGame pauseGame;
     [SerializeField] private Animator animator;
@@ -17,7 +17,7 @@ public class OpenKeyDoor : MonoBehaviour
     #region Unity Methods
     void Start()
     {
-        uIManager = FindObjectOfType<UIManager>();
+        playerUI = FindObjectOfType<PlayerUI>();
         pauseGame = FindObjectOfType<PauseGame>();
         allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
         //if door has been opened, it will stay opened after leaving dungeon
@@ -43,7 +43,7 @@ public class OpenKeyDoor : MonoBehaviour
         pauseGame.Pause(false);
         animator.SetBool("Open", true);
         allDungeonsManager.GetDungeonManager(dungeonNum).CurrentKeys -= 1;
-        uIManager.ChangeKeyCountText(dungeonNum);
+        playerUI.ChangeKeyCountText(dungeonNum);
         //after 1 second, everything returns to normal.
         yield return new WaitForSeconds(1f);
         pauseGame.UnPause();

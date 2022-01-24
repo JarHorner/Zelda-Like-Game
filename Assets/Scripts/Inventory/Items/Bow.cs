@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Bow : MonoBehaviour
 {
     #region Variables
     private PlayerController player;
-    private UIManager uiManager;
+    private PlayerUI playerUI;
     [SerializeField] private InventoryItem bowInvItem;
     [SerializeField] GameObject projectile;
-    [SerializeField] private int amtArrows;
-    [SerializeField] private int maxAmtArrows;
-
     #endregion
 
 
@@ -19,14 +18,14 @@ public class Bow : MonoBehaviour
 
     public void ShootArrow()
     {
-        uiManager = FindObjectOfType<UIManager>();
-        if (bowInvItem.numberHeld != 0)
+        player = FindObjectOfType<PlayerController>();
+        if (bowInvItem.numberHeld != 0 && player.ShootCounter <= 0f)
         {
-            player = FindObjectOfType<PlayerController>();
             Vector2 temp = new Vector2(player.Animator.GetFloat("Horizontal"), player.Animator.GetFloat("Vertical"));
             Arrow arrow = Instantiate(projectile, player.gameObject.transform.position, Quaternion.identity).GetComponent<Arrow>();
             arrow.Setup(temp, ShootDirection());
-            bowInvItem.numberHeld--;
+            UseArrow();
+            player.ShootCounter = 0.5f;
         }
     }
 
@@ -36,6 +35,17 @@ public class Bow : MonoBehaviour
         //degree measure of how much to rotate arrow
         float temp = Mathf.Atan2(player.Animator.GetFloat("Vertical"), player.Animator.GetFloat("Horizontal")) * Mathf.Rad2Deg;
         return new Vector3(0, 0, temp + -90);
+    }
+
+    private void UseArrow()
+    {
+        playerUI = FindObjectOfType<PlayerUI>();
+        bowInvItem.numberHeld--;
+        //checks which item box has the bow, and adjusts arrow value
+        if (playerUI.ItemBox1.transform.GetChild(0).GetComponent<Image>().sprite.name.Equals("Bow"))
+            playerUI.ItemBox1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "" + bowInvItem.numberHeld;
+        else
+            playerUI.ItemBox2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "" + bowInvItem.numberHeld;
     }
 
     #endregion

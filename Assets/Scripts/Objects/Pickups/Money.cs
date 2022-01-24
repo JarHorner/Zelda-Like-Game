@@ -6,13 +6,13 @@ public class Money : MonoBehaviour
 {
     #region Variables
     [SerializeField] private  int moneyCount;
-    private UIManager uiManager;
+    private PlayerUI playerUI;
     #endregion
 
     #region Methods
     void Start()
     {
-        uiManager = FindObjectOfType<UIManager>();
+        playerUI = FindObjectOfType<PlayerUI>();
     }
     
     //enables grabbing money and adding to total (UiManager)
@@ -20,7 +20,7 @@ public class Money : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            uiManager.AddMoney(moneyCount);
+            playerUI.AddMoney(moneyCount);
             Destroy(gameObject);
         }
     }

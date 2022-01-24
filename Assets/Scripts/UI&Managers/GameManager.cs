@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private InputAction cancel, assignItem1, assignItem2;
     private static bool exists;
     private string currentScene;
-    private UIManager uIManager;
+    private PlayerUI playerUI;
     [SerializeField] PauseGame pauseGame;
     [SerializeField] InventoryManager inventoryManager;
     [SerializeField] AudioSource openMenu;
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ChangeCurrentScene();
-        uIManager = FindObjectOfType<UIManager>();
+        playerUI = FindObjectOfType<PlayerUI>();
         //changes the amt of keys shown in the UI depending on scene (Will add more with more dungeons)
         if (CurrentScene.Contains("Dungeon"))
         {
@@ -60,11 +60,11 @@ public class GameManager : MonoBehaviour
             char dungeonNum = CurrentScene[CurrentScene.Length - 1];
             Debug.Log(dungeonNum);
             //converts the char to int
-            uIManager.ChangeKeyCountText(int.Parse(dungeonNum.ToString()));
+            playerUI.ChangeKeyCountText(int.Parse(dungeonNum.ToString()));
         }
         else
         {
-            uIManager.ChangeKeyCountText(-1);
+            playerUI.ChangeKeyCountText(-1);
         }
     }
 

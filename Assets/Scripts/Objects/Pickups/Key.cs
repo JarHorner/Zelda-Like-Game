@@ -6,7 +6,7 @@ using TMPro;
 public class Key : MonoBehaviour
 {
     #region Variables
-    private UIManager uIManager;
+    private PlayerUI playerUI;
     private DungeonManager dungeonManager;
     [SerializeField] private int dungeonNum;
     [SerializeField] private int keyNum;
@@ -16,7 +16,7 @@ public class Key : MonoBehaviour
 
     void Start() 
     {
-        uIManager = FindObjectOfType<UIManager>();
+        playerUI = FindObjectOfType<PlayerUI>();
         dungeonManager = FindObjectOfType<AllDungeonsManager>().GetDungeonManager(dungeonNum);
         //if key has already been grabbed before, destroys object so it cant be re-collected.
         if(dungeonManager.GetKeyStayDestroyed(keyNum))
@@ -32,7 +32,7 @@ public class Key : MonoBehaviour
         {
             dungeonManager.AddKeyStayDestoryed(keyNum);
             dungeonManager.CurrentKeys += 1;
-            uIManager.ChangeKeyCountText(dungeonNum);
+            playerUI.ChangeKeyCountText(dungeonNum);
             Destroy(gameObject);
         }
     }

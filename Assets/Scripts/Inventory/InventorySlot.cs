@@ -9,7 +9,7 @@ public class InventorySlot : MonoBehaviour
 {
     #region Variables
     [Header("UI Stuff to change")]
-    [SerializeField] private TextMeshProUGUI itemNumberText;
+    [SerializeField] private TextMeshProUGUI itemNumberInventoryText;
     [SerializeField] private Image itemImage;
 
     [Header("Variables from the item")]
@@ -18,13 +18,28 @@ public class InventorySlot : MonoBehaviour
     #endregion
 
     #region Methods
+
+    private void OnEnable() 
+    {
+        if (thisItem != null && !thisItem.unique)
+        {
+            int numHeld; 
+            int.TryParse(itemNumberInventoryText.text, out numHeld);
+            Debug.Log(numHeld);
+            if (thisItem.numberHeld != numHeld)
+            {
+                itemNumberInventoryText.text = "" + thisItem.numberHeld;
+            }
+        }
+    }
+    
     //puts item in inventory (sprite, number held, etc.) and becomes clickable.
     public void Setup(InventoryItem item, InventoryManager manager)
     {
         if (thisItem != null)
         {
-            int numHeld = int.Parse(itemNumberText.text);
-            itemNumberText.text = "" + numHeld;
+            int numHeld = thisItem.numberHeld;
+            itemNumberInventoryText.text = "" + numHeld;
         }
         else
         {
@@ -37,11 +52,11 @@ public class InventorySlot : MonoBehaviour
                 if (!thisItem.unique)
                 {
                     int numHeld = thisItem.numberHeld;
-                    itemNumberText.text = "" + numHeld;
+                    itemNumberInventoryText.text = "" + numHeld;
                 }
                 else
                 {
-                    itemNumberText.text = "";
+                    itemNumberInventoryText.text = "";
                 }
             }
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenBossDoor : MonoBehaviour
 {
     #region Variables
-    private UIManager uIManager;
+    private PlayerUI playerUI;
     private AllDungeonsManager allDungeonsManager;
     private PauseGame pauseGame;
     [SerializeField] private Animator entranceDoorAnim;
@@ -17,7 +17,7 @@ public class OpenBossDoor : MonoBehaviour
     #region Methods
     void Start()
     {
-        uIManager = FindObjectOfType<UIManager>();
+        playerUI = FindObjectOfType<PlayerUI>();
         pauseGame = FindObjectOfType<PauseGame>();
         allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
     }
