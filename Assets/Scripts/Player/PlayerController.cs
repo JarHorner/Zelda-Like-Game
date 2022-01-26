@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private bool isSwimming = false;
     private bool isCarrying = false;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject interactBox;
     [SerializeField] private Animator animator;
     public string startPoint;
     [SerializeField] private  AudioSource swingSound;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private static bool playerExists;
     private bool onConveyor = false;
+    private int movingVertical, movingHorizontal;
     #endregion
 
     #region Unity Methods
@@ -126,6 +128,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isSwimming", false);
         }
 
+        if (isCarrying)
+        {
+            interactBox.SetActive(false);
+        }
+        else 
+        {
+            interactBox.SetActive(true);
+        }
+
         //plays swimming sound if in water and moving, does not if already playing
         if (isSwimming && isMoving)
         {
@@ -139,23 +150,50 @@ public class PlayerController : MonoBehaviour
             swimmingSound.Stop();
         }
 
-        //plays walking sound, does not if already playing
+        //when player has bow, ensures shooting arrows cannot be spammed
+        if (shootCounter > 0f)
+        {
+            shootCounter -= Time.deltaTime;
+        }
+
+        //depending on the direction the player is moving, when moving diagonally, the player faces the same direction.
         if (isMoving)
         {
             if (!walkingSound.isPlaying)
             {
                 walkingSound.Play();
             }
+
+            if (movingHorizontal == 1)
+            {
+                Debug.Log("Here");
+                animator.SetFloat("Horizontal", 1);
+                animator.SetFloat("Vertical", 0);
+            }
+            else if (movingHorizontal == -1)
+            {
+                Debug.Log("Here");
+                animator.SetFloat("Horizontal", -1);
+                animator.SetFloat("Vertical", 0);
+            }
+            else if (movingVertical == 1)
+            {
+                Debug.Log("Here");
+                animator.SetFloat("Horizontal", 0);
+                animator.SetFloat("Vertical", 1);
+            }
+            else if (movingVertical == -1)
+            {
+                Debug.Log("Here");
+                animator.SetFloat("Horizontal", 0);
+                animator.SetFloat("Vertical", -1);
+            }
         }
         else
         {
+            movingVertical = 0;
+            movingHorizontal = 0;
             walkingSound.Stop();
-        }
-
-        //when player has bow, ensures shooting arrows cannot be spammed
-        if (shootCounter > 0f)
-        {
-            shootCounter -= Time.deltaTime;
         }
     }
 
@@ -178,8 +216,7 @@ public class PlayerController : MonoBehaviour
         if (movement != Vector2.zero)
         {
             //sets new directions from the movement and sets bool, to play walking sound
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
+            DetermineFacingDirection();
             isMoving = true;
         } 
         else
@@ -187,6 +224,33 @@ public class PlayerController : MonoBehaviour
             isMoving = false;
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
+    }
+
+    private void DetermineFacingDirection()
+    {
+        var firstKey = Keyboard.current;
+        if (firstKey.upArrowKey.isPressed)
+        {
+            movingVertical = 1;
+            movingHorizontal = 0;
+        }
+        else if (firstKey.downArrowKey.isPressed)
+        {
+            movingVertical = -1;
+            movingHorizontal = 0;
+        }
+        else if (firstKey.leftArrowKey.isPressed)
+        {
+            movingHorizontal = -1;
+            movingVertical = 0;
+        }
+        else if (firstKey.rightArrowKey.isPressed)
+        {
+            movingHorizontal = 1;
+            movingVertical = 0;
+        }
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
     }
 
     private void PlayerAttack(InputAction.CallbackContext context)

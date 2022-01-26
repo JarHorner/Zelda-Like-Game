@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Pot : MonoBehaviour
+public class Shrub : MonoBehaviour
 {
 
     #region Varibles
     [SerializeField] InputActionAsset inputMaster;
     private InputAction interact;
     [SerializeField] private Animator animator;
-    [SerializeField] private AudioSource potBreak;
+    [SerializeField] private AudioSource shrubCut;
     [SerializeField] private RandomLoot loot;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private PolygonCollider2D polyCollider;
@@ -45,9 +45,9 @@ public class Pot : MonoBehaviour
             if (dropTime <= 0)
             {
                 rb.velocity = Vector2.zero;
-                animator.SetTrigger("Break");
+                animator.SetTrigger("Thrown");
                 loot.DropItem();
-                StartCoroutine(RemoveRubble());
+                StartCoroutine(RemoveLeaves());
                 thrown = false;
             }
         }
@@ -57,12 +57,10 @@ public class Pot : MonoBehaviour
     {
         if (pickup && !player.IsCarrying)
         {
-            Debug.Log("Picking up");
             PickUp(context);
         }
         else
         {
-            Debug.Log("Throwing");
             Throw(context);
         }
     }
@@ -123,17 +121,17 @@ public class Pot : MonoBehaviour
         {
             thrown = false;
             rb.velocity = Vector2.zero;
-            animator.SetTrigger("Break");
+            animator.SetTrigger("Thrown");
             loot.DropItem();
-            StartCoroutine(RemoveRubble());
+            StartCoroutine(RemoveLeaves());
         }
         if (other.gameObject.tag == "Enemy")
         {
             rb.velocity = Vector2.zero;
             other.gameObject.GetComponent<EnemyHealthManager>().DamageEnemy(damage, this.transform);
-            animator.SetTrigger("Break");
+            animator.SetTrigger("Thrown");
             loot.DropItem();
-            StartCoroutine(RemoveRubble());
+            StartCoroutine(RemoveLeaves());
         }
     }
 
@@ -142,9 +140,11 @@ public class Pot : MonoBehaviour
     {
         if (other.tag == "Sword")
         {
-            animator.SetTrigger("Break");
+            animator.SetTrigger("Cut");
             loot.DropItem();
-            StartCoroutine(RemoveRubble());
+            shrubCut.Play();
+            sprite.sortingLayerName = "Object";
+            sprite.sortingOrder = 1;
         }
         if (other.gameObject.tag == "InteractBox")
         {
@@ -165,9 +165,9 @@ public class Pot : MonoBehaviour
     }
 
     //Destroys gameobject after 3 seconds
-    private IEnumerator RemoveRubble()
+    private IEnumerator RemoveLeaves()
     {
-        potBreak.Play();
+        shrubCut.Play();
         sprite.sortingLayerName = "Object";
         sprite.sortingOrder = 1;
         interact.performed -= PickupOrThrow;

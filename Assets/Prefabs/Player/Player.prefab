@@ -1328,6 +1328,7 @@ MonoBehaviour:
   inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
   moveSpeed: 6
   rb: {fileID: 6650388066663356520}
+  interactBox: {fileID: 920739806253855233}
   animator: {fileID: 6762088746127464492}
   startPoint: 
   swingSound: {fileID: 2811056802118737538}
