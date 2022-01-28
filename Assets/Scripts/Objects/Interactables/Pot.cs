@@ -21,7 +21,8 @@ public class Pot : MonoBehaviour
     private bool pickup = false;
     private bool thrown = false;
     private float speed = 10f;
-    private float dropTime = 0.55f;
+    private float airTime = 0.4f;
+    private float dropTime = 0.125f;
     #endregion
 
     #region Methods
@@ -41,14 +42,20 @@ public class Pot : MonoBehaviour
         //this ensures the object moves correctly, and breaks when it collides or hits target location.
         if (thrown)
         {
-            dropTime -= Time.deltaTime;
-            if (dropTime <= 0)
+            airTime -= Time.deltaTime;
+            if (airTime <= 0)
             {
-                rb.velocity = Vector2.zero;
-                animator.SetTrigger("Break");
-                loot.DropItem();
-                StartCoroutine(RemoveRubble());
-                thrown = false;
+                dropTime -= Time.deltaTime;
+                rb.gravityScale += 1f;
+                if (dropTime <= 0)
+                {
+                    rb.velocity = Vector2.zero;
+                    rb.gravityScale = 0;
+                    animator.SetTrigger("Break");
+                    loot.DropItem();
+                    StartCoroutine(RemoveRubble());
+                    thrown = false;
+                }
             }
         }
     }
@@ -86,7 +93,6 @@ public class Pot : MonoBehaviour
     //when able to be thrown, player will throw object.
     private void Throw(InputAction.CallbackContext context)
     {
-        this.transform.position =  new Vector3(player.transform.position.x, player.transform.position.y, 0);
         float temp = Mathf.Atan2(player.Animator.GetFloat("Vertical"), player.Animator.GetFloat("Horizontal")) * Mathf.Rad2Deg;
         if (temp == 0)
         {
@@ -122,6 +128,7 @@ public class Pot : MonoBehaviour
         if (other.gameObject.tag == "Object" || other.gameObject.tag == "MovableBlock" || other.gameObject.tag == "Walls")
         {
             thrown = false;
+            rb.gravityScale = 0;
             rb.velocity = Vector2.zero;
             animator.SetTrigger("Break");
             loot.DropItem();
@@ -129,6 +136,7 @@ public class Pot : MonoBehaviour
         }
         if (other.gameObject.tag == "Enemy")
         {
+            rb.gravityScale = 0;
             rb.velocity = Vector2.zero;
             other.gameObject.GetComponent<EnemyHealthManager>().DamageEnemy(damage, this.transform);
             animator.SetTrigger("Break");

@@ -1,0 +1,597 @@
+fileFormatVersion: 2
+guid: 4ddc696a88500b0459506e8eba174186
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7008006459601103590
+    second: Alive_Rock_Sheet_0
+  - first:
+      213: 831275593679372869
+    second: Alive_Rock_Sheet_1
+  - first:
+      213: 2075072359716557858
+    second: Alive_Rock_Sheet_2
+  - first:
+      213: 1044116416312171798
+    second: Alive_Rock_Sheet_3
+  - first:
+      213: -5141070569288274201
+    second: Alive_Rock_Sheet_4
+  - first:
+      213: -5091164913103837356
+    second: Alive_Rock_Sheet_5
+  - first:
+      213: -1315922010681735778
+    second: Alive_Rock_Sheet_6
+  - first:
+      213: -7700205513921930421
+    second: Alive_Rock_Sheet_7
+  - first:
+      213: 6508984432206139002
+    second: Alive_Rock_Sheet_8
+  - first:
+      213: -2895836633255293070
+    second: Alive_Rock_Sheet_9
+  - first:
+      213: 7548240849956761200
+    second: Alive_Rock_Sheet_10
+  - first:
+      213: 3934778685522098751
+    second: Alive_Rock_Sheet_11
+  - first:
+      213: 6331472013189073887
+    second: Alive_Rock_Sheet_12
+  - first:
+      213: -7058807257045107316
+    second: Alive_Rock_Sheet_13
+  - first:
+      213: -446752629651904676
+    second: Alive_Rock_Sheet_14
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 137
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -5}
+        - {x: -3, y: -5}
+        - {x: -7, y: -4}
+        - {x: -7, y: -2}
+        - {x: -6, y: 1}
+        - {x: -4, y: 4}
+        - {x: 5, y: 4}
+        - {x: 7, y: 1}
+        - {x: 7, y: -3}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1555d7414f8ebe90800000000000000
+      internalID: -7008006459601103590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 137
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -5}
+        - {x: -3, y: -5}
+        - {x: -7, y: -4}
+        - {x: -7, y: -2}
+        - {x: -6, y: 1}
+        - {x: -4, y: 4}
+        - {x: 5, y: 4}
+        - {x: 7, y: 1}
+        - {x: 7, y: -3}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54206b78fb8498b00800000000000000
+      internalID: 831275593679372869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 136
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: -4.5}
+        - {x: -7, y: -3.5}
+        - {x: -7, y: -1.5}
+        - {x: -6, y: 1.5}
+        - {x: -4, y: 4.5}
+        - {x: 5, y: 4.5}
+        - {x: 7, y: 1.5}
+        - {x: 7, y: -2.5}
+        - {x: 3, y: -4.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224132421532ccc10800000000000000
+      internalID: 2075072359716557858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 103
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: -3.5}
+        - {x: -7, y: -2.5}
+        - {x: -7, y: -0.5}
+        - {x: -6, y: 2.5}
+        - {x: -4, y: 5.5}
+        - {x: 5, y: 5.5}
+        - {x: 7, y: 2.5}
+        - {x: 7, y: -1.5}
+        - {x: 3, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61dd07249527d7e00800000000000000
+      internalID: 1044116416312171798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 102
+        width: 16
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 3, y: -3.5}
+        - {x: -3, y: -3.5}
+        - {x: -7, y: -2.5}
+        - {x: -7, y: -0.5}
+        - {x: -6, y: 2.5}
+        - {x: -4, y: 5.5}
+        - {x: 5, y: 5.5}
+        - {x: 7, y: 2.5}
+        - {x: 7, y: -1.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee6b584e8f37a8b0800000000000000
+      internalID: -5141070569288274201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 102
+        width: 16
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: -3.5}
+        - {x: -7, y: -2.5}
+        - {x: -7, y: -0.5}
+        - {x: -6, y: 2.5}
+        - {x: -4, y: 5.5}
+        - {x: 5, y: 5.5}
+        - {x: 7, y: 2.5}
+        - {x: 7, y: -1.5}
+        - {x: 3, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45763855c7c8859b0800000000000000
+      internalID: -5091164913103837356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 69
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: -3.5}
+        - {x: -5.5, y: -1.5}
+        - {x: -5.5, y: 1.5}
+        - {x: -3.5, y: 5.5}
+        - {x: 3.5, y: 5.5}
+        - {x: 5.5, y: 2.5}
+        - {x: 5.5, y: -0.5}
+        - {x: 3.5, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95823147e7ecbde0800000000000000
+      internalID: -1315922010681735778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 68
+        width: 13
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: -3.5}
+        - {x: -5.5, y: -1.5}
+        - {x: -5.5, y: 1.5}
+        - {x: -3.5, y: 5.5}
+        - {x: 3.5, y: 5.5}
+        - {x: 5.5, y: 2.5}
+        - {x: 5.5, y: -0.5}
+        - {x: 3.5, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4bdd2de1ef532590800000000000000
+      internalID: -7700205513921930421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 69
+        width: 13
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: -4}
+        - {x: -5.5, y: -2}
+        - {x: -5.5, y: 1}
+        - {x: -3.5, y: 5}
+        - {x: 3.5, y: 5}
+        - {x: 5.5, y: 2}
+        - {x: 5.5, y: -1}
+        - {x: 2.5, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7ec132eade845a50800000000000000
+      internalID: 6508984432206139002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 38
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -2.5}
+        - {x: 3, y: -3.5}
+        - {x: -3, y: -3.5}
+        - {x: -7, y: -1.5}
+        - {x: -7, y: 2.5}
+        - {x: -5, y: 5.5}
+        - {x: 4, y: 5.5}
+        - {x: 6, y: 2.5}
+        - {x: 7, y: -0.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27f4143ccebefc7d0800000000000000
+      internalID: -2895836633255293070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 37
+        width: 16
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7, y: -2.5}
+        - {x: 3, y: -3.5}
+        - {x: -3, y: -3.5}
+        - {x: -7, y: -1.5}
+        - {x: -7, y: 2.5}
+        - {x: -5, y: 5.5}
+        - {x: 4, y: 5.5}
+        - {x: 6, y: 2.5}
+        - {x: 7, y: -0.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ee3cc8f0db0c860800000000000000
+      internalID: 7548240849956761200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 37
+        width: 16
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: -3.5}
+        - {x: -7, y: -1.5}
+        - {x: -7, y: 2.5}
+        - {x: -5, y: 5.5}
+        - {x: 4, y: 5.5}
+        - {x: 6, y: 2.5}
+        - {x: 7, y: -0.5}
+        - {x: 7, y: -2.5}
+        - {x: 3, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ab25cfd542b9630800000000000000
+      internalID: 3934778685522098751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 5
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3.5, y: -3.5}
+        - {x: -5.5, y: -0.5}
+        - {x: -5.5, y: 2.5}
+        - {x: -3.5, y: 5.5}
+        - {x: 3.5, y: 5.5}
+        - {x: 5.5, y: 1.5}
+        - {x: 5.5, y: -1.5}
+        - {x: 2.5, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb467b1048edd750800000000000000
+      internalID: 6331472013189073887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 4
+        width: 13
+        height: 15
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3.5, y: -3.5}
+        - {x: -5.5, y: -0.5}
+        - {x: -5.5, y: 2.5}
+        - {x: -3.5, y: 5.5}
+        - {x: 3.5, y: 5.5}
+        - {x: 5.5, y: 1.5}
+        - {x: 5.5, y: -1.5}
+        - {x: 2.5, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d70e9e2341a0e90800000000000000
+      internalID: -7058807257045107316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Alive_Rock_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 5
+        width: 13
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: -4}
+        - {x: -5.5, y: -1}
+        - {x: -5.5, y: 2}
+        - {x: -3.5, y: 5}
+        - {x: 3.5, y: 5}
+        - {x: 5.5, y: 1}
+        - {x: 5.5, y: -2}
+        - {x: 2.5, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57602fa9d0dcc9f0800000000000000
+      internalID: -446752629651904676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6258feb6149196544974c62bea8969b5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

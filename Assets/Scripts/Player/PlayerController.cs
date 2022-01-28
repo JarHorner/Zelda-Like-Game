@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
     private static bool playerExists;
     private bool onConveyor = false;
+    private string firstKey = "";
     private int movingVertical, movingHorizontal;
     #endregion
 
@@ -156,44 +157,45 @@ public class PlayerController : MonoBehaviour
             shootCounter -= Time.deltaTime;
         }
 
-        //depending on the direction the player is moving, when moving diagonally, the player faces the same direction.
         if (isMoving)
         {
             if (!walkingSound.isPlaying)
             {
                 walkingSound.Play();
             }
+            else
+            {
+                walkingSound.Stop();
+            }
+        }
 
-            if (movingHorizontal == 1)
-            {
-                Debug.Log("Here");
-                animator.SetFloat("Horizontal", 1);
-                animator.SetFloat("Vertical", 0);
-            }
-            else if (movingHorizontal == -1)
-            {
-                Debug.Log("Here");
-                animator.SetFloat("Horizontal", -1);
-                animator.SetFloat("Vertical", 0);
-            }
-            else if (movingVertical == 1)
-            {
-                Debug.Log("Here");
-                animator.SetFloat("Horizontal", 0);
-                animator.SetFloat("Vertical", 1);
-            }
-            else if (movingVertical == -1)
-            {
-                Debug.Log("Here");
-                animator.SetFloat("Horizontal", 0);
-                animator.SetFloat("Vertical", -1);
-            }
+        //depending on the direction the player is moving, when moving diagonally, the player faces the same direction.
+        if (movingHorizontal == 1)
+        {
+            animator.SetFloat("Horizontal", 1);
+            animator.SetFloat("Vertical", 0);
+            Debug.Log(firstKey);
+        }
+        else if (movingHorizontal == -1)
+        {
+            animator.SetFloat("Horizontal", -1);
+            animator.SetFloat("Vertical", 0);
+             Debug.Log(firstKey);
+        }
+        else if (movingVertical == 1)
+        {
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 1);
+        }
+        else if (movingVertical == -1)
+        {
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", -1);
         }
         else
         {
             movingVertical = 0;
             movingHorizontal = 0;
-            walkingSound.Stop();
         }
     }
 
@@ -226,28 +228,87 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
+    private void CheckFirstKey(string direction)
+    {
+        bool keyStillPressed = false;
+        switch (direction)
+        {
+            case "up":
+                Debug.Log("up arrow first key");
+                keyStillPressed = Keyboard.current.upArrowKey.isPressed;
+                break;
+            case "down":
+                Debug.Log("down arrow first key");
+                keyStillPressed = Keyboard.current.downArrowKey.isPressed;
+                break;
+            case "left":
+                Debug.Log("left arrow first key");
+                keyStillPressed = Keyboard.current.leftArrowKey.isPressed;
+                break;
+            case "right":
+                Debug.Log("right arrow first key");
+                keyStillPressed =  Keyboard.current.rightArrowKey.isPressed;
+                break;
+        }
+        if (!keyStillPressed)
+        {
+            firstKey = "";
+        }
+    }
+
     private void DetermineFacingDirection()
     {
-        var firstKey = Keyboard.current;
-        if (firstKey.upArrowKey.isPressed)
+        var pressedKey = Keyboard.current;
+        CheckFirstKey(firstKey);
+        if (firstKey == "")
         {
-            movingVertical = 1;
-            movingHorizontal = 0;
+            if (pressedKey.upArrowKey.isPressed)
+            {
+                movingVertical = 1;
+                movingHorizontal = 0;
+                firstKey = "up";
+            }
+            else if (pressedKey.downArrowKey.isPressed)
+            {
+                movingVertical = -1;
+                movingHorizontal = 0;
+                firstKey = "down";
+            }
+            else if (pressedKey.leftArrowKey.isPressed)
+            {
+                movingHorizontal = -1;
+                movingVertical = 0;
+                firstKey = "left";
+            }
+            else if (pressedKey.rightArrowKey.isPressed)
+            {
+                movingHorizontal = 1;
+                movingVertical = 0;
+                firstKey = "right";
+            }
         }
-        else if (firstKey.downArrowKey.isPressed)
+        else
         {
-            movingVertical = -1;
-            movingHorizontal = 0;
-        }
-        else if (firstKey.leftArrowKey.isPressed)
-        {
-            movingHorizontal = -1;
-            movingVertical = 0;
-        }
-        else if (firstKey.rightArrowKey.isPressed)
-        {
-            movingHorizontal = 1;
-            movingVertical = 0;
+            if ((pressedKey.rightArrowKey.isPressed && firstKey == "up") || (pressedKey.leftArrowKey.isPressed && firstKey == "up"))
+            {
+                movingVertical = 1;
+                movingHorizontal = 0;
+            }
+            else if ((pressedKey.rightArrowKey.isPressed && firstKey == "down") || (pressedKey.leftArrowKey.isPressed && firstKey == "down"))
+            {
+                movingVertical = -1;
+                movingHorizontal = 0;
+            }
+            else if ((pressedKey.upArrowKey.isPressed && firstKey == "left") || (pressedKey.downArrowKey.isPressed && firstKey == "left"))
+            {
+                movingHorizontal = -1;
+                movingVertical = 0;
+            }
+            else if ((pressedKey.upArrowKey.isPressed && firstKey == "right") || (pressedKey.downArrowKey.isPressed && firstKey == "right"))
+            {
+                movingHorizontal = 1;
+                movingVertical = 0;
+            }
         }
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);

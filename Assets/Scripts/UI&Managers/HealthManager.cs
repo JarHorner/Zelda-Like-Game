@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour
     #region Variables
     [SerializeField] private int currHealth;
     [SerializeField] private int maxHealth;
-    private float waitToLoad = 1.6f;
+    private float waitToLoad = 1.8f;
     private bool reloading;
     private Animator animator;
     private bool animBeforeDeath;
@@ -62,7 +62,7 @@ public class HealthManager : MonoBehaviour
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 player.currentState = PlayerState.walk;
                 reloading = false;
-                waitToLoad = 2f;
+                waitToLoad = 1.8f;
                 Debug.Log("Loaded!");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 revive = true;

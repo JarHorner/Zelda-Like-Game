@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    private bool exists = false;
+    private static bool exists = false;
     
     void Awake() 
     {
