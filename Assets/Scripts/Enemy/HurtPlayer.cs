@@ -9,6 +9,7 @@ public class HurtPlayer : MonoBehaviour
 
     #region Variables
         [SerializeField] private int damageDealt;
+        [SerializeField] private Knockback knockback;
         private float waitToHurt = 1.5f;
         private bool isTouching;
         //in code, eventually set to 1f.
@@ -39,7 +40,7 @@ public class HurtPlayer : MonoBehaviour
     }
 
     //when collided with player, HurtPlayer function is called (see function in HealthManager script)
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -47,6 +48,7 @@ public class HurtPlayer : MonoBehaviour
             if (waitToHit <= 0)
             {
                 Debug.Log("Hit");
+                knockback.PushBack(this.transform, other.transform.GetComponent<Rigidbody2D>());
                 playerHealthManager.DamagePlayer(damageDealt);
 
                 waitToHit = 1f;
@@ -56,7 +58,7 @@ public class HurtPlayer : MonoBehaviour
     }
 
     //maintains consistant damage when pressed against player
-    void OnCollisionStay2D(Collision2D other)
+    void OntriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -65,7 +67,7 @@ public class HurtPlayer : MonoBehaviour
     }
 
     //needed to reset the consistant damage timer, so it always remains the same
-    void OnCollisionExit2D(Collision2D other)
+    void OnCtriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {

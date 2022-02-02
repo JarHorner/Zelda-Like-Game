@@ -123,21 +123,24 @@ public class Shrub : MonoBehaviour
     //drops the obejct and breaks when in contact with other object
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        if (other.gameObject.tag == "Object" || other.gameObject.tag == "MovableBlock" || other.gameObject.tag == "Walls")
+        if (thrown)
         {
-            thrown = false;
-            rb.velocity = Vector2.zero;
-            animator.SetTrigger("Thrown");
-            loot.DropItem();
-            StartCoroutine(RemoveLeaves());
-        }
-        if (other.gameObject.tag == "Enemy")
-        {
-            rb.velocity = Vector2.zero;
-            other.gameObject.GetComponent<EnemyHealthManager>().DamageEnemy(damage, this.transform);
-            animator.SetTrigger("Thrown");
-            loot.DropItem();
-            StartCoroutine(RemoveLeaves());
+            if (other.gameObject.tag == "Object" || other.gameObject.tag == "MovableBlock" || other.gameObject.tag == "Walls")
+            {
+                thrown = false;
+                rb.velocity = Vector2.zero;
+                animator.SetTrigger("Thrown");
+                loot.DropItem();
+                StartCoroutine(RemoveLeaves());
+            }
+            if (other.gameObject.tag == "Enemy")
+            {
+                rb.velocity = Vector2.zero;
+                other.gameObject.GetComponent<EnemyHealthManager>().DamageEnemy(damage, this.transform);
+                animator.SetTrigger("Thrown");
+                loot.DropItem();
+                StartCoroutine(RemoveLeaves());
+            }
         }
     }
 

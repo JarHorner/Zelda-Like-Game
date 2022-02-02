@@ -125,23 +125,26 @@ public class Pot : MonoBehaviour
     //drops the obejct and breaks when in contact with other object
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        if (other.gameObject.tag == "Object" || other.gameObject.tag == "MovableBlock" || other.gameObject.tag == "Walls")
+        if (thrown)
         {
-            thrown = false;
-            rb.gravityScale = 0;
-            rb.velocity = Vector2.zero;
-            animator.SetTrigger("Break");
-            loot.DropItem();
-            StartCoroutine(RemoveRubble());
-        }
-        if (other.gameObject.tag == "Enemy")
-        {
-            rb.gravityScale = 0;
-            rb.velocity = Vector2.zero;
-            other.gameObject.GetComponent<EnemyHealthManager>().DamageEnemy(damage, this.transform);
-            animator.SetTrigger("Break");
-            loot.DropItem();
-            StartCoroutine(RemoveRubble());
+            if (other.gameObject.tag == "Object" || other.gameObject.tag == "MovableBlock" || other.gameObject.tag == "Walls")
+            {
+                thrown = false;
+                rb.gravityScale = 0;
+                rb.velocity = Vector2.zero;
+                animator.SetTrigger("Break");
+                loot.DropItem();
+                StartCoroutine(RemoveRubble());
+            }
+            if (other.gameObject.tag == "Enemy")
+            {
+                rb.gravityScale = 0;
+                rb.velocity = Vector2.zero;
+                other.gameObject.GetComponent<EnemyHealthManager>().DamageEnemy(damage, this.transform);
+                animator.SetTrigger("Break");
+                loot.DropItem();
+                StartCoroutine(RemoveRubble());
+            }
         }
     }
 

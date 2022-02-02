@@ -9,6 +9,7 @@ public class Sword : MonoBehaviour
     //variable can be changed.
     [SerializeField] private int damageDealt = 1;
     [SerializeField] ParticleSystem damageBurst;
+    [SerializeField] Knockback knockback;
     #endregion
 
     #region Unity Methods
@@ -23,15 +24,16 @@ public class Sword : MonoBehaviour
             {
                 if (weakness == "Sword")
                 {
-                    //this.gameObject.SetActive(false);
                     //spawns particles when hitting enemy
                     ParticleSystem partSys = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
                     partSys.Play(true);
                     if (other.gameObject.tag == "Enemy")
                     {
                         eHealthMan.DamageEnemy(damageDealt, this.transform);
-                        Debug.Log("Push Enemy");
-                        PushBack(this.transform, other.GetComponent<Rigidbody2D>(), eHealthMan);
+                        if (other.gameObject.activeSelf == true)
+                        {
+                            knockback.PushBack(this.transform, other.GetComponent<Rigidbody2D>());
+                        }
                     }
                     else
                     {
@@ -42,24 +44,6 @@ public class Sword : MonoBehaviour
             }
         }
     }
-
-    private void PushBack(Transform weaponTrans, Rigidbody2D enemyRb, EnemyHealthManager healthManager)
-    {
-        Debug.Log("Pushed");
-        Vector2 difference = enemyRb.transform.position - weaponTrans.position;
-        difference = difference.normalized * 2f;
-        enemyRb.AddForce(difference, ForceMode2D.Impulse);
-        StartCoroutine(KnockCo(enemyRb));
-    }
-
-    private IEnumerator KnockCo(Rigidbody2D enemyRb)
-    {
-        Debug.Log("Start");
-        yield return new WaitForSeconds(0.2f);
-        Debug.Log("Velocity to Zero");
-        enemyRb.velocity = Vector2.zero;
-    }
-
 
     #endregion
 }

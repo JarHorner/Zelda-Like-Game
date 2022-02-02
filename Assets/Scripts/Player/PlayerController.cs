@@ -13,6 +13,7 @@ public enum PlayerState
     attack,
     interact,
     dead,
+    stagger,
     menu
 }
 
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
     private bool isSwimming = false;
     private bool isCarrying = false;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private CapsuleCollider2D hitBox;
+    [SerializeField] private CapsuleCollider2D physicBox;
     [SerializeField] private GameObject interactBox;
     [SerializeField] private Animator animator;
     public string startPoint;
@@ -78,6 +81,8 @@ public class PlayerController : MonoBehaviour
             Destroy (gameObject);
         }
         currentState = PlayerState.walk;
+        physicBox.enabled = true;
+        hitBox.enabled = true;
         animator.SetFloat("Horizontal", 0);
         animator.SetFloat("Vertical", -1);
     }
@@ -117,13 +122,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (move.triggered)
+        if (move.triggered && currentState != PlayerState.stagger)
         {
             currentState = PlayerState.walk;
         }
         if (currentState == PlayerState.dead)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            physicBox.enabled = false;
+            hitBox.enabled = false;
             //if player was swimming when died, this variable is true and when spawns again, wont be swimming.
             animator.SetBool("isDead", true);
             animator.SetBool("isSwimming", false);
@@ -163,10 +170,10 @@ public class PlayerController : MonoBehaviour
             {
                 walkingSound.Play();
             }
-            else
-            {
-                walkingSound.Stop();
-            }
+        }
+        else
+        {
+            walkingSound.Stop();
         }
 
         //depending on the direction the player is moving, when moving diagonally, the player faces the same direction.
@@ -174,13 +181,11 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Horizontal", 1);
             animator.SetFloat("Vertical", 0);
-            Debug.Log(firstKey);
         }
         else if (movingHorizontal == -1)
         {
             animator.SetFloat("Horizontal", -1);
             animator.SetFloat("Vertical", 0);
-             Debug.Log(firstKey);
         }
         else if (movingVertical == 1)
         {
@@ -234,19 +239,15 @@ public class PlayerController : MonoBehaviour
         switch (direction)
         {
             case "up":
-                Debug.Log("up arrow first key");
                 keyStillPressed = Keyboard.current.upArrowKey.isPressed;
                 break;
             case "down":
-                Debug.Log("down arrow first key");
                 keyStillPressed = Keyboard.current.downArrowKey.isPressed;
                 break;
             case "left":
-                Debug.Log("left arrow first key");
                 keyStillPressed = Keyboard.current.leftArrowKey.isPressed;
                 break;
             case "right":
-                Debug.Log("right arrow first key");
                 keyStillPressed =  Keyboard.current.rightArrowKey.isPressed;
                 break;
         }
@@ -333,6 +334,19 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("isAttacking", false);
         currentState = PlayerState.walk;
+    }
+
+    public void Knock(float knockTime)
+    {
+        StartCoroutine(KnockCo(knockTime));
+    }
+
+    private IEnumerator KnockCo(float knockTime)
+    {
+        yield return new WaitForSeconds(knockTime);
+        rb.velocity = Vector2.zero;
+        currentState = PlayerState.walk;
+        rb.velocity = Vector2.zero;
     }
 
     //enables regular movement when colliding with OutOfWater trigger when leaving water.
