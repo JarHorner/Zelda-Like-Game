@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6762088745811239400}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
 --- !u!60 &6967913665545593696
 PolygonCollider2D:
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7bdd855d966fd48be75558a3cc5570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
   knockback: {fileID: 3562395258134332214}
 --- !u!114 &3562395258134332214
@@ -124,7 +124,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6762088745811239400}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7202388643470119450
 BoxCollider2D:
@@ -152,6 +152,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!1 &1555967091283225427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8110973617780059106}
+  - component: {fileID: 2516116976837953461}
+  m_Layer: 9
+  m_Name: HitBox
+  m_TagString: HitBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8110973617780059106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555967091283225427}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6762088745811239400}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2516116976837953461
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555967091283225427}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.07}
+  m_Size: {x: 0.34, y: 0.38}
+  m_Direction: 0
 --- !u!1 &2193872758881566813
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6762088745811239400}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!60 &2484127984272593159
 PolygonCollider2D:
@@ -233,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7bdd855d966fd48be75558a3cc5570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
   knockback: {fileID: 6923673597485397315}
 --- !u!114 &6923673597485397315
@@ -266,7 +313,6 @@ GameObject:
   - component: {fileID: 8086811746960731516}
   - component: {fileID: 7202337974094397423}
   - component: {fileID: 354280505460960099}
-  - component: {fileID: 6488107386121981071}
   - component: {fileID: 2238781653561761445}
   m_Layer: 9
   m_Name: Player
@@ -286,6 +332,7 @@ Transform:
   m_LocalPosition: {x: -40, y: 6, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
+  - {fileID: 8110973617780059106}
   - {fileID: 6365726884780474785}
   - {fileID: 1089311200334202074}
   - {fileID: 3370134158400383620}
@@ -383,7 +430,7 @@ MonoBehaviour:
   inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
   moveSpeed: 6
   rb: {fileID: 6650388066663356520}
-  hitBox: {fileID: 6488107386121981071}
+  hitBox: {fileID: 2516116976837953461}
   physicBox: {fileID: 2238781653561761445}
   interactBox: {fileID: 920739806253855233}
   animator: {fileID: 6762088746127464492}
@@ -817,22 +864,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!70 &6488107386121981071
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4076203359333438738}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.07}
-  m_Size: {x: 0.34, y: 0.38}
-  m_Direction: 0
 --- !u!70 &2238781653561761445
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -880,7 +911,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6762088745811239400}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: -90}
 --- !u!60 &8688104062865240750
 PolygonCollider2D:
@@ -930,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7bdd855d966fd48be75558a3cc5570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
   knockback: {fileID: 6606688854766352333}
 --- !u!114 &6606688854766352333
@@ -976,7 +1007,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6762088745811239400}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &498917594299184255
 PolygonCollider2D:
@@ -1028,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7bdd855d966fd48be75558a3cc5570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
   knockback: {fileID: 4884386104447323189}
 --- !u!114 &4884386104447323189
@@ -1072,7 +1103,7 @@ Transform:
   m_Children:
   - {fileID: 5523758570651708810}
   m_Father: {fileID: 6762088745811239400}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7421361003073326730
 PrefabInstance:

@@ -9,7 +9,7 @@ public class AreaTransitions : MonoBehaviour
 
     #region Variables
     private CameraController cam;
-    private GameObject[] enemies;
+    private Enemy[] enemies;
     private GameManager gameManager;
     private PlayerController player;
     [SerializeField] private Vector2 newMinPosition;
@@ -28,7 +28,7 @@ public class AreaTransitions : MonoBehaviour
     void Start()
     {
         cam = Camera.main.GetComponent<CameraController>();
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies = GameObject.FindObjectsOfType<Enemy>();
         gameManager = FindObjectOfType<GameManager>();
         player = FindObjectOfType<PlayerController>();
         locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
@@ -96,13 +96,13 @@ public class AreaTransitions : MonoBehaviour
                 //resets enemies that are out of place
                 if (enemies != null)
                 {
-                    foreach (GameObject go in enemies)
+                    foreach (Enemy enemy in enemies)
                     {
-                        EnemyHealthManager eHealthMan = go.gameObject.GetComponent<EnemyHealthManager>();
+                        EnemyHealthManager eHealthMan = enemy.gameObject.GetComponent<EnemyHealthManager>();
                         Vector3 cords = eHealthMan.StartingCoordinate;
-                        go.transform.position = cords;
-                        go.gameObject.SetActive(true);
-                        eHealthMan.CurrentHealth = eHealthMan.MaxHealth;
+                        enemy.transform.position = cords;
+                        enemy.gameObject.SetActive(true);
+                        enemy.Health = enemy.MaxHealth;
                     }
                 }
             }

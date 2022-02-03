@@ -7,7 +7,7 @@ public class Sword : MonoBehaviour
 
     #region Variables
     //variable can be changed.
-    [SerializeField] private int damageDealt = 1;
+    [SerializeField] private FloatValue damageDealt;
     [SerializeField] ParticleSystem damageBurst;
     [SerializeField] Knockback knockback;
     #endregion
@@ -29,7 +29,7 @@ public class Sword : MonoBehaviour
                     partSys.Play(true);
                     if (other.gameObject.tag == "Enemy")
                     {
-                        eHealthMan.DamageEnemy(damageDealt, this.transform);
+                        eHealthMan.DamageEnemy(damageDealt.InitalValue, this.transform);
                         if (other.gameObject.activeSelf == true)
                         {
                             knockback.PushBack(this.transform, other.GetComponent<Rigidbody2D>());
@@ -37,7 +37,7 @@ public class Sword : MonoBehaviour
                     }
                     else
                     {
-                        eHealthMan.DamageBoss(damageDealt, this.transform);
+                        eHealthMan.DamageBoss(damageDealt.InitalValue, this.transform);
                     }
                     break;
                 }

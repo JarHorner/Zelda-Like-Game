@@ -102,7 +102,7 @@ MonoBehaviour:
   rb: {fileID: 3585022105265313119}
   animator: {fileID: 4331411741265291838}
   hit: {fileID: -2518391042608982266}
-  damageDealt: 1
+  damageDealt: {fileID: 11400000, guid: a67caa4a13e606a4ba7e1037104bce10, type: 2}
   speed: 8
   lifespan: 1.5
 --- !u!50 &3585022105265313119

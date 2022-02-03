@@ -81,7 +81,7 @@ public class RockEnemy : Enemy
             animator.SetFloat("Horizontal", (target.position.x - transform.position.x));
             animator.SetFloat("Vertical", (target.position.y - transform.position.y));
             //walks enemy to target
-            Vector3 temp = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+            Vector3 temp = Vector3.MoveTowards(transform.position, target.transform.position, MoveSpeed * Time.deltaTime);
             rb.MovePosition(temp);
             ChangeState(EnemyState.walk);
             AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
@@ -107,7 +107,7 @@ public class RockEnemy : Enemy
         animator.SetFloat("Horizontal", (spawnLocation.position.x - transform.position.x));
         animator.SetFloat("Vertical", (spawnLocation.position.y - transform.position.y));
         //walks enemy back
-        Vector3 temp = Vector3.MoveTowards(transform.position, spawnLocation.transform.position, moveSpeed * Time.deltaTime);
+        Vector3 temp = Vector3.MoveTowards(transform.position, spawnLocation.transform.position, MoveSpeed * Time.deltaTime);
         rb.MovePosition(temp);
         ChangeState(EnemyState.walk);
     }

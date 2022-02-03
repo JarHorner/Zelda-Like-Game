@@ -671,8 +671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea26b6797cb757045872d110b3403d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currHealth: 10
-  maxHealth: 10
   animator: {fileID: 2039646427}
   flashLength: 0.5
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
@@ -1561,7 +1559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c75f19ffb0f49d4fa8410f24014d165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  knockback: {fileID: 0}
 --- !u!61 &1360068284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11017,7 +11015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c75f19ffb0f49d4fa8410f24014d165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  knockback: {fileID: 0}
 --- !u!114 &2039646432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11213,7 +11211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c75f19ffb0f49d4fa8410f24014d165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 0
+  knockback: {fileID: 0}
 --- !u!61 &2133249358
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19464,6 +19462,14 @@ PrefabInstance:
     - target: {fileID: 6568557090778617220, guid: a5561b250a4ac0a46be2bbb2b3a7edf7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721370247193985428, guid: a5561b250a4ac0a46be2bbb2b3a7edf7, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721370247193985428, guid: a5561b250a4ac0a46be2bbb2b3a7edf7, type: 3}
+      propertyPath: m_Offset.y
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5561b250a4ac0a46be2bbb2b3a7edf7, type: 3}

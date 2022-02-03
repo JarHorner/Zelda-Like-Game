@@ -16,7 +16,7 @@ public class ArrowTrap : MonoBehaviour
 
     //spawns arrow when player enters firing range
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Player" && other.GetType() != typeof(BoxCollider2D))
+        if (other.tag == "Player")
         {
             Instantiate(arrow, target.transform);
             shootAgain = true;
@@ -46,5 +46,6 @@ public class ArrowTrap : MonoBehaviour
             shootAgainTime = 1f;
         }
     }
+    
     #endregion
 }

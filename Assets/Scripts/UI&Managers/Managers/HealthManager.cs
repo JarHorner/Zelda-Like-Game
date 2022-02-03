@@ -37,9 +37,6 @@ public class HealthManager : MonoBehaviour
         playerSprite = this.gameObject.GetComponent<SpriteRenderer>();
         player = this.gameObject.GetComponent<PlayerController>();
         soundManager = FindObjectOfType<SoundManager>().GetComponent<SoundManager>();
-        //used when save button is working
-        if (PlayerPrefs.GetInt("PlayerCurrHp") != 0)
-            currHealth = PlayerPrefs.GetInt("PlayerCurrHp");
     }
 
     void Update()
@@ -87,7 +84,7 @@ public class HealthManager : MonoBehaviour
         //positions damage text, and creates the popup
         Vector3 popupLocation = new Vector3(this.transform.position.x, this.transform.position.y + 1, 0);
         damagePopup.Create(popupLocation, damageNum);
-        currHealth -= damageNum;
+        //currHealth -= damageNum;
         flashActive = true;
         flashCounter = flashLength;
 

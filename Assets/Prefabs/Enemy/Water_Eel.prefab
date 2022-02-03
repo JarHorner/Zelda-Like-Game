@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 9202259980422764049}
   - component: {fileID: -903546461987713832}
   - component: {fileID: -2047292962569818985}
+  - component: {fileID: 7211540605601444114}
   m_Layer: 4
   m_Name: Water_Eel
   m_TagString: Enemy
@@ -283,6 +284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66560fb90ba8214e925aba3cd5ab628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  maxHealth: {fileID: 11400000, guid: 798e7b0c282df8a4e8d5f1abadfb726f, type: 2}
+  baseAttack: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
+  moveSpeed: 0
   spawnLocation: {fileID: 7680680545216337528}
   bulletPrefab: {fileID: 1498348727028264967, guid: 84a9bd3eae06d3142a74331b2319dd86, type: 3}
   movementSound: {fileID: 6364700643000213208}
@@ -301,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c75f19ffb0f49d4fa8410f24014d165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  knockback: {fileID: 7211540605601444114}
 --- !u!114 &3577476947126792600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,8 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea26b6797cb757045872d110b3403d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currHealth: 3
-  maxHealth: 3
   animator: {fileID: 5776612138868295505}
   flashLength: 0.5
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
@@ -554,3 +557,15 @@ MonoBehaviour:
   - {fileID: 3471238382761467840, guid: a919c81a1575ec044b0722e3fff36f16, type: 3}
   - {fileID: 9133062843454066787, guid: 02836c2e681833743be467db74b32439, type: 3}
   table: 210000001c0000001b0000000a00000002000000
+--- !u!114 &7211540605601444114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957370982514884826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6de82cbc53013d4eaf980b8daf16853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

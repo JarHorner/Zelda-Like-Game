@@ -8,8 +8,8 @@ public class HurtPlayer : MonoBehaviour
 {
 
     #region Variables
-        [SerializeField] private int damageDealt;
         [SerializeField] private Knockback knockback;
+        private Enemy enemy;
         private float waitToHurt = 1.5f;
         private bool isTouching;
         //in code, eventually set to 1f.
@@ -23,6 +23,7 @@ public class HurtPlayer : MonoBehaviour
     void Start()
     {
         playerHealthManager = FindObjectOfType<HealthManager>();
+        enemy = GetComponent<Enemy>();
     }
 
     void Update()
@@ -32,11 +33,12 @@ public class HurtPlayer : MonoBehaviour
             waitToHurt -= Time.deltaTime;
             if (waitToHurt <= 0)
             {
-                playerHealthManager.DamagePlayer(damageDealt);
+                playerHealthManager.DamagePlayer(enemy.BaseAttack);
                 waitToHurt = 1.5f;
             }
         }
-        waitToHit -= Time.deltaTime;
+        if (waitToHit > 0)
+            waitToHit -= Time.deltaTime;
     }
 
     //when collided with player, HurtPlayer function is called (see function in HealthManager script)
@@ -48,8 +50,8 @@ public class HurtPlayer : MonoBehaviour
             if (waitToHit <= 0)
             {
                 Debug.Log("Hit");
-                knockback.PushBack(this.transform, other.transform.GetComponent<Rigidbody2D>());
-                playerHealthManager.DamagePlayer(damageDealt);
+                knockback.PushBack(this.transform, other.transform.parent.GetComponent<Rigidbody2D>());
+                playerHealthManager.DamagePlayer(enemy.BaseAttack);
 
                 waitToHit = 1f;
             }

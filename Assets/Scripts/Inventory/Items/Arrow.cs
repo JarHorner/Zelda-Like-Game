@@ -9,7 +9,7 @@ public class Arrow : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private AudioSource hit;
     //these three varibles can be adjusted at any time
-    [SerializeField] private int damageDealt;
+    [SerializeField] private FloatValue damageDealt;
     [SerializeField] private float speed;
     [SerializeField] private float lifespan;
 
@@ -47,9 +47,9 @@ public class Arrow : MonoBehaviour
                     {
                         Debug.Log("Hit");
                         if (other.gameObject.tag == "Enemy")
-                            eHealthMan.DamageEnemy(damageDealt, this.transform);
+                            eHealthMan.DamageEnemy(damageDealt.InitalValue, this.transform);
                         else
-                            eHealthMan.DamageBoss(damageDealt, this.transform);
+                            eHealthMan.DamageBoss(damageDealt.InitalValue, this.transform);
                         Destroy(gameObject);
                         break;
                     }

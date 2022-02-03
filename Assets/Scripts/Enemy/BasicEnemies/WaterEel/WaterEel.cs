@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterEel : MonoBehaviour
+public class WaterEel : Enemy
 {
     #region Variables
     [SerializeField] private Transform spawnLocation;

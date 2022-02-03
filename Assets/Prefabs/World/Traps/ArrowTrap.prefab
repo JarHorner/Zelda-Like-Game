@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6568557089612229804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.338, z: 0}
+  m_LocalPosition: {x: 0, y: -0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6568557090778617220}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 6568557090778617220}
   - component: {fileID: 6568557090778617221}
   - component: {fileID: 6568557090778617222}
-  - component: {fileID: 6568557090778617223}
+  - component: {fileID: 8721370247193985428}
   m_Layer: 0
   m_Name: ArrowTrap
   m_TagString: Untagged
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 4661237312626147230, guid: e8e3c5501d1446e45a4422b2062386a9, type: 3}
   target: {fileID: 6568557089612229804}
---- !u!61 &6568557090778617223
+--- !u!61 &8721370247193985428
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3.610926}
+  m_Offset: {x: 0, y: -3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -153,5 +153,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45, y: 5.8218513}
+  m_Size: {x: 0.375, y: 4}
   m_EdgeRadius: 0

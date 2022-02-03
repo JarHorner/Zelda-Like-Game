@@ -22,7 +22,7 @@ public class Shrub : MonoBehaviour
     private bool thrown = false;
     private float speed = 10f;
     private float airTime = 0.5f;
-    private float dropTime = 0.125f;
+    private float dropTime = 0.12f;
     #endregion
 
     #region Methods

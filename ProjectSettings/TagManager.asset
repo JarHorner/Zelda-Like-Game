@@ -20,6 +20,7 @@ TagManager:
   - Projectile
   - Boss
   - InteractBox
+  - HitBox
   layers:
   - Default
   - TransparentFX

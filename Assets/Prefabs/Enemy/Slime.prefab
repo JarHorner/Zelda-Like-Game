@@ -65,6 +65,8 @@ GameObject:
   - component: {fileID: 4614514940832172942}
   - component: {fileID: 4614514940832172941}
   - component: {fileID: 4614514940832172940}
+  - component: {fileID: 580452619974093956}
+  - component: {fileID: -3915332230841662275}
   m_Layer: 6
   m_Name: Slime
   m_TagString: Enemy
@@ -84,7 +86,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4614514940023859732}
-  - {fileID: 1209332827249373974}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -207,10 +208,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7b7e4071131294ba2d7edf3572b892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  maxHealth: {fileID: 11400000, guid: 5315d5cd2fcf48848a2ca4a4438569bf, type: 2}
+  baseAttack: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
+  moveSpeed: 4
   timeBetweenMove: 0.5
   timeToMove: 1
-  moveSpeed: 4
-  alarmArea: {fileID: 6609082914287479167}
+  movement: {fileID: 8300000, guid: 93e4b38aa116e194b83e9a6113866b3f, type: 3}
+  fallingCollision: {fileID: 8300000, guid: 851231e5b776c6741828698babd649f4, type: 3}
+  senseRange: 6
 --- !u!114 &4614514940832172943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,8 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea26b6797cb757045872d110b3403d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currHealth: 2
-  maxHealth: 2
   animator: {fileID: 4614514940832172937}
   flashLength: 0.5
   hit: {fileID: 8300000, guid: 9b9d47b1222130543afb6933eb638387, type: 3}
@@ -248,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c75f19ffb0f49d4fa8410f24014d165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 1
+  knockback: {fileID: 580452619974093956}
 --- !u!114 &4614514940832172941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +284,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -364,50 +368,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &6609082914287479167
-GameObject:
+--- !u!114 &580452619974093956
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1209332827249373974}
-  - component: {fileID: 349355329077962259}
-  m_Layer: 6
-  m_Name: Alarm Area
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1209332827249373974
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6609082914287479167}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4614514940358992028}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &349355329077962259
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6609082914287479167}
+  m_GameObject: {fileID: 4614514940832172979}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6de82cbc53013d4eaf980b8daf16853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3915332230841662275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614514940832172979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656bd2a2c63bcec4fbbb4ea7169307cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 4614514940832172940}
+  minDist: 1
+  maxDist: 15
+  maxVolume: 0.3

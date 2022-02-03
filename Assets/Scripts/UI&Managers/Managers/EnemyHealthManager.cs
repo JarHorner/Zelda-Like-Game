@@ -6,11 +6,9 @@ public class EnemyHealthManager : MonoBehaviour
 {
 
     #region Variables
-    [SerializeField] private int currHealth;
-    [SerializeField] private int maxHealth;
     [SerializeField] private Animator animator;
-    private Rigidbody2D rb;
     private bool flashActive;
+    private Enemy enemy;
     [SerializeField] private float flashLength = 0f;
     [SerializeField] private AudioClip hit;
     [SerializeField] private SoundManager soundManager;
@@ -31,8 +29,8 @@ public class EnemyHealthManager : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         playerStats = FindObjectOfType<PlayerStats>();
+        enemy = GetComponent<Enemy>();
         startingCoordinates = this.transform.position;
     }
 
@@ -59,11 +57,11 @@ public class EnemyHealthManager : MonoBehaviour
     {
         if (waitToHurt <= 0)
         {
-            currHealth -= damageToGive;
+            enemy.Health -= damageToGive;
             
             flashActive = true;
             soundManager.Play(hit);
-            if (currHealth <= 0) 
+            if (enemy.Health <= 0) 
             {
                 //spawns particles on death
                 ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
@@ -87,12 +85,12 @@ public class EnemyHealthManager : MonoBehaviour
     {
         if (waitToHurt <= 0)
         {
-            currHealth -= damageToGive;
+            enemy.Health -= damageToGive;
 
             flashActive = true;
             soundManager.Play(hit);
             animator.SetTrigger("Hurt");
-            if (currHealth <= 0) 
+            if (enemy.Health <= 0) 
             {
                 //spawns particles on death
                 ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
@@ -115,19 +113,6 @@ public class EnemyHealthManager : MonoBehaviour
     public Vector3 StartingCoordinate
     {
         get { return startingCoordinates; }
-    }
-
-    //using when enemy is re-actived, to give full hp. (AreaTransitions)
-    public int MaxHealth
-    {
-        get { return maxHealth; }
-    }
-
-    //used in tandem with getMaxHealth() to set enemies hp to max. (AreaTransitions)
-    public int CurrentHealth
-    {
-        get { return currHealth; }
-        set {currHealth = value; }
     }
     #endregion
 }

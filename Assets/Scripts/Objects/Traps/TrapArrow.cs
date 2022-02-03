@@ -33,10 +33,11 @@ public class TrapArrow : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "HitBox")
         {
             Debug.Log("Hit");
             healthManager.DamagePlayer(damageDealt);
+            HealthVisual.healthSystemStatic.Damage(damageDealt);
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Object")

@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     private Vector3 playerPosition;
 
     //these three varibles can be adjusted at any time
-    [SerializeField] private int damageDealt = 2;
+    [SerializeField] private FloatValue damageDealt;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float lifespan = 3f;
     #endregion
@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Hit");
-            healthManager.DamagePlayer(damageDealt);
+            healthManager.DamagePlayer(damageDealt.InitalValue);
             Destroy(gameObject);
         } 
         else if (other.gameObject.tag == "Object")

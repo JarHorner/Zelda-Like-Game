@@ -8,7 +8,7 @@ public class Knockback : MonoBehaviour
     {
         Debug.Log("Pushed");
         Vector2 difference = otherRb.transform.position - thisTransform.position;
-        difference = difference.normalized * 5f;
+        difference = difference.normalized * 8f;
         otherRb.AddForce(difference, ForceMode2D.Impulse);
 
         if (otherRb.GetComponent<Enemy>() != null)
@@ -19,7 +19,7 @@ public class Knockback : MonoBehaviour
         if (otherRb.GetComponent<PlayerController>() != null)
         {
             otherRb.GetComponent<PlayerController>().currentState = PlayerState.stagger;
-            otherRb.GetComponent<PlayerController>().Knock(0.5f);
+            otherRb.GetComponent<PlayerController>().Knock(0.3f);
         }
     }
 }

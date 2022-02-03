@@ -12,10 +12,15 @@ public enum EnemyState{
 public class Enemy : MonoBehaviour
 {
     public EnemyState currentState;
-    public int health;
-    public int maxHealth;
-    public int baseAttack;
-    public float moveSpeed;
+    private int health;
+    [SerializeField] private FloatValue maxHealth;
+    [SerializeField] private FloatValue baseAttack;
+    [SerializeField] private float moveSpeed;
+
+    void Awake() 
+    {
+        health = maxHealth.InitalValue;
+    }
 
     public void ChangeState(EnemyState newState)
     {
@@ -38,5 +43,26 @@ public class Enemy : MonoBehaviour
             currentState = EnemyState.idle;
             myRb.velocity = Vector2.zero;
         }
+    }
+
+    public int Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
+
+    public int MaxHealth
+    {
+        get { return maxHealth.InitalValue; }
+    }
+
+    public int BaseAttack
+    {
+        get { return baseAttack.InitalValue; }
+    }
+
+    public float MoveSpeed
+    {
+        get { return moveSpeed; }
     }
 }

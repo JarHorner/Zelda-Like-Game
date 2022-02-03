@@ -3,7 +3,11 @@ guid: f986ca50ccb995c4db40ff344365dacd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - hit: {instanceID: 0}
+  - damageDealt: {fileID: 11400000, guid: a67caa4a13e606a4ba7e1037104bce10, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
