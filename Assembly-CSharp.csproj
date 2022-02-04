@@ -91,6 +91,7 @@
      <Compile Include="Assets\Scripts\Objects\Traps\ArrowTrap.cs" />
      <Compile Include="Assets\Scripts\Inventory\Items\Sword.cs" />
      <Compile Include="Assets\AdvancedPolygonCollider\Script\AdvancedPolygonCollider.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\HealthVisual.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Health.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchTimedDoor.cs" />
      <Compile Include="Assets\Scripts\Enemy\RockGolem\RockGolem.cs" />
@@ -103,6 +104,7 @@
      <Compile Include="Assets\Scripts\Player\PlayerSpawnController.cs" />
      <Compile Include="Assets\Scripts\Inventory\Items\HealSpell.cs" />
      <Compile Include="Assets\AdvancedPolygonCollider\Script\AdvancedPolygonColliderUtilities.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\HealthSystem.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\Sign.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\Managers\SoundManager.cs" />
@@ -117,15 +119,12 @@
      <Compile Include="Assets\Scripts\Objects\Blocks\MoveOnceBlock.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicEnemies\Slime.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\EnemyDoor.cs" />
-     <Compile Include="Assets\Scripts\UI&amp;Managers\Managers\HealthManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Key.cs" />
      <Compile Include="Assets\Scripts\Other\Knockback.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\BossKey.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Other\DontDestroyOnLoad.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\HealthVisual.cs" />
-     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\HealthSystem.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

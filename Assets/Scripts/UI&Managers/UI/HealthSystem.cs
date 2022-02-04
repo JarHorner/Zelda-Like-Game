@@ -11,7 +11,6 @@ public class HealthSystem
     public event EventHandler OnHealed;
     public event EventHandler OnDead;
     private List<Heart> heartList;
-
     #endregion
 
     #region Methods

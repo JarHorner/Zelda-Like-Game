@@ -27,23 +27,31 @@ public class PlayerController : MonoBehaviour
     private InputAction move, attack, useItem1, useItem2, pause, inventory;
     private GameManager gameManager;
     public float moveSpeed;
+    private float waitToLoad = 1.8f;
     private float attackCounter = 0.25f;
     private float shootCounter = 0f;
+    private float flashCounter = 0.8f;
+    private float flashLength = 0.8f;
     private bool isMoving = false;
     private bool isSwimming = false;
     private bool isCarrying = false;
+    private bool isReviving = false;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private CapsuleCollider2D hitBox;
     [SerializeField] private CapsuleCollider2D physicBox;
     [SerializeField] private GameObject interactBox;
     [SerializeField] private Animator animator;
     public string startPoint;
-    [SerializeField] private  AudioSource swingSound;
-    [SerializeField] private  AudioSource walkingSound;
-    [SerializeField] private  AudioSource swimmingSound;
-    [SerializeField] private AudioClip[] swingClips;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource hitAudioSource;
+    [SerializeField] private AudioClip walkingSound;
+    [SerializeField] private AudioClip swimmingSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private DamagePopup damagePopup;
+    [SerializeField] private ParticleSystem deathBurst;
     private Vector2 movement;
     private static bool playerExists;
+    private bool flashActive;
     private bool onConveyor = false;
     private string firstKey = "";
     private int movingVertical, movingHorizontal;
@@ -128,14 +136,22 @@ public class PlayerController : MonoBehaviour
         }
         if (currentState == PlayerState.dead)
         {
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            physicBox.enabled = false;
-            hitBox.enabled = false;
-            //if player was swimming when died, this variable is true and when spawns again, wont be swimming.
-            animator.SetBool("isDead", true);
-            animator.SetBool("isSwimming", false);
+            StartCoroutine(PlayerDead());
+        }
+        //this code activates when player is damaged, causing the flashing of the sprite
+        if (flashActive)
+        {
+            //if true, starts process of changing the players alpha level to flash when hit
+            DamageFlashing.SpriteFlashing(flashLength, flashCounter, this.gameObject.GetComponent<SpriteRenderer>());
+            flashCounter -= Time.deltaTime;
+            if (flashCounter < 0)
+            {
+                flashCounter = flashLength;
+                flashActive = false;
+            }
         }
 
+        //needed to stops player from picking up multiple objects
         if (isCarrying)
         {
             interactBox.SetActive(false);
@@ -148,14 +164,15 @@ public class PlayerController : MonoBehaviour
         //plays swimming sound if in water and moving, does not if already playing
         if (isSwimming && isMoving)
         {
-            if (!swimmingSound.isPlaying)
+            if (!audioSource.isPlaying)
             {
-                swimmingSound.Play();
+                audioSource.clip = swimmingSound;
+                audioSource.Play();
             }
         }
         else
         {
-            swimmingSound.Stop();
+            audioSource.Stop();
         }
 
         //when player has bow, ensures shooting arrows cannot be spammed
@@ -166,14 +183,15 @@ public class PlayerController : MonoBehaviour
 
         if (isMoving)
         {
-            if (!walkingSound.isPlaying)
+            if (!audioSource.isPlaying)
             {
-                walkingSound.Play();
+                audioSource.clip = walkingSound;
+                audioSource.Play();
             }
         }
         else
         {
-            walkingSound.Stop();
+            audioSource.Stop();
         }
 
         //depending on the direction the player is moving, when moving diagonally, the player faces the same direction.
@@ -212,6 +230,52 @@ public class PlayerController : MonoBehaviour
             //enables movement
             rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime * Time.timeScale);
         }
+    }
+
+    //calculates the amount of health player has left after hit, active the flashing and starts process of reloading scene if dead
+    public void DamagePlayer(int damageNum)
+    {
+        hitAudioSource.Play();
+        //positions damage text, and creates the popup
+        Vector3 popupLocation = new Vector3(this.transform.position.x, this.transform.position.y + 1, 0);
+        damagePopup.Create(popupLocation, damageNum);
+        HealthVisual.healthSystemStatic.Damage(damageNum);
+        flashActive = true;
+    }
+
+    private IEnumerator PlayerDead()
+    {
+        currentState = PlayerState.walk;
+        rb.isKinematic = true;
+        //spawns particles on death
+        ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
+        partSys.Play(true);
+        audioSource.clip = deathSound;
+        audioSource.Play();
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        physicBox.enabled = false;
+        hitBox.enabled = false;
+        bool deathWhileSwimming = animator.GetCurrentAnimatorStateInfo(0).IsTag("Swimming");
+        //if player was swimming when died, this variable is true and when spawns again, wont be swimming.
+        animator.SetBool("isDead", true);
+        animator.SetBool("isSwimming", false);
+
+        yield return new WaitForSeconds(waitToLoad);
+
+        animator.SetBool("isDead", false);
+        //checks to see if current animation state is swimming to reset animations before respawn
+        if (deathWhileSwimming)
+        {
+            animator.SetBool("isSwimming", false);
+            animator.Play("Walk Idle", 0, 1f);
+        }
+        rb.isKinematic = false;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Debug.Log("Loaded!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        physicBox.enabled = true;
+        hitBox.enabled = true;
+        isReviving = true;
     }
 
     private void PlayerMoving(InputAction.CallbackContext context)
@@ -326,9 +390,6 @@ public class PlayerController : MonoBehaviour
     {
         currentState = PlayerState.attack;
         animator.SetBool("isAttacking", true);
-        //randomizes sounds used when attacking.
-        swingSound.clip = swingClips[Random.Range(0, swingClips.Length)];
-        swingSound.Play();
 
         yield return new WaitForSeconds(attackCounter);
 
@@ -401,6 +462,10 @@ public class PlayerController : MonoBehaviour
     {
         get { return isCarrying; }
         set { isCarrying = value; }
+    }
+    public bool IsReviving
+    {
+        get { return isReviving; }
     }
     public bool OnConveyor
     {

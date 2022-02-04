@@ -6,10 +6,10 @@ public class TrapArrow : MonoBehaviour
 {
     #region Variables
     private Rigidbody2D rb;
-    private HealthManager healthManager;
+    private PlayerController player;
     private GameObject spawn;
     //these three varibles can be adjusted at any time
-    [SerializeField] private int damageDealt;
+    [SerializeField] private FloatValue damageDealt;
     [SerializeField] private float speed;
     [SerializeField] private float lifespan;
 
@@ -20,7 +20,7 @@ public class TrapArrow : MonoBehaviour
     void Start() 
     {
         rb = GetComponent<Rigidbody2D>();
-        healthManager = FindObjectOfType<HealthManager>();
+        player = FindObjectOfType<PlayerController>();
         spawn = this.transform.parent.gameObject;
         //adds impulse force at start so the speed stays the same.
         ShootDirection();
@@ -36,8 +36,7 @@ public class TrapArrow : MonoBehaviour
         if (other.gameObject.tag == "HitBox")
         {
             Debug.Log("Hit");
-            healthManager.DamagePlayer(damageDealt);
-            HealthVisual.healthSystemStatic.Damage(damageDealt);
+            player.DamagePlayer(damageDealt.InitalValue);
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Object")

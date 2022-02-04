@@ -5,9 +5,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     #region Variables
-    private HealthManager healthManager;
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
+    private PlayerController player;
     private Vector3 playerPosition;
 
     //these three varibles can be adjusted at any time
@@ -19,10 +19,10 @@ public class Projectile : MonoBehaviour
     #region Unity Methods
     void Awake() 
     {
-        healthManager = FindObjectOfType<HealthManager>();
         rb= GetComponent<Rigidbody2D>();
+        player = FindObjectOfType<PlayerController>();
         //finds players current position
-        playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        playerPosition = player.transform.position;
                 
                 
         //scale the movement on each axis by the directionOfTravel vector components
@@ -41,10 +41,10 @@ public class Projectile : MonoBehaviour
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "HitBox")
         {
             Debug.Log("Hit");
-            healthManager.DamagePlayer(damageDealt.InitalValue);
+            player.DamagePlayer(damageDealt.InitalValue);
             Destroy(gameObject);
         } 
         else if (other.gameObject.tag == "Object")

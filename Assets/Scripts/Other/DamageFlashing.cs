@@ -39,5 +39,7 @@ public static class DamageFlashing
         }
     }
 
+
+
     #endregion
 }

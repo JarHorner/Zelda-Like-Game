@@ -8,7 +8,6 @@ public class PlayerSpawnController : MonoBehaviour
 
     #region Variables
     [SerializeField] private GameObject player;
-    private HealthManager healthManager;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject spawnLocation;
     private CameraController cam;
@@ -35,9 +34,9 @@ public class PlayerSpawnController : MonoBehaviour
             player = GameObject.FindWithTag("Player");
             cam = FindObjectOfType<CameraController>();
         }
-        healthManager = FindObjectOfType<HealthManager>();
+        PlayerController playerController = player.GetComponent<PlayerController>();
         //if player died, and is reviving
-        if (healthManager.revive == true) {
+        if (playerController.IsReviving == true) {
             player = GameObject.FindWithTag("Player");
             player.transform.position = spawnLocation.transform.position;
             cam = FindObjectOfType<CameraController>();
@@ -45,14 +44,7 @@ public class PlayerSpawnController : MonoBehaviour
         //provides camera with target
         cam.SetTarget(player.transform);
     }
-
-    void Start() {
-        //ensures player has full health again after dying
-        if (healthManager.CurrHealth <= 0) 
-        {
-            healthManager.CurrHealth = healthManager.MaxHealth;
-        }
-    }
+    
     private void Update() 
     {
         if (justSpawned)

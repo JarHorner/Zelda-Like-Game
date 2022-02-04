@@ -8,9 +8,9 @@ public class Pitfall : MonoBehaviour
     private Animator playerAnim;
     private AreaTransitions areaTransition;
     private PlayerController player;
-    private HealthManager healthManager;
     private float animLength = 0.8f;
     private bool falling = false;
+    [SerializeField] private FloatValue damageDealt;
 
     #endregion
 
@@ -21,7 +21,6 @@ public class Pitfall : MonoBehaviour
         playerAnim = FindObjectOfType<PlayerController>().GetComponent<Animator>();
         areaTransition = FindObjectOfType<AreaTransitions>();
         player = FindObjectOfType<PlayerController>();
-        healthManager = FindObjectOfType<HealthManager>();
     }
 
     void Update() 
@@ -36,7 +35,7 @@ public class Pitfall : MonoBehaviour
             {
                 player.transform.position = player.LastPlayerLocation;
                 playerAnim.SetBool("isFalling", false); 
-                healthManager.DamagePlayer(1);
+                player.DamagePlayer(damageDealt.InitalValue);
                 player.moveSpeed = 6f;
                 animLength = 0.5f;
                 falling = false;
@@ -47,7 +46,7 @@ public class Pitfall : MonoBehaviour
     //plays the players falling animation and sets the falling bool to true (check Update())
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.tag == "Player" && enabled)
+        if (collider.tag == "HitBox" && enabled)
         {
             playerAnim.SetBool("isFalling", true);  
             player.moveSpeed = 0f;
@@ -58,7 +57,7 @@ public class Pitfall : MonoBehaviour
     //same as OnTriggerEnter2D() but ensures the player cannot glitch over anything!
     private void OnTriggerStay2D(Collider2D collider) 
     {
-        if (collider.tag == "Player" && enabled)
+        if (collider.tag == "HitBox" && enabled)
         {
             playerAnim.SetBool("isFalling", true);  
             player.moveSpeed = 0f;

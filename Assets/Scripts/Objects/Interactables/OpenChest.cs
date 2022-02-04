@@ -92,8 +92,7 @@ public class OpenChest : MonoBehaviour
         }
         else if (itemSpriteName.Contains("Health"))
         {
-            HealthManager healthManager = FindObjectOfType<HealthManager>();
-            healthManager.Heal(healthManager.MaxHealth);
+            HealthVisual.healthSystemStatic.Heal(4);
         }
         else if (itemSpriteName.Contains("Map"))
         {

@@ -10,9 +10,18 @@ public class Sword : MonoBehaviour
     [SerializeField] private FloatValue damageDealt;
     [SerializeField] ParticleSystem damageBurst;
     [SerializeField] Knockback knockback;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] private AudioClip[] swingClips;
     #endregion
 
     #region Unity Methods
+
+    private void OnEnable() 
+    {
+        //randomizes sounds used when attacking.
+        audioSource.clip = swingClips[Random.Range(0, swingClips.Length)];
+        audioSource.Play();
+    }
 
     //if collider touches an enemy, it is deactivated to not "hit" multiple times, then deals damage towards the enemy hit.
     void OnTriggerEnter2D(Collider2D other) 

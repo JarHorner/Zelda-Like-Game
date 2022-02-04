@@ -9,6 +9,7 @@ public class HealthVisual : MonoBehaviour
     public static HealthSystem healthSystemStatic;
     [SerializeField] private int health;
     private float periodicTime = 0.5f;
+    private PlayerController player;
     private bool isHealing = false;
     [SerializeField] private Sprite heart0Sprite;
     [SerializeField] private Sprite heart1Sprite;
@@ -30,6 +31,7 @@ public class HealthVisual : MonoBehaviour
     void Start() 
     {
         HealthSystem healthSystem = new HealthSystem(health);
+        player = FindObjectOfType<PlayerController>();
         SetHealthSystem(healthSystem);
     }
 
@@ -88,6 +90,7 @@ public class HealthVisual : MonoBehaviour
     {
         //hearts health system is dead
         Debug.Log("YOUR DEAD!");
+        player.currentState = PlayerState.dead;
     }
 
     private void RefreshAllHearts()

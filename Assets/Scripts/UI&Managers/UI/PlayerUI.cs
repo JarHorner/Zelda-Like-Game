@@ -8,10 +8,7 @@ public class PlayerUI : MonoBehaviour
 {
 
     #region Variables
-    private HealthManager healthManager;
     private AllDungeonsManager allDungeonsManager;
-    [SerializeField] private Slider healthBar;
-    [SerializeField] private TMP_Text hpText;
     [SerializeField] private TMP_Text keyCount;
     [SerializeField] private TMP_Text moneyCount;
     [SerializeField] private GameObject itemBox1;
@@ -22,16 +19,7 @@ public class PlayerUI : MonoBehaviour
 
     void Start()
     {
-        healthManager = FindObjectOfType<HealthManager>();
         allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
-    }
-
-    void Update()
-    {
-        healthBar.maxValue = healthManager.MaxHealth;
-        healthBar.value = healthManager.CurrHealth;
-        //changes text of HP bar depending on previous calculations
-        hpText.text = $"HP: {healthManager.CurrHealth}/{healthManager.MaxHealth}";
     }
 
     //changes key count to the amt of keys you have in a specific dungeon
