@@ -11,6 +11,7 @@ public class MoveOnceBlock : MonoBehaviour
     #region Variables
     [SerializeField] InputActionAsset inputMaster;
     private InputAction push, movement;
+    private PlayerController player;
     private Animator playerAnim;
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
@@ -22,15 +23,15 @@ public class MoveOnceBlock : MonoBehaviour
     private bool notMoved = true;
 
     //these two varibles can be adjusted at any time
-    private float pushingTime = 0.2f;
-    private float blockLength = 1f; //1f on both axes. Distance to move one block-length 
+    private float blockLength = 1f; //1f on both axes. Distance to move one block-length
     #endregion
 
     #region Methods
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerAnim = FindObjectOfType<PlayerController>().GetComponent<Animator>();
+        player = FindObjectOfType<PlayerController>();
+        playerAnim = player.GetComponent<Animator>();
         //sets the starting positions
         startX = transform.position.x;
         startY = transform.position.y;
@@ -38,16 +39,16 @@ public class MoveOnceBlock : MonoBehaviour
         var playerActionMap = inputMaster.FindActionMap("Player");
 
         push = playerActionMap.FindAction("Push");
+        push.performed += OnPush;
+        push.canceled += OnPush;
         movement = playerActionMap.FindAction("Movement");
     }
- 
-    void Update()
+
+    private void OnPush(InputAction.CallbackContext context)
     {
-        //if player can push and the block hasnt moved yet, PushBlock() will be called with a different param 
-        //depending on the facing of the player.
-        if (canPush && notMoved)
+        if (push.interactions.Length == 4)
         {
-            if (movement.ReadValue<Vector2>().y != 0 && push.ReadValue<float>() == 1)
+            if (movement.ReadValue<Vector2>().y != 0)
             {
                 if (movement.ReadValue<Vector2>().y == 1)
                 {
@@ -58,7 +59,7 @@ public class MoveOnceBlock : MonoBehaviour
                     PushBlock(true, new Vector2(startX, startY - blockLength));
                 }
             }
-            else if (movement.ReadValue<Vector2>().x != 0 && push.ReadValue<float>() == 1)
+            else if (movement.ReadValue<Vector2>().x != 0)
             {
                 if (movement.ReadValue<Vector2>().x == 1)
                 {
@@ -69,10 +70,22 @@ public class MoveOnceBlock : MonoBehaviour
                     PushBlock(false, new Vector2(startX - blockLength, startY));
                 }
             }
+            playSound = true;
         }
-        //if player is pushing and the sound is not currently being played, new sound will play, creating a loop.
-        //will stop if not being pushed.
-        if (pushingTime <= 0)
+        if (push.ReadValue<float>() == 0)
+        {
+            playSound = false;
+            isMoving = false;
+            playerAnim.SetBool("isPushing", false);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        Debug.Log(push.interactions.Length);
+    }
+
+    void Update()
+    {
+        if (playSound)
         {
             if (!movingSound.isPlaying && playSound)
             {
@@ -90,23 +103,24 @@ public class MoveOnceBlock : MonoBehaviour
     private void PushBlock(bool direction, Vector2 position)
     {
         playerAnim.SetBool("isPushing", true);
-        pushingTime -= Time.deltaTime;
-        if (pushingTime <= 0)
+        player.MovementAudioSource.Stop();
+        //true is up or down, false is left or right
+        if (direction)
         {
-            //true is up or down, false is left or right
-            if (direction)
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            else
-                rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-            //rb.isKinematic = true;
-            newPosition = position;
-            isMoving = true;
-            playSound = true;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        }
+        newPosition = position;
+        isMoving = true;
     }
 
     //movement happens here, ensures movement is not based on framerate.
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         if (isMoving)
         {
@@ -114,7 +128,7 @@ public class MoveOnceBlock : MonoBehaviour
             {
                 Vector3 position = Vector3.MoveTowards(rb.position, newPosition, 1f * Time.deltaTime);
                 rb.MovePosition(position);
-            } 
+            }
             else
             {
                 isMoving = false;
@@ -125,7 +139,7 @@ public class MoveOnceBlock : MonoBehaviour
     }
 
     //block can be pushed when players collider is within blocks.
-    private void OnTriggerStay2D(Collider2D collider) 
+    private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "InteractBox")
         {
@@ -135,15 +149,11 @@ public class MoveOnceBlock : MonoBehaviour
     }
 
     //gets the players animations back to regular movement and resets the time needed to push the block.
-    private void OnTriggerExit2D(Collider2D collider) 
+    private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "InteractBox")
         {
-            //sets the players animation back to idle/walking when not interacting with block
-            playerAnim.SetBool("isPushing", false);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            canPush = false;
-            pushingTime = 0.2f;
             push.Disable();
         }
     }

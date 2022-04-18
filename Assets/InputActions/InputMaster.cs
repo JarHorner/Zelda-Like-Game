@@ -80,14 +80,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""id"": ""89246e08-2bd2-4bfe-b25e-7bce541d73b5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold""
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""7cfc3575-18b0-4b0d-9805-af63dcb84acd"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -285,7 +285,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""dfd8e163-db0f-4fa9-83bc-ecded4f34cfb"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -351,7 +351,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""522b6878-6314-4efd-890c-06b244a08053"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

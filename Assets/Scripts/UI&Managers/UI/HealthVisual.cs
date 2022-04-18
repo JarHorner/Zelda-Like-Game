@@ -8,7 +8,8 @@ public class HealthVisual : MonoBehaviour
     #region Variables
     public static HealthSystem healthSystemStatic;
     [SerializeField] private int health;
-    private float periodicTime = 0.5f;
+    private float periodicTime = 0.15f;
+    private float fullHealthAnimTime = 0.6f;
     private PlayerController player;
     private bool isHealing = false;
     [SerializeField] private Sprite heart0Sprite;
@@ -18,6 +19,7 @@ public class HealthVisual : MonoBehaviour
     [SerializeField] private Sprite heart4Sprite;
     [SerializeField] private AnimationClip heartFullClip;
     private List<HeartImage> heartImageList;
+    private HeartImage currentHeart;
     private HealthSystem healthSystem;
     #endregion
 
@@ -30,17 +32,29 @@ public class HealthVisual : MonoBehaviour
 
     void Start() 
     {
-        HealthSystem healthSystem = new HealthSystem(health);
-        player = FindObjectOfType<PlayerController>();
-        SetHealthSystem(healthSystem);
+        if (healthSystemStatic == null)
+        {
+            Debug.Log("Start health");
+            healthSystem = new HealthSystem(health);
+            player = FindObjectOfType<PlayerController>();
+            SetHealthSystem(healthSystem);
+            currentHeart = heartImageList[heartImageList.Count-1];
+        }
     }
 
     void Update() 
     {
+        periodicTime -= Time.deltaTime;
         if (periodicTime < 0f)
         {
             HealingAnimatedPeriodic();
-            periodicTime = 0.5f;
+            periodicTime = 0.15f;
+        }
+        fullHealthAnimTime -= Time.deltaTime;
+        if (fullHealthAnimTime < 0f)
+        {
+            currentHeart.PlayHeartFullAnimation();
+            fullHealthAnimTime = 0.6f;
         }
     }
 
@@ -53,10 +67,11 @@ public class HealthVisual : MonoBehaviour
         int row = 0;
         int col = 0;
         int colMax = 8;
-        float rowColSize = 65f;
+        float rowColSize = 75f;
         for (int i=0; i< heartList.Count; i++)
         {
             HealthSystem.Heart heart = heartList[i];
+            Debug.Log(heart.Fragments);
             Vector2 heartAnchoredPos = new Vector2(col * rowColSize, -row * rowColSize);
             CreateHeartImage(heartAnchoredPos).SetHeartFragments(heart.Fragments);
             
@@ -68,7 +83,6 @@ public class HealthVisual : MonoBehaviour
             }
             
         }
-
         healthSystem.OnDamaged += HealthSystem_OnDamaged;
         healthSystem.OnHealed += HealthSystem_OnHealed;
         healthSystem.OnDead += HealthSystem_OnDead;
@@ -83,7 +97,6 @@ public class HealthVisual : MonoBehaviour
     private void HealthSystem_OnHealed(object sender, System.EventArgs e)
     {
         //hearts health system was healed
-        //RefreshAllHearts();
         isHealing = true;
     }
     private void HealthSystem_OnDead(object sender, System.EventArgs e)
@@ -101,6 +114,8 @@ public class HealthVisual : MonoBehaviour
             HeartImage heartImage = heartImageList[i];
             HealthSystem.Heart heart = heartList[i];
             heartImage.SetHeartFragments(heart.Fragments);
+            if (heartImage.Fragments != 0)
+                currentHeart = heartImage;
         }
     }
 
@@ -126,6 +141,8 @@ public class HealthVisual : MonoBehaviour
                     fullyHealed = false;
                     break;
                 }
+                if (heartImage.Fragments != 0)
+                    currentHeart = heartImage;
             }
             if (fullyHealed)
             {
@@ -175,6 +192,7 @@ public class HealthVisual : MonoBehaviour
         public void SetHeartFragments(int fragments)
         {
             this.fragments = fragments;
+            Debug.Log(heartImage);
             switch (fragments)
             {
                 case 0: heartImage.sprite = healthVisual.heart4Sprite; break;

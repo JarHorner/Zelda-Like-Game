@@ -18,9 +18,9 @@ public class Pitfall : MonoBehaviour
 
     void Start() 
     {
+        player = FindObjectOfType<PlayerController>();
         playerAnim = FindObjectOfType<PlayerController>().GetComponent<Animator>();
         areaTransition = FindObjectOfType<AreaTransitions>();
-        player = FindObjectOfType<PlayerController>();
     }
 
     void Update() 
@@ -48,7 +48,7 @@ public class Pitfall : MonoBehaviour
     {
         if (collider.tag == "HitBox" && enabled)
         {
-            playerAnim.SetBool("isFalling", true);  
+            playerAnim.SetBool("isFalling", true); 
             player.moveSpeed = 0f;
             falling = true;
         }

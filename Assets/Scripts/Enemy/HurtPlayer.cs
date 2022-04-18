@@ -35,7 +35,7 @@ public class HurtPlayer : MonoBehaviour
             if (waitToHurt <= 0)
             {
                 player.DamagePlayer(enemy.BaseAttack);
-                waitToHurt = 1.5f;
+                waitToHurt = 1f;
             }
         }
         if (waitToHit > 0)
@@ -60,7 +60,7 @@ public class HurtPlayer : MonoBehaviour
     }
 
     //maintains consistant damage when pressed against player
-    void OntriggerStay2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "HitBox")
         {
@@ -69,12 +69,12 @@ public class HurtPlayer : MonoBehaviour
     }
 
     //needed to reset the consistant damage timer, so it always remains the same
-    void OnCtriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "HitBox")
         {
             isTouching = false;
-            waitToHurt = 1.5f;
+            waitToHurt = 1f;
         }
     }
 

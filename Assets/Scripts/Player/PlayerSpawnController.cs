@@ -10,6 +10,7 @@ public class PlayerSpawnController : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject spawnLocation;
+    private PlayerController playerController;
     private CameraController cam;
     [SerializeField] private string placeName;
     private DialogLocationCanvas locationCanvas;
@@ -34,10 +35,9 @@ public class PlayerSpawnController : MonoBehaviour
             player = GameObject.FindWithTag("Player");
             cam = FindObjectOfType<CameraController>();
         }
-        PlayerController playerController = player.GetComponent<PlayerController>();
+        playerController = player.GetComponent<PlayerController>();
         //if player died, and is reviving
         if (playerController.IsReviving == true) {
-            player = GameObject.FindWithTag("Player");
             player.transform.position = spawnLocation.transform.position;
             cam = FindObjectOfType<CameraController>();
         }
@@ -47,11 +47,18 @@ public class PlayerSpawnController : MonoBehaviour
     
     private void Update() 
     {
+        //Displays name of area on UI.
         if (justSpawned)
         {
             locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
             StartCoroutine(locationCanvas.PlaceNameCo(placeName));
             justSpawned = false;
+        }
+
+        if (playerController.IsReviving == true)
+        {
+            HealthVisual.healthSystemStatic.Heal(12);
+            playerController.IsReviving = false;
         }
     }
 

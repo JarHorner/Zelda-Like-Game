@@ -23,10 +23,11 @@ public class InventoryManager : MonoBehaviour
     #region Methods
 
     //gets the item boxes and populates some items in inventory. populated items will be removed eventually.
-    void Start() 
+    void Awake() 
     {
         PopulateInventorySlot("Heal");
         PopulateInventorySlot("Bow");
+        PopulateInventorySlot("Lanturn");
         PopulateInventorySlot("PowerGloves");
         PopulateInventorySlot("SwimmingMedal");
         PopulateInventorySlot("Sword");
@@ -79,6 +80,8 @@ public class InventoryManager : MonoBehaviour
             itemBox1.transform.GetChild(0).GetComponent<Image>().sprite = currentItem.itemImage;
             if (currentItem.numberHeld > -1)
                 itemBox1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = currentItem.numberHeld.ToString();
+            else
+                itemBox1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
             usableItems.myInventory[0] = currentItem; 
 
             if (usableItems.myInventory[1] == usableItems.myInventory[0])
@@ -95,6 +98,8 @@ public class InventoryManager : MonoBehaviour
             itemBox2.transform.GetChild(0).GetComponent<Image>().sprite = currentItem.itemImage;
             if (currentItem.numberHeld > -1)
                 itemBox2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = currentItem.numberHeld.ToString();
+            else
+                itemBox2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
             usableItems.myInventory[1] = currentItem;
 
             if (usableItems.myInventory[0] == usableItems.myInventory[1])
@@ -126,6 +131,18 @@ public class InventoryManager : MonoBehaviour
     private void OnApplicationQuit() 
     {
         usableItems.Reset();    
+    }
+
+    public bool HasLanturn()
+    {
+        foreach (var item in playerInventory.myInventory)
+        {
+            if (item != null && item.name == "Lanturn")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     #endregion

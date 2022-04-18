@@ -12073,6 +12073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4cc5353e4870546822a5476f6ae07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageDealt: {fileID: 0}
 --- !u!483693784 &3303355480091502164
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -19342,6 +19343,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1266685331759647008, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266685331759647008, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474835895359908590, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474835895359908590, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474835895359908590, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5969272853336503171, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -19398,6 +19419,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5969272854342582325, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5969272854342582327, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
       propertyPath: itemBox1
       value: 
@@ -19406,6 +19431,14 @@ PrefabInstance:
       propertyPath: itemBox2
       value: 
       objectReference: {fileID: 1759220620}
+    - target: {fileID: 5969272854700619077, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417209925775857344, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b580931d454f04598b8e2c143ba936, type: 3}
 --- !u!1001 &6568557089563251587

@@ -36,16 +36,18 @@ public class PlayerController : MonoBehaviour
     private bool isSwimming = false;
     private bool isCarrying = false;
     private bool isReviving = false;
+    private bool deathCoRunning = false;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private CapsuleCollider2D hitBox;
     [SerializeField] private CapsuleCollider2D physicBox;
     [SerializeField] private GameObject interactBox;
     [SerializeField] private Animator animator;
     public string startPoint;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioSource hitAudioSource;
+    [SerializeField] private AudioSource movementAudioSource;
+    [SerializeField] private AudioSource damageAudioSource;
     [SerializeField] private AudioClip walkingSound;
     [SerializeField] private AudioClip swimmingSound;
+    [SerializeField] private AudioClip hitSound;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private DamagePopup damagePopup;
     [SerializeField] private ParticleSystem deathBurst;
@@ -100,15 +102,15 @@ public class PlayerController : MonoBehaviour
         move.performed += PlayerMoving;
         move.canceled += PlayerMoving;
         attack.Enable();
-        attack.performed += PlayerAttack;
+        attack.started += PlayerAttack;
         pause.Enable();
-        pause.performed += gameManager.OpenPauseMenu;
+        pause.started += gameManager.OpenPauseMenu;
         inventory.Enable();
-        inventory.performed += gameManager.OpenInventoryMenu;
+        inventory.started += gameManager.OpenInventoryMenu;
         useItem1.Enable();
-        useItem1.performed += gameManager.UseItem;
+        useItem1.started += gameManager.UseItem;
         useItem2.Enable();
-        useItem2.performed += gameManager.UseItem;
+        useItem2.started += gameManager.UseItem;
     }
 
     private void OnDisable() 
@@ -117,26 +119,30 @@ public class PlayerController : MonoBehaviour
         move.performed -= PlayerMoving;
         move.canceled -= PlayerMoving;
         attack.Disable();
-        attack.performed -= PlayerAttack;
+        attack.started -= PlayerAttack;
         pause.Disable();
-        pause.performed -= gameManager.OpenPauseMenu;
+        pause.started -= gameManager.OpenPauseMenu;
         inventory.Disable();
-        inventory.performed -= gameManager.OpenInventoryMenu;
+        inventory.started -= gameManager.OpenInventoryMenu;
         useItem1.Disable();
-        useItem1.performed -= gameManager.UseItem;
+        useItem1.started -= gameManager.UseItem;
         useItem2.Disable();
-        useItem2.performed -= gameManager.UseItem;
+        useItem2.started -= gameManager.UseItem;
     }
 
     void Update()
     {
+        if (currentState == PlayerState.dead && !deathCoRunning)
+        {
+            StartCoroutine(PlayerDead());
+        }
         if (move.triggered && currentState != PlayerState.stagger)
         {
             currentState = PlayerState.walk;
         }
-        if (currentState == PlayerState.dead)
+        if (move.triggered && isSwimming)
         {
-            StartCoroutine(PlayerDead());
+            currentState = PlayerState.swim;
         }
         //this code activates when player is damaged, causing the flashing of the sprite
         if (flashActive)
@@ -164,34 +170,29 @@ public class PlayerController : MonoBehaviour
         //plays swimming sound if in water and moving, does not if already playing
         if (isSwimming && isMoving)
         {
-            if (!audioSource.isPlaying)
+            if (!movementAudioSource.isPlaying)
             {
-                audioSource.clip = swimmingSound;
-                audioSource.Play();
+                movementAudioSource.clip = swimmingSound;
+                movementAudioSource.Play();
+            }
+        }
+        else if (isMoving)
+        {
+            if (!movementAudioSource.isPlaying)
+            {
+                movementAudioSource.clip = walkingSound;
+                movementAudioSource.Play();
             }
         }
         else
         {
-            audioSource.Stop();
+            movementAudioSource.Stop();
         }
 
         //when player has bow, ensures shooting arrows cannot be spammed
         if (shootCounter > 0f)
         {
             shootCounter -= Time.deltaTime;
-        }
-
-        if (isMoving)
-        {
-            if (!audioSource.isPlaying)
-            {
-                audioSource.clip = walkingSound;
-                audioSource.Play();
-            }
-        }
-        else
-        {
-            audioSource.Stop();
         }
 
         //depending on the direction the player is moving, when moving diagonally, the player faces the same direction.
@@ -232,10 +233,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //calculates the amount of health player has left after hit, active the flashing and starts process of reloading scene if dead
+    //Damages the player using the HealthVisual, creates damage popup, and actives the flashing
     public void DamagePlayer(int damageNum)
     {
-        hitAudioSource.Play();
+        damageAudioSource.clip = hitSound;
+        damageAudioSource.Play();
         //positions damage text, and creates the popup
         Vector3 popupLocation = new Vector3(this.transform.position.x, this.transform.position.y + 1, 0);
         damagePopup.Create(popupLocation, damageNum);
@@ -245,14 +247,13 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator PlayerDead()
     {
-        currentState = PlayerState.walk;
-        rb.isKinematic = true;
+        deathCoRunning = true;
         //spawns particles on death
         ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
         partSys.Play(true);
-        audioSource.clip = deathSound;
-        audioSource.Play();
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        move.Disable();
+        damageAudioSource.clip = deathSound;
+        damageAudioSource.Play();
         physicBox.enabled = false;
         hitBox.enabled = false;
         bool deathWhileSwimming = animator.GetCurrentAnimatorStateInfo(0).IsTag("Swimming");
@@ -269,13 +270,14 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isSwimming", false);
             animator.Play("Walk Idle", 0, 1f);
         }
-        rb.isKinematic = false;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         Debug.Log("Loaded!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        move.Enable();
         physicBox.enabled = true;
         hitBox.enabled = true;
         isReviving = true;
+        deathCoRunning = false;
+        currentState = PlayerState.walk;
     }
 
     private void PlayerMoving(InputAction.CallbackContext context)
@@ -415,18 +417,27 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.gameObject.tag == "Water") 
         {
+            Debug.Log("water triggered");
             //sets swimming animation and new player speed
             animator.SetBool("isSwimming", true);
-            currentState = PlayerState.swim;
+            movementAudioSource.clip = swimmingSound;
             isSwimming = true;
+            currentState = PlayerState.swim;
             moveSpeed = 4f;
+            useItem1.Disable();
+            useItem2.Disable();
         }
         else if (collider.gameObject.tag == "OutOfWater")
         {
+            Debug.Log("Out of water triggered");
             animator.SetBool("isSwimming", false);
+            movementAudioSource.clip = walkingSound;
             if (isSwimming)
                 isSwimming = false;
-            moveSpeed = 5f;
+            currentState = PlayerState.walk;
+            moveSpeed = 6f;
+            useItem1.Enable();
+            useItem2.Enable();
         }
     }
 
@@ -437,16 +448,18 @@ public class PlayerController : MonoBehaviour
         get { return lastPlayerLocation; }
         set { lastPlayerLocation = value; }
     }
-
     public Vector2 Movement
     {
         get { return movement; }
         set { movement = value; }
     }
-
     public Animator Animator
     {
         get { return animator; }
+    }
+    public AudioSource MovementAudioSource
+    {
+        get { return movementAudioSource; }
     }
     public string StartPoint
     {
@@ -463,9 +476,15 @@ public class PlayerController : MonoBehaviour
         get { return isCarrying; }
         set { isCarrying = value; }
     }
+     public bool IsMoving
+    {
+        get { return isMoving; }
+        set { isMoving = value; }
+    }
     public bool IsReviving
     {
         get { return isReviving; }
+        set { isReviving = value; }
     }
     public bool OnConveyor
     {

@@ -12,6 +12,7 @@ public class RockEnemy : Enemy
     private SpriteRenderer spriteRenderer;
     private Transform target;
     private bool isMoving = false;
+    private PlayerController player;
     [SerializeField] private float awakenAnimTime = 1f;
     [SerializeField] private AudioSource movementAudio;
 
@@ -28,16 +29,17 @@ public class RockEnemy : Enemy
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        target = FindObjectOfType<PlayerController>().transform;
+        player = FindObjectOfType<PlayerController>();
     }
 
     void FixedUpdate()
     {
-        target = FindObjectOfType<PlayerController>().transform;
 
         //depending on where the target is, the enemy will either follow or walk back
         if (target != null)
         {
-            if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) 
+            if (player.currentState != PlayerState.swim && Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) 
             {
                 if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
                     FollowPlayer();
@@ -57,7 +59,7 @@ public class RockEnemy : Enemy
                     ChangeState(EnemyState.idle);
                 }
             }
-            else if(Vector3.Distance(target.position, transform.position) >= maxRange)
+            else if(player.currentState == PlayerState.swim || Vector3.Distance(target.position, transform.position) >= maxRange)
             {
                 WalkBack();
             }

@@ -634,10 +634,11 @@ MonoBehaviour:
   interactBox: {fileID: 920739806253855233}
   animator: {fileID: 6762088746127464492}
   startPoint: 
-  audioSource: {fileID: 354280505460960099}
-  hitAudioSource: {fileID: 8086811746960731516}
+  movementAudioSource: {fileID: 354280505460960099}
+  damageAudioSource: {fileID: 8086811746960731516}
   walkingSound: {fileID: 8300000, guid: 88186e6563bf8d34ca6f8294c17ae808, type: 3}
   swimmingSound: {fileID: 8300000, guid: f9865f990858f1f43b50391e7f738a76, type: 3}
+  hitSound: {fileID: 8300000, guid: ae36251803b552040956d19e39f295a6, type: 3}
   deathSound: {fileID: 8300000, guid: 1e53fdc002398c64d8db79892351fbf1, type: 3}
   damagePopup: {fileID: -6122320544183807488, guid: 83f95567f196dbe4b8470c4406da8c59, type: 3}
   deathBurst: {fileID: 9156804826255530127, guid: 862d77cdecffb3848ae280c5051e819b, type: 3}
@@ -670,9 +671,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ae36251803b552040956d19e39f295a6, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -768,7 +769,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -17,9 +17,10 @@ public class PauseGame : MonoBehaviour
         }
         soundManager = FindObjectOfType<SoundManager>();
         player = FindObjectOfType<PlayerController>();
-        bgMusic = soundManager.GetComponentInChildren<AudioSource>();
+        bgMusic = soundManager.GetComponentInChildren<AudioSource>();       
         bgMusic.volume = 0.05f;
         player.enabled = false;
+        player.IsMoving = false;
         player.GetComponent<Animator>().SetFloat("Speed", 0);
         player.currentState = PlayerState.menu;
         player.GetComponent<Animator>().SetBool("inMenu", true);

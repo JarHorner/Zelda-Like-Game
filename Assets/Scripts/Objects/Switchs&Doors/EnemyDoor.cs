@@ -54,6 +54,7 @@ public class EnemyDoor : MonoBehaviour
             else
             {
                 enemiesDefeated = true;
+                openDoor.Play();
             }
         }
     }
@@ -61,7 +62,7 @@ public class EnemyDoor : MonoBehaviour
     //uses the Pause() function from GameManager to prevent movement and play the animation of door opening.
     IEnumerator OpenEnemyDoor()
     {
-        openDoor.Play();
+        //openDoor.Play();
         pauseGame.Pause(false);
         animator.SetBool("Open", true);
         yield return new WaitForSeconds(1f);

@@ -8,12 +8,13 @@ public class FreeMovePushableBlock : MonoBehaviour
     #region Variables
     [SerializeField] InputActionAsset inputMaster;
     private InputAction push, movement;
+    private PlayerController player;
     private Animator playerAnim;
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
     private float startX, startY;
     private Vector3 newPosition;
-    private float pushingTime = 0.2f;
+    //private float pushingTime = 0.2f;
     private bool playSound = false;
     private bool canPush = false;
     private bool notMoved = true;
@@ -23,7 +24,8 @@ public class FreeMovePushableBlock : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerAnim = FindObjectOfType<PlayerController>().GetComponent<Animator>();
+        player = FindObjectOfType<PlayerController>();
+        playerAnim = player.GetComponent<Animator>();
         //sets the starting positions
         startX = transform.position.x;
         startY = transform.position.y;
@@ -31,27 +33,40 @@ public class FreeMovePushableBlock : MonoBehaviour
         var playerActionMap = inputMaster.FindActionMap("Player");
 
         push = playerActionMap.FindAction("Push");
+        push.performed += OnPush;
+        push.canceled += OnPush;
         movement = playerActionMap.FindAction("Movement");
+    }
+
+    private void OnPush(InputAction.CallbackContext context)
+    {
+        if (push.interactions.Length == 4)
+        {
+            if (movement.ReadValue<Vector2>().y != 0)
+            {
+                PushBlock(true);
+            }
+            else if (movement.ReadValue<Vector2>().x != 0)
+            {
+                PushBlock(false);
+            }
+            playSound = true;
+        }
+        if (push.ReadValue<float>() == 0)
+        {
+            playSound = false;
+            playerAnim.SetBool("isPushing", false);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        Debug.Log(push.interactions.Length);
     }
  
     void Update()
     {
-        //if player can push, PushBlock() will be called with a different param 
-        //depending on the facing of the player.
-        if (canPush)
+        if (playSound)
         {
-            if (movement.ReadValue<Vector2>().y != 0 && push.ReadValue<float>() == 1)
-            {
-                PushBlock(true);
-            }
-            else if (movement.ReadValue<Vector2>().x != 0 && push.ReadValue<float>() == 1)
-            {
-                PushBlock(false);
-            }
-        }
-        if (pushingTime <= 0)
-        {
-            if (!movingSound.isPlaying && playSound)
+            if (!movingSound.isPlaying)
             {
                 movingSound.Play();
             }
@@ -67,15 +82,17 @@ public class FreeMovePushableBlock : MonoBehaviour
     private void PushBlock(bool direction)
     {
         playerAnim.SetBool("isPushing", true);
-        pushingTime -= Time.deltaTime;
-        if (pushingTime <= 0)
+        player.MovementAudioSource.Stop();
+        //true is up or down, false is left or right
+        if (direction)
         {
-            //true is up or down, false is left or right
-            if (direction)
-                rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            else
-                rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-            playSound = true;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
@@ -94,11 +111,7 @@ public class FreeMovePushableBlock : MonoBehaviour
     {
         if (collider.gameObject.tag == "InteractBox")
         {
-            //sets the players animation back to idle/walking when not interacting with block
-            playerAnim.SetBool("isPushing", false);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            canPush = false;
-            pushingTime = 0.2f;
             push.Disable();
         }
     }

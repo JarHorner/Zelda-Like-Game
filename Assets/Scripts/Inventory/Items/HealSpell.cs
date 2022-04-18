@@ -11,7 +11,7 @@ public class HealSpell : MonoBehaviour
 
     public void IncreaseHealth(int amountIncrease)
     {
-        HealthVisual.healthSystemStatic.Heal(8);
+        HealthVisual.healthSystemStatic.Heal(amountIncrease);
     }
 
     #endregion

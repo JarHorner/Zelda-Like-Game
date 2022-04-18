@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
+  lanturn: {fileID: 6993329182543698478, guid: f9156c0c766d2ac4cae7054365f15eb7, type: 3}
   pauseGame: {fileID: 7334883066433762222}
   inventoryManager: {fileID: 0}
   openMenu: {fileID: 4549368354584026987}

@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.UI;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
 
     #region Variables
     private bool muted = false;
+    private float currentVol;
 
     #endregion
 
@@ -19,14 +20,20 @@ public class OptionsMenu : MonoBehaviour
         {
             muted = true;
             confirmation.SetActive(true);
+            currentVol = AudioListener.volume;
             AudioListener.volume = 0f;
         }
         else
         {
             muted = false;
             confirmation.SetActive(false);
-            AudioListener.volume = 1f;
+            AudioListener.volume = currentVol;
         }
+    }
+
+    public void AlterMasterVolume(Slider slider)
+    {
+        AudioListener.volume = slider.value;
     }
 
     public void ChangeAttackButton(GameObject confirmation)

@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    private static bool exists = false;
+    [SerializeField] private static UIManager _instance;
+
+    public static UIManager Instance { get { return _instance; } }
     
     void Awake() 
     {
         //Singleton Effect
-        if (!exists)
+        if (_instance != null && _instance != this)
         {
-            exists = true;
-            //ensures same player object is not destoyed when loading new scences
-            DontDestroyOnLoad(this.gameObject);
+            Debug.Log($"Destroyed {this.gameObject}");
+            Destroy (this.gameObject);
         }
         else
         {
-            Destroy (gameObject);
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 }

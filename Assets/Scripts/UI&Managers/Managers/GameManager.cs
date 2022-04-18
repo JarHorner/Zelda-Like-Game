@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     #region Variables
     [SerializeField] private InputActionAsset inputMaster;
+    [SerializeField] private Lanturn lanturn;
     private InputAction cancel, assignItem1, assignItem2;
     private static bool exists;
     private string currentScene;
@@ -47,6 +48,17 @@ public class GameManager : MonoBehaviour
         cancel = uiActionMap.FindAction("Cancel");
         assignItem1 = uiActionMap.FindAction("AssignItem1");
         assignItem2 = uiActionMap.FindAction("AssignItem2");
+
+        //Checks if scene is unlit. if so, Lanturn is used.
+        //Debug.Log(inventoryManager.HasLanturn());
+        if (UnlitScenes.IsUnlitScene() && inventoryManager.HasLanturn())
+        {
+            lanturn.LightArea();
+        }
+        else
+        {
+            lanturn.RemoveLanturn();
+        }
     }
 
     void Start()
