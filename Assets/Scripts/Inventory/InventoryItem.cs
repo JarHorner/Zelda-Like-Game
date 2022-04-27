@@ -14,6 +14,7 @@ public class InventoryItem : ScriptableObject
     public int maxNumberHeld;
     public bool usable;
     public bool unique;
+    public bool playerOwns;
     public UnityEvent thisEvent;
 
     //used event assigned to this item

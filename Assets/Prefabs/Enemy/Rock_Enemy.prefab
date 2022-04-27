@@ -110,6 +110,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 5315d5cd2fcf48848a2ca4a4438569bf, type: 2}
   baseAttack: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   moveSpeed: 3
+  isKnockable: 1
   spawnLocation: {fileID: 1020848146160666055}
   awakenAnimTime: 1
   movementAudio: {fileID: 1020848145206401448}

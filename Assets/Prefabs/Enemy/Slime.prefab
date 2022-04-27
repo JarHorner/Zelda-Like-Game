@@ -212,6 +212,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 5315d5cd2fcf48848a2ca4a4438569bf, type: 2}
   baseAttack: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   moveSpeed: 4
+  isKnockable: 1
   timeBetweenMove: 0.5
   timeToMove: 1
   movement: {fileID: 8300000, guid: 93e4b38aa116e194b83e9a6113866b3f, type: 3}

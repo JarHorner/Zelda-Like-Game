@@ -13,10 +13,7 @@ public class FreeMovePushableBlock : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private AudioSource movingSound;
     private float startX, startY;
-    private Vector3 newPosition;
-    //private float pushingTime = 0.2f;
     private bool playSound = false;
-    private bool canPush = false;
     private bool notMoved = true;
     #endregion
 
@@ -57,9 +54,8 @@ public class FreeMovePushableBlock : MonoBehaviour
             playSound = false;
             playerAnim.SetBool("isPushing", false);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            //player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        Debug.Log(push.interactions.Length);
     }
  
     void Update()
@@ -82,6 +78,7 @@ public class FreeMovePushableBlock : MonoBehaviour
     private void PushBlock(bool direction)
     {
         playerAnim.SetBool("isPushing", true);
+        notMoved = false;
         player.MovementAudioSource.Stop();
         //true is up or down, false is left or right
         if (direction)
@@ -101,7 +98,6 @@ public class FreeMovePushableBlock : MonoBehaviour
     {
         if (collider.gameObject.tag == "InteractBox")
         {
-            canPush = true;
             push.Enable();
         }
     }

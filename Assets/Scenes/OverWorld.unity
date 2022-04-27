@@ -29577,6 +29577,7 @@ GameObject:
   - component: {fileID: 958427503}
   - component: {fileID: 958427502}
   - component: {fileID: 958427501}
+  - component: {fileID: 958427504}
   m_Layer: 4
   m_Name: Water
   m_TagString: Water
@@ -29608,7 +29609,7 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -31922,6 +31923,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &958427504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958427499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a74c385da360314faf2789fd56c2f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterCollider: {fileID: 958427501}
 --- !u!1 &1043891698
 GameObject:
   m_ObjectHideFlags: 0
@@ -33273,7 +33287,7 @@ GameObject:
   - component: {fileID: 1057626831}
   - component: {fileID: 1057626835}
   - component: {fileID: 1057626833}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Objects
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -43514,7 +43528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5957370982514884826, guid: 3f535e97ed130bd4f94d6958205d726e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5957370982514884826, guid: 3f535e97ed130bd4f94d6958205d726e, type: 3}
       propertyPath: m_TagString
@@ -43576,7 +43590,7 @@ GameObject:
   - component: {fileID: 1512060610}
   - component: {fileID: 1512060609}
   - component: {fileID: 1512060608}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Solid_Objects_Player_Behind
   m_TagString: Object
   m_Icon: {fileID: 0}
@@ -47155,7 +47169,7 @@ GameObject:
   - component: {fileID: 2136056125}
   - component: {fileID: 2136056129}
   - component: {fileID: 2136056127}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Objects_Addons
   m_TagString: Object
   m_Icon: {fileID: 0}

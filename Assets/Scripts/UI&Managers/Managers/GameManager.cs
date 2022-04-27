@@ -50,14 +50,12 @@ public class GameManager : MonoBehaviour
         assignItem2 = uiActionMap.FindAction("AssignItem2");
 
         //Checks if scene is unlit. if so, Lanturn is used.
-        //Debug.Log(inventoryManager.HasLanturn());
-        if (UnlitScenes.IsUnlitScene() && inventoryManager.HasLanturn())
+        if (UnlitScenes.IsUnlitScene())
         {
-            lanturn.LightArea();
-        }
-        else
-        {
-            lanturn.RemoveLanturn();
+            if (inventoryManager.HasLanturn())
+                lanturn.LightArea();
+            else
+                lanturn.RemoveLanturn();
         }
     }
 

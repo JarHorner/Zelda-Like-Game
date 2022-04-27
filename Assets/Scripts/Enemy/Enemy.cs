@@ -6,20 +6,24 @@ public enum EnemyState{
     idle,
     walk,
     attack,
-    stagger
+    stagger,
+    dead
 }
 
 public class Enemy : MonoBehaviour
 {
     public EnemyState currentState;
     private int health;
+    
     [SerializeField] private FloatValue maxHealth;
     [SerializeField] private FloatValue baseAttack;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private bool isKnockable;
 
     void Awake() 
     {
         health = maxHealth.InitalValue;
+        Debug.Log("Health " + health);
     }
 
     public void ChangeState(EnemyState newState)
@@ -64,5 +68,10 @@ public class Enemy : MonoBehaviour
     public float MoveSpeed
     {
         get { return moveSpeed; }
+    }
+
+    public bool IsKnockable
+    {
+        get { return isKnockable; }
     }
 }

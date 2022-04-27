@@ -49,6 +49,7 @@ public class InventorySlot : MonoBehaviour
             {
                 itemImage.GetComponent<Image>().enabled = true;
                 itemImage.sprite = thisItem.itemImage;
+                thisItem.playerOwns = true;
                 if (!thisItem.unique)
                 {
                     int numHeld = thisItem.numberHeld;

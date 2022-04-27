@@ -40,10 +40,10 @@ public class SwitchOpenDoor : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if (other.tag == "MovableBlock")
         {
+            //if there is another door to open
             if (transform.parent.gameObject.transform.childCount == 3)
             {
-               Animator otherDoorAnimator = this.transform.parent.gameObject.transform.Find("Other_Switch_Door").GetComponent<Animator>();
-               otherDoorAnimator.SetBool("Open", false);
+               secondDoorAnimator.SetBool("Open", false);
             }
             StartCoroutine(CloseDoor());
         }

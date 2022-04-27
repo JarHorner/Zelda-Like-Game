@@ -139,7 +139,21 @@ public class InventoryManager : MonoBehaviour
         {
             if (item != null && item.name == "Lanturn")
             {
-                return true;
+                if (item.playerOwns == true)
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    public bool HasSwimmingMedal()
+    {
+        foreach (var item in playerInventory.myInventory)
+        {
+            if (item != null && item.name == "SwimmingMedal")
+            {
+                if (item.playerOwns == true)
+                    return true;
             }
         }
         return false;

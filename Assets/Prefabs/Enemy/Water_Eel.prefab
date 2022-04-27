@@ -288,6 +288,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: 798e7b0c282df8a4e8d5f1abadfb726f, type: 2}
   baseAttack: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   moveSpeed: 0
+  isKnockable: 0
   spawnLocation: {fileID: 7680680545216337528}
   bulletPrefab: {fileID: 1498348727028264967, guid: 84a9bd3eae06d3142a74331b2319dd86, type: 3}
   movementSound: {fileID: 6364700643000213208}

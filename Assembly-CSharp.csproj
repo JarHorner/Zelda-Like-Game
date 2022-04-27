@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\Other\Resetters\ResetFloors.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
      <Compile Include="Assets\ScriptableObjects\Values\FloatValue.cs" />
+     <Compile Include="Assets\Scripts\World\UnlitScenes.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchOpenDoor.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\ConveyorBelt.cs" />
      <Compile Include="Assets\Scripts\Objects\Blocks\FreeMovePushableBlock.cs" />
@@ -54,6 +55,7 @@
      <Compile Include="Assets\Scripts\Other\Resetters\ResetBlocks.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\ChestAppear.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicEnemies\WaterEel\WaterEel.cs" />
+     <Compile Include="Assets\Scripts\Inventory\Items\Lanturn.cs" />
      <Compile Include="Assets\Scripts\Other\DestroyOnExit.cs" />
      <Compile Include="Assets\Scripts\Inventory\PlayerInventory.cs" />
      <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
@@ -82,7 +84,6 @@
      <Compile Include="Assets\Scripts\UI&amp;Managers\Managers\DungeonManager.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\UIManager.cs" />
      <Compile Include="Assets\Scripts\Other\Volume2D.cs" />
-     <Compile Include="Assets\Scripts\Enemy\RockGolem\EarthSpikes.cs" />
      <Compile Include="Assets\Scripts\World\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Inventory\Items\Bow.cs" />
@@ -94,8 +95,8 @@
      <Compile Include="Assets\AdvancedPolygonCollider\Script\AdvancedPolygonCollider.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\HealthVisual.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Health.cs" />
+     <Compile Include="Assets\Scripts\Enemy\SandWorm.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchTimedDoor.cs" />
-     <Compile Include="Assets\Scripts\Enemy\RockGolem\RockGolem.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\ArrowPickup.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\TargetDoor.cs" />
      <Compile Include="Assets\Scripts\World\OpenDungeonDoor.cs" />
@@ -126,8 +127,7 @@
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Other\DontDestroyOnLoad.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\Inventory\Items\Lanturn.cs" />
-     <Compile Include="Assets\Scripts\World\UnlitScenes.cs" />
+     <Compile Include="Assets\Scripts\World\Water.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

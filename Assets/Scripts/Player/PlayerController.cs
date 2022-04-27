@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionAsset inputMaster;
     private InputAction move, attack, useItem1, useItem2, pause, inventory;
     private GameManager gameManager;
+    private InventoryManager inventoryManager;
     public float moveSpeed;
     private float waitToLoad = 1.8f;
     private float attackCounter = 0.25f;
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour
     void Awake() 
     {
         gameManager = FindObjectOfType<GameManager>();
+        inventoryManager = FindObjectOfType<InventoryManager>();
         lastPlayerLocation = new Vector2(0, 0);
         Debug.Log(lastPlayerLocation);
 
@@ -412,10 +414,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
+    //THIS TRIGGERS SWIMMING!!!!
     //enables regular movement when colliding with OutOfWater trigger when leaving water.
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (collider.gameObject.tag == "Water") 
+        if (collider.gameObject.tag == "Water" && inventoryManager.HasSwimmingMedal()) 
         {
             Debug.Log("water triggered");
             //sets swimming animation and new player speed

@@ -80,7 +80,6 @@ public class MoveOnceBlock : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        Debug.Log(push.interactions.Length);
     }
 
     void Update()
@@ -132,7 +131,7 @@ public class MoveOnceBlock : MonoBehaviour
             else
             {
                 isMoving = false;
-                rb.bodyType = RigidbodyType2D.Static;
+                //rb.bodyType = RigidbodyType2D.Static;
                 notMoved = false;
             }
         }
@@ -154,7 +153,7 @@ public class MoveOnceBlock : MonoBehaviour
         if (collider.gameObject.tag == "InteractBox")
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            push.Disable();
+            //push.Disable();
         }
     }
 
