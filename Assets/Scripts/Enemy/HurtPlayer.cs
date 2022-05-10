@@ -11,7 +11,7 @@ public class HurtPlayer : MonoBehaviour
     private PlayerController player;
     [SerializeField] private Knockback knockback;
     private Enemy enemy;
-    private float waitToHurt = 1.5f;
+    private float waitToHurt = 1f;
     private bool isTouching;
     //in code, eventually set to 1f.
     private float waitToHit = 0.0f;

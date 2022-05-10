@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2895613617558128669}
   - component: {fileID: 1178963289433732574}
   - component: {fileID: 4477121512179324477}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Appearing_Chest
   m_TagString: Object
   m_Icon: {fileID: 0}

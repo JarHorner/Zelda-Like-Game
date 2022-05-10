@@ -21,6 +21,9 @@ TagManager:
   - Boss
   - InteractBox
   - HitBox
+  - Switch
+  - PlayerProjectile
+  - ColorBlock
   layers:
   - Default
   - TransparentFX

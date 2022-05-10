@@ -25,6 +25,7 @@ public class TrapArrow : MonoBehaviour
         //adds impulse force at start so the speed stays the same.
         ShootDirection();
     }
+    
     void Update() 
     {
         //destroys projectile if havent touched anything within its lifespan.

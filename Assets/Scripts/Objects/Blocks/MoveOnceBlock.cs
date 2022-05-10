@@ -14,13 +14,16 @@ public class MoveOnceBlock : MonoBehaviour
     private PlayerController player;
     private Animator playerAnim;
     private Rigidbody2D rb;
+    private GameObject thisGameObject;
     [SerializeField] private AudioSource movingSound;
     private float startX, startY;
     private Vector2 newPosition;
     private bool playSound = false;
-    private bool isMoving = false;
-    private bool canPush = false;
     private bool notMoved = true;
+    private bool inFinalPosition = false;
+    
+    //values Lerp uses
+    float lerpDuration = 0.5f;
 
     //these two varibles can be adjusted at any time
     private float blockLength = 1f; //1f on both axes. Distance to move one block-length
@@ -33,14 +36,14 @@ public class MoveOnceBlock : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         playerAnim = player.GetComponent<Animator>();
         //sets the starting positions
-        startX = transform.position.x;
-        startY = transform.position.y;
+        //startX = transform.position.x;
+        //startY = transform.position.y;
 
         var playerActionMap = inputMaster.FindActionMap("Player");
 
         push = playerActionMap.FindAction("Push");
         push.performed += OnPush;
-        push.canceled += OnPush;
+        push.canceled += OnRelease;
         movement = playerActionMap.FindAction("Movement");
     }
 
@@ -48,38 +51,44 @@ public class MoveOnceBlock : MonoBehaviour
     {
         if (push.interactions.Length == 4)
         {
+            startX = thisGameObject.transform.position.x;
+            startY = thisGameObject.transform.position.y;
             if (movement.ReadValue<Vector2>().y != 0)
             {
                 if (movement.ReadValue<Vector2>().y == 1)
                 {
-                    PushBlock(true, new Vector2(startX, startY + blockLength));
+                    newPosition = new Vector2(startX, startY + blockLength);
+                    PushBlock(true, newPosition);
                 }
                 else
                 {
-                    PushBlock(true, new Vector2(startX, startY - blockLength));
+                    newPosition = new Vector2(startX, startY - blockLength);
+                    PushBlock(true, newPosition);
                 }
             }
             else if (movement.ReadValue<Vector2>().x != 0)
             {
                 if (movement.ReadValue<Vector2>().x == 1)
                 {
-                    PushBlock(false, new Vector2(startX + blockLength, startY));
+                    newPosition = new Vector2(startX + blockLength, startY);
+                    PushBlock(false, newPosition);
                 }
                 else
                 {
-                    PushBlock(false, new Vector2(startX - blockLength, startY));
+                    newPosition = new Vector2(startX - blockLength, startY);
+                    PushBlock(false, newPosition);
                 }
             }
             playSound = true;
         }
-        if (push.ReadValue<float>() == 0)
-        {
-            playSound = false;
-            isMoving = false;
-            playerAnim.SetBool("isPushing", false);
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
+    }
+
+    private void OnRelease(InputAction.CallbackContext context)
+    {
+        playSound = false;
+        playerAnim.SetBool("isPushing", false);
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     void Update()
@@ -114,36 +123,35 @@ public class MoveOnceBlock : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
-        newPosition = position;
-        isMoving = true;
+        StartCoroutine(LerpBlock());
     }
 
-    //movement happens here, ensures movement is not based on framerate.
-    void FixedUpdate()
+    //movement happens here. smooth lerp.
+    IEnumerator LerpBlock()
     {
-        if (isMoving)
+        float timeElapsed = 0;
+        Vector2 startPosition = thisGameObject.transform.position;
+        while (timeElapsed < lerpDuration)
         {
-            if (rb.position != newPosition)
-            {
-                Vector3 position = Vector3.MoveTowards(rb.position, newPosition, 1f * Time.deltaTime);
-                rb.MovePosition(position);
-            }
-            else
-            {
-                isMoving = false;
-                //rb.bodyType = RigidbodyType2D.Static;
-                notMoved = false;
-            }
+            thisGameObject.transform.position = Vector3.Lerp(startPosition, newPosition, timeElapsed / lerpDuration);
+            timeElapsed += Time.deltaTime;
+            Debug.Log(timeElapsed);
+            yield return null;
         }
+        thisGameObject.transform.position = newPosition;
+
+        thisGameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        inFinalPosition = true;
+        notMoved = false;
     }
 
     //block can be pushed when players collider is within blocks.
     private void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "InteractBox")
+        if (collider.gameObject.tag == "InteractBox" && !inFinalPosition)
         {
-            canPush = true;
             push.Enable();
+            thisGameObject = this.gameObject;
         }
     }
 
@@ -153,7 +161,12 @@ public class MoveOnceBlock : MonoBehaviour
         if (collider.gameObject.tag == "InteractBox")
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            //push.Disable();
+            push.Disable();
+            thisGameObject = null;
+            playSound = false;
+            playerAnim.SetBool("isPushing", false);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 

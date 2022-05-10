@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8930517281680749975}
   - component: {fileID: 2885265070231428988}
   - component: {fileID: 1187059866221863615}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Chest
   m_TagString: Object
   m_Icon: {fileID: 0}

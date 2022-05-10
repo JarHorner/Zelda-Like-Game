@@ -31,7 +31,7 @@ public class FreeMovePushableBlock : MonoBehaviour
 
         push = playerActionMap.FindAction("Push");
         push.performed += OnPush;
-        push.canceled += OnPush;
+        push.canceled += OnRelease;
         movement = playerActionMap.FindAction("Movement");
     }
 
@@ -49,13 +49,13 @@ public class FreeMovePushableBlock : MonoBehaviour
             }
             playSound = true;
         }
-        if (push.ReadValue<float>() == 0)
-        {
-            playSound = false;
-            playerAnim.SetBool("isPushing", false);
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            //player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
+    }
+    private void OnRelease(InputAction.CallbackContext context)
+    {
+        playSound = false;
+        playerAnim.SetBool("isPushing", false);
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
  
     void Update()
@@ -109,6 +109,10 @@ public class FreeMovePushableBlock : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             push.Disable();
+            playSound = false;
+            playerAnim.SetBool("isPushing", false);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 

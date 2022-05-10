@@ -15,7 +15,8 @@ public class ArrowTrap : MonoBehaviour
     #region Methods
 
     //spawns arrow when player enters firing range
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
         if (other.tag == "Player")
         {
             Instantiate(arrow, target.transform);

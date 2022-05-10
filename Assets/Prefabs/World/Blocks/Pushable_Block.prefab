@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5200721618323926547}
   - component: {fileID: 6396060363984897159}
   - component: {fileID: 2095581838808296971}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pushable_Block
   m_TagString: MovableBlock
   m_Icon: {fileID: 0}

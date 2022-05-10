@@ -52,6 +52,10 @@ public class Sword : MonoBehaviour
                 }
             }
         }
+        else if (other.tag == "Switch")
+        {
+            other.gameObject.GetComponent<ColorBlockSwitch>().SwapColor();
+        }
     }
 
     #endregion

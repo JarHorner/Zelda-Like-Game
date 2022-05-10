@@ -23,7 +23,7 @@ public class Arrow : MonoBehaviour
         Destroy (gameObject, lifespan);
     }
 
-    //does damamge to enemy, and connects with obejcts and walls.
+    //does damamge to enemy, and connects with objects and walls.
     public void OnTriggerEnter2D(Collider2D other) 
     {
         hit.Play();
@@ -31,8 +31,9 @@ public class Arrow : MonoBehaviour
         {
             StartCoroutine(ArrowHitWall());
         }
-        else if (other.gameObject.tag == "Object")
+        else if (other.tag == "Object")
         {
+            Debug.Log("Hit Object");
             StartCoroutine(ArrowHitObject());
         }
         else if (other.tag == "Enemy" || other.tag == "Boss")
@@ -63,6 +64,11 @@ public class Arrow : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+        else if (other.tag == "Switch")
+        {
+            other.gameObject.GetComponent<ColorBlockSwitch>().SwapColor();
+            Destroy(gameObject);
         }
     }
 

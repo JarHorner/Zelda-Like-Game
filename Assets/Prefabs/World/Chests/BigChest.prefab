@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2205767287658889618}
   - component: {fileID: -6761120249754635725}
   - component: {fileID: 913164981471354017}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BigChest
   m_TagString: Object
   m_Icon: {fileID: 0}
