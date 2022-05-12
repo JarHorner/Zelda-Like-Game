@@ -23,6 +23,7 @@ public class SandWorm : Enemy
 
     #region Methods
 
+    //sets up all state.
     void Start()
     {
         head = wormSprites[0];
@@ -39,6 +40,7 @@ public class SandWorm : Enemy
         tailAnimator.SetFloat("Vertical", moveDirection.y);
     }
     
+    //starts to correct the tail if needed, also randomly changes the direction of the worm on a fixed time set. (makes the worm seem more lively)
     void Update() 
     {
         if (lastTailPosition == tail.transform.position && !tailChanging)
@@ -65,6 +67,7 @@ public class SandWorm : Enemy
         } 
     }
 
+    //waits 2 seconds before correcting the rotation of the tail
     IEnumerator MoveTail()
     {
         yield return new WaitForSeconds(2f);
@@ -73,6 +76,7 @@ public class SandWorm : Enemy
         tailChanging = false;
     }
 
+    //ensure the body & tail of the worm move correctly behind the head.
     void FixedUpdate()
     {
         lastVelocity = rb.velocity;
@@ -104,6 +108,7 @@ public class SandWorm : Enemy
         }
     }
 
+    //when the worm collides with select gameobjects, it will bounce in a correct physics direction.
     private void OnCollisionEnter2D(Collision2D collision) 
     {
         if (collision.gameObject.tag == "Walls" || collision.gameObject.tag == "Player")
@@ -121,6 +126,7 @@ public class SandWorm : Enemy
         }
     }
 
+    //when disables, all children are disabled as well
     private void OnDisable() 
     {
         Debug.Log("destory parent");

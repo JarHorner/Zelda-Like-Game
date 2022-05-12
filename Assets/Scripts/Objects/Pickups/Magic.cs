@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Magic : MonoBehaviour
 {
     #region Varibles
 
     #endregion
 
     #region Methods
+
     private void OnTriggerEnter2D(Collider2D collider) 
     {
         if (collider.tag == "Player")
         {
-            HealthVisual.healthSystemStatic.Heal(4);
+            MagicVisual.magicSystemStatic.Recover(2);
             Destroy(this.gameObject);
         }
     }

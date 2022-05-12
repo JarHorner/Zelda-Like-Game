@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Pot : MonoBehaviour
+public class PickupObject : MonoBehaviour
 {
-
     #region Varibles
     [SerializeField] InputActionAsset inputMaster;
     private InputAction interact;
-    [SerializeField] private Animator animator;
-    [SerializeField] private AudioSource potBreak;
     [SerializeField] private RandomLoot loot;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private PolygonCollider2D polyCollider;
+    [SerializeField] private AudioSource breakSound;
+    [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer sprite;
     private PlayerController player;
     private int damage = 1;
@@ -22,7 +21,7 @@ public class Pot : MonoBehaviour
     private bool thrown = false;
     private float speed = 10f;
     private float airTime = 0.4f;
-    private float dropTime = 0.13f;
+    private float dropTime = 0.1f;
     #endregion
 
     #region Methods
@@ -51,8 +50,8 @@ public class Pot : MonoBehaviour
                 {
                     rb.velocity = Vector2.zero;
                     rb.gravityScale = 0;
-                    animator.SetTrigger("Break");
                     loot.DropItem();
+                    animator.SetTrigger("Thrown");
                     StartCoroutine(RemoveRubble());
                     thrown = false;
                 }
@@ -80,7 +79,7 @@ public class Pot : MonoBehaviour
     {
         if (pickup && !player.IsCarrying)
         {
-            this.transform.position =  new Vector3(player.transform.position.x, (player.transform.position.y + 1), 0);
+            this.transform.position =  new Vector3(player.transform.position.x, (player.transform.position.y + 0.8f), 0);
             this.transform.parent = player.transform;
             player.IsCarrying = true;
             polyCollider.isTrigger = true;
@@ -112,6 +111,7 @@ public class Pot : MonoBehaviour
         }
 
         this.transform.parent = null;
+        this.transform.position =  new Vector3(player.transform.position.x, player.transform.position.y, 0);
         polyCollider.isTrigger = false;
         player.IsCarrying = false;
         rb.isKinematic = false;
@@ -127,13 +127,14 @@ public class Pot : MonoBehaviour
     {
         if (thrown)
         {
-            if (other.gameObject.tag == "Object" || other.gameObject.tag == "MovableBlock" || other.gameObject.tag == "Walls")
+            //check if it layers "Object" and "Walls"
+            if (other.gameObject.layer == 13 || other.gameObject.layer == 10)
             {
                 thrown = false;
                 rb.gravityScale = 0;
                 rb.velocity = Vector2.zero;
-                animator.SetTrigger("Break");
                 loot.DropItem();
+                animator.SetTrigger("Thrown");
                 StartCoroutine(RemoveRubble());
             }
             if (other.gameObject.tag == "Enemy")
@@ -141,8 +142,8 @@ public class Pot : MonoBehaviour
                 rb.gravityScale = 0;
                 rb.velocity = Vector2.zero;
                 other.gameObject.GetComponent<EnemyHealthManager>().DamageEnemy(damage, this.transform);
-                animator.SetTrigger("Break");
                 loot.DropItem();
+                animator.SetTrigger("Thrown");
                 StartCoroutine(RemoveRubble());
             }
         }
@@ -153,8 +154,8 @@ public class Pot : MonoBehaviour
     {
         if (other.tag == "Sword")
         {
-            animator.SetTrigger("Break");
             loot.DropItem();
+            animator.SetTrigger("Cut");
             StartCoroutine(RemoveRubble());
         }
         if (other.gameObject.tag == "InteractBox")
@@ -178,13 +179,18 @@ public class Pot : MonoBehaviour
     //Destroys gameobject after 3 seconds
     private IEnumerator RemoveRubble()
     {
-        potBreak.Play();
+        breakSound.Play();
         sprite.sortingLayerName = "Object";
-        sprite.sortingOrder = 1;
+        sprite.sortingOrder = 0;
         interact.performed -= PickupOrThrow;
         interact.Disable();
         yield return new WaitForSeconds(3f);
         Destroy(this.gameObject);
+    }
+
+    public float DropTime
+    {
+        get { return dropTime; }
     }
 
     #endregion

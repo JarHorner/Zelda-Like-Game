@@ -11,7 +11,12 @@ public class HealSpell : MonoBehaviour
 
     public void IncreaseHealth(int amountIncrease)
     {
-        HealthVisual.healthSystemStatic.Heal(amountIncrease);
+        int count = HealthVisual.healthSystemStatic.HeartList.Count - 1;
+        if (!MagicVisual.magicSystemStatic.IsEmpty() && HealthVisual.healthSystemStatic.HeartList[count].Fragments != 4)
+        {
+            HealthVisual.healthSystemStatic.Heal(amountIncrease);
+            MagicVisual.magicSystemStatic.Use(amountIncrease/2);
+        }
     }
 
     #endregion

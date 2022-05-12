@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8972622761228450185}
   - component: {fileID: 8972622761228450184}
-  - component: {fileID: 8972622761228450186}
+  - component: {fileID: -1734170327321039800}
   - component: {fileID: 4517568984689733258}
   - component: {fileID: -5234396565830038271}
   - component: {fileID: 8972622761228450182}
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8972622761228450186
+--- !u!114 &-1734170327321039800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,15 +97,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8972622761228450189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf580f2a540b64341ab0f5097002acee, type: 3}
+  m_Script: {fileID: 11500000, guid: 19e1eff5811037a4082cf5655f4292a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
-  animator: {fileID: 8972622761228450182}
-  potBreak: {fileID: -466963846892462536}
   loot: {fileID: 8972622761228450183}
   rb: {fileID: 4517568984689733258}
   polyCollider: {fileID: -5234396565830038271}
+  breakSound: {fileID: -466963846892462536}
+  animator: {fileID: 8972622761228450182}
   sprite: {fileID: 8972622761228450184}
 --- !u!50 &4517568984689733258
 Rigidbody2D:
@@ -126,7 +126,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!60 &-5234396565830038271
 PolygonCollider2D:
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drops:
   - {fileID: 8409851035980371809, guid: c89cad6aa7b9c814da91836b18597520, type: 3}
-  - {fileID: 0}
+  - {fileID: 3867691582514386717, guid: 9a917cc45d0a06c4aa7041a679c4fb7d, type: 3}
   - {fileID: 3463233746944834832, guid: 1aec62755c9498d429cf1733b89a1b30, type: 3}
   - {fileID: 3471238382761467840, guid: a919c81a1575ec044b0722e3fff36f16, type: 3}
   table: 32000000190000000f0000000a000000

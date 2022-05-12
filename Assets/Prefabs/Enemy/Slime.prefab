@@ -159,7 +159,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &4614514940832172938
 CapsuleCollider2D:
@@ -267,10 +267,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drops:
-  - {fileID: 0}
   - {fileID: 3463233746944834832, guid: 1aec62755c9498d429cf1733b89a1b30, type: 3}
   - {fileID: 8409851035980371809, guid: c89cad6aa7b9c814da91836b18597520, type: 3}
   - {fileID: 3471238382761467840, guid: a919c81a1575ec044b0722e3fff36f16, type: 3}
+  - {fileID: 3867691582514386717, guid: 9a917cc45d0a06c4aa7041a679c4fb7d, type: 3}
   - {fileID: 9133062843454066787, guid: 02836c2e681833743be467db74b32439, type: 3}
   table: 1e0000001d0000001c0000000a00000003000000
 --- !u!82 &4614514940832172940

@@ -2,83 +2,105 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSenseSpikeBlock : MonoBehaviour
+public class PlayerSenseSpikeBlock : Enemy
 {
     #region Variables
 
-    [SerializeField] private Animator animator;
-    [SerializeField] private TriggerArea triggerArea;
+    [SerializeField] private TriggerArea[] triggerArea;
     private Vector3 min;
     private Vector3 max;
-    private IEnumerator triggeredBlock;
+    private bool canMove;
+    private bool reset = true;
     [SerializeField] private float distance;
-    [SerializeField] private float durationToHitPlayer;
-    [SerializeField] private float durationBack;
-
-    [Tooltip("true is x axis, false is y axis")]
-    [SerializeField] private bool direction;
-
+    [SerializeField] private float speedBack;
     #endregion
 
     #region Methods
-    //sets min and max distance depending on direction
+    //sets min distance
     void Start () 
     {
-        if (direction)
-        {
-            min = transform.position;
-            max = new Vector3(transform.position.x + distance, transform.position.y, transform.position.z);
-        }
-        else
-        {
-            min = transform.position;
-            max = new Vector3(transform.position.x, transform.position.y + distance, transform.position.z);
-        }
+        min = transform.position;
     }
 
+    //checks each trigger area to see if player has triggered it. if so, the block will move in that direction.
     void Update() 
     {
-        if (triggerArea.CanMove)
-        {
-            triggeredBlock = TriggeredBlock();
-            StartCoroutine(triggeredBlock);
-        }
+            foreach (var area in triggerArea)
+            {
+                if (!reset)
+                    break;
+                if (area.CanMove && reset)
+                {
+                    canMove = area.CanMove;
+                    reset = false;
+                    DetermineDirection(area);
+                }
+            }
+            if (canMove)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, max, Time.deltaTime * MoveSpeed);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, min, Time.deltaTime * speedBack);
+                if (transform.position == min) 
+                {
+                    reset = true;
+                }
+                
+            }
     }
 
-    IEnumerator TriggeredBlock()
+    //determines the direction the block will move based on char of TriggerArea.
+    private void DetermineDirection(TriggerArea area)
     {
-        float timeElapsed = 0;
-        while (timeElapsed <= durationToHitPlayer)
+        switch (area.Direction)
         {
-            transform.position = Vector3.Lerp(min, max, timeElapsed / durationToHitPlayer);
-            timeElapsed += Time.deltaTime;
-            yield return null;
+            case 'N':
+                max = new Vector3(transform.position.x, transform.position.y + distance, transform.position.z);
+                break;
+            case 'E':
+                max = new Vector3(transform.position.x + distance, transform.position.y, transform.position.z); 
+                break;
+            case 'S':  
+                max = new Vector3(transform.position.x, transform.position.y - distance, transform.position.z);
+                break;
+            case 'W':
+                max = new Vector3(transform.position.x - distance, transform.position.y, transform.position.z); 
+                break;
+           default:
+                Debug.Log("Incorrect Direction");
+                break;
         }
-        transform.position = max;
     }
 
-    IEnumerator MoveBackToPosition()
-    {
-        float timeElapsed = 0;
-        Vector3 currentPos = transform.position;
-        while (timeElapsed <= durationBack)
-        {
-            transform.position = Vector3.Lerp(currentPos, min, timeElapsed / durationBack);
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = min;
-        triggerArea.CanMove = false;
-    }
-
+    //if the block collides with select gameobjects, it "bounces" back
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        Debug.Log("Collided");
-        if (other.gameObject.tag == "MovableBlock")
+        if (other.gameObject.tag == "MovableBlock" || other.gameObject.tag == "Walls" || other.gameObject.tag == "Object")
         {
-            StopAllCoroutines();
-            triggerArea.CanMove = false;
-            StartCoroutine(MoveBackToPosition());
+            if (canMove)
+            {
+                canMove = false;
+                foreach (var area in triggerArea)
+                {
+                    if (area.CanMove)
+                    {
+                        area.CanMove = false;
+                    }
+                }
+            }
+            else
+            {
+                canMove = true;
+                foreach (var area in triggerArea)
+                {
+                    if (area.CanMove)
+                    {
+                        area.CanMove = true;
+                    }
+                }
+            }
         }
     }
 

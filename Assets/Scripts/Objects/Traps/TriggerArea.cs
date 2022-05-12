@@ -6,13 +6,15 @@ public class TriggerArea : MonoBehaviour
 {
     #region Variables
     private bool canMove;
+    [SerializeField] private GameObject parent;
+    [SerializeField] private char direction;
 
     #endregion
 
     #region Method
     private void Start() 
     {
-        transform.parent = null;
+        parent.transform.parent = null;
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -26,7 +28,7 @@ public class TriggerArea : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //canMove = false;
+            canMove = false;
         }
     }
 
@@ -34,6 +36,11 @@ public class TriggerArea : MonoBehaviour
     {
         get { return canMove; }
         set { canMove = value; }
+    }
+
+    public char Direction 
+    {
+        get { return direction; }
     }
 
     #endregion

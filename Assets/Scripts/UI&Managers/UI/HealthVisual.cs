@@ -8,8 +8,8 @@ public class HealthVisual : MonoBehaviour
     #region Variables
     public static HealthSystem healthSystemStatic;
     [SerializeField] private int health;
-    private float periodicTime = 0.15f;
-    private float fullHealthAnimTime = 0.6f;
+    private float periodicTime = 0.05f;
+    private float fullHealthAnimTime = 0.2f;
     private PlayerController player;
     private bool isHealing = false;
     [SerializeField] private Sprite heart0Sprite;
@@ -48,13 +48,13 @@ public class HealthVisual : MonoBehaviour
         if (periodicTime < 0f)
         {
             HealingAnimatedPeriodic();
-            periodicTime = 0.15f;
+            periodicTime = 0.05f;
         }
         fullHealthAnimTime -= Time.deltaTime;
         if (fullHealthAnimTime < 0f)
         {
             currentHeart.PlayHeartFullAnimation();
-            fullHealthAnimTime = 0.6f;
+            fullHealthAnimTime = 0.2f;
         }
     }
 
