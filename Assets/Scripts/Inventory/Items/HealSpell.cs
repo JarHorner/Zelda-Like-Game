@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealSpell : MonoBehaviour
 {
     #region Variables
+    private float cost = 45;
     #endregion
 
     #region Methods
@@ -12,10 +13,12 @@ public class HealSpell : MonoBehaviour
     public void IncreaseHealth(int amountIncrease)
     {
         int count = HealthVisual.healthSystemStatic.HeartList.Count - 1;
-        if (!MagicVisual.magicSystemStatic.IsEmpty() && HealthVisual.healthSystemStatic.HeartList[count].Fragments != 4)
+        ManaBar manaBar = FindObjectOfType<ManaBar>();
+        if (HealthVisual.healthSystemStatic.HeartList[count].Fragments != 4 && manaBar.Mana.CanSpend(cost))
         {
             HealthVisual.healthSystemStatic.Heal(amountIncrease);
-            MagicVisual.magicSystemStatic.Use(amountIncrease/2);
+            manaBar.Mana.SpendMana(cost);
+            Debug.Log("Spent");
         }
     }
 

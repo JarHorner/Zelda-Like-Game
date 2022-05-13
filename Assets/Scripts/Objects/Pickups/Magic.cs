@@ -14,7 +14,8 @@ public class Magic : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            MagicVisual.magicSystemStatic.Recover(2);
+            ManaBar manaBar = FindObjectOfType<ManaBar>();
+            manaBar.Mana.RecoverMana(20);
             Destroy(this.gameObject);
         }
     }
