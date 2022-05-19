@@ -21,7 +21,7 @@ public class PickupObject : MonoBehaviour
     private bool thrown = false;
     private float speed = 10f;
     private float airTime = 0.4f;
-    private float dropTime = 0.1f;
+    private float dropTime = 0.08f;
     #endregion
 
     #region Methods

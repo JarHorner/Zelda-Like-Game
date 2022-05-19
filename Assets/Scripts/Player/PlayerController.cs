@@ -20,6 +20,7 @@ public enum PlayerState
 public class PlayerController : MonoBehaviour
 {
     #region Variables
+    public static PlayerController playerController;
     public PlayerState currentState;
     //used to keep track of the players last location
     private static Vector2 lastPlayerLocation;
@@ -85,6 +86,7 @@ public class PlayerController : MonoBehaviour
         if (!playerExists)
         {
             playerExists = true;
+            playerController = this;
             //ensures same player object is not destoyed when loading new scences
             DontDestroyOnLoad(this.gameObject);
         }
@@ -138,11 +140,11 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(PlayerDead());
         }
-        if (move.triggered && currentState != PlayerState.stagger)
+        if (move.triggered && currentState != PlayerState.stagger && currentState != PlayerState.interact)
         {
             currentState = PlayerState.walk;
         }
-        if (move.triggered && isSwimming)
+        if (move.triggered && isSwimming && currentState != PlayerState.stagger & currentState != PlayerState.interact)
         {
             currentState = PlayerState.swim;
         }
@@ -284,21 +286,24 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMoving(InputAction.CallbackContext context)
     {
-        //gets input
-        movement.x = move.ReadValue<Vector2>().x;
-        movement.y = move.ReadValue<Vector2>().y;
+        if (currentState != PlayerState.interact)
+        {
+            //gets input
+            movement.x = move.ReadValue<Vector2>().x;
+            movement.y = move.ReadValue<Vector2>().y;
 
-        if (movement != Vector2.zero)
-        {
-            //sets new directions from the movement and sets bool, to play walking sound
-            DetermineFacingDirection();
-            isMoving = true;
-        } 
-        else
-        {
-            isMoving = false;
+            if (movement != Vector2.zero)
+            {
+                //sets new directions from the movement and sets bool, to play walking sound
+                DetermineFacingDirection();
+                isMoving = true;
+            } 
+            else
+            {
+                isMoving = false;
+            }
+            animator.SetFloat("Speed", movement.sqrMagnitude);
         }
-        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void CheckFirstKey(string direction)
@@ -385,7 +390,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAttack(InputAction.CallbackContext context)
     {
-        StartCoroutine(AttackCo());
+        if (currentState != PlayerState.interact)
+            StartCoroutine(AttackCo());
     }
 
     //if not currently attacking, starts the animation, if attack button has been pressed again, another attack

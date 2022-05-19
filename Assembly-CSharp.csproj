@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\TrapArrow.cs" />
      <Compile Include="Assets\Scripts\Other\Resetters\ResetTimerSwitch.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\Managers\EnemyHealthManager.cs" />
@@ -44,8 +45,10 @@
      <Compile Include="Assets\Scripts\World\FlickeringLight.cs" />
      <Compile Include="Assets\Scripts\World\Water.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemySpawnController.cs" />
+     <Compile Include="Assets\Scripts\Player\ContextClue.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\SetVolume.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\PauseScreen.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\ManaBar.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\TriggerArea.cs" />
      <Compile Include="Assets\Scripts\Other\Resetters\ResetFloors.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
@@ -74,12 +77,13 @@
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\OpenBossDoor.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\OptionsMenu.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\DialogueTrigger.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\TargetManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\Target.cs" />
      <Compile Include="Assets\Scripts\Player\DamagePopup.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Money.cs" />
-     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\DialogLocationCanvas.cs" />
-     <Compile Include="Assets\Unused\LogEnemy.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\LocationCanvas.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\Dialogue.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicEnemies\WaterEel\Projectile.cs" />
      <Compile Include="Assets\Scripts\World\AreaTransitions.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicEnemies\RockEnemy.cs" />
@@ -90,7 +94,6 @@
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\UIManager.cs" />
      <Compile Include="Assets\Scripts\Other\Volume2D.cs" />
      <Compile Include="Assets\Scripts\World\SceneLoader.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
      <Compile Include="Assets\Scripts\Inventory\Items\Bow.cs" />
      <Compile Include="Assets\Scripts\Other\DamageFlashing.cs" />
      <Compile Include="Assets\ScriptableObjects\Weaknesses\Weakness.cs" />
@@ -99,7 +102,7 @@
      <Compile Include="Assets\AdvancedPolygonCollider\Script\AdvancedPolygonCollider.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\HealthVisual.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Health.cs" />
-     <Compile Include="Assets\Scripts\Enemy\SandWorm.cs" />
+     <Compile Include="Assets\Scripts\Enemy\BasicEnemies\SandWorm.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchTimedDoor.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\ArrowPickup.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\SpikeBlock.cs" />
@@ -114,7 +117,6 @@
      <Compile Include="Assets\AdvancedPolygonCollider\Script\AdvancedPolygonColliderUtilities.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\HealthSystem.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
-     <Compile Include="Assets\Scripts\Objects\Interactables\Sign.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\Managers\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Enemy\HurtPlayer.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\MainMenu.cs" />
@@ -136,7 +138,7 @@
      <Compile Include="Assets\Scripts\Other\DontDestroyOnLoad.cs" />
      <Compile Include="Assets\Scripts\Objects\Blocks\ColorBlock.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\ManaBar.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\FixedScrollRect.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

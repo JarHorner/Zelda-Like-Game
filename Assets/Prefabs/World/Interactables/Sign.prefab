@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 1036556010857475358}
   - component: {fileID: 9125041355611809993}
   - component: {fileID: 3113240561327126510}
-  - component: {fileID: 6139193978527260138}
+  - component: {fileID: 193539401998983553}
   m_Layer: 13
   m_Name: Sign
   m_TagString: Object
@@ -158,7 +158,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8295512, y: 0.73136216}
   m_EdgeRadius: 0
---- !u!114 &6139193978527260138
+--- !u!114 &193539401998983553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,8 +167,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6738057254830489430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc358ff6aa855f40a8218f9c2b10f95, type: 3}
+  m_Script: {fileID: 11500000, guid: 334198fb1839b0b43a0ffeb10503aa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - 
+    name: Sign
+    sprite: {fileID: 21300000, guid: 484e465106452704fa7c473f5166b7cd, type: 3}
   inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
-  text: 

@@ -43,6 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dcca757a8d768147963be523908285f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDeath: {fileID: 8300000, guid: 1e53fdc002398c64d8db79892351fbf1, type: 3}
-  enemyDeath: {fileID: 8300000, guid: e0954d070cf46cd40a83a4a2985c0fe2, type: 3}
   backgroundMusic: {fileID: 0}
+  masterAudioMixer: {fileID: 24300002, guid: bf549c4fd3bc5d74abe786e62d6410c1, type: 2}

@@ -20,8 +20,6 @@ public class EnemyHealthManager : MonoBehaviour
     //in code, eventually set to 0.5f.
     public float waitToHurt = 0f;
     [SerializeField] private SpriteRenderer enemySprite;
-    private PlayerStats playerStats;
-    [SerializeField] private int expValue;
     private Vector3 startingCoordinates;
     #endregion
 
@@ -29,7 +27,6 @@ public class EnemyHealthManager : MonoBehaviour
 
     void Start()
     {
-        playerStats = FindObjectOfType<PlayerStats>();
         enemy = GetComponent<Enemy>();
         startingCoordinates = this.transform.position;
     }
@@ -67,7 +64,6 @@ public class EnemyHealthManager : MonoBehaviour
                 ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
                 partSys.Play(true);
                 soundManager.Play(death);
-                playerStats.SetCurrentExp(expValue);
 
                 this.gameObject.SetActive(false);
 
@@ -96,7 +92,6 @@ public class EnemyHealthManager : MonoBehaviour
                 ParticleSystem partSys = Instantiate(deathBurst, transform.position, transform.rotation);
                 partSys.Play(true);
                 soundManager.Play(death);
-                playerStats.SetCurrentExp(expValue);
 
                 animator.SetBool("Death", true);
                 //drops loot based on drop table

@@ -13,7 +13,7 @@ public class PlayerSpawnController : MonoBehaviour
     private PlayerController playerController;
     private CameraController cam;
     [SerializeField] private string placeName;
-    private DialogLocationCanvas locationCanvas;
+    private LocationCanvas locationCanvas;
     private bool justSpawned = true;
     #endregion
 
@@ -50,7 +50,7 @@ public class PlayerSpawnController : MonoBehaviour
         //Displays name of area on UI.
         if (justSpawned)
         {
-            locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
+            locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<LocationCanvas>();
             StartCoroutine(locationCanvas.PlaceNameCo(placeName));
             justSpawned = false;
         }

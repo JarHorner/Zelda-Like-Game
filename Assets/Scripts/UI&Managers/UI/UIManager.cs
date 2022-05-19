@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private static UIManager _instance;
+    private static UIManager _instance;
 
     public static UIManager Instance { get { return _instance; } }
     

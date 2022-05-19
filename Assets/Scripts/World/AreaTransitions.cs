@@ -17,7 +17,7 @@ public class AreaTransitions : MonoBehaviour
     [SerializeField] private Vector3 movePlayer;
     [SerializeField] private bool needLocationText = false;
     [SerializeField] private string placeName;
-    private DialogLocationCanvas locationCanvas;
+    private LocationCanvas locationCanvas;
     private bool locationAppearing;
     private float animTime = 3f;
     private static bool textUp;
@@ -31,7 +31,7 @@ public class AreaTransitions : MonoBehaviour
         enemies = GameObject.FindObjectsOfType<Enemy>();
         gameManager = FindObjectOfType<GameManager>();
         player = FindObjectOfType<PlayerController>();
-        locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<DialogLocationCanvas>();
+        locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<LocationCanvas>();
     }
 
     void Update() 
