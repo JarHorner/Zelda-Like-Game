@@ -136,9 +136,10 @@
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\SwitchKeyAppear.cs" />
      <Compile Include="Assets\Scripts\Objects\Pickups\Magic.cs" />
      <Compile Include="Assets\Scripts\Other\DontDestroyOnLoad.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\FixedScrollRect.cs" />
      <Compile Include="Assets\Scripts\Objects\Blocks\ColorBlock.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\FixedScrollRect.cs" />
+     <Compile Include="Assets\Scripts\Player\SceneTracker.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

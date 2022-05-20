@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
 
     #region Variables
         [SerializeField] private Animator transition;
-        [SerializeField] private int sceneIndex;
+        [SerializeField] private string sceneName;
         private float transitionTime = 1f;
         private PlayerController player;
         private GameManager gameManager;
@@ -35,18 +35,19 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        StartCoroutine(LoadLevel(sceneIndex));
+        StartCoroutine(LoadLevel());
     }
 
     //an iterator that starts the scene transition animation when loading a level
-    IEnumerator LoadLevel(int levelIndex)
+    IEnumerator LoadLevel()
     {
         transition.SetTrigger("Start");
         Debug.Log("Loading Level");
         
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(levelIndex);
+        SceneTracker.LastSceneName = sceneName;
+        SceneManager.LoadScene(sceneName);
     }
 
     #endregion

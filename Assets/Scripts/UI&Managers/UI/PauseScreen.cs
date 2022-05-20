@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
@@ -8,25 +9,20 @@ public class PauseScreen : MonoBehaviour
 {
     #region Variables
     [SerializeField] private GameObject optionsMenu;
-    private PlayerInput playerInput;
-    private InputAction exit, confirm;
-
     public GameObject optionsFirstButton, optionsClosedButton;
 
     #endregion
 
     #region Methods
-    
-    //will be used later!
+
     public void SaveGame()
     {
-        //PlayerPrefs.SetInt("PlayerCurrHp", healthManager.getCurrentHealth());
-        //PlayerPrefs.SetInt("Dungeon1Open", uIManager.isDungeon1Opened());
+
     }
 
     public void OptionsMenu()
     {
-        optionsMenu.SetActive(true);
+        optionsMenu.GetComponent<Animator>().SetBool("IsActive", true);
 
         //clear selected object
         EventSystem.current.SetSelectedGameObject(null);
@@ -36,7 +32,7 @@ public class PauseScreen : MonoBehaviour
 
     public void CloseOptionsMenu()
     {
-        optionsMenu.SetActive(false);
+        optionsMenu.GetComponent<Animator>().SetBool("IsActive", false);
 
         //clear selected object
         EventSystem.current.SetSelectedGameObject(null);
@@ -47,7 +43,11 @@ public class PauseScreen : MonoBehaviour
     //exits application
     public void ExitGame() 
     {
-        Application.Quit();
+        SaveGame();
+        SceneManager.LoadScene("MainMenu");
+        FindObjectOfType<PauseGame>().UnPause();
+        this.gameObject.SetActive(false);
+        Destroy(FindObjectOfType<PlayerController>().gameObject);
     }
     #endregion
 }

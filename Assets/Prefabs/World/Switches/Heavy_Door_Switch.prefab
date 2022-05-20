@@ -94,7 +94,7 @@ AudioSource:
   m_GameObject: {fileID: 4485564935158453974}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5141511110952857434, guid: bf549c4fd3bc5d74abe786e62d6410c1, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5cd4c7458e8e28d44b594b3fbd8e0cc2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
@@ -209,6 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1768c5310feace4d88a9a83272561a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorAnimator: {fileID: 0}
+  secondDoorAnimator: {fileID: 0}
   pressDown: {fileID: 8663839376397100432}
   doorAudioSource: {fileID: 6487200000265456845}
   doorOpen: {fileID: 8300000, guid: 98ae471669ac7f14caab3c5224de0e4b, type: 3}
@@ -447,7 +449,7 @@ AudioSource:
   m_GameObject: {fileID: 7242402551181690438}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5141511110952857434, guid: bf549c4fd3bc5d74abe786e62d6410c1, type: 2}
   m_audioClip: {fileID: 8300000, guid: 98ae471669ac7f14caab3c5224de0e4b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5

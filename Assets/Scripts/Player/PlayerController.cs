@@ -13,8 +13,7 @@ public enum PlayerState
     attack,
     interact,
     dead,
-    stagger,
-    menu
+    stagger
 }
 
 public class PlayerController : MonoBehaviour
@@ -27,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionAsset inputMaster;
     private InputAction move, attack, useItem1, useItem2, pause, inventory;
     private GameManager gameManager;
+    private UIManager uiManager;
     private InventoryManager inventoryManager;
     public float moveSpeed;
     private float waitToLoad = 1.8f;
@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
     void Awake() 
     {
         gameManager = FindObjectOfType<GameManager>();
+        uiManager = FindObjectOfType<UIManager>();
         inventoryManager = FindObjectOfType<InventoryManager>();
         lastPlayerLocation = new Vector2(0, 0);
         Debug.Log(lastPlayerLocation);
@@ -108,9 +109,9 @@ public class PlayerController : MonoBehaviour
         attack.Enable();
         attack.started += PlayerAttack;
         pause.Enable();
-        pause.started += gameManager.OpenPauseMenu;
+        pause.started += uiManager.OpenPauseMenu;
         inventory.Enable();
-        inventory.started += gameManager.OpenInventoryMenu;
+        inventory.started += uiManager.OpenInventoryMenu;
         useItem1.Enable();
         useItem1.started += gameManager.UseItem;
         useItem2.Enable();
@@ -119,15 +120,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable() 
     {
+        playerExists = false;
         move.Disable();
         move.performed -= PlayerMoving;
         move.canceled -= PlayerMoving;
         attack.Disable();
         attack.started -= PlayerAttack;
         pause.Disable();
-        pause.started -= gameManager.OpenPauseMenu;
+        pause.started -= uiManager.OpenPauseMenu;
         inventory.Disable();
-        inventory.started -= gameManager.OpenInventoryMenu;
+        inventory.started -= uiManager.OpenInventoryMenu;
         useItem1.Disable();
         useItem1.started -= gameManager.UseItem;
         useItem2.Disable();
@@ -474,6 +476,11 @@ public class PlayerController : MonoBehaviour
     {
         get { return startPoint; }
         set { startPoint = value; }
+    }
+    public static bool PlayerExists
+    {
+        get { return playerExists; }
+        set { playerExists = value; }
     }
     public float ShootCounter
     {

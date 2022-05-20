@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 0}
-  masterAudioMixer: {fileID: 24300002, guid: bf549c4fd3bc5d74abe786e62d6410c1, type: 2}
+  backgroundAudioMixer: {fileID: -2335818949547970285, guid: bf549c4fd3bc5d74abe786e62d6410c1, type: 2}
+  soundEffectAudioMixer: {fileID: -5141511110952857434, guid: bf549c4fd3bc5d74abe786e62d6410c1, type: 2}

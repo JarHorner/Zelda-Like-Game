@@ -240,7 +240,6 @@ MonoBehaviour:
   weaknesses: {fileID: 11400000, guid: 0d34a802a590edd4c94c4f2074c3122a, type: 2}
   waitToHurt: 0.5
   enemySprite: {fileID: 4614514940832172933}
-  expValue: 10
 --- !u!114 &4614514940832172942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +281,7 @@ AudioSource:
   m_GameObject: {fileID: 4614514940832172979}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5141511110952857434, guid: bf549c4fd3bc5d74abe786e62d6410c1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.1

@@ -12,9 +12,13 @@ public class OptionsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     Resolution[] resolutions;
     [SerializeField] TMP_Dropdown resolutionDropdown;
-    [SerializeField] TMP_Text volumeText;
-    [SerializeField] Slider volumeSlider;
-    private float currVolume;
+    [SerializeField] TMP_Text masterVolumeText;
+    [SerializeField] TMP_Text bgmVolumeText;
+    [SerializeField] TMP_Text effectVolumeText;
+    [SerializeField] Slider masterVolumeSlider;
+    [SerializeField] Slider bgmVolumeSlider;
+    [SerializeField] Slider effectVolumeSlider;
+    private float previousVolume;
 
     #endregion
 
@@ -74,9 +78,11 @@ public class OptionsMenu : MonoBehaviour
         Toggle mute = GameObject.Find("MuteToggle").GetComponent<Toggle>();
         if (isMuted)
         {
-            audioMixer.GetFloat("MasterVolume", out currVolume);
+            audioMixer.GetFloat("MasterVolume", out previousVolume);
             volume = -80;
-            volumeSlider.interactable = false;
+            masterVolumeSlider.interactable = false;
+            bgmVolumeSlider.interactable = false;
+            effectVolumeSlider.interactable = false;
 
             navigation = exitButton.navigation;
             navigation.selectOnUp = mute;
@@ -88,28 +94,46 @@ public class OptionsMenu : MonoBehaviour
         }
         else
         {
-            volume = currVolume;
-            volumeSlider.interactable = true;
+            volume = previousVolume;
+            masterVolumeSlider.interactable = true;
+            bgmVolumeSlider.interactable = true;
+            effectVolumeSlider.interactable = true;
 
             navigation = exitButton.navigation;
-            navigation.selectOnUp = volumeSlider;
+            navigation.selectOnUp = effectVolumeSlider;
             exitButton.navigation = navigation;
 
             navigation = mute.navigation;
-            navigation.selectOnDown = volumeSlider;
+            navigation.selectOnDown = masterVolumeSlider;
             mute.navigation = navigation;
         }
-        SetVolume(volume);
-
+        audioMixer.SetFloat("MasterVolume", volume);
     }
 
     //sets the master volume of the game. (ensure all different groups are affected)
-    public void SetVolume(float volume)
+    public void SetMasterVolume(float volume)
     {
-        audioMixer.SetFloat("MasterVolume", volume);
         int text = Mathf.RoundToInt(volume * 1.25f) + 100;
-        volumeText.text = text + "%";
+        audioMixer.SetFloat("MasterVolume", volume);
+        masterVolumeText.text = text + "%";
     }
+
+    //sets the background volume of the game. (ensure all different groups are affected)
+    public void SetBackgroundVolume(float volume)
+    {
+        int text = Mathf.RoundToInt(volume * 1.25f) + 100;
+        audioMixer.SetFloat("BackgroundVolume", volume);
+        bgmVolumeText.text = text + "%";
+    }
+
+    //sets the sound effect volume of the game. (ensure all different groups are affected)
+    public void SetSoundEffectVolume(float volume)
+    {
+        int text = Mathf.RoundToInt(volume * 1.25f) + 100;
+        audioMixer.SetFloat("SoundEffectVolume", volume);
+        effectVolumeText.text = text + "%";
+    }
+
 
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class AreaTransitions : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class AreaTransitions : MonoBehaviour
     #region Variables
     private CameraController cam;
     private Enemy[] enemies;
-    private GameManager gameManager;
     private PlayerController player;
     [SerializeField] private Vector2 newMinPosition;
     [SerializeField] private Vector2 newMaxPosition;
@@ -29,7 +29,6 @@ public class AreaTransitions : MonoBehaviour
     {
         cam = Camera.main.GetComponent<CameraController>();
         enemies = GameObject.FindObjectsOfType<Enemy>();
-        gameManager = FindObjectOfType<GameManager>();
         player = FindObjectOfType<PlayerController>();
         locationCanvas = GameObject.FindWithTag("DialogCanvas").GetComponent<LocationCanvas>();
     }
@@ -88,10 +87,8 @@ public class AreaTransitions : MonoBehaviour
                 Destroy(item);
             }
 
-            if (gameManager == null)
-                gameManager = FindObjectOfType<GameManager>();
             //if the transition is in a dungeon, the enemies are not "respawned".
-            if (!gameManager.CurrentScene.Contains("Dungeon"))
+            if (SceneManager.GetActiveScene().name.Contains("Dungeon"))
             {
                 //resets enemies that are out of place
                 if (enemies != null)

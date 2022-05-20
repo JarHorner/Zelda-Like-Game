@@ -15,10 +15,6 @@ public class Volume2D : MonoBehaviour
     #endregion
 
     #region Unity Methods
-    void start()
-    {
-        listenerTransform = FindObjectOfType<PlayerController>().transform;
-    }
 
     // ensures volume of a sound drops off according to the distance between sound and player.
     void Update()

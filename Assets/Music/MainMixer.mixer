@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
+  m_Name: SoundEffects
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 0fcba5aad0643f14fb4ca4017766f9fa
   m_Children: []
@@ -72,6 +72,8 @@ AudioMixerController:
     name: BackgroundVolume
   - guid: acc81937331baf041a6b1dfb4a045c48
     name: MasterVolume
+  - guid: 3e59f66bbf6a259449e52b990fd5b147
+    name: SoundEffectVolume
   m_AudioMixerGroupViews:
   - guids:
     - 03ae1ed079c7fc946809387aa6601dd5

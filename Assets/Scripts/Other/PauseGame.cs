@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PauseGame : MonoBehaviour
 {
-    private SoundManager soundManager;
-    private AudioSource bgMusic;
     private PlayerController player;
 
     //pauses the the timescale of the game if true. if false, only the player will be stopped (good for cutscene stuff)
@@ -15,14 +14,9 @@ public class PauseGame : MonoBehaviour
         {
             Time.timeScale = 0;
         }
-        soundManager = FindObjectOfType<SoundManager>();
-        player = FindObjectOfType<PlayerController>();
-        bgMusic = soundManager.GetComponentInChildren<AudioSource>();       
-        bgMusic.volume = 0.05f;
+        player = FindObjectOfType<PlayerController>();    
         player.enabled = false;
-        player.IsMoving = false;
         player.GetComponent<Animator>().SetFloat("Speed", 0);
-        player.currentState = PlayerState.menu;
         player.GetComponent<Animator>().SetBool("inMenu", true);
     }
 
@@ -30,10 +24,7 @@ public class PauseGame : MonoBehaviour
     public void UnPause() 
     {
         Time.timeScale = 1;
-        soundManager = FindObjectOfType<SoundManager>();
         player = FindObjectOfType<PlayerController>();
-        bgMusic = soundManager.GetComponentInChildren<AudioSource>();
-        bgMusic.volume = 0.2f;
         player.enabled = true;
         player.GetComponent<Animator>().SetBool("inMenu", false);
     }

@@ -22,7 +22,8 @@ public class MainMenu : MonoBehaviour
     //loads the first scene of the game
     public void StartGame() 
     {
-        SceneManager.LoadScene("OverWorld");
+        string sceneName = SceneTracker.LastSceneName;
+        SceneManager.LoadScene(sceneName);
     }
 
     //exits the application.
@@ -31,11 +32,11 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void ActivateMenu(GameObject menu)
+    public void ActivateMenu(GameObject panel)
     {
-        menu.SetActive(true);
-        if (menu.name == "OptionsMenu")
+        if (panel.name == "OptionsPanel")
         {
+            panel.GetComponent<Animator>().SetBool("IsActive", true);
             creditsButton.SetActive(false);
             optionsButton.GetComponent<Button>().enabled = false;
             optionsButton.GetComponent<Image>().enabled = false;
@@ -44,33 +45,35 @@ public class MainMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(GameObject.Find("ResolutionDropdown").gameObject);
         }
-        else if (menu.name == "CreditsMenu")
+        else if (panel.name == "CreditsPanel")
         {
+            panel.GetComponent<Animator>().SetBool("IsActive", true);
             optionsButton.SetActive(false);
             creditsButton.GetComponent<Button>().enabled = false;
             creditsButton.GetComponent<Image>().enabled = false;
             creditsButton.GetComponent<Animator>().SetBool("Selected", true);
 
             EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(GameObject.Find("Exit_Button").gameObject);
+            EventSystem.current.SetSelectedGameObject(GameObject.Find("Credits_Exit_Button").gameObject);
         }
         title.SetActive(false);
         startGameButton.SetActive(false);
         exitGameButton.SetActive(false);
     }
 
-    public void DeactivateMenu(GameObject menu)
+    public void DeactivateMenu(GameObject panel)
     {
-        menu.SetActive(false);
-        if (menu.name == "OptionsMenu")
+        if (panel.name == "OptionsPanel")
         {
+            panel.GetComponent<Animator>().SetBool("IsActive", false);
             creditsButton.SetActive(true);
             optionsButton.GetComponent<Button>().enabled = true;
             optionsButton.GetComponent<Image>().enabled = true;
             optionsButton.GetComponent<Animator>().SetBool("Selected", false);
         }
-        else if (menu.name == "CreditsMenu")
+        else if (panel.name == "CreditsPanel")
         {
+            panel.GetComponent<Animator>().SetBool("IsActive", false);
             optionsButton.SetActive(true);
             creditsButton.GetComponent<Button>().enabled = true;
             creditsButton.GetComponent<Image>().enabled = true;

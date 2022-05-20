@@ -9,7 +9,8 @@ public class SoundManager : MonoBehaviour
     private static bool exists;
     private Vector3 centerPoint = new Vector3(0,0,0);
     [SerializeField] private AudioClip backgroundMusic;
-    [SerializeField] private AudioMixerGroup masterAudioMixer;
+    [SerializeField] private AudioMixerGroup backgroundAudioMixer;
+    [SerializeField] private AudioMixerGroup soundEffectAudioMixer;
     #endregion
 
     #region Unity Methods
@@ -31,6 +32,7 @@ public class SoundManager : MonoBehaviour
 
         newSound.AddComponent(typeof(AudioSource));
         AudioSource source = newSound.GetComponent<AudioSource>();
+        source.outputAudioMixerGroup = soundEffectAudioMixer;
         source.clip = clip;
         source.priority = 0;
         source.volume = 0.2f;
@@ -49,7 +51,7 @@ public class SoundManager : MonoBehaviour
 
         newSound.AddComponent(typeof(AudioSource));
         AudioSource source = newSound.GetComponent<AudioSource>();
-        source.outputAudioMixerGroup = masterAudioMixer;
+        source.outputAudioMixerGroup = backgroundAudioMixer;
         source.clip = clip;
         source.priority = 0;
         source.loop = true;
