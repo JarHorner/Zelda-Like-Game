@@ -9,6 +9,7 @@ public class PauseScreen : MonoBehaviour
 {
     #region Variables
     [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private UIManager uiManager;
     public GameObject optionsFirstButton, optionsClosedButton;
 
     #endregion
@@ -45,9 +46,9 @@ public class PauseScreen : MonoBehaviour
     {
         SaveGame();
         SceneManager.LoadScene("MainMenu");
-        FindObjectOfType<PauseGame>().UnPause();
-        this.gameObject.SetActive(false);
-        Destroy(FindObjectOfType<PlayerController>().gameObject);
+        uiManager.PauseGame();
+
+        FindObjectOfType<PlayerController>().enabled = false;
     }
     #endregion
 }

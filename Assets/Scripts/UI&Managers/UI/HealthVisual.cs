@@ -71,7 +71,6 @@ public class HealthVisual : MonoBehaviour
         for (int i=0; i< heartList.Count; i++)
         {
             HealthSystem.Heart heart = heartList[i];
-            Debug.Log(heart.Fragments);
             Vector2 heartAnchoredPos = new Vector2(col * rowColSize, -row * rowColSize);
             CreateHeartImage(heartAnchoredPos).SetHeartFragments(heart.Fragments);
             
@@ -192,7 +191,6 @@ public class HealthVisual : MonoBehaviour
         public void SetHeartFragments(int fragments)
         {
             this.fragments = fragments;
-            Debug.Log(heartImage);
             switch (fragments)
             {
                 case 0: heartImage.sprite = healthVisual.heart4Sprite; break;

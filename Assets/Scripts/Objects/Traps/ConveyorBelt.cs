@@ -5,25 +5,37 @@ using UnityEngine;
 public class ConveyorBelt : MonoBehaviour
 {
     #region Variables
-    [Header("Change Axis of Speed depending on way moving")]
-    [SerializeField] private Vector2 speed;
-    private PlayerController playerController;
+    private GameObject playerObj;
+    public float speed;
     #endregion
 
     #region Methods
-    private void Start() 
+
+    void OnTriggerEnter2D(Collider2D col)
     {
-        playerController = FindObjectOfType<PlayerController>();
+        if (col.gameObject.tag == "Player")
+        {
+            playerObj = col.gameObject;
+            playerObj.GetComponent<Rigidbody2D>().velocity = Vector3.right * speed;
+        }
     }
 
-    //moves the player the way the conveyor is facing
-    private void OnTriggerStay2D(Collider2D other) 
+    void OnTriggerStay2D(Collider2D col)
     {
-        if (other.tag == "Player" && other.GetType() != typeof(BoxCollider2D))
+        if (col.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(speed);
+            playerObj = col.gameObject;
+            playerObj.GetComponent<Rigidbody2D>().velocity = Vector3.right * speed;
         }
-        
+    }
+    
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            playerObj = col.gameObject;
+            playerObj.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        }
     }
     #endregion
 

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1266759127
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_Sprite: {fileID: 5185760739894697712, guid: 6327f5604eb9a1f46b8dbac24ab4c712, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,7 +102,7 @@ MonoBehaviour:
   rb: {fileID: 3585022105265313119}
   animator: {fileID: 4331411741265291838}
   hit: {fileID: -2518391042608982266}
-  damageDealt: {fileID: 11400000, guid: a67caa4a13e606a4ba7e1037104bce10, type: 2}
+  damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   speed: 8
   lifespan: 1.5
 --- !u!50 &3585022105265313119

@@ -65,7 +65,6 @@ GameObject:
   - component: {fileID: 4614514940832172942}
   - component: {fileID: 4614514940832172941}
   - component: {fileID: 4614514940832172940}
-  - component: {fileID: 580452619974093956}
   - component: {fileID: -3915332230841662275}
   m_Layer: 6
   m_Name: Slime
@@ -127,7 +126,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -383529321
-  m_SortingLayer: 7
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -6167974524812214683, guid: a18261d251cb97b40b5ea4b97b6ca499, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -252,7 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c75f19ffb0f49d4fa8410f24014d165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: {fileID: 580452619974093956}
 --- !u!114 &4614514940832172941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,18 +366,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &580452619974093956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4614514940832172979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6de82cbc53013d4eaf980b8daf16853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-3915332230841662275
 MonoBehaviour:
   m_ObjectHideFlags: 0

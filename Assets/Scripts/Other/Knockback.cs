@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knockback : MonoBehaviour
+public static class Knockback
 {
-    public void PushBack(Transform thisTransform, Rigidbody2D otherRb)
+    public static void PushBack(Transform thisTransform, Rigidbody2D otherRb)
     {
         if (otherRb.GetComponent<Enemy>() != null && otherRb.GetComponent<Enemy>().IsKnockable)
         {

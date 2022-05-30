@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 
 public enum PlayerState 
 {
+    idle,
     walk,
     swim,
     attack,
@@ -19,7 +20,7 @@ public enum PlayerState
 public class PlayerController : MonoBehaviour
 {
     #region Variables
-    public static PlayerController playerController;
+    public static PlayerController player;
     public PlayerState currentState;
     //used to keep track of the players last location
     private static Vector2 lastPlayerLocation;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private float shootCounter = 0f;
     private float flashCounter = 0.8f;
     private float flashLength = 0.8f;
+    private float invulnerableTime = 0.5f;
     private bool isMoving = false;
     private bool isSwimming = false;
     private bool isCarrying = false;
@@ -65,6 +67,20 @@ public class PlayerController : MonoBehaviour
 
     void Awake() 
     {
+        Debug.Log("player exists" + PlayerExists);
+        //Singleton affect code
+        if (!playerExists)
+        {
+            playerExists = true;
+            player = this;
+            //ensures same player object is not destoyed when loading new scences
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy (gameObject);
+        }
+
         gameManager = FindObjectOfType<GameManager>();
         uiManager = FindObjectOfType<UIManager>();
         inventoryManager = FindObjectOfType<InventoryManager>();
@@ -81,20 +97,8 @@ public class PlayerController : MonoBehaviour
         useItem2 = playerActionMap.FindAction("useItem2");
     }
 
-    //Singleton affect code
     void Start() 
     {
-        if (!playerExists)
-        {
-            playerExists = true;
-            playerController = this;
-            //ensures same player object is not destoyed when loading new scences
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy (gameObject);
-        }
         currentState = PlayerState.walk;
         physicBox.enabled = true;
         hitBox.enabled = true;
@@ -103,6 +107,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable() 
     {
+        Debug.Log("enabling actions for player");
         move.Enable();
         move.performed += PlayerMoving;
         move.canceled += PlayerMoving;
@@ -120,24 +125,30 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable() 
     {
-        playerExists = false;
-        move.Disable();
+        PlayerExists = false;
         move.performed -= PlayerMoving;
         move.canceled -= PlayerMoving;
-        attack.Disable();
+        move.Disable();
         attack.started -= PlayerAttack;
-        pause.Disable();
+        attack.Disable();
         pause.started -= uiManager.OpenPauseMenu;
-        inventory.Disable();
+        pause.Disable();
         inventory.started -= uiManager.OpenInventoryMenu;
-        useItem1.Disable();
+        inventory.Disable();
         useItem1.started -= gameManager.UseItem;
-        useItem2.Disable();
+        useItem1.Disable();
         useItem2.started -= gameManager.UseItem;
+        useItem2.Disable();
     }
 
     void Update()
     {
+        //ensures when hurt, starts invulnerable time so player cannot be hurt until the time is 0 or less.
+        if (invulnerableTime >= 0)
+        {
+            invulnerableTime -= Time.deltaTime;
+        }
+
         if (currentState == PlayerState.dead && !deathCoRunning)
         {
             StartCoroutine(PlayerDead());
@@ -232,23 +243,27 @@ public class PlayerController : MonoBehaviour
     //this is where the actual movement happens. better for performance, not tying movement to framerate.
     void FixedUpdate()
     {
-        if (currentState == PlayerState.walk || currentState == PlayerState.swim)
+        if (currentState == PlayerState.walk || currentState == PlayerState.swim && currentState != PlayerState.dead)
         {
             //enables movement
             rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime * Time.timeScale);
         }
     }
 
-    //Damages the player using the HealthVisual, creates damage popup, and actives the flashing
+    //Damages the player using the HealthVisual, creates damage popup, and actives the flashing. only initiates code if invulnerable time is over.
     public void DamagePlayer(int damageNum)
     {
-        damageAudioSource.clip = hitSound;
-        damageAudioSource.Play();
-        //positions damage text, and creates the popup
-        Vector3 popupLocation = new Vector3(this.transform.position.x, this.transform.position.y + 1, 0);
-        damagePopup.Create(popupLocation, damageNum);
-        HealthVisual.healthSystemStatic.Damage(damageNum);
-        flashActive = true;
+        if (invulnerableTime <= 0)
+        {
+            damageAudioSource.clip = hitSound;
+            damageAudioSource.Play();
+            //positions damage text, and creates the popup
+            Vector3 popupLocation = new Vector3(this.transform.position.x, this.transform.position.y + 1, 0);
+            damagePopup.Create(popupLocation, damageNum);
+            HealthVisual.healthSystemStatic.Damage(damageNum);
+            flashActive = true;
+            invulnerableTime = 0.5f;
+        }
     }
 
     private IEnumerator PlayerDead()
@@ -283,7 +298,7 @@ public class PlayerController : MonoBehaviour
         hitBox.enabled = true;
         isReviving = true;
         deathCoRunning = false;
-        currentState = PlayerState.walk;
+        currentState = PlayerState.idle;
     }
 
     private void PlayerMoving(InputAction.CallbackContext context)
@@ -298,10 +313,12 @@ public class PlayerController : MonoBehaviour
             {
                 //sets new directions from the movement and sets bool, to play walking sound
                 DetermineFacingDirection();
+                currentState = PlayerState.walk;
                 isMoving = true;
             } 
             else
             {
+                currentState = PlayerState.idle;
                 isMoving = false;
             }
             animator.SetFloat("Speed", movement.sqrMagnitude);

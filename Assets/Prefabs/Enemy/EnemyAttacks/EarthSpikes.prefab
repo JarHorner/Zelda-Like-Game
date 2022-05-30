@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8844190555333159552}
   - component: {fileID: 8844190555333160317}
   - component: {fileID: 7792904742186419349}
-  - component: {fileID: -320850512850287054}
   m_Layer: 0
   m_Name: EarthSpikes
   m_TagString: Object
@@ -117,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c75f19ffb0f49d4fa8410f24014d165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: {fileID: -320850512850287054}
 --- !u!70 &7792904742186419349
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,15 +132,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.53125}
   m_Size: {x: 1.3125, y: 0.7432856}
   m_Direction: 1
---- !u!114 &-320850512850287054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844190555333159558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6de82cbc53013d4eaf980b8daf16853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -9,7 +9,6 @@ public class HurtPlayer : MonoBehaviour
 
     #region Variables
     private PlayerController player;
-    [SerializeField] private Knockback knockback;
     private Enemy enemy;
     private float waitToHurt = 1f;
     private bool isTouching;
@@ -51,7 +50,7 @@ public class HurtPlayer : MonoBehaviour
             if (waitToHit <= 0)
             {
                 Debug.Log("Hit");
-                knockback.PushBack(this.transform, other.transform.parent.GetComponent<Rigidbody2D>());
+                Knockback.PushBack(this.transform, other.transform.parent.GetComponent<Rigidbody2D>());
                 player.DamagePlayer(enemy.BaseAttack);
                 waitToHit = 1f;
             }

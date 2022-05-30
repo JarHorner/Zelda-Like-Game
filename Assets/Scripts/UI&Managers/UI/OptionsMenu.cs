@@ -49,6 +49,26 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        AdjustMenu();
+    }
+
+    private void AdjustMenu()
+    {
+        float masterVolume;
+        audioMixer.GetFloat("MasterVolume", out masterVolume);
+        masterVolumeSlider.value = masterVolume;
+        masterVolumeText.text = GetProperTextPercentage(masterVolume);
+
+        float backgroundVolume;
+        audioMixer.GetFloat("BackgroundVolume", out backgroundVolume);
+        bgmVolumeSlider.value = backgroundVolume;
+        bgmVolumeText.text = GetProperTextPercentage(backgroundVolume);
+
+        float effectVolume;
+        audioMixer.GetFloat("SoundEffectVolume", out effectVolume);
+        effectVolumeSlider.value = effectVolume;
+        effectVolumeText.text = GetProperTextPercentage(effectVolume);
     }
 
     public void SetResolution(int resolutionIndex)
@@ -113,25 +133,27 @@ public class OptionsMenu : MonoBehaviour
     //sets the master volume of the game. (ensure all different groups are affected)
     public void SetMasterVolume(float volume)
     {
-        int text = Mathf.RoundToInt(volume * 1.25f) + 100;
         audioMixer.SetFloat("MasterVolume", volume);
-        masterVolumeText.text = text + "%";
+        masterVolumeText.text = GetProperTextPercentage(volume);
     }
 
     //sets the background volume of the game. (ensure all different groups are affected)
     public void SetBackgroundVolume(float volume)
     {
-        int text = Mathf.RoundToInt(volume * 1.25f) + 100;
         audioMixer.SetFloat("BackgroundVolume", volume);
-        bgmVolumeText.text = text + "%";
+        bgmVolumeText.text = GetProperTextPercentage(volume);
     }
 
     //sets the sound effect volume of the game. (ensure all different groups are affected)
     public void SetSoundEffectVolume(float volume)
     {
-        int text = Mathf.RoundToInt(volume * 1.25f) + 100;
         audioMixer.SetFloat("SoundEffectVolume", volume);
-        effectVolumeText.text = text + "%";
+        effectVolumeText.text = GetProperTextPercentage(volume);
+    }
+
+    private string GetProperTextPercentage(float value)
+    {
+        return (Mathf.RoundToInt(value * 1.25f) + 100) + "%";
     }
 
 

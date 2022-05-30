@@ -25,6 +25,7 @@ public class PlayerSpawnController : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player") == null)
         {
             Debug.Log("Spawning Player");
+            PlayerController.PlayerExists = false;
             player = Instantiate(playerPrefab);
             cam = FindObjectOfType<CameraController>();
             player.transform.position = spawnLocation.transform.position;

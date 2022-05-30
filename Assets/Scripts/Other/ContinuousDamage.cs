@@ -8,7 +8,7 @@ public class ContinuousDamage : MonoBehaviour
 
     private PlayerController player;
     [SerializeField] private FloatValue damageDealt;
-    [SerializeField] private Knockback knockback;
+    //[SerializeField] private Knockback knockback;
     private bool isTouching;
     private float waitToHurt = 1f;
 
@@ -48,7 +48,7 @@ public class ContinuousDamage : MonoBehaviour
             {
                 Debug.Log("Hit");
                 player.DamagePlayer(damageDealt.InitalValue);
-                knockback.PushBack(this.transform, other.transform.parent.GetComponent<Rigidbody2D>());
+                Knockback.PushBack(this.transform, other.transform.parent.GetComponent<Rigidbody2D>());
                 waitToHit = 1f;
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Assertions;
 
 public class UIManager : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         pauseGame = FindObjectOfType<PauseGame>();
+        Debug.Log($"This is inputmaster GameObject: {inputMaster}");
         var uiActionMap = inputMaster.FindActionMap("UI");
 
         cancel = uiActionMap.FindAction("Cancel");
@@ -47,7 +49,7 @@ public class UIManager : MonoBehaviour
     }
 
     //Pause the game by changing timeScale, reducing volume, opening pause panel and disabling PlayerController script to stop movement
-    private void PauseGame()
+    public void PauseGame()
     {
         if(!isPaused)
         {
@@ -67,7 +69,7 @@ public class UIManager : MonoBehaviour
         {
             pauseGame.UnPause();
             isPaused = false;
-            pauseScreen.SetActive(false);;
+            pauseScreen.SetActive(false);
 
             cancel.performed -= OpenPauseMenu;
             cancel.Disable();

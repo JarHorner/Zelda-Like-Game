@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject optionsButton;
     [SerializeField] private GameObject creditsButton;
     [SerializeField] private GameObject exitGameButton;
+    [SerializeField] private GameObject player;
 
     #endregion
 
@@ -24,6 +25,8 @@ public class MainMenu : MonoBehaviour
     {
         string sceneName = SceneTracker.LastSceneName;
         SceneManager.LoadScene(sceneName);
+        if(GameObject.Find("Player(Clone)") != null)
+            GameObject.Find("Player(Clone)").GetComponent<PlayerController>().enabled = true;
     }
 
     //exits the application.

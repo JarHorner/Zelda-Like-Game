@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2053635167321991192}
   - component: {fileID: 6967913665545593696}
   - component: {fileID: 5701919083534783014}
-  - component: {fileID: 3562395258134332214}
   - component: {fileID: 3905776464610198652}
   m_Layer: 9
   m_Name: HitBox_Left
@@ -83,23 +82,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
-  knockback: {fileID: 3562395258134332214}
   audioSource: {fileID: 3905776464610198652}
   swingClips:
   - {fileID: 8300000, guid: 25da667abfd01c64ebd1eb39c3e037ec, type: 3}
   - {fileID: 8300000, guid: f803c9d413c334a4998296d3c0c274dc, type: 3}
---- !u!114 &3562395258134332214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673258550598586246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6de82cbc53013d4eaf980b8daf16853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &3905776464610198652
 AudioSource:
   m_ObjectHideFlags: 0
@@ -311,7 +297,6 @@ GameObject:
   - component: {fileID: 6130297474073074731}
   - component: {fileID: 2484127984272593159}
   - component: {fileID: 3745838553022750401}
-  - component: {fileID: 6923673597485397315}
   - component: {fileID: 4349937020323195368}
   m_Layer: 9
   m_Name: HitBox_Down
@@ -384,23 +369,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
-  knockback: {fileID: 6923673597485397315}
   audioSource: {fileID: 4349937020323195368}
   swingClips:
   - {fileID: 8300000, guid: 25da667abfd01c64ebd1eb39c3e037ec, type: 3}
   - {fileID: 8300000, guid: f803c9d413c334a4998296d3c0c274dc, type: 3}
---- !u!114 &6923673597485397315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2193872758881566813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6de82cbc53013d4eaf980b8daf16853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &4349937020323195368
 AudioSource:
   m_ObjectHideFlags: 0
@@ -579,7 +551,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 662271495
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 3734543198587805883, guid: 314fa466c6a117041a8173462e55819f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -939,7 +911,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 662271495
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 2
   m_Sprite: {fileID: -3207772709533015451, guid: ccf8474f8084d8149bf7db0ce5c86290, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -983,7 +955,6 @@ GameObject:
   - component: {fileID: 3370134158400383620}
   - component: {fileID: 8688104062865240750}
   - component: {fileID: 1193342879429384921}
-  - component: {fileID: 6606688854766352333}
   - component: {fileID: 652631619783536308}
   m_Layer: 9
   m_Name: HitBox_Right
@@ -1056,23 +1027,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
-  knockback: {fileID: 6606688854766352333}
   audioSource: {fileID: 652631619783536308}
   swingClips:
   - {fileID: 8300000, guid: 25da667abfd01c64ebd1eb39c3e037ec, type: 3}
   - {fileID: 8300000, guid: f803c9d413c334a4998296d3c0c274dc, type: 3}
---- !u!114 &6606688854766352333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6844715803136197837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6de82cbc53013d4eaf980b8daf16853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &652631619783536308
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1180,7 +1138,6 @@ GameObject:
   - component: {fileID: 1089311200334202074}
   - component: {fileID: 498917594299184255}
   - component: {fileID: 7174855613957623062}
-  - component: {fileID: 4884386104447323189}
   - component: {fileID: 6506188142822910715}
   m_Layer: 9
   m_Name: HitBox_Up
@@ -1255,23 +1212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: {fileID: 11400000, guid: ced6880e09091b84a8174f8567a25023, type: 2}
   damageBurst: {fileID: 982145304733989397, guid: 3f6af65a7e9c1dd498e55e17884702fa, type: 3}
-  knockback: {fileID: 4884386104447323189}
   audioSource: {fileID: 6506188142822910715}
   swingClips:
   - {fileID: 8300000, guid: 25da667abfd01c64ebd1eb39c3e037ec, type: 3}
   - {fileID: 8300000, guid: f803c9d413c334a4998296d3c0c274dc, type: 3}
---- !u!114 &4884386104447323189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7399764471829810559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6de82cbc53013d4eaf980b8daf16853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &6506188142822910715
 AudioSource:
   m_ObjectHideFlags: 0

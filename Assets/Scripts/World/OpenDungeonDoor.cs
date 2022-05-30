@@ -23,7 +23,7 @@ public class OpenDungeonDoor : MonoBehaviour
         pauseGame = FindObjectOfType<PauseGame>();
         soundManager = FindObjectOfType<SoundManager>();
         //if dungeon has been opened, it stays opened when transitioning into other scenes.
-        if (allDungeonsManager.GetDungeonManager(dungeonNum).IsDungeonOpened) {
+        if (AllDungeonsManager._instance.GetDungeonManager(dungeonNum).IsDungeonOpened) {
             statueAnimator.SetBool("Opened", true);
             entranceAnimator.SetBool("Opened", true);
             statueAnimator.Play("Base Layer.Sink_Idle", 0, 1f);

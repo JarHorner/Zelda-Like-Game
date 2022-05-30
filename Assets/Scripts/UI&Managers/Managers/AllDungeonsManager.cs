@@ -7,31 +7,46 @@ using UnityEngine.UI;
 public class AllDungeonsManager : MonoBehaviour
 {
     #region Variables
-    //private bool exists = false;
+    public static AllDungeonsManager _instance;
     [SerializeField] DungeonEntranceKey dungeon0Key;
     [SerializeField] DungeonManager dungeonManager;
     private List<MutableKeyValPair<int, DungeonManager>> dungeons = new List<MutableKeyValPair<int, DungeonManager>>();
     private List<MutableKeyValPair<int, bool>> dungeonEntranceKeys = new List<MutableKeyValPair<int, bool>>();
-    private bool exists = false;
+    private bool exists;
     #endregion
 
     #region Methods
 
     void Awake() 
     {
-        // //singleton effect
-        if (!exists)
+        //Singleton Effect
+        if (_instance != null && _instance != this)
         {
-            exists = true;
-            //ensures same player object is not destoyed when loading new scences
-            DontDestroyOnLoad(this.gameObject);
+            Debug.Log($"Destroyed {this.gameObject}");
+            Destroy (this.gameObject);
         }
         else
         {
-            Destroy (gameObject);
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
 
         //creates a keyvaluepair list to store amount of dungeons. (Will be improved with more dungeons)
+        for (int i = 0; i < 8; i++)
+        {
+            DungeonManager dungeon = new DungeonManager();
+            AddDungeon(i, dungeon);
+        }
+
+        //creates a keyvaluepair list to store the entrance keys to open each dungeon
+        for (int i = 0; i < 8; i++)
+        {
+            dungeonEntranceKeys.Add(new MutableKeyValPair<int, bool>(i, false));
+        }
+    }
+
+    private void OnEnable() {
+                //creates a keyvaluepair list to store amount of dungeons. (Will be improved with more dungeons)
         for (int i = 0; i < 8; i++)
         {
             DungeonManager dungeon = new DungeonManager();

@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\Inventory\Items\Arrow.cs" />
      <Compile Include="Assets\Scripts\Objects\Switchs&amp;Doors\OpenBossDoor.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\OptionsMenu.cs" />
+     <Compile Include="Assets\Scripts\Enemy\BasicEnemies\WallEye\WallEye.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\DialogueTrigger.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\TargetManager.cs" />
@@ -116,6 +117,7 @@
      <Compile Include="Assets\Scripts\Objects\Interactables\ColorBlockSwitch.cs" />
      <Compile Include="Assets\AdvancedPolygonCollider\Script\AdvancedPolygonColliderUtilities.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\HealthSystem.cs" />
+     <Compile Include="Assets\Scripts\Player\SceneTracker.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\Managers\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Enemy\HurtPlayer.cs" />
@@ -139,7 +141,7 @@
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\FixedScrollRect.cs" />
      <Compile Include="Assets\Scripts\Objects\Blocks\ColorBlock.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
-     <Compile Include="Assets\Scripts\Player\SceneTracker.cs" />
+     <Compile Include="Assets\Scripts\Enemy\BasicEnemies\WallEye\WallEyeLaser.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

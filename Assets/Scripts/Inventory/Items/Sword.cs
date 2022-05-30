@@ -9,7 +9,7 @@ public class Sword : MonoBehaviour
     //variable can be changed.
     [SerializeField] private FloatValue damageDealt;
     [SerializeField] ParticleSystem damageBurst;
-    [SerializeField] Knockback knockback;
+    //[SerializeField] Knockback knockback;
     [SerializeField] AudioSource audioSource;
     [SerializeField] private AudioClip[] swingClips;
     #endregion
@@ -41,7 +41,7 @@ public class Sword : MonoBehaviour
                         eHealthMan.DamageEnemy(damageDealt.InitalValue, this.transform);
                         if (other.gameObject.activeSelf == true)
                         {
-                            knockback.PushBack(this.transform, other.GetComponent<Rigidbody2D>());
+                            Knockback.PushBack(this.transform, other.GetComponent<Rigidbody2D>());
                         }
                     }
                     else

@@ -32,19 +32,8 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy (gameObject);
+            Start();
         }
-
-        //Checks if scene is unlit. if so, Lanturn is used.
-        if (UnlitScenes.IsUnlitScene())
-        {
-            if (inventoryManager.HasLanturn())
-                lanturn.LightArea();
-        }
-        else
-        {
-            lanturn.RemoveLanturn();
-        }
-
     }
 
     void Start()
@@ -63,6 +52,17 @@ public class GameManager : MonoBehaviour
         else
         {
             playerUI.ChangeKeyCountText(-1);
+        }
+
+        //Checks if scene is unlit. if so, Lanturn is used.
+        if (UnlitScenes.IsUnlitScene())
+        {
+            if (inventoryManager.HasLanturn())
+                lanturn.LightArea();
+        }
+        else
+        {
+            lanturn.RemoveLanturn();
         }
     }
 
