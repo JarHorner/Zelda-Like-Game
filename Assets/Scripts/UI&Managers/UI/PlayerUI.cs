@@ -4,15 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+
 public class PlayerUI : MonoBehaviour
 {
 
     #region Variables
     private AllDungeonsManager allDungeonsManager;
+    [SerializeField] private InputActionAsset inputMaster;
+    private InputActionMap playerActionMap;
     [SerializeField] private TMP_Text keyCount;
     [SerializeField] private TMP_Text moneyCount;
     [SerializeField] private GameObject itemBox1;
+    [SerializeField] private TMP_Text itemBox1Control;
     [SerializeField] private GameObject itemBox2;
+    [SerializeField] private TMP_Text itemBox2Control;
+    private bool switched = true;
     #endregion
 
     #region Unity Methods
@@ -20,6 +27,33 @@ public class PlayerUI : MonoBehaviour
     void Start()
     {
         allDungeonsManager = FindObjectOfType<AllDungeonsManager>();
+        playerActionMap = inputMaster.FindActionMap("Player");
+        ChangeItemBoxButton();
+        switched = ControlScheme.IsController;
+    }
+
+    private void Update() 
+    {
+        if (switched != ControlScheme.IsController)
+        {
+            ChangeItemBoxButton();
+            switched = ControlScheme.IsController;
+        }
+
+    }
+
+    private void ChangeItemBoxButton()
+    {
+        if (!ControlScheme.IsController)
+        {
+            itemBox1Control.text = playerActionMap.FindAction("UseItem1").GetBindingDisplayString(0);
+            itemBox2Control.text = playerActionMap.FindAction("UseItem2").GetBindingDisplayString(0);
+        }
+        else
+        {
+            itemBox1Control.text = playerActionMap.FindAction("UseItem1").GetBindingDisplayString(1);
+            itemBox2Control.text = playerActionMap.FindAction("UseItem2").GetBindingDisplayString(1);
+        }
     }
 
     //changes key count to the amt of keys you have in a specific dungeon

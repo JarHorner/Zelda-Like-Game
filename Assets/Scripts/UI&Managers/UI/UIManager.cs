@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         pauseGame = FindObjectOfType<PauseGame>();
-        Debug.Log($"This is inputmaster GameObject: {inputMaster}");
+        
         var uiActionMap = inputMaster.FindActionMap("UI");
 
         cancel = uiActionMap.FindAction("Cancel");

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CreditsButton
+  m_Controller: {fileID: 9100000, guid: 11333711bc3eec641bf0b472e3de0273, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8c1459f142573d74a9ed9fc05eb958ec, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5d5d7337d72c4754c8fadf349e15db47, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a292d7f6230663a4485860676af18816, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b5eea75c105d29a4781c55ed3fd199d0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fa54565b49d25664ebb7184671fd1234, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b6703de7d8d933e499f22235e2fbc1f0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 760d8a0383e51e943b9cffead3cecd93, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2ccdf6f82f579ed449ebd28162c98f6f, type: 2}

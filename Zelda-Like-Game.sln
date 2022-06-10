@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{9f6ae034-b2f7-b588-bab0-5a65e4080e22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.InputSystem.RebindingUI", "Unity.InputSystem.RebindingUI.csproj", "{4cec9fdc-8fd4-fe66-d2cd-b044d2bd163b}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{892549f7-de5f-3dbd-7632-62087cbc6867}"
 EndProject
 Global
@@ -12,6 +14,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9f6ae034-b2f7-b588-bab0-5a65e4080e22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9f6ae034-b2f7-b588-bab0-5a65e4080e22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4cec9fdc-8fd4-fe66-d2cd-b044d2bd163b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4cec9fdc-8fd4-fe66-d2cd-b044d2bd163b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{892549f7-de5f-3dbd-7632-62087cbc6867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{892549f7-de5f-3dbd-7632-62087cbc6867}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection

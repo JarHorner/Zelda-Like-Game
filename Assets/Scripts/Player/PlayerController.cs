@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     private bool flashActive;
     private bool onConveyor = false;
     private string firstKey = "";
+    private string firstAnalogDirection = "";
     private int movingVertical, movingHorizontal;
     #endregion
 
@@ -104,7 +105,10 @@ public class PlayerController : MonoBehaviour
         hitBox.enabled = true;
         animator.SetFloat("Horizontal", 0);
         animator.SetFloat("Vertical", -1);
+
+        ControlScheme.GetControlSchemes();
     }
+
     private void OnEnable() 
     {
         Debug.Log("enabling actions for player");
@@ -143,6 +147,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        ControlScheme.GetUsedControlScheme();
+        
         //ensures when hurt, starts invulnerable time so player cannot be hurt until the time is 0 or less.
         if (invulnerableTime >= 0)
         {
@@ -312,7 +318,14 @@ public class PlayerController : MonoBehaviour
             if (movement != Vector2.zero)
             {
                 //sets new directions from the movement and sets bool, to play walking sound
-                DetermineFacingDirection();
+                if (!ControlScheme.IsController)
+                {
+                    DetermineKeyboardFacingDirection();
+                }
+                else
+                {
+                    DetermineGamepadFacingDirection();
+                }
                 currentState = PlayerState.walk;
                 isMoving = true;
             } 
@@ -325,55 +338,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void CheckFirstKey(string direction)
+    private void DetermineKeyboardFacingDirection()
     {
-        bool keyStillPressed = false;
-        switch (direction)
-        {
-            case "up":
-                keyStillPressed = Keyboard.current.upArrowKey.isPressed;
-                break;
-            case "down":
-                keyStillPressed = Keyboard.current.downArrowKey.isPressed;
-                break;
-            case "left":
-                keyStillPressed = Keyboard.current.leftArrowKey.isPressed;
-                break;
-            case "right":
-                keyStillPressed =  Keyboard.current.rightArrowKey.isPressed;
-                break;
-        }
-        if (!keyStillPressed)
-        {
-            firstKey = "";
-        }
-    }
-
-    private void DetermineFacingDirection()
-    {
-        var pressedKey = Keyboard.current;
-        CheckFirstKey(firstKey);
+        var keyboard = ControlScheme.KeyboardControlScheme;
+        CheckFirstKey(firstKey, keyboard);
         if (firstKey == "")
         {
-            if (pressedKey.upArrowKey.isPressed)
+            if (keyboard.upArrowKey.isPressed)
             {
                 movingVertical = 1;
                 movingHorizontal = 0;
                 firstKey = "up";
             }
-            else if (pressedKey.downArrowKey.isPressed)
+            else if (keyboard.downArrowKey.isPressed)
             {
                 movingVertical = -1;
                 movingHorizontal = 0;
                 firstKey = "down";
             }
-            else if (pressedKey.leftArrowKey.isPressed)
+            else if (keyboard.leftArrowKey.isPressed)
             {
                 movingHorizontal = -1;
                 movingVertical = 0;
                 firstKey = "left";
             }
-            else if (pressedKey.rightArrowKey.isPressed)
+            else if (keyboard.rightArrowKey.isPressed)
             {
                 movingHorizontal = 1;
                 movingVertical = 0;
@@ -382,22 +371,22 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if ((pressedKey.rightArrowKey.isPressed && firstKey == "up") || (pressedKey.leftArrowKey.isPressed && firstKey == "up"))
+            if ((keyboard.rightArrowKey.isPressed && firstKey == "up") || (keyboard.leftArrowKey.isPressed && firstKey == "up"))
             {
                 movingVertical = 1;
                 movingHorizontal = 0;
             }
-            else if ((pressedKey.rightArrowKey.isPressed && firstKey == "down") || (pressedKey.leftArrowKey.isPressed && firstKey == "down"))
+            else if ((keyboard.rightArrowKey.isPressed && firstKey == "down") || (keyboard.leftArrowKey.isPressed && firstKey == "down"))
             {
                 movingVertical = -1;
                 movingHorizontal = 0;
             }
-            else if ((pressedKey.upArrowKey.isPressed && firstKey == "left") || (pressedKey.downArrowKey.isPressed && firstKey == "left"))
+            else if ((keyboard.upArrowKey.isPressed && firstKey == "left") || (keyboard.downArrowKey.isPressed && firstKey == "left"))
             {
                 movingHorizontal = -1;
                 movingVertical = 0;
             }
-            else if ((pressedKey.upArrowKey.isPressed && firstKey == "right") || (pressedKey.downArrowKey.isPressed && firstKey == "right"))
+            else if ((keyboard.upArrowKey.isPressed && firstKey == "right") || (keyboard.downArrowKey.isPressed && firstKey == "right"))
             {
                 movingHorizontal = 1;
                 movingVertical = 0;
@@ -405,6 +394,112 @@ public class PlayerController : MonoBehaviour
         }
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
+    }
+
+    private void CheckFirstKey(string direction, Keyboard keyboard)
+    {
+        bool keyStillPressed = false;
+        switch (direction)
+        {
+            case "up":
+                keyStillPressed = keyboard.upArrowKey.isPressed;
+                break;
+            case "down":
+                keyStillPressed = keyboard.downArrowKey.isPressed;
+                break;
+            case "left":
+                keyStillPressed = keyboard.leftArrowKey.isPressed;
+                break;
+            case "right":
+                keyStillPressed =  keyboard.rightArrowKey.isPressed;
+                break;
+        }
+        if (!keyStillPressed)
+        {
+            firstKey = "";
+        }
+    }
+
+    private void DetermineGamepadFacingDirection()
+    {
+        var gamepad = ControlScheme.GamepadControlScheme;
+        CheckFirstAnalogDirection(firstAnalogDirection, gamepad);
+        if (firstAnalogDirection == "")
+        {
+            if (gamepad.leftStick.up.isPressed)
+            {
+                movingVertical = 1;
+                movingHorizontal = 0;
+                firstAnalogDirection = "up";
+            }
+            else if (gamepad.leftStick.down.isPressed)
+            {
+                movingVertical = -1;
+                movingHorizontal = 0;
+                firstAnalogDirection = "down";
+            }
+            else if (gamepad.leftStick.left.isPressed)
+            {
+                movingHorizontal = -1;
+                movingVertical = 0;
+                firstAnalogDirection = "left";
+            }
+            else if (gamepad.leftStick.right.isPressed)
+            {
+                movingHorizontal = 1;
+                movingVertical = 0;
+                firstAnalogDirection = "right";
+            }
+        }
+        else
+        {
+            if ((gamepad.leftStick.right.isPressed && firstAnalogDirection == "up") || (gamepad.leftStick.left.isPressed && firstAnalogDirection == "up"))
+            {
+                movingVertical = 1;
+                movingHorizontal = 0;
+            }
+            else if ((gamepad.leftStick.right.isPressed && firstAnalogDirection == "down") || (gamepad.leftStick.left.isPressed && firstAnalogDirection == "down"))
+            {
+                movingVertical = -1;
+                movingHorizontal = 0;
+            }
+            else if ((gamepad.leftStick.up.isPressed && firstAnalogDirection == "left") || (gamepad.leftStick.down.isPressed && firstAnalogDirection == "left"))
+            {
+                movingHorizontal = -1;
+                movingVertical = 0;
+            }
+            else if ((gamepad.leftStick.up.isPressed && firstKey == "right") || (gamepad.leftStick.down.isPressed && firstKey == "right"))
+            {
+                movingHorizontal = 1;
+                movingVertical = 0;
+            }
+        }
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+    }
+
+    private void CheckFirstAnalogDirection(string direction, Gamepad gamepad)
+    {
+        bool analogDirectionStillPressed = false;
+        switch (direction)
+        {
+            case "up":
+                analogDirectionStillPressed = gamepad.leftStick.up.isPressed;
+                break;
+            case "down":
+                analogDirectionStillPressed = gamepad.leftStick.down.isPressed;
+                break;
+            case "left":
+                analogDirectionStillPressed = gamepad.leftStick.left.isPressed;
+                break;
+            case "right":
+                analogDirectionStillPressed =  gamepad.leftStick.right.isPressed;
+                break;
+        }
+        if (!analogDirectionStillPressed)
+        {
+            firstAnalogDirection = "";
+        }
     }
 
     private void PlayerAttack(InputAction.CallbackContext context)

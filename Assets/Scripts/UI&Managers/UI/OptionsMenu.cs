@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
@@ -83,18 +84,12 @@ public class OptionsMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
-    //sets quality of game to unity pre-sets
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
-
     //mutes the master volume, but also disabes the volume slider and changes the navigation so the slider cannot be used.
     public void SetMute(bool isMuted)
     {
         float volume;
         Navigation navigation;
-        Button exitButton = GameObject.Find("Options_Exit_Button").GetComponent<Button>();
+        Button exitButton = GameObject.Find("OptionsExitButton").GetComponent<Button>();
         Toggle mute = GameObject.Find("MuteToggle").GetComponent<Toggle>();
         if (isMuted)
         {

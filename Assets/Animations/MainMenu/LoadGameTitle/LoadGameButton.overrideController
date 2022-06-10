@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LoadGameButton
+  m_Controller: {fileID: 9100000, guid: 11333711bc3eec641bf0b472e3de0273, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8c1459f142573d74a9ed9fc05eb958ec, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d2fd26f36ebe6ca45951d6f5f89f5971, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a292d7f6230663a4485860676af18816, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 30b806bb853257149ac80ced632789c3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fa54565b49d25664ebb7184671fd1234, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 43291bc71ad87ad468a3dca7eebce298, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 760d8a0383e51e943b9cffead3cecd93, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f36b069dd38fdd841aeffbab332af7eb, type: 2}
