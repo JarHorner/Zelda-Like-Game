@@ -75,8 +75,8 @@ public class ControlMenu : MonoBehaviour
         gamepadControls.SetActive(false);
         keyboardControls.SetActive(true);
 
-        navigation.selectOnUp = keyboardControls.transform.GetChild(7).GetChild(1).gameObject.GetComponent<Button>();
-        navigation.selectOnDown = keyboardControls.transform.GetChild(0).GetChild(1).gameObject.GetComponent<Button>();
+        navigation.selectOnUp = keyboardControls.transform.GetChild(0).GetChild(8).GetChild(1).gameObject.GetComponent<Button>();
+        navigation.selectOnDown = keyboardControls.transform.GetChild(0).GetChild(1).GetChild(1).gameObject.GetComponent<Button>();
         controlsMenuExitButton.navigation = navigation;
     }
 
@@ -89,8 +89,8 @@ public class ControlMenu : MonoBehaviour
         keyboardControls.SetActive(false);
         gamepadControls.SetActive(true);
 
-        navigation.selectOnUp = gamepadControls.transform.GetChild(7).GetChild(1).gameObject.GetComponent<Button>();
-        navigation.selectOnDown = gamepadControls.transform.GetChild(0).GetChild(1).gameObject.GetComponent<Button>();
+        navigation.selectOnUp = gamepadControls.transform.GetChild(0).GetChild(8).GetChild(1).gameObject.GetComponent<Button>();
+        navigation.selectOnDown = gamepadControls.transform.GetChild(0).GetChild(1).GetChild(1).gameObject.GetComponent<Button>();
         controlsMenuExitButton.navigation = navigation;
     }
 
