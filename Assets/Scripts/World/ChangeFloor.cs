@@ -34,8 +34,8 @@ public class ChangeFloor : MonoBehaviour
                 player.transform.position = moveLocation.transform.position;
                 //ensures camera follows to players moved position
                 cam = FindObjectOfType<CameraController>();
-                cam.SetMinPosition(minPosition);
-                cam.SetMaxPosition(maxPosition);
+                cam.MinPosition = minPosition;
+                cam.MaxPosition = maxPosition;
                 changeFloorTransition.ResetTrigger("Start");
 
                 changeFloorTransition.SetTrigger("End");

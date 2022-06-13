@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject creditsButton;
     [SerializeField] private GameObject exitGameButton;
     [SerializeField] private GameObject player;
+    private bool startingNewGame;
 
     #endregion
 
@@ -32,13 +33,39 @@ public class MainMenu : MonoBehaviour
         ControlScheme.GetUsedControlScheme();
     }
 
-    //loads the first scene of the game
-    public void StartGame() 
+    public void NewGame(bool startingNewGame)
     {
-        string sceneName = SceneTracker.LastSceneName;
-        SceneManager.LoadScene(sceneName);
+        Debug.Log("NewGame");
+        this.startingNewGame = startingNewGame;
+    }
+
+    //loads the first scene of the game
+    private void StartGame() 
+    {
+        SaveSystem.LoadedGame = false;
+        SceneManager.LoadScene("OverWorld");
         if(GameObject.Find("Player(Clone)") != null)
             GameObject.Find("Player(Clone)").GetComponent<PlayerController>().enabled = true;
+    }
+
+    public void StartORLoadGame(string fileName)
+    {
+        SaveSystem.currentFileName = fileName;
+        if (startingNewGame)
+        {
+            StartGame();
+        }
+        else
+        {
+            SaveSystem.currentPlayerData = SaveSystem.LoadPlayer();
+            if (SaveSystem.currentPlayerData != null)
+            {
+                SaveSystem.LoadedGame = true;
+                SceneManager.LoadScene(SaveSystem.currentPlayerData.lastScene);
+                if(GameObject.Find("Player(Clone)") != null)
+                    GameObject.Find("Player(Clone)").GetComponent<PlayerController>().enabled = true;
+            }
+        }
     }
 
     //exits the application.
@@ -49,6 +76,7 @@ public class MainMenu : MonoBehaviour
 
     public void ActivateMenu(GameObject panel)
     {
+        Debug.Log("ActivateMenu");
         if (panel.name == "OptionsPanel")
         {
             panel.GetComponent<Animator>().SetBool("IsActive", true);
@@ -78,15 +106,23 @@ public class MainMenu : MonoBehaviour
             panel.GetComponent<Animator>().SetBool("IsActive", true);
             creditsButton.SetActive(false);
             optionsButton.SetActive(false);
-            loadGameButton.GetComponent<Button>().enabled = false;
-            loadGameButton.GetComponent<Image>().enabled = false;
-            loadGameButton.GetComponent<Animator>().SetBool("Selected", true);
+            if (startingNewGame)
+            {
+                newGameButton.GetComponent<Button>().enabled = false;
+                newGameButton.GetComponent<Image>().enabled = false;
+                newGameButton.GetComponent<Animator>().SetBool("Selected", true);
+            }
+            else
+            {
+                loadGameButton.GetComponent<Button>().enabled = false;
+                loadGameButton.GetComponent<Image>().enabled = false;
+                loadGameButton.GetComponent<Animator>().SetBool("Selected", true);
+            }
 
             EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(GameObject.Find("LoadGameExitButton").gameObject);
+            EventSystem.current.SetSelectedGameObject(GameObject.Find("SaveFile1").gameObject);
         }
         title.SetActive(false);
-        newGameButton.SetActive(false);
         exitGameButton.SetActive(false);
     }
 
@@ -115,12 +151,21 @@ public class MainMenu : MonoBehaviour
             panel.GetComponent<Animator>().SetBool("IsActive", false);
             creditsButton.SetActive(true);
             optionsButton.SetActive(true);
-            loadGameButton.GetComponent<Button>().enabled = true;
-            loadGameButton.GetComponent<Image>().enabled = true;
-            loadGameButton.GetComponent<Animator>().SetBool("Selected", false);
+
+            if (startingNewGame)
+            {
+                newGameButton.GetComponent<Button>().enabled = true;
+                newGameButton.GetComponent<Image>().enabled = true;
+                newGameButton.GetComponent<Animator>().SetBool("Selected", false);
+            }
+            else
+            {
+                loadGameButton.GetComponent<Button>().enabled = true;
+                loadGameButton.GetComponent<Image>().enabled = true;
+                loadGameButton.GetComponent<Animator>().SetBool("Selected", false);
+            }
         }
         title.SetActive(true);
-        newGameButton.SetActive(true);
         exitGameButton.SetActive(true);
         //clear selected object
         EventSystem.current.SetSelectedGameObject(null);

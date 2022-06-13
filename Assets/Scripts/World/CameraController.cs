@@ -15,6 +15,14 @@ public class CameraController : MonoBehaviour
     {
         //maintains perfect width for default resolution
         defaultWidth = Camera.main.orthographicSize * Camera.main.aspect;
+
+        if(SaveSystem.LoadedGame)
+        {
+            Vector2 loadedMinPos = new Vector2(SaveSystem.currentPlayerData.cameraMinPos[0], SaveSystem.currentPlayerData.cameraMinPos[1]);
+            Vector2 loadedMaxPos = new Vector2(SaveSystem.currentPlayerData.cameraMaxPos[0], SaveSystem.currentPlayerData.cameraMaxPos[1]);
+            minPosition = loadedMinPos;
+            maxPosition = loadedMaxPos;
+        }
     }
 
     void Update() 
@@ -46,14 +54,16 @@ public class CameraController : MonoBehaviour
             }
         }
     }
-    public void SetMinPosition(Vector2 newMinPosition)
+    public Vector2 MinPosition
     {
-        minPosition = newMinPosition;
+        get { return minPosition; }
+        set { minPosition = value; }
     }
 
-    public void SetMaxPosition(Vector2 newMaxPosition)
+    public Vector2 MaxPosition
     {
-        maxPosition = newMaxPosition;
+        get { return maxPosition; }
+        set { maxPosition = value; }
     }
 
     public void SetTarget(Transform newTarget)

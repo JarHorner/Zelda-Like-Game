@@ -25,13 +25,27 @@ public class InventoryManager : MonoBehaviour
     //gets the item boxes and populates some items in inventory. populated items will be removed eventually.
     void Awake() 
     {
+        if (SaveSystem.LoadedGame)
+        {
+            if (SaveSystem.currentPlayerData.hasLanturn)
+                PopulateInventorySlot("Lanturn");
+            if (SaveSystem.currentPlayerData.hasSwimmingMedal)
+                PopulateInventorySlot("SwimmingMedal");
+        }
         PopulateInventorySlot("Heal");
         PopulateInventorySlot("Bow");
-        PopulateInventorySlot("Lanturn");
         PopulateInventorySlot("PowerGloves");
         PopulateInventorySlot("SwimmingMedal");
         PopulateInventorySlot("Sword");
         PopulateInventorySlot("Shield");
+    }
+
+    void Start() 
+    {
+        if (SaveSystem.LoadedGame)
+        {
+            LoadItemsToSlots();
+        }
     }
 
     //Sets the text and description to certain item. Used in InventorySlot when clicking on button.
@@ -62,6 +76,31 @@ public class InventoryManager : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+
+    private void LoadItemsToSlots()
+    {
+        InventoryItem itemInSlot1 = usableItems.myInventory[SaveSystem.currentPlayerData.item1];
+        InventoryItem itemInSlot2 = usableItems.myInventory[SaveSystem.currentPlayerData.item2];
+
+        if (itemInSlot1 != null)
+        {
+            itemBox1.transform.GetChild(0).GetComponent<Image>().enabled = true;
+            itemBox1.transform.GetChild(0).GetComponent<Image>().sprite = itemInSlot1.itemImage;
+            if (itemInSlot1.numberHeld > -1)
+                itemBox1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = itemInSlot1.numberHeld.ToString();
+            else
+                itemBox1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
+        }
+        if (itemInSlot2 != null)
+        {
+            itemBox2.transform.GetChild(0).GetComponent<Image>().enabled = true;
+            itemBox2.transform.GetChild(0).GetComponent<Image>().sprite = itemInSlot2.itemImage;
+            if (itemInSlot2.numberHeld > -1)
+                itemBox2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = itemInSlot2.numberHeld.ToString();
+            else
+                itemBox2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
         }
     }
 

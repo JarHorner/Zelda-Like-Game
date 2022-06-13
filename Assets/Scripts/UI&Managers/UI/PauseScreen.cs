@@ -10,15 +10,17 @@ public class PauseScreen : MonoBehaviour
     #region Variables
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private Animator gameSavedNoticeAnim;
     public GameObject optionsFirstButton, optionsClosedButton;
 
     #endregion
 
     #region Methods
 
-    public void SaveGame()
+    public void SaveGame() 
     {
-
+        SaveSystem.SavePlayer(FindObjectOfType<PlayerController>(), FindObjectOfType<CameraController>(), FindObjectOfType<InventoryManager>());
+        gameSavedNoticeAnim.SetTrigger("Fade");
     }
 
     public void OptionsMenu()
@@ -44,11 +46,9 @@ public class PauseScreen : MonoBehaviour
     //exits application
     public void ExitGame() 
     {
-        SaveGame();
+        SaveSystem.SavePlayer(FindObjectOfType<PlayerController>(), FindObjectOfType<CameraController>(), FindObjectOfType<InventoryManager>());
+        uiManager.DeactivatePauseScreen();
         SceneManager.LoadScene("MainMenu");
-        uiManager.PauseGame();
-
-        FindObjectOfType<PlayerController>().enabled = false;
     }
     #endregion
 }

@@ -600,6 +600,7 @@ MonoBehaviour:
   currentState: 0
   inputMaster: {fileID: -944628639613478452, guid: d85fecbc5f67c044fa2943009c2f4f5b, type: 3}
   moveSpeed: 6
+  totalHearts: 3
   rb: {fileID: 6650388066663356520}
   hitBox: {fileID: 2516116976837953461}
   physicBox: {fileID: 2238781653561761445}

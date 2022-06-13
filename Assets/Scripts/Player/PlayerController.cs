@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private bool isCarrying = false;
     private bool isReviving = false;
     private bool deathCoRunning = false;
+    [SerializeField] private int totalHearts;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private CapsuleCollider2D hitBox;
     [SerializeField] private CapsuleCollider2D physicBox;
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         uiManager = FindObjectOfType<UIManager>();
         inventoryManager = FindObjectOfType<InventoryManager>();
-        lastPlayerLocation = new Vector2(0, 0);
+        lastPlayerLocation = new Vector2(2f, 4.15f);
         Debug.Log(lastPlayerLocation);
 
         var playerActionMap = inputMaster.FindActionMap("Player");
@@ -112,6 +113,11 @@ public class PlayerController : MonoBehaviour
     private void OnEnable() 
     {
         Debug.Log("enabling actions for player");
+        if (SaveSystem.LoadedGame)
+        {
+            currentState = PlayerState.walk;
+            animator.SetBool("isSwimming", false);
+        }
         move.Enable();
         move.performed += PlayerMoving;
         move.canceled += PlayerMoving;
@@ -256,7 +262,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //Damages the player using the HealthVisual, creates damage popup, and actives the flashing. only initiates code if invulnerable time is over.
+    //Damages the player using the totalHeartsVisual, creates damage popup, and actives the flashing. only initiates code if invulnerable time is over.
     public void DamagePlayer(int damageNum)
     {
         if (invulnerableTime <= 0)
@@ -618,6 +624,11 @@ public class PlayerController : MonoBehaviour
     {
         get { return onConveyor; }
         set { onConveyor = value; }
+    }
+    public int TotalHearts
+    {
+        get { return totalHearts; }
+        set { totalHearts = value; }
     }
     #endregion
 }

@@ -36,7 +36,7 @@ public class InventorySlot : MonoBehaviour
     //puts item in inventory (sprite, number held, etc.) and becomes clickable.
     public void Setup(InventoryItem item, InventoryManager manager)
     {
-        if (thisItem != null)
+        if (thisItem != null && !thisItem.unique)
         {
             int numHeld = thisItem.numberHeld;
             itemNumberInventoryText.text = "" + numHeld;

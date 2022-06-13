@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lanturn : MonoBehaviour
 {
     #region Variables
-    private bool isLit;
+    private static bool isLit = false;
     #endregion
 
     #region Methods
@@ -22,7 +22,7 @@ public class Lanturn : MonoBehaviour
     {
         if (IsLit)
         {
-            GameObject playerLanturn = FindObjectOfType<Lanturn>().gameObject;
+            GameObject playerLanturn = FindObjectOfType<Lanturn>().gameObject ?? null;
             Destroy(playerLanturn);
             isLit = false;
         }

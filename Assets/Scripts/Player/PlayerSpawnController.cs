@@ -28,13 +28,22 @@ public class PlayerSpawnController : MonoBehaviour
             PlayerController.PlayerExists = false;
             player = Instantiate(playerPrefab);
             cam = FindObjectOfType<CameraController>();
-            player.transform.position = spawnLocation.transform.position;
         }
         else
         {
             Debug.Log("Player Found");
             player = GameObject.FindWithTag("Player");
             cam = FindObjectOfType<CameraController>();
+        }
+
+        if (!SaveSystem.LoadedGame)
+        {
+            player.transform.position = spawnLocation.transform.position;
+        }
+        else
+        {
+            Vector2 newLocation = new Vector2(SaveSystem.currentPlayerData.lastPosition[0], SaveSystem.currentPlayerData.lastPosition[1]);
+            player.transform.position = newLocation;
         }
         playerController = player.GetComponent<PlayerController>();
         //if player died, and is reviving

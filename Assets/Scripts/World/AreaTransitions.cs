@@ -56,8 +56,8 @@ public class AreaTransitions : MonoBehaviour
         if (collider.gameObject.tag == "Player" && collider.GetType() != typeof(BoxCollider2D))
         {
             //changes camera min/max positions to simulate move somewhere new
-            cam.SetMinPosition(newMinPosition);
-            cam.SetMaxPosition(newMaxPosition);
+            cam.MinPosition = newMinPosition;
+            cam.MaxPosition = newMaxPosition;
             //moves player into area
             collider.transform.position += movePlayer;
             player.LastPlayerLocation = collider.transform.position;

@@ -15,7 +15,6 @@ public class PlayerStartPoint : MonoBehaviour
 
     #region Unity Methods
 
-    // Start is called before the first frame update
     void Start()
     {
         //places player and camera according to the start point
@@ -34,8 +33,8 @@ public class PlayerStartPoint : MonoBehaviour
 
             cam = FindObjectOfType<CameraController>();
             cam.SetTarget(player.transform);
-            cam.SetMinPosition(minPosition);
-            cam.SetMaxPosition(maxPosition);
+            cam.MinPosition = minPosition;
+            cam.MaxPosition = maxPosition;
         }
     }
 

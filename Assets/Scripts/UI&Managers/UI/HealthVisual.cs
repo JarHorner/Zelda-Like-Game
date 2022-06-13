@@ -7,7 +7,6 @@ public class HealthVisual : MonoBehaviour
 
     #region Variables
     public static HealthSystem healthSystemStatic;
-    [SerializeField] private int health;
     private float periodicTime = 0.05f;
     private float fullHealthAnimTime = 0.2f;
     private PlayerController player;
@@ -32,13 +31,22 @@ public class HealthVisual : MonoBehaviour
 
     void Start() 
     {
-        if (healthSystemStatic == null)
+        if (healthSystemStatic == null && !SaveSystem.LoadedGame)
         {
             Debug.Log("Start health");
-            healthSystem = new HealthSystem(health);
             player = FindObjectOfType<PlayerController>();
+            healthSystem = new HealthSystem(player.TotalHearts);
             SetHealthSystem(healthSystem);
             currentHeart = heartImageList[heartImageList.Count-1];
+        }
+        else if (healthSystemStatic == null && SaveSystem.LoadedGame)
+        {
+            Debug.Log("Load health");
+            player = FindObjectOfType<PlayerController>();
+            healthSystem = new HealthSystem(SaveSystem.currentPlayerData.totalHearts);
+            SetHealthSystem(healthSystem);
+            int healthGone = (SaveSystem.currentPlayerData.totalHearts * 4) - SaveSystem.currentPlayerData.currentHealth;
+            healthSystem.Damage(healthGone);
         }
     }
 

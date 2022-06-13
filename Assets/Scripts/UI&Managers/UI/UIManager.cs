@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
         assignItem2 = uiActionMap.FindAction("AssignItem2");
     }
 
-        //Used in PlayerController to access PauseGame method.
+    //Used in PlayerController to access PauseGame method.
     public void OpenPauseMenu(InputAction.CallbackContext context)
     {
         PauseGame();
@@ -74,6 +74,11 @@ public class UIManager : MonoBehaviour
             cancel.performed -= OpenPauseMenu;
             cancel.Disable();
         }
+    }
+
+    public void DeactivatePauseScreen()
+    {
+        pauseScreen.SetActive(false);
     }
 
     //Used in PlayerController to access InventoryScreen method.
@@ -118,5 +123,10 @@ public class UIManager : MonoBehaviour
             assignItem2.Disable();
             cancel.Disable();
         }
+    }
+
+    public bool InventoryOpen
+    {
+        get { return inventoryOpen; }
     }
 }
