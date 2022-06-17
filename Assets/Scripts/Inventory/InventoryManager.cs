@@ -27,9 +27,9 @@ public class InventoryManager : MonoBehaviour
     {
         if (SaveSystem.LoadedGame)
         {
-            if (SaveSystem.currentPlayerData.hasLanturn)
+            if (SaveSystem.CurrentPlayerData.hasLanturn)
                 PopulateInventorySlot("Lanturn");
-            if (SaveSystem.currentPlayerData.hasSwimmingMedal)
+            if (SaveSystem.CurrentPlayerData.hasSwimmingMedal)
                 PopulateInventorySlot("SwimmingMedal");
         }
         PopulateInventorySlot("Heal");
@@ -81,8 +81,8 @@ public class InventoryManager : MonoBehaviour
 
     private void LoadItemsToSlots()
     {
-        InventoryItem itemInSlot1 = usableItems.myInventory[SaveSystem.currentPlayerData.item1];
-        InventoryItem itemInSlot2 = usableItems.myInventory[SaveSystem.currentPlayerData.item2];
+        InventoryItem itemInSlot1 = usableItems.myInventory[SaveSystem.CurrentPlayerData.item1];
+        InventoryItem itemInSlot2 = usableItems.myInventory[SaveSystem.CurrentPlayerData.item2];
 
         if (itemInSlot1 != null)
         {

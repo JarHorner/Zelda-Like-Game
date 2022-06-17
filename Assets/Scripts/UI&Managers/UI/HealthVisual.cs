@@ -43,9 +43,9 @@ public class HealthVisual : MonoBehaviour
         {
             Debug.Log("Load health");
             player = FindObjectOfType<PlayerController>();
-            healthSystem = new HealthSystem(SaveSystem.currentPlayerData.totalHearts);
+            healthSystem = new HealthSystem(SaveSystem.CurrentPlayerData.totalHearts);
             SetHealthSystem(healthSystem);
-            int healthGone = (SaveSystem.currentPlayerData.totalHearts * 4) - SaveSystem.currentPlayerData.currentHealth;
+            int healthGone = (SaveSystem.CurrentPlayerData.totalHearts * 4) - SaveSystem.CurrentPlayerData.currentHealth;
             healthSystem.Damage(healthGone);
         }
     }

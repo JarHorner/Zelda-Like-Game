@@ -7,8 +7,8 @@ public static class SaveSystem
     #region Variables
 
     private static bool loadedGame;
-    public static PlayerData currentPlayerData;
-    public static string currentFileName;
+    private static PlayerData currentPlayerData;
+    private static string currentFileName;
 
     #endregion
 
@@ -46,9 +46,22 @@ public static class SaveSystem
         }
     }
 
-    public static bool LoadedGame{
+    public static bool LoadedGame
+    {
         get { return loadedGame; }
         set { loadedGame = value; }
+    }
+
+    public static string CurrentFileName
+    {
+        get { return currentFileName; }
+        set { currentFileName = value; }
+    }
+
+    public static PlayerData CurrentPlayerData
+    {
+        get { return currentPlayerData; }
+        set { currentPlayerData = value; }
     }
 
     #endregion

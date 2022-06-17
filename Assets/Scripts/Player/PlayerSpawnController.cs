@@ -42,7 +42,7 @@ public class PlayerSpawnController : MonoBehaviour
         }
         else
         {
-            Vector2 newLocation = new Vector2(SaveSystem.currentPlayerData.lastPosition[0], SaveSystem.currentPlayerData.lastPosition[1]);
+            Vector2 newLocation = new Vector2(SaveSystem.CurrentPlayerData.lastPosition[0], SaveSystem.CurrentPlayerData.lastPosition[1]);
             player.transform.position = newLocation;
         }
         playerController = player.GetComponent<PlayerController>();

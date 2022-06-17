@@ -18,8 +18,8 @@ public class CameraController : MonoBehaviour
 
         if(SaveSystem.LoadedGame)
         {
-            Vector2 loadedMinPos = new Vector2(SaveSystem.currentPlayerData.cameraMinPos[0], SaveSystem.currentPlayerData.cameraMinPos[1]);
-            Vector2 loadedMaxPos = new Vector2(SaveSystem.currentPlayerData.cameraMaxPos[0], SaveSystem.currentPlayerData.cameraMaxPos[1]);
+            Vector2 loadedMinPos = new Vector2(SaveSystem.CurrentPlayerData.cameraMinPos[0], SaveSystem.CurrentPlayerData.cameraMinPos[1]);
+            Vector2 loadedMaxPos = new Vector2(SaveSystem.CurrentPlayerData.cameraMaxPos[0], SaveSystem.CurrentPlayerData.cameraMaxPos[1]);
             minPosition = loadedMinPos;
             maxPosition = loadedMaxPos;
         }
