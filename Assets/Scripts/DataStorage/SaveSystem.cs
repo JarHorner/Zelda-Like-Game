@@ -26,9 +26,14 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static PlayerData LoadPlayer()
+    public static PlayerData LoadPlayer(string manualFileName = null)
     {
-        string path = Application.persistentDataPath + currentFileName;
+        string path;
+        if (manualFileName != null)
+            path = Application.persistentDataPath + manualFileName;
+        else
+            path = Application.persistentDataPath + currentFileName;
+
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

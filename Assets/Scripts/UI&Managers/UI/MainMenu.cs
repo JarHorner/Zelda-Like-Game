@@ -17,18 +17,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject optionsButton;
     [SerializeField] private GameObject creditsButton;
     [SerializeField] private GameObject exitGameButton;
-    [SerializeField] private OnScreenKeyboard onScreenKeyboard;
-    [SerializeField] private GameObject file1;
-    [SerializeField] private GameObject file2;
-    [SerializeField] private GameObject file3;
-    [SerializeField] private GameObject player;
     private bool startingNewGame;
 
     #endregion
 
     #region Unity Methods
 
-    private void Start() 
+    private void Awake() 
     {
         ControlScheme.GetControlSchemes();
     }
@@ -41,43 +36,9 @@ public class MainMenu : MonoBehaviour
     public void NewGame(GameObject panel)
     {
         Debug.Log("NewGame");
-        this.startingNewGame = true;
+        startingNewGame = true;
         ActivateMenu(panel);
     }
-
-    public void StartORLoadGame(TMP_Text saveFileName)
-    {
-        if (startingNewGame)
-        {
-            if (saveFileName.text == "")
-                onScreenKeyboard.EnterFileName(saveFileName);
-            else
-                StartGame();
-        }
-        else
-        {
-            SaveSystem.CurrentFileName = $"/{saveFileName.text}.SL";
-            SaveSystem.CurrentPlayerData = SaveSystem.LoadPlayer();
-            if (SaveSystem.CurrentPlayerData != null)
-            {
-                SaveSystem.LoadedGame = true;
-                SceneManager.LoadScene(SaveSystem.CurrentPlayerData.lastScene);
-                if(GameObject.Find("Player(Clone)") != null)
-                    GameObject.Find("Player(Clone)").GetComponent<PlayerController>().enabled = true;
-            }
-        }
-    }
-
-    //loads the first scene of the game
-    private void StartGame() 
-    {
-        SaveSystem.LoadedGame = false;
-        SceneManager.LoadScene("OverWorld");
-        if(GameObject.Find("Player(Clone)") != null)
-            GameObject.Find("Player(Clone)").GetComponent<PlayerController>().enabled = true;
-    }
-
-
 
     //exits the application.
     public void ExitGame() 
@@ -115,9 +76,6 @@ public class MainMenu : MonoBehaviour
         else if (panel.name == "LoadGamePanel")
         {
             panel.GetComponent<Animator>().SetBool("IsActive", true);
-            file1.GetComponent<TMP_Text>().text = PlayerPrefs.GetString(file1.name);
-            file2.GetComponent<TMP_Text>().text = PlayerPrefs.GetString(file2.name);
-            file3.GetComponent<TMP_Text>().text = PlayerPrefs.GetString(file3.name);
             creditsButton.SetActive(false);
             optionsButton.SetActive(false);
             if (startingNewGame)
@@ -166,19 +124,10 @@ public class MainMenu : MonoBehaviour
             creditsButton.SetActive(true);
             optionsButton.SetActive(true);
 
-            if (startingNewGame)
-            {
-                newGameButton.GetComponent<Button>().enabled = true;
-                newGameButton.GetComponent<Image>().enabled = true;
-                newGameButton.GetComponent<Animator>().SetBool("Selected", false);
-                startingNewGame = false;
-            }
-            else
-            {
-                loadGameButton.GetComponent<Button>().enabled = true;
-                loadGameButton.GetComponent<Image>().enabled = true;
-                loadGameButton.GetComponent<Animator>().SetBool("Selected", false);
-            }
+            loadGameButton.GetComponent<Button>().enabled = true;
+            loadGameButton.GetComponent<Image>().enabled = true;
+            loadGameButton.GetComponent<Animator>().SetBool("Selected", false);
+            startingNewGame = false;
         }
         title.SetActive(true);
         exitGameButton.SetActive(true);
@@ -186,6 +135,12 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //set a new selected object
         EventSystem.current.SetSelectedGameObject(newGameButton);
+    }
+
+    public bool StartingNewGame
+    {
+        get { return startingNewGame; }
+        set { startingNewGame = value; }
     }
 
     #endregion

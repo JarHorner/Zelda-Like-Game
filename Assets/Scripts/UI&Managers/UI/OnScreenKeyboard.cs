@@ -43,7 +43,7 @@ public class OnScreenKeyboard : MonoBehaviour
                 selectedFileName.text = newFileName;
                 SaveSystem.CurrentFileName = $"/{newFileName}.SL";
                 Debug.Log(SaveSystem.CurrentFileName);
-                PlayerPrefs.SetString(selectedFileName.gameObject.name, selectedFileName.text);
+                PlayerPrefs.SetString(selectedFileName.gameObject.name, newFileName);
                 this.gameObject.SetActive(false);
                 EventSystem.current.SetSelectedGameObject(null);
                 EventSystem.current.SetSelectedGameObject(selectedFileName.gameObject.transform.parent.gameObject);
