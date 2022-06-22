@@ -123,10 +123,19 @@ public class MainMenu : MonoBehaviour
             panel.GetComponent<Animator>().SetBool("IsActive", false);
             creditsButton.SetActive(true);
             optionsButton.SetActive(true);
-
-            loadGameButton.GetComponent<Button>().enabled = true;
-            loadGameButton.GetComponent<Image>().enabled = true;
-            loadGameButton.GetComponent<Animator>().SetBool("Selected", false);
+        
+            if (startingNewGame)
+            {
+                newGameButton.GetComponent<Animator>().SetBool("Selected", false);
+                newGameButton.GetComponent<Button>().enabled = true;
+                newGameButton.GetComponent<Image>().enabled = true;
+            }
+            else
+            {
+                loadGameButton.GetComponent<Animator>().SetBool("Selected", false);
+                loadGameButton.GetComponent<Button>().enabled = true;
+                loadGameButton.GetComponent<Image>().enabled = true;
+            }
             startingNewGame = false;
         }
         title.SetActive(true);

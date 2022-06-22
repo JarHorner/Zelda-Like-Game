@@ -51,6 +51,17 @@ public static class SaveSystem
         }
     }
 
+    public static void DeletePlayer(string manualFileName)
+    {
+        string path = Application.persistentDataPath + "/" + manualFileName + ".SL";
+
+        if (File.Exists(path))
+        {
+            Debug.Log("File deleted");
+            File.Delete(path);
+        }
+    }
+
     public static bool LoadedGame
     {
         get { return loadedGame; }

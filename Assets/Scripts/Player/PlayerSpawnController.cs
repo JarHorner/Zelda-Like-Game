@@ -11,6 +11,7 @@ public class PlayerSpawnController : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject spawnLocation;
     private PlayerController playerController;
+    private PauseGame pauseGame;
     private CameraController cam;
     [SerializeField] private string placeName;
     private LocationCanvas locationCanvas;
@@ -46,6 +47,7 @@ public class PlayerSpawnController : MonoBehaviour
             player.transform.position = newLocation;
         }
         playerController = player.GetComponent<PlayerController>();
+        pauseGame = FindObjectOfType<PauseGame>();
         //if player died, and is reviving
         if (playerController.IsReviving == true) {
             player.transform.position = spawnLocation.transform.position;
@@ -53,6 +55,7 @@ public class PlayerSpawnController : MonoBehaviour
         }
         //provides camera with target
         cam.SetTarget(player.transform);
+        pauseGame.UnPause();
     }
     
     private void Update() 

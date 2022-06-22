@@ -18,6 +18,11 @@ public class SaveFile : MonoBehaviour
 
     #region Methods
 
+    public Image[] Hearts
+    {
+        get { return hearts; }
+    }
+
     public TMP_Text FileName
     {
         get { return fileName; }
