@@ -19,6 +19,7 @@ public class LoadGameMenu : MonoBehaviour
     [SerializeField] private SaveFile file2;
     [SerializeField] private SaveFile file3;
     private bool startGame = false;
+    private bool newFileMade = false;
     #endregion
 
     #region Mathods
@@ -32,12 +33,16 @@ public class LoadGameMenu : MonoBehaviour
         AddContentToSaveFile();
     }
 
-    private void Update() {
-    }
-
     public void StartORLoadGame(TMP_Text saveFileName)
     {
-        if (mainMenu.StartingNewGame)
+        if (startGame)
+        {
+            StartGame();
+            return;
+        }
+        
+        newFileMade = false;
+        if (mainMenu.OpeningNewFile && !newFileMade)
         {
             if (saveFileName.text != "")
             {
@@ -46,13 +51,9 @@ public class LoadGameMenu : MonoBehaviour
             else
             {
                 onScreenKeyboard.EnterFileName(saveFileName);
-                mainMenu.StartingNewGame = false;
+                newFileMade = true;
                 startGame = true;
             }
-        }
-        else if (startGame)
-        {
-            StartGame();
         }
         else
         {

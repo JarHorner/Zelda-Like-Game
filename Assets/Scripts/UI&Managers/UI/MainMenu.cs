@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject optionsButton;
     [SerializeField] private GameObject creditsButton;
     [SerializeField] private GameObject exitGameButton;
-    private bool startingNewGame;
+    private bool openingNewFile;
 
     #endregion
 
@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame(GameObject panel)
     {
         Debug.Log("NewGame");
-        startingNewGame = true;
+        openingNewFile = true;
         ActivateMenu(panel);
     }
 
@@ -78,7 +78,7 @@ public class MainMenu : MonoBehaviour
             panel.GetComponent<Animator>().SetBool("IsActive", true);
             creditsButton.SetActive(false);
             optionsButton.SetActive(false);
-            if (startingNewGame)
+            if (openingNewFile)
             {
                 newGameButton.GetComponent<Button>().enabled = false;
                 newGameButton.GetComponent<Image>().enabled = false;
@@ -124,7 +124,7 @@ public class MainMenu : MonoBehaviour
             creditsButton.SetActive(true);
             optionsButton.SetActive(true);
         
-            if (startingNewGame)
+            if (openingNewFile)
             {
                 newGameButton.GetComponent<Animator>().SetBool("Selected", false);
                 newGameButton.GetComponent<Button>().enabled = true;
@@ -136,7 +136,7 @@ public class MainMenu : MonoBehaviour
                 loadGameButton.GetComponent<Button>().enabled = true;
                 loadGameButton.GetComponent<Image>().enabled = true;
             }
-            startingNewGame = false;
+            openingNewFile = false;
         }
         title.SetActive(true);
         exitGameButton.SetActive(true);
@@ -146,10 +146,10 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(newGameButton);
     }
 
-    public bool StartingNewGame
+    public bool OpeningNewFile
     {
-        get { return startingNewGame; }
-        set { startingNewGame = value; }
+        get { return openingNewFile; }
+        set { openingNewFile = value; }
     }
 
     #endregion
