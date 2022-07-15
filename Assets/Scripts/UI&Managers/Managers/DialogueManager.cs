@@ -48,7 +48,11 @@ public class DialogueManager : MonoBehaviour
             player.currentState = PlayerState.interact;
             pauseGame.Pause(false);
             nameText.text = dialogue.name;
-            speakerImage.sprite = dialogue.sprite;
+            speakerImage.enabled = true;
+            if (dialogue.sprite == null)
+                speakerImage.enabled = false;
+            else
+                speakerImage.sprite = dialogue.sprite;
             animator.SetBool("IsOpen", true);
             
             //ensures queue is empty of past sentences, then populates queue with new sentences.

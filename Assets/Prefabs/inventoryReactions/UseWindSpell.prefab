@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1094790914323532281
+--- !u!1 &5561756070479336135
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2626536718769462745}
-  - component: {fileID: 5451558535938801814}
+  - component: {fileID: 1196597986012196371}
+  - component: {fileID: 8120534814098462360}
   m_Layer: 0
-  m_Name: UseBow
+  m_Name: UseWindSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2626536718769462745
+--- !u!4 &1196597986012196371
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094790914323532281}
+  m_GameObject: {fileID: 5561756070479336135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,17 +31,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5451558535938801814
+--- !u!114 &8120534814098462360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094790914323532281}
+  m_GameObject: {fileID: 5561756070479336135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df469a875166a9248bf1100e68c804d8, type: 3}
+  m_Script: {fileID: 11500000, guid: ed77b30a2313e544383ef2a1440edab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowInvItem: {fileID: 11400000, guid: cf71ab43d2895394ea7b58af49da388b, type: 2}
-  projectile: {fileID: 3585022105265313117, guid: b87a6bd9c31506643af9b8b477449bd8, type: 3}

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcc45b7b97d5bf4c9eacb7409c44a29, type: 3}
+  m_Name: WindSpell
+  m_EditorClassIdentifier: 
+  itemName: Wind Spell
+  itemDescription: Gather the power of the winds to travel where you need
+  itemImage: {fileID: -4919746307063835048, guid: 6327f5604eb9a1f46b8dbac24ab4c712, type: 3}
+  numberHeld: -1
+  maxNumberHeld: 0
+  usable: 1
+  unique: 1
+  playerOwns: 1
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8120534814098462360, guid: a8b736fb8b07789429bbd1e0ac716ccd, type: 3}
+        m_TargetAssemblyTypeName: WindSpell, Assembly-CSharp
+        m_MethodName: OpenFastTravelMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

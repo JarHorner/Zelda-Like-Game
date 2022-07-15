@@ -33,6 +33,7 @@ public class InventoryManager : MonoBehaviour
                 PopulateInventorySlot("SwimmingMedal");
         }
         PopulateInventorySlot("Heal");
+        PopulateInventorySlot("WindSpell");
         PopulateInventorySlot("Bow");
         PopulateInventorySlot("PowerGloves");
         PopulateInventorySlot("SwimmingMedal");

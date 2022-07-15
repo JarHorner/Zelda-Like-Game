@@ -9,24 +9,33 @@ public class DialogueTrigger : MonoBehaviour
 
     public Dialogue dialogue;
     private ContextClue contextClue;
-    [SerializeField] InputActionAsset inputMaster;
+    [SerializeField] private InputActionAsset inputMaster;
     private InputAction interact;
+    private bool containsItem = false;
+    [SerializeField] private bool oneTime;
 
     #endregion
 
     #region Methods
+
     private void Start() 
     {
         contextClue = FindObjectOfType<ContextClue>();
         var playerActionMap = inputMaster.FindActionMap("Player");
 
         interact = playerActionMap.FindAction("Interact");
+
+        containsItem = this.gameObject.GetComponent<GettingItem>() != null;
     }
 
     public void TriggerDialogue(InputAction.CallbackContext context)
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 
+        if (containsItem)
+        {
+            this.gameObject.GetComponent<GettingItem>().PickupItem();
+        }
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -48,6 +57,10 @@ public class DialogueTrigger : MonoBehaviour
             contextClue.Disappear();
             interact.performed -= TriggerDialogue;
             interact.Disable();
+            if (oneTime)
+            {
+                this.gameObject.SetActive(false);
+            }
         }
     }
 

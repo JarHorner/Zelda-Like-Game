@@ -36,7 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\DialogueManager.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\Managers\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\TrapArrow.cs" />
      <Compile Include="Assets\Scripts\Other\Resetters\ResetTimerSwitch.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\Managers\EnemyHealthManager.cs" />
@@ -48,7 +48,7 @@
      <Compile Include="Assets\Scripts\Player\ContextClue.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\SetVolume.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\PauseScreen.cs" />
-     <Compile Include="Assets\Scripts\Inventory\TestGettingItem.cs" />
+     <Compile Include="Assets\Scripts\Inventory\GettingItem.cs" />
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\ManaBar.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps\TriggerArea.cs" />
      <Compile Include="Assets\Scripts\Other\Resetters\ResetFloors.cs" />
@@ -150,6 +150,9 @@
      <Compile Include="Assets\Scripts\UI&amp;Managers\UI\FixedScrollRect.cs" />
      <Compile Include="Assets\Scripts\Objects\Blocks\ColorBlock.cs" />
      <Compile Include="Assets\Scripts\Objects\Interactables\OpenChest.cs" />
+     <Compile Include="Assets\Scripts\Inventory\Items\WindSpell.cs" />
+     <Compile Include="Assets\Scripts\UI&amp;Managers\UI\FastTravel.cs" />
+     <Compile Include="Assets\Scripts\World\FastTravelLocation.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
